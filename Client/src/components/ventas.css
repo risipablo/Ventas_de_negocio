@@ -1,0 +1,135 @@
+/* Estilos generales */
+.venta-container {
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 12px auto;
+    justify-content: space-between; 
+}
+
+
+.inputs input, select {
+    width: calc(25% - 12px); 
+    padding: 12px;
+    border: 1px solid #9a9898;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.inputs input:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Propiedades mobile */
+@media (max-width: 768px) {
+    .inputs {
+        flex-direction: column; /* Cambia a una columna en dispositivos móviles */
+    }
+
+    .inputs input, select {
+        width: 100%; 
+        margin-bottom: 10px;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+
+    .agregar, .limpiar button {
+        width: 100%;
+    }
+
+}
+
+/* Estilos para el botón agregar */
+.botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 2rem auto ;
+}
+
+.agregar, .limpiar {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* width: calc(50% - 5px); */
+}
+
+.agregar {
+    
+    background-color: #2ecc71;
+}
+
+.agregar:hover {
+    background-color: #27ae60;
+}
+
+.limpiar {
+    margin-left: 2rem;
+    background-color: #7a2ecc;
+}
+
+.limpiar:hover {
+    background-color: #5d1ebc;
+}
+
+/* Estilos para la tabla */
+.productos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+
+
+th{
+    color: #f9f9f9;
+}
+
+.productos th, .productos td {
+    text-align: center;
+    padding: 12px;
+}
+
+.productos th {
+    background-color: #1B5DC8;
+}
+
+.productos tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.productos tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+.delete{
+    text-align: center;
+    padding: 12px;
+}
+
+.delete button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete button:hover {
+    background-color: #d32f2f;
+}
