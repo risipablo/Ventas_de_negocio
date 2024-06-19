@@ -47,6 +47,9 @@
         width: 100%;
     }
 
+    .limpiar{
+        margin-left: none;
+    }
 }
 
 /* Estilos para el botón agregar */

@@ -13,7 +13,6 @@ export function Ventas() {
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
 
     // const serverFront = "http://localhost:3001";
-
     const serverFront = "https://serverventas.onrender.com/"
 
     useEffect(() => {
