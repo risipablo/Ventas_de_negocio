@@ -4,9 +4,9 @@ import "./ventas.css"
 import { Buscador } from './buscador';
 
 
-  // const serverFront = "http://localhost:3001";
+//   const serverFront = "http://localhost:3001";
     const serverFront = 'https://serverventas.onrender.com'
-    
+
 
 export function Ventas() {
     const [ventas, setVentas] = useState([]);
