@@ -1,8 +1,7 @@
-import { useState } from 'react'
+
 import { Ventas } from './components/ventas'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div>

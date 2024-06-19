@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import "./ventas.css"
 import { Buscador } from './buscador';
 
+
+  // const serverFront = "http://localhost:3001";
+    const serverFront = 'https://serverventas.onrender.com'
+    
+
 export function Ventas() {
     const [ventas, setVentas] = useState([]);
     const [ventasFiltradas, setVentasFiltradas] = useState([]);
@@ -12,8 +17,7 @@ export function Ventas() {
     const [newProduct, setProducto] = useState(""); // Ingreso de producto
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
 
-    // const serverFront = "http://localhost:3001";
-    const serverFront = 'https://serverventas.onrender.com'
+  
 
     useEffect(() => {
         axios.get(`${serverFront}/ventas`)

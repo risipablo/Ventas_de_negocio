@@ -16,13 +16,17 @@ mongoose
 
 
 // Obtener registro de ventas
-app.get('/ventas',(req,res) => {
-    VentasModel.find()
-    .then(ventas => res.json(ventas))
-    .catch(err => res.status(500).json({
-        error: err.message
-    }))
+app.get('/ventas', async (req, res) => {
+    try {
+        const ventas = await VentasModel.find();
+        res.json(ventas);
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        });
+    }
 });
+
 
 // Agregar registro de ventas
 app.post('/add-ventas', (req,res) => {
