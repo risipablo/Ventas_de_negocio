@@ -13,7 +13,7 @@ export function Ventas() {
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
 
     // const serverFront = "http://localhost:3001";
-    const serverFront = "https://serverventas.onrender.com/"
+    const serverFront = 'https://serverventas.onrender.com'
 
     useEffect(() => {
         axios.get(`${serverFront}/ventas`)
@@ -22,7 +22,7 @@ export function Ventas() {
                 setVentasFiltradas(response.data);
             })
             .catch(err => console.log(err));
-    }, []);
+    }, [serverFront]);
 
     const addVentas = () => {
         if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newTp.trim() !== "") {
