@@ -55,6 +55,9 @@ app.delete('/delete-ventas/:id' ,(req,res) => {
 })
 
 
+//Agregar gastos
+
+
 app.listen(3001, () =>{
     console.log('Servidor funcionando en 3001')
 })

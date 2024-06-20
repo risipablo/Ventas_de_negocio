@@ -2,10 +2,11 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import "./ventas.css"
 import { Buscador } from './buscador';
+import { Filtros } from './filtros';
 
 
-//   const serverFront = "http://localhost:3001";
-    const serverFront = 'https://server-ventas.onrender.com'
+  const serverFront = "http://localhost:3001";
+    // const serverFront = 'https://server-ventas.onrender.com'
 
 
 export function Ventas() {
@@ -16,6 +17,8 @@ export function Ventas() {
     const [newTp, setTp] = useState(""); // Tipo de pago 
     const [newProduct, setProducto] = useState(""); // Ingreso de producto
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
+
+    
 
   
 
@@ -80,8 +83,10 @@ export function Ventas() {
         }));
     };
 
+
     return (
         <div className="venta-container">
+            <h1>Ingresos de ventas</h1>
             <div className="inputs"> 
                 <input type="text"
                     placeholder="Ingresar dia"
@@ -125,6 +130,9 @@ export function Ventas() {
             </div>
 
             <Buscador filtrarVentas={filtrarVentas} />
+            <Filtros ventas={ventas} setVentasFiltradas={setVentasFiltradas}/>
+   
+
 
             <div className="productos">
                 <table>

@@ -1,0 +1,15 @@
+.filtros{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 2.5rem auto;
+    justify-content: space-between; 
+}
+
+.filtros select {
+    border: 2px solid #1e1e1e;
+}
+
+.filtros select:focus{
+    box-shadow: 0 4px 8px rgba(3, 3, 3, 0.2);
+}

@@ -19,5 +19,5 @@
 .buscador-input:focus {
     border-color: #ffcc00;
     outline: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 2, 0.2);
 }
