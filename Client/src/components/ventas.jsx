@@ -5,7 +5,7 @@ import { Buscador } from './buscador';
 
 
 //   const serverFront = "http://localhost:3001";
-    const serverFront = 'https://serverventas.onrender.com'
+    const serverFront = 'https://server-ventas.onrender.com'
 
 
 export function Ventas() {
