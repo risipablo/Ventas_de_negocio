@@ -5,13 +5,11 @@ const VentasModel = require('./models/Ventas');
 require("dotenv").config();
 const app = express();
 
-app.use(cors({
-    origin:'https://ventas-de-negocio.vercel.app/'
-}));
+app.use(cors());
 app.use(express.json());
 
 mongoose
-.connect(process.env.MONGODB_URI)
+.connect(process.env.MONGODB)
 .then(() => console.log("conexión exitosa con MongoDb"))
 .catch((err) => console.log("Conexión fallida: " + err))
 
