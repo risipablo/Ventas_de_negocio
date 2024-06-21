@@ -86,7 +86,7 @@ export function Filtros({ventas,setVentasFiltradas}){
                     <option value="mercado pago"> Mercado Pago </option>
                 </select>
 
-                <button onClick={ResetFilter}>Resetear </button>
+                <button className="button" onClick={ResetFilter}> <i className="fa-regular fa-circle-xmark"></i> </button>
             </div>
     )
 }
