@@ -6,8 +6,8 @@ import { Filtros } from './filtros';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-  const serverFront = "http://localhost:3001";
-    // const serverFront = 'https://server-ventas.onrender.com'
+//   const serverFront = "http://localhost:3001";
+    const serverFront = 'https://server-ventas.onrender.com'
 
 
 export function Ventas() {
