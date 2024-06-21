@@ -7,7 +7,7 @@
 
 h1{
     text-align: center;
-    margin: 2rem auto 3rem;
+    margin: 2.2rem auto 3.3rem ;
 }
 
 
@@ -60,7 +60,7 @@ h1{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin: 2rem auto ;
+    margin: 2.8rem auto ;
 }
 
 .agregar, .limpiar {

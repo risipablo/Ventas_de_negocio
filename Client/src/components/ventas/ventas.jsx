@@ -5,8 +5,8 @@ import { Buscador } from './buscador';
 import { Filtros } from './filtros';
 
 
-  const serverFront = "http://localhost:3001";
-    // const serverFront = 'https://server-ventas.onrender.com'
+//   const serverFront = "http://localhost:3001";
+    const serverFront = 'https://server-ventas.onrender.com'
 
 
 export function Ventas() {
@@ -19,9 +19,6 @@ export function Ventas() {
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
 
     
-
-  
-
     useEffect(() => {
         axios.get(`${serverFront}/ventas`)
             .then(response => {
