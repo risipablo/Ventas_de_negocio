@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const VentasModel = require('./models/Ventas');
+const GastosModel = require('./models/gastos');
 require("dotenv").config();
 const app = express();
 
@@ -47,7 +48,7 @@ app.post('/add-ventas', (req,res) => {
 })
 
 
-app.delete('/delete-ventas/:id' ,(req,res) => {
+app.delete('/delete-ventas/:id', (req,res) => {
     const {id} = req.params;
     VentasModel.findByIdAndDelete(id)
     .then(result => res.json(result))
@@ -55,8 +56,47 @@ app.delete('/delete-ventas/:id' ,(req,res) => {
 })
 
 
-//Agregar gastos
 
+//Obtener gastos
+
+app.get('/gastos', async (req, res) => {
+    try {
+        const gastos = await GastosModel.find();
+        res.json(gastos);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+
+// Agregar gastos
+
+app.post('/add-gastos', (req,res) => {
+    const { proveedor, dia , mes, factura, monto, estado } = req.body;
+    if(!proveedor || !dia || !mes || !factura || !monto || !estado){
+        return res.status(400).json({error});
+    } 
+    const newGasto = new GastosModel({proveedor, dia , mes, factura, monto, estado});
+    newGasto.save()
+    .then(result => {
+        console.log(result);
+        res.json(result)
+    })
+    .catch(err => {
+        console.err(err)
+        res.status(500).json({error: err.message})
+    })
+})
+
+//Eliminar gastos
+
+app.delete('/delete-gastos/:id', (req,res) => {
+    const {id} = req.params;
+    GastosModel.findByIdAndDelete(id)
+    .then(result => res.json(result))
+    .catch(err => res.json(500).json({error: err.message }))
+})
 
 app.listen(3001, () =>{
     console.log('Servidor funcionando en 3001')

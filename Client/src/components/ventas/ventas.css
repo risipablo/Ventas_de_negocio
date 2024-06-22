@@ -1,5 +1,6 @@
 /* Estilos generales */
-.venta-container {
+.venta-container,
+.gastos-container {
     max-width: 100%;
     padding: 20px;
     box-sizing: border-box;
@@ -12,7 +13,8 @@ h1{
 }
 
 
-.inputs {
+.inputs,
+.inputs-gastos {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -102,15 +104,17 @@ h1{
 }
 
 
+
 th{
     color: #f9f9f9;
     font-size: 1rem;
+    font-weight: 600;
     letter-spacing: 1px;
 }
 
 .productos th, .productos td {
     text-align: center;
-    padding: 12px;
+    padding: 1rem 2rem;
 }
 
 .productos th {

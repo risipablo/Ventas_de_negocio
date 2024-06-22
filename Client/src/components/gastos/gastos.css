@@ -1,0 +1,25 @@
+
+/* Inputs gastos */
+
+
+.inputs-gastos select,
+.inputs-gastos input {
+    flex: 1 1 calc(30% - 12px); 
+    padding: 12px;
+    border: 1px solid #9a9898;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .inputs-gastos select,
+    .inputs-gastos input {
+        flex: 1 1 100%; 
+    }
+}
+
+
+
+.inputs-gastos input:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

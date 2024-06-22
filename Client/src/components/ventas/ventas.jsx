@@ -27,7 +27,7 @@ export function Ventas() {
                 setVentasFiltradas(response.data);
             })
             .catch(err => console.log(err));
-    }, [serverFront]);
+    }, []);
 
 
 
@@ -50,7 +50,7 @@ export function Ventas() {
                 setProducto("");
                 setTp("");
                 toast.success(
-                    ` Se agrego ${newProduct} ${newTotal}`,
+                    ` Se agrego ${newProduct} $${newTotal}`,
                     {
                     position: "top-center",
                     autoClose: 2000,
@@ -114,18 +114,18 @@ export function Ventas() {
                     value={newMonth}
                 >
                     <option value="">Seleccionar Mes</option>
-                    <option value="enero">Enero</option>
-                    <option value="febrero">Febrero</option>
-                    <option value="marzo">Marzo</option>
-                    <option value="abril">Abril</option>
-                    <option value="mayo">Mayo</option>
-                    <option value="junio">Junio</option>
-                    <option value="julio">Julio</option>
-                    <option value="agosto">Agosto</option>
-                    <option value="septiembre">Septiembre</option>
-                    <option value="octubre">Octubre</option>
-                    <option value="noviembre">Noviembre</option>
-                    <option value="diciembre">Diciembre</option>
+                    <option value="Enero">Enero</option>
+                    <option value="Febrero">Febrero</option>
+                    <option value="Marzo">Marzo</option>
+                    <option value="Abril">Abril</option>
+                    <option value="Mayo">Mayo</option>
+                    <option value="Junio">Junio</option>
+                    <option value="Julio">Julio</option>
+                    <option value="Agosto">Agosto</option>
+                    <option value="Septiembre">Septiembre</option>
+                    <option value="Octubre">Octubre</option>
+                    <option value="Noviembre">Noviembre</option>
+                    <option value="Diciembre">Diciembre</option>
                 </select>
                 
 
@@ -134,10 +134,10 @@ export function Ventas() {
                     value={newTp}
                 >
                     <option value="">Seleccionar tipo de pago</option>
-                    <option value="debito">Débito</option>
-                    <option value="efectivo">Efectivo</option>
-                    <option value="credito">Crédito</option>
-                    <option value="mercado pago">Mercado Pago</option>
+                    <option value="Debito">Débito</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Credito">Crédito</option>
+                    <option value="Mercado Pago">Mercado Pago</option>
                 </select>
 
                 <input type="text"
