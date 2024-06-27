@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./filtros.css"
 
-export function Filtros({ventas,setVentasFiltradas,}){
+export function Filtros({ventas,setVentasFiltradas}){
 
     const [filterMonth,setFilterMonth] = useState ('')
     const [number,setNumber] = useState ('')
@@ -23,6 +23,8 @@ export function Filtros({ventas,setVentasFiltradas,}){
         if(pago.trim() !== "") {
             ventaFiltradas = ventaFiltradas.filter(venta => venta.tp.toLowerCase() === pago.toLowerCase())
         }
+
+
         
         setVentasFiltradas(ventaFiltradas)
   

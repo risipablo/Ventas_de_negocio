@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import "./ventas.css"
-import { Buscador } from './buscador';
+import { Buscador } from '../buscador';
 import { Filtros } from './filtros';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //   const serverFront = "http://localhost:3001";
@@ -16,8 +16,11 @@ export function Ventas() {
     const [newDay, setDay] = useState(""); // Ingreso de dia
     const [newMonth, setMonth] = useState(""); // Ingreso de mes
     const [newTp, setTp] = useState(""); // Tipo de pago 
+    const [boleta, setBoleta] = useState("") // numero de cupon
     const [newProduct, setProducto] = useState(""); // Ingreso de producto
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
+    
+
 
     
     useEffect(() => {
@@ -49,6 +52,7 @@ export function Ventas() {
                 setDay("");
                 setProducto("");
                 setTp("");
+                setBoleta("")
                 toast.success(
                     ` Se agrego ${newProduct} $${newTotal}`,
                     {
@@ -61,11 +65,24 @@ export function Ventas() {
         }
     };
 
-    const deleteVentas = (id) => {
+    const deleteVentas = (id, product, total) => {
         axios.delete(`${serverFront}/delete-ventas/` + id)
         .then(response => {
             setVentas(ventas.filter((venta) => venta._id !== id));
             setVentasFiltradas(ventas.filter((venta) => venta._id !== id));
+            toast.error(
+                `Se elimino ${product} $${total}`,
+                {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme: "light",
+                    transition: Bounce,
+                }
+            )
         })
         .catch(err => console.log(err));
     };
@@ -75,6 +92,7 @@ export function Ventas() {
         setMonth("");
         setProducto("");
         setTp("");
+        setBoleta("");
         setTotal("");
     };
 
@@ -84,13 +102,61 @@ export function Ventas() {
                 venta.day.toLowerCase().includes(palabra) ||
                 venta.month.toLowerCase().includes(palabra) ||
                 venta.tp.toLowerCase().includes(palabra) ||
+                venta.boleta.toLowerCase().includes(palabra) ||
                 venta.product.toLowerCase().includes(palabra) ||
                 venta.total.toString().includes(palabra)
             );
         }));
     };
 
-    
+    // Editar gastos
+    const [editId, setEditId] = useState(null);
+    const [editingId, setEditingId] = useState({
+        day: '',
+        month: '',
+        tp:'',
+        product: '',
+        total:''
+    })
+
+    const editing = (venta) => {
+        setEditId(venta._id);
+        setEditingId({
+            day:venta.day,
+            month:venta.month,
+            tp:venta.tp,
+            boleta:venta.boleta,
+            product:venta.product,
+            total:venta.total
+        })
+    }
+
+    const cancelEdit = () => {
+        setEditId(null);
+        setEditingId({
+            day: '',
+            month: '',
+            tp:'',
+            boleta:'',
+            product: '',
+            total:''
+        })
+    }
+
+    const saveEdit = (id) => {
+        axios.patch(`${serverFront}/edit-ventas/${id}`, editingId)
+        .then(response => {
+            setVentas(ventas.map(venta => venta._id === id ? response.data : venta));
+            setVentasFiltradas(ventasFiltradas.map(venta => venta._id === id ? response.data : venta));
+            cancelEdit()
+            toast.success("Venta actualizada exitosamente", {
+                position: "top-center",
+                autoClose: 2000,
+                theme: "light"
+            });
+        })
+        .catch(err => console.log(err))
+    }
 
 
     return (
@@ -160,9 +226,9 @@ export function Ventas() {
                 <button className='limpiar' onClick={resetVentas}> Limpiar </button>  
             </div>
 
-            <Buscador filtrarVentas={filtrarVentas} />
+            <Buscador placeholder="Buscar ventas" filtrarDatos={filtrarVentas} />
             <Filtros ventas={ventas} setVentasFiltradas={setVentasFiltradas}/>
-   
+
 
 
             <div className="productos">
@@ -172,6 +238,7 @@ export function Ventas() {
                             <th> Dia </th>
                             <th> Mes </th>
                             <th> Forma de Pago </th>
+                            <th> Cupon </th>
                             <th> Descripción </th>
                             <th> Importe </th>
                             <th className='delets'></th>
@@ -183,10 +250,23 @@ export function Ventas() {
                             <td>{element.day}</td>
                             <td>{element.month}</td>
                             <td>{element.tp}</td>
+                            
+                            <td>{editId === element.id ?
+                                <input value={editingId.boleta} onChange={(e) => setEditingId({...editingId, boleta : e.target.value })}/> : element.boleta}</td>
+
                             <td>{element.product}</td>
                             <td>${element.total}</td>
-                            <div className="delete">
-                                <button onClick={() => deleteVentas(element._id)}> <i className="fa-solid fa-trash"></i> </button>
+                            <div className="actions">
+                                <button className=" trash "onClick={() => deleteVentas(element._id, element.product, element.total)}> <i className="fa-solid fa-trash"></i> </button>
+                                
+                                {editId === element._id ? (
+                                <>
+                                    <button className="check" onClick={() => saveEdit(element._id)}><i className="fa-solid fa-check"></i></button>
+                                    <button className="cancel" onClick={cancelEdit}><i className="fa-solid fa-ban"></i></button>
+                                </>
+                                    ) : (
+                                        <button className="edit" onClick={() => editing(element)}><i className="fa-solid fa-gear"></i></button>
+                                    )}
                             </div>
                         </tr>
                         )}

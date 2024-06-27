@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "./buscador.css";
 
-export function Buscador({ filtrarVentas }) {
+export function Buscador({ placeholder,filtrarDatos }) {
     const [buscar, setBuscar] = useState('');
 
     const buscarChange = (event) => {
         const value = event.target.value;
-        setBuscar(value)
         const palabraClave = value.trim().toLowerCase().split(/\s+/);
-        filtrarVentas(palabraClave)
+        setBuscar(value)
+        filtrarDatos(palabraClave)
     };
 
 
@@ -17,7 +17,7 @@ export function Buscador({ filtrarVentas }) {
         <div className="buscador-container">
             <input 
                 type="text" 
-                placeholder="Buscar ventas" 
+                placeholder={placeholder}
                 value={buscar}
                 onChange={buscarChange}
                 className="buscador-input" 

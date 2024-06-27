@@ -24,7 +24,8 @@ const gastoSchema = new mongoose.Schema({
   estado: {
     type: String,
     required: true
-  }
+  },
+
 });
 
 const GastosModel = mongoose.model('Gasto', gastoSchema);

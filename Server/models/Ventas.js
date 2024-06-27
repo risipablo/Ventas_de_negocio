@@ -14,6 +14,10 @@ const ventaSchema = new mongoose.Schema({
         type:String,
         required: true
     },
+    boleta:{
+        type:String,
+        require: true
+    },
     product:{
         type:String,
         required: true

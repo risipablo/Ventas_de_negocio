@@ -23,3 +23,53 @@
 .inputs-gastos input:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.actions{
+    text-align: center;
+    padding: 12px;
+}
+
+.actions button{
+
+    margin: 0 4px;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.trash{
+    background-color: #f44336;
+    color: white;
+}
+
+.trash:hover {
+    background-color: #d32f2f;
+}
+
+
+.edit{
+    background-color: #ece9e9;
+    color: #181818;
+}
+.edit:hover{
+    background-color: #ccc8c8;
+}
+
+ .check {
+    background-color: rgb(12, 229, 12);
+    color: white;
+}
+
+.check:hover{
+    background-color: rgb(8, 186, 8);
+}
+
+.cancel {
+    background-color: rgb(227, 10, 10);
+    color: white;
+}
+
+.cancel:hover{
+    background-color: #b32525;
+}

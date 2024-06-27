@@ -1,0 +1,115 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 3fr);
+}
+
+.conteiner {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 25px 1.8rem;
+  
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 auto;
+    background: #7ba3ed;
+    height: 400px;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    padding: 22px;
+
+}
+
+ h2 {
+    margin: 30px 0px 40px;
+    font-size: 1.6rem;
+}
+
+.formulario input {
+    width: 80%;
+    font-size: 1.2rem;
+    margin: 2rem auto;
+}
+
+.formulario ::placeholder {
+    font-size: .8rem;
+    color: #212121;
+}
+
+.valores {
+    border-radius: 12px 12px;
+    border: 1px solid #212121;
+    padding: 8px 6px;
+    text-align: center;
+}
+
+
+.botoness {
+    display: flex;
+    gap: 20px;
+   
+    padding: 0px 12px;
+}
+
+
+.boton {
+    border-radius: 12px 12px;
+    padding: 3px 0px;
+    width: 30%;
+    margin: 0 auto;
+    cursor: pointer;
+    background: #7a2ecc;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    /* border: 2px solid #1a1919; */
+    transition: all 0.3s ease;
+}
+
+.boton:hover {
+    background:#6927b0;
+    ;
+}
+
+.btn2 {
+    margin: 20px;
+    padding: 12px 0px;
+}
+
+.boton2 {
+    display: block;
+    margin: 0 auto;
+    width: 12%;
+    border-radius: 12px 12px;
+    padding: 6px;
+    cursor: pointer;
+    background-color: #f5241c;
+    font-size: 1rem;
+    color: #fff;
+    
+    transition: all 0.3s ease;
+}
+
+.boton2:hover {
+    box-shadow: 0 6px 12px  #de150e;;
+}
+
+
+
+@media only screen and (max-width: 750px) {
+    .grid {
+        display: block;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .formulario {
+        width: 100%;
+    }
+}

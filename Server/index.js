@@ -6,8 +6,15 @@ const GastosModel = require('./models/gastos');
 require("dotenv").config();
 const app = express();
 
-app.use(cors());
+
 app.use(express.json());
+
+const corsOptions ={
+    origin:'https://ventas-de-negocio.vercel.app',
+    optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions));
 
 mongoose
 .connect(process.env.MONGODB)
@@ -47,12 +54,23 @@ app.post('/add-ventas', (req,res) => {
     })
 })
 
+// Eliminar ventas
 
 app.delete('/delete-ventas/:id', (req,res) => {
     const {id} = req.params;
     VentasModel.findByIdAndDelete(id)
     .then(result => res.json(result))
     .catch(err => res.status(500).json({error:err.message}))
+})
+
+// Editar Ventas
+
+app.patch('/edit-ventas/:id', (req,res) => {
+    const { id } = req.params;
+    const { total, product , tp , boleta  } = req.body;
+    VentasModel.findByIdAndUpdate(id,{total, product , tp , boleta },{new:true})
+    .then(result => res.json(result))
+    .catch(err => res.status(500).json({error: err.message}))
 })
 
 
@@ -97,6 +115,17 @@ app.delete('/delete-gastos/:id', (req,res) => {
     .then(result => res.json(result))
     .catch(err => res.json(500).json({error: err.message }))
 })
+
+
+// Editar gastos
+app.patch('/edit-gastos/:id', (req,res) => {
+    const { id } = req.params;
+    const { estado, proveedor, monto, factura } = req.body;
+    GastosModel.findByIdAndUpdate(id,{estado , proveedor, monto, factura},{new:true})
+    .then(result => res.json(result))
+    .catch(err => res.status(500).json({error: err.message}))
+})
+
 
 app.listen(3001, () =>{
     console.log('Servidor funcionando en 3001')

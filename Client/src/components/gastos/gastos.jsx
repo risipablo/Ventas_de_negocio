@@ -4,6 +4,7 @@ import "./gastos.css"
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import { FiltrosGastos } from "./filtrosGastos";
+import { Buscador } from "../buscador";
 
 
 
@@ -22,6 +23,7 @@ export function Gastos(){
     const[monto,setMonto] = useState('')
     const[estado,setEstado] = useState('')
 
+
     useEffect(() => {
         axios.get(`${serverFront}/gastos`)
           .then(response => 
@@ -31,6 +33,7 @@ export function Gastos(){
             })
           .catch(err => console.log(err));
       }, []);
+
 
 
     const addGastos = () => {
@@ -82,18 +85,71 @@ export function Gastos(){
         .catch( err => console.log(err));
     }
 
-    // const filtrarGastos = (palabrasClave) => {
-    //     setGastosFiltrados(gastos.filter(gasto => {
-    //         return palabrasClave.every(palabra => 
-    //             gasto.proveedor.toLowerCase().includes(palabra) ||
-    //             gasto.dia.toLowerCase().includes(palabra) ||
-    //             gasto.mes.toLowerCase().includes(palabra) ||
-    //             gasto.factura.toLowerCase().includes(palabra) ||
-    //             gasto.estado.toLowerCase().includes(palabra) || 
-    //             gasto.total.toString().includes(palabra)
-    //         );
-    //     }));
-    // };
+    const filtrarGastos = (palabrasClave) => {
+        setGastosFiltrados(gastos.filter(gasto => {
+            return palabrasClave.every(palabra => 
+                gasto.proveedor.toLowerCase().includes(palabra) ||
+                gasto.dia.toLowerCase().includes(palabra) ||
+                gasto.mes.toLowerCase().includes(palabra) ||
+                gasto.factura.toLowerCase().includes(palabra) ||
+                gasto.estado.toLowerCase().includes(palabra) || 
+                gasto.monto.toString().includes(palabra)
+            );
+        }));
+    };
+
+    const condicionEstado = (estado) => {
+        return estado.toLowerCase() === 'pagado' ? '#26D429' : '#D41806';
+    }
+
+
+    // Estados para edicion
+    const [editingId, setEditingId] = useState(null); 
+    const [editingData, setEditingData] = useState({
+        proveedor: '',
+        dia: '',
+        mes: '',
+        factura: '',
+        monto: '',
+        estado: ''
+    });
+
+    // Edicion de datos
+    const startEditing = (gasto) => {
+        setEditingId(gasto._id);
+        setEditingData({
+            proveedor: gasto.proveedor,
+            dia: gasto.dia,
+            mes: gasto.mes,
+            factura: gasto.factura,
+            monto: gasto.monto,
+            estado: gasto.estado
+        });
+    };
+    
+    // Cancelar cambios
+    const cancelEditing = () => {
+        setEditingId(null);
+        setEditingData({
+            proveedor: '',
+            dia: '',
+            mes: '',
+            factura: '',
+            monto: '',
+            estado: ''
+        });
+    };
+
+    // Guardar cambios
+    const saveChanges = (id) => {
+        axios.patch(`${serverFront}/edit-gastos/${id}`, editingData)
+            .then(response => {
+                setGastos(gastos.map(gasto => gasto._id === id ? response.data : gasto));
+                setGastosFiltrados(gastosFiltrados.map(gasto => gasto._id === id ? response.data : gasto));
+                cancelEditing();
+            })
+            .catch(err => console.log(err));
+    };
 
 
 
@@ -181,7 +237,11 @@ export function Gastos(){
                     <button className='limpiar' onClick={resertGastos}> Limpiar </button>  
             </div>
 
-            <FiltrosGastos gastos={gastos} setGastosFiltrados={setGastosFiltrados}/>
+
+
+            <Buscador placeholder="Buscar gastos" filtrarDatos={filtrarGastos} />
+            <FiltrosGastos gastos={gastos} setGastosFiltrados={setGastosFiltrados} />
+
 
             <div className="productos">
                 <table>
@@ -199,15 +259,35 @@ export function Gastos(){
                     <tbody>
                         {gastosFiltrados.map((element,index) =>
                         <tr key={index}>
-                            <td>{element.proveedor}</td> 
+                            <td>{editingId === element._id ?
+                                <input value={editingData.proveedor} onChange={(e) => setEditingData({ ...editingData, proveedor: e.target.value })} /> : element.proveedor}</td> 
+                            
                             <td>{element.dia}</td> 
                             <td>{element.mes}</td> 
-                            <td>{element.factura}</td> 
-                            <td>${element.monto}</td>
-                            <td>{element.estado}</td> 
-                            <div className="delete"> 
-                                <button onClick={() => deleteGastos(element._id)}><i className="fa-solid fa-trash"></i></button>
+                            
+                            <td> {editingId === element.id ? 
+                                <input value={editingData.factura} onChange={(e) => setEditingData({ ...editingData, factura: e.target.value })} /> : element.factura}</td> 
+                            
+                            <td> ${editingId === element.id ? 
+                                <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto}</td>
+                            
+                            <td style={{ background: condicionEstado(element.estado) }}>{editingId === element._id ?
+                            <input value={editingData.estado} onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })} /> : element.estado}</td>
+                            
+                            <div className="actions"> 
+                                <button className="trash" onClick={() => deleteGastos(element._id)}><i className="fa-solid fa-trash"></i></button>
+
+                                            {editingId === element._id ? (
+                                <>
+                                    <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
+                                    <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
+                                </>
+                                    ) : (
+                                        <button className="edit" onClick={() => startEditing(element)}><i className="fa-solid fa-gear"></i></button>
+                                    )}
+                                
                             </div>
+
                         </tr>
                         )}
                     </tbody>

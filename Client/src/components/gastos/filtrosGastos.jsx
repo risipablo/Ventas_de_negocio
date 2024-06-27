@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
 
-export function FiltrosGastos({gastos,setGastosFiltrados,}){
+export function FiltrosGastos({gastos,setGastosFiltrados}){
 
     const [mes,setMes] = useState ('')
     const [proveedor,setProveedor] = useState ('')
     const [estado,setEstado] = useState ('')
-    const[dia,setDia] = useState ('')
+    const [dia,setDia] = useState ('')
+  
 
 
     // Cear una funcion general
@@ -29,7 +30,10 @@ export function FiltrosGastos({gastos,setGastosFiltrados,}){
             gastosFiltrados = gastosFiltrados.filter(venta => venta.estado.toLowerCase() === estado.toLowerCase())
         }
 
+
         setGastosFiltrados(gastosFiltrados)
+
+
     }
 
 
@@ -38,10 +42,11 @@ export function FiltrosGastos({gastos,setGastosFiltrados,}){
         setMes("")
         setProveedor("")
         setDia("")
+        setFilterMes("")
     }
 
 
-    // Con el useEffect los filtros automáticamente cada vez que los valores de filterMonth o number cambian 
+    // Con el useEffect los filtros automáticamente cada vez que los valores cambian 
     useEffect(() => {
         filtros();
     },[mes,estado,proveedor,dia])
@@ -108,6 +113,8 @@ export function FiltrosGastos({gastos,setGastosFiltrados,}){
                     <option value="Pagado">Pagado</option>
                     <option value="Impago">Impago</option>
                 </select>
+
+
 
                 <button className="button" onClick={ResetFilter}> <i className="fa-regular fa-circle-xmark"></i> </button>
             </div>

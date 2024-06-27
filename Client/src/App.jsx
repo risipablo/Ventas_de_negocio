@@ -1,3 +1,4 @@
+import { Conversion } from "./components/conversion/conversion"
 import { Gastos } from "./components/gastos/gastos"
 import { Navbar } from "./components/navbar"
 import { Ventas } from "./components/ventas/ventas"
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={ <Ventas/>}/>
           <Route path="/gastos" element={ <Gastos/>}/>
+          <Route path="/conversion" element={<Conversion/>}/>
         </Routes>
       </BrowserRouter>
       
