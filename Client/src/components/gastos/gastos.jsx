@@ -2,14 +2,14 @@
 import { useEffect, useState } from "react"
 import "./gastos.css"
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast,Bounce } from 'react-toastify';
 import { FiltrosGastos } from "./filtrosGastos";
 import { Buscador } from "../buscador";
 
 
 
-// const serverFront = "http://localhost:3001";
-const serverFront = 'https://server-ventas.onrender.com'
+const serverFront = "http://localhost:3001";
+// const serverFront = 'https://server-ventas.onrender.com'
 
 
 
@@ -77,10 +77,23 @@ export function Gastos(){
         setProveedor('')
     }
 
-    const deleteGastos = (id) => {
+    const deleteGastos = (id,monto, proveedor) => {
         axios.delete(`${serverFront}/delete-gastos/` + id)
         .then(response => {
             setGastos(gastos.filter((gasto) => gasto._id !== id))
+            toast.error(
+                `Se elimino ${monto} $${proveedor}`,
+                {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme: "light",
+                    transition: Bounce,
+                }
+            )
         })
         .catch( err => console.log(err));
     }
@@ -147,6 +160,12 @@ export function Gastos(){
                 setGastos(gastos.map(gasto => gasto._id === id ? response.data : gasto));
                 setGastosFiltrados(gastosFiltrados.map(gasto => gasto._id === id ? response.data : gasto));
                 cancelEditing();
+                toast.success("Gasto actualizado ", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    theme: "light",
+                    transition: Bounce,
+                });
             })
             .catch(err => console.log(err));
     };
@@ -265,23 +284,23 @@ export function Gastos(){
                             <td>{element.dia}</td> 
                             <td>{element.mes}</td> 
                             
-                            <td> {editingId === element.id ? 
+                            <td> {editingId === element._id ? 
                                 <input value={editingData.factura} onChange={(e) => setEditingData({ ...editingData, factura: e.target.value })} /> : element.factura}</td> 
                             
-                            <td> ${editingId === element.id ? 
+                            <td> ${editingId === element._id ? 
                                 <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto}</td>
                             
                             <td style={{ background: condicionEstado(element.estado) }}>{editingId === element._id ?
                             <input value={editingData.estado} onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })} /> : element.estado}</td>
                             
                             <div className="actions"> 
-                                <button className="trash" onClick={() => deleteGastos(element._id)}><i className="fa-solid fa-trash"></i></button>
+                                <button className="trash" onClick={() => deleteGastos(element._id, element.proveedor, element.monto)}><i className="fa-solid fa-trash"></i></button>
 
                                             {editingId === element._id ? (
-                                <>
+                                <div  className='btn-edit'>
                                     <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
                                     <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
-                                </>
+                                </div>
                                     ) : (
                                         <button className="edit" onClick={() => startEditing(element)}><i className="fa-solid fa-gear"></i></button>
                                     )}

@@ -13,7 +13,7 @@ h1{
 }
 
 
-.inputs,
+.inputs-ventas,
 .inputs-gastos {
     display: flex;
     flex-wrap: wrap;
@@ -23,28 +23,30 @@ h1{
 }
 
 
-.inputs input, select {
-    width: calc(20% - 12px); 
+.inputs-ventas input,
+.inputs-ventas select {
+    flex: 1 1 calc(30% - 12px); 
     padding: 12px;
     border: 1px solid #9a9898;
     border-radius: 8px;
     transition: border-color 0.3s ease;
 }
 
-.inputs input:focus {
+
+.inputs-ventas input:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
 /* Propiedades mobile */
 @media (max-width: 768px) {
-    .inputs {
+    .inputs-ventas {
         flex-direction: column; /* Cambia a una columna en dispositivos móviles */
     }
 
-    .inputs input, select {
-        width: 100%; 
-        margin-bottom: 10px;
+    .inputs-ventas input, 
+    .inputs-ventas select {
+        flex: 1 1 100%;
     }
 
     .botones {

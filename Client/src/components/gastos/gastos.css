@@ -24,13 +24,15 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Botones de edicion */
+
 .actions{
     text-align: center;
     padding: 12px;
 }
 
-.actions button{
 
+.actions button{
     margin: 0 4px;
     border: none;
     padding: 6px 12px;
@@ -56,7 +58,13 @@
     background-color: #ccc8c8;
 }
 
- .check {
+
+
+btn-edit{
+    margin: 2px 8px;
+}
+
+.check {
     background-color: rgb(12, 229, 12);
     color: white;
 }

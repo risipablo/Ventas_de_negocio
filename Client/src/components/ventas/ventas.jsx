@@ -6,8 +6,8 @@ import { Filtros } from './filtros';
 import { ToastContainer, toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-//   const serverFront = "http://localhost:3001";
-    const serverFront = 'https://server-ventas.onrender.com'
+  const serverFront = "http://localhost:3001";
+    // const serverFront = 'https://server-ventas.onrender.com'
 
 
 export function Ventas() {
@@ -16,7 +16,7 @@ export function Ventas() {
     const [newDay, setDay] = useState(""); // Ingreso de dia
     const [newMonth, setMonth] = useState(""); // Ingreso de mes
     const [newTp, setTp] = useState(""); // Tipo de pago 
-    const [boleta, setBoleta] = useState("") // numero de cupon
+    const [newboleta, setBoleta] = useState("") // numero de cupon
     const [newProduct, setProducto] = useState(""); // Ingreso de producto
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
     
@@ -35,11 +35,12 @@ export function Ventas() {
 
 
     const addVentas = () => {
-        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newTp.trim() !== "") {
+        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newTp.trim() && newboleta.trim() !== ""  ) {
             axios.post(`${serverFront}/add-ventas`, {
                 day: newDay,
                 month: newMonth,
                 tp: newTp,
+                boleta:newboleta,
                 product: newProduct,
                 total: newTotal
             })
@@ -149,10 +150,11 @@ export function Ventas() {
             setVentas(ventas.map(venta => venta._id === id ? response.data : venta));
             setVentasFiltradas(ventasFiltradas.map(venta => venta._id === id ? response.data : venta));
             cancelEdit()
-            toast.success("Venta actualizada exitosamente", {
+            toast.success("Venta actualizada ", {
                 position: "top-center",
                 autoClose: 2000,
-                theme: "light"
+                theme: "light",
+                transition: Bounce,
             });
         })
         .catch(err => console.log(err))
@@ -163,7 +165,7 @@ export function Ventas() {
         <div className="venta-container">
             <h1>Ingresos de ventas</h1>
 
-            <div className="inputs"> 
+            <div className="inputs-ventas"> 
 
                 <select type="text"
                     onChange={(event => setDay(event.target.value))}
@@ -205,6 +207,13 @@ export function Ventas() {
                     <option value="Credito">Crédito</option>
                     <option value="Mercado Pago">Mercado Pago</option>
                 </select>
+
+                <input 
+                    type="text"
+                    placeholder='Ingresar número de cupo'
+                    onChange={(event => setBoleta(event.target.value))}
+                    value={newboleta}
+                />
 
                 <input type="text"
                     placeholder="Ingresar producto" 
@@ -249,21 +258,26 @@ export function Ventas() {
                         <tr key={index}>
                             <td>{element.day}</td>
                             <td>{element.month}</td>
-                            <td>{element.tp}</td>
+                            <td>{editId === element._id ?
+                                <input value ={editingId.tp} onChange={(e) => setEditingId({...editingId, tp : e.target.value})}/>  :element.tp}</td>
                             
-                            <td>{editId === element.id ?
+                            <td>{editId === element._id ?
                                 <input value={editingId.boleta} onChange={(e) => setEditingId({...editingId, boleta : e.target.value })}/> : element.boleta}</td>
 
-                            <td>{element.product}</td>
-                            <td>${element.total}</td>
+                            <td>{editId === element._id ?
+                                <input value={editingId.product} onChange={(e) => setEditingId({...editId, product : e.target.value })}/> : element.product}</td
+                                >
+                            <td>${ editId === element._id ?
+                                <input value={editingId.total} onChange={(e) => setEditingId({...editingId, total : e.target.value})}/> : element.total}</td>
+
                             <div className="actions">
                                 <button className=" trash "onClick={() => deleteVentas(element._id, element.product, element.total)}> <i className="fa-solid fa-trash"></i> </button>
                                 
                                 {editId === element._id ? (
-                                <>
+                                <div className='btn-edit'>
                                     <button className="check" onClick={() => saveEdit(element._id)}><i className="fa-solid fa-check"></i></button>
                                     <button className="cancel" onClick={cancelEdit}><i className="fa-solid fa-ban"></i></button>
-                                </>
+                                </div>
                                     ) : (
                                         <button className="edit" onClick={() => editing(element)}><i className="fa-solid fa-gear"></i></button>
                                     )}

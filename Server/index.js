@@ -10,11 +10,13 @@ const app = express();
 app.use(express.json());
 
 const corsOptions ={
-    origin:'https://ventas-de-negocio.vercel.app',
+    origin: ['http://localhost:5173', 'https://ventas-de-negocio.vercel.app'],
     optionsSuccessStatus: 200
 }
 
 app.use(cors(corsOptions));
+
+
 
 mongoose
 .connect(process.env.MONGODB)
