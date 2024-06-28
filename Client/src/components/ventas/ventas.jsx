@@ -1,14 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import "./ventas.css"
-import { Buscador } from '../buscador';
+import { Buscador } from '../buscador/buscador';
 import { Filtros } from './filtros';
-import { ToastContainer, toast,Bounce } from 'react-toastify';
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-  const serverFront = "http://localhost:3001";
-    // const serverFront = 'https://server-ventas.onrender.com'
-
+// const serverFront = "http://localhost:3001";
+const serverFront = 'https://server-ventas.onrender.com'
 
 export function Ventas() {
     const [ventas, setVentas] = useState([]);
@@ -16,13 +15,10 @@ export function Ventas() {
     const [newDay, setDay] = useState(""); // Ingreso de dia
     const [newMonth, setMonth] = useState(""); // Ingreso de mes
     const [newTp, setTp] = useState(""); // Tipo de pago 
-    const [newboleta, setBoleta] = useState("") // numero de cupon
     const [newProduct, setProducto] = useState(""); // Ingreso de producto
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
-    
+    const [newBoleta, setBoleta] = useState(""); // Ingreso de boleta (no obligatorio)
 
-
-    
     useEffect(() => {
         axios.get(`${serverFront}/ventas`)
             .then(response => {
@@ -32,17 +28,15 @@ export function Ventas() {
             .catch(err => console.log(err));
     }, []);
 
-
-
     const addVentas = () => {
-        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newTp.trim() && newboleta.trim() !== ""  ) {
+        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newTp.trim() !== "") {
             axios.post(`${serverFront}/add-ventas`, {
                 day: newDay,
                 month: newMonth,
                 tp: newTp,
-                boleta:newboleta,
                 product: newProduct,
-                total: newTotal
+                total: newTotal,
+                boleta: newBoleta // Añadir boleta a la solicitud
             })
             .then(response => {
                 const nuevaVenta = response.data;
@@ -53,9 +47,9 @@ export function Ventas() {
                 setDay("");
                 setProducto("");
                 setTp("");
-                setBoleta("")
+                setBoleta(""); // Resetear el campo boleta
                 toast.success(
-                    ` Se agrego ${newProduct} $${newTotal}`,
+                    ` Se agregó ${newProduct} $${newTotal}`,
                     {
                     position: "top-center",
                     autoClose: 2000,
@@ -72,7 +66,7 @@ export function Ventas() {
             setVentas(ventas.filter((venta) => venta._id !== id));
             setVentasFiltradas(ventas.filter((venta) => venta._id !== id));
             toast.error(
-                `Se elimino ${product} $${total}`,
+                `Se eliminó ${product} $${total}`,
                 {
                     position: "top-center",
                     autoClose: 1000,
@@ -93,8 +87,8 @@ export function Ventas() {
         setMonth("");
         setProducto("");
         setTp("");
-        setBoleta("");
         setTotal("");
+        setBoleta(""); // Resetear el campo boleta
     };
 
     const filtrarVentas = (palabrasClave) => {
@@ -103,7 +97,6 @@ export function Ventas() {
                 venta.day.toLowerCase().includes(palabra) ||
                 venta.month.toLowerCase().includes(palabra) ||
                 venta.tp.toLowerCase().includes(palabra) ||
-                venta.boleta.toLowerCase().includes(palabra) ||
                 venta.product.toLowerCase().includes(palabra) ||
                 venta.total.toString().includes(palabra)
             );
@@ -117,8 +110,9 @@ export function Ventas() {
         month: '',
         tp:'',
         product: '',
-        total:''
-    })
+        total:'',
+        boleta: ''
+    });
 
     const editing = (venta) => {
         setEditId(venta._id);
@@ -126,10 +120,10 @@ export function Ventas() {
             day:venta.day,
             month:venta.month,
             tp:venta.tp,
-            boleta:venta.boleta,
             product:venta.product,
-            total:venta.total
-        })
+            total:venta.total,
+            boleta:venta.boleta
+        });
     }
 
     const cancelEdit = () => {
@@ -138,10 +132,10 @@ export function Ventas() {
             day: '',
             month: '',
             tp:'',
-            boleta:'',
             product: '',
-            total:''
-        })
+            total:'',
+            boleta: ''
+        });
     }
 
     const saveEdit = (id) => {
@@ -149,17 +143,10 @@ export function Ventas() {
         .then(response => {
             setVentas(ventas.map(venta => venta._id === id ? response.data : venta));
             setVentasFiltradas(ventasFiltradas.map(venta => venta._id === id ? response.data : venta));
-            cancelEdit()
-            toast.success("Venta actualizada ", {
-                position: "top-center",
-                autoClose: 2000,
-                theme: "light",
-                transition: Bounce,
-            });
+            cancelEdit();
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
     }
-
 
     return (
         <div className="venta-container">
@@ -171,7 +158,7 @@ export function Ventas() {
                     onChange={(event => setDay(event.target.value))}
                     value={newDay}
                 >
-                    <option value=""> Selecionar Dia</option>
+                    <option value=""> Seleccionar Día</option>
                     {[...Array(31)].map((_,index) => (
                         <option key={index + 1} value={index + 1}> {index + 1} </option>
                     ))}
@@ -212,8 +199,9 @@ export function Ventas() {
                     type="text"
                     placeholder='Ingresar número de cupo'
                     onChange={(event => setBoleta(event.target.value))}
-                    value={newboleta}
+                    value={newBoleta}
                 />
+                   
 
                 <input type="text"
                     placeholder="Ingresar producto" 
@@ -221,13 +209,12 @@ export function Ventas() {
                     value={newProduct}
                 />
 
-
                 <input type="number" 
                     placeholder="Ingresar importe"             
                     onChange={(event => setTotal(event.target.value))}
                     value={newTotal}
                 />
-                    
+ 
             </div>
 
             <div className='botones'>
@@ -238,56 +225,55 @@ export function Ventas() {
             <Buscador placeholder="Buscar ventas" filtrarDatos={filtrarVentas} />
             <Filtros ventas={ventas} setVentasFiltradas={setVentasFiltradas}/>
 
-
-
             <div className="productos">
-                <table>
-                    <thead>
-                        <tr>
-                            <th> Dia </th>
-                            <th> Mes </th>
-                            <th> Forma de Pago </th>
-                            <th> Cupon </th>
-                            <th> Descripción </th>
-                            <th> Importe </th>
-                            <th className='delets'></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {ventasFiltradas.map((element, index) => 
-                        <tr key={index}>
-                            <td>{element.day}</td>
-                            <td>{element.month}</td>
-                            <td>{editId === element._id ?
-                                <input value ={editingId.tp} onChange={(e) => setEditingId({...editingId, tp : e.target.value})}/>  :element.tp}</td>
-                            
-                            <td>{editId === element._id ?
-                                <input value={editingId.boleta} onChange={(e) => setEditingId({...editingId, boleta : e.target.value })}/> : element.boleta}</td>
-
-                            <td>{editId === element._id ?
-                                <input value={editingId.product} onChange={(e) => setEditingId({...editId, product : e.target.value })}/> : element.product}</td
-                                >
-                            <td>${ editId === element._id ?
-                                <input value={editingId.total} onChange={(e) => setEditingId({...editingId, total : e.target.value})}/> : element.total}</td>
-
-                            <div className="actions">
-                                <button className=" trash "onClick={() => deleteVentas(element._id, element.product, element.total)}> <i className="fa-solid fa-trash"></i> </button>
+                <div className='table-responsive'>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> Día </th>
+                                <th> Mes </th>
+                                <th> Forma de Pago </th>
+                                <th> Número de Cupo </th>
+                                <th> Descripción </th>
+                                <th> Importe </th>
+                                <th ></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {ventasFiltradas.map((element, index) => 
+                            <tr key={index}>
+                                <td>{element.day}</td>
+                                <td>{element.month}</td>
+                                <td>{editId === element._id ?
+                                    <input value={editingId.tp} onChange={(e) => setEditingId({...editingId, tp: e.target.value})}/>  : element.tp}</td>
                                 
-                                {editId === element._id ? (
-                                <div className='btn-edit'>
-                                    <button className="check" onClick={() => saveEdit(element._id)}><i className="fa-solid fa-check"></i></button>
-                                    <button className="cancel" onClick={cancelEdit}><i className="fa-solid fa-ban"></i></button>
+                                <td>{editId === element._id ?
+                                    <input value={editingId.boleta} onChange={(e) => setEditingId({...editingId, boleta: e.target.value })}/> : element.boleta}</td>
+
+                                <td>{editId === element._id ?
+                                    <input value={editingId.product} onChange={(e) => setEditingId({...editingId, product: e.target.value })}/> : element.product}</td>
+
+                                <td>${editId === element._id ?
+                                    <input value={editingId.total} onChange={(e) => setEditingId({...editingId, total: e.target.value})}/> : element.total}</td>
+
+                                <div className="actions">
+                                    <button className="trash" onClick={() => deleteVentas(element._id, element.product, element.total)}> <i className="fa-solid fa-trash"></i> </button>
+                                    
+                                    {editId === element._id ? (
+                                    <div className='btn-edit'>
+                                        <button className="check" onClick={() => saveEdit(element._id)}><i className="fa-solid fa-check"></i></button>
+                                        <button className="cancel" onClick={cancelEdit}><i className="fa-solid fa-ban"></i></button>
+                                    </div>
+                                        ) : (
+                                            <button className="edit" onClick={() => editing(element)}><i className="fa-solid fa-gear"></i></button>
+                                        )}
                                 </div>
-                                    ) : (
-                                        <button className="edit" onClick={() => editing(element)}><i className="fa-solid fa-gear"></i></button>
-                                    )}
-                            </div>
-                        </tr>
-                        )}
-                    </tbody>
-                </table>
-                <ToastContainer
-                    />
+                            </tr>
+                            )}
+                        </tbody>
+                    </table>
+                    <ToastContainer/>
+                </div>
             </div>
         </div>
     );

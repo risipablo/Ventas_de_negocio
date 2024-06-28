@@ -4,12 +4,12 @@ import "./gastos.css"
 import axios from "axios";
 import { ToastContainer, toast,Bounce } from 'react-toastify';
 import { FiltrosGastos } from "./filtrosGastos";
-import { Buscador } from "../buscador";
+import { Buscador } from "../buscador/buscador";
 
 
 
-const serverFront = "http://localhost:3001";
-// const serverFront = 'https://server-ventas.onrender.com'
+// const serverFront = "http://localhost:3001";
+const serverFront = 'https://server-ventas.onrender.com'
 
 
 
@@ -263,54 +263,56 @@ export function Gastos(){
 
 
             <div className="productos">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Proveedor</th>
-                            <th>Dia</th>
-                            <th>Mes</th>
-                            <th>Factura</th>
-                            <th>Monto</th>
-                            <th>Estado</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {gastosFiltrados.map((element,index) =>
-                        <tr key={index}>
-                            <td>{editingId === element._id ?
-                                <input value={editingData.proveedor} onChange={(e) => setEditingData({ ...editingData, proveedor: e.target.value })} /> : element.proveedor}</td> 
-                            
-                            <td>{element.dia}</td> 
-                            <td>{element.mes}</td> 
-                            
-                            <td> {editingId === element._id ? 
-                                <input value={editingData.factura} onChange={(e) => setEditingData({ ...editingData, factura: e.target.value })} /> : element.factura}</td> 
-                            
-                            <td> ${editingId === element._id ? 
-                                <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto}</td>
-                            
-                            <td style={{ background: condicionEstado(element.estado) }}>{editingId === element._id ?
-                            <input value={editingData.estado} onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })} /> : element.estado}</td>
-                            
-                            <div className="actions"> 
-                                <button className="trash" onClick={() => deleteGastos(element._id, element.proveedor, element.monto)}><i className="fa-solid fa-trash"></i></button>
-
-                                            {editingId === element._id ? (
-                                <div  className='btn-edit'>
-                                    <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
-                                    <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
-                                </div>
-                                    ) : (
-                                        <button className="edit" onClick={() => startEditing(element)}><i className="fa-solid fa-gear"></i></button>
-                                    )}
+                <div className='table-responsive'>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Proveedor</th>
+                                <th>Dia</th>
+                                <th>Mes</th>
+                                <th>Factura</th>
+                                <th>Monto</th>
+                                <th>Estado</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {gastosFiltrados.map((element,index) =>
+                            <tr key={index}>
+                                <td>{editingId === element._id ?
+                                    <input value={editingData.proveedor} onChange={(e) => setEditingData({ ...editingData, proveedor: e.target.value })} /> : element.proveedor}</td> 
                                 
-                            </div>
+                                <td>{element.dia}</td> 
+                                <td>{element.mes}</td> 
+                                
+                                <td> {editingId === element._id ? 
+                                    <input value={editingData.factura} onChange={(e) => setEditingData({ ...editingData, factura: e.target.value })} /> : element.factura}</td> 
+                                
+                                <td> ${editingId === element._id ? 
+                                    <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto}</td>
+                                
+                                <td style={{ background: condicionEstado(element.estado) }}>{editingId === element._id ?
+                                <input value={editingData.estado} onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })} /> : element.estado}</td>
+                                
+                                <div className="actions"> 
+                                    <button className="trash" onClick={() => deleteGastos(element._id, element.proveedor, element.monto)}><i className="fa-solid fa-trash"></i></button>
 
-                        </tr>
-                        )}
-                    </tbody>
-                </table>
+                                                {editingId === element._id ? (
+                                    <div  className='btn-edit'>
+                                        <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
+                                        <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
+                                    </div>
+                                        ) : (
+                                            <button className="edit" onClick={() => startEditing(element)}><i className="fa-solid fa-gear"></i></button>
+                                        )}
+                                    
+                                </div>
+
+                            </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
                 <ToastContainer/>
             </div>
 

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const VentasModel = require('./models/Ventas');
 const GastosModel = require('./models/gastos');
+const ProductoModel = require('./models/Productos')
 require("dotenv").config();
 const app = express();
 
@@ -40,11 +41,11 @@ app.get('/ventas', async (req, res) => {
 
 // Agregar registro de ventas
 app.post('/add-ventas', (req,res) => {
-    const { day, month, total, tp, product } = req.body;
-    if(!day || !month || !tp || !product || !total) {
+    const { day, month, total, tp, product, boleta} = req.body;
+    if(!day || !month || !tp || !product || !total || !boleta) {
         return res.status(400).json({error});
     }
-    const newVenta = new VentasModel({ day, month, total, tp, product });
+    const newVenta = new VentasModel({ day, month, total, tp, product, boleta });
     newVenta.save()
     .then(result =>{
         console.log(result);
@@ -128,6 +129,36 @@ app.patch('/edit-gastos/:id', (req,res) => {
     .catch(err => res.status(500).json({error: err.message}))
 })
 
+
+// Obtener datos de productos
+app.get('/productos', async (req,res) => {
+    try{
+        const productos = await ProductoModel.find();
+        res.json(productos)
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+})
+
+// Agregar productos 
+app.post('/add-productos', (req,res) => {
+    const {marca,mascota,edad,kilo,precio,categoria} = req.body;
+    if(!marca || !mascota || !edad || !kilo || !precio || !categoria) {
+        return res.status(400).json({error});
+    }
+    const newProducto = new ProductoModel({marca,mascota,edad,kilo,precio,categoria})
+    newProducto.save()
+    .then(result => {
+        console.log(result)
+        res.json(result)
+    })
+    .catch(err => {
+        console.err(err)
+        res.status(500).json({error: err.message})
+    })
+})
 
 app.listen(3001, () =>{
     console.log('Servidor funcionando en 3001')

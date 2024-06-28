@@ -1,5 +1,6 @@
 /* Estilos generales */
 .venta-container,
+.productos-container,
 .gastos-container {
     max-width: 100%;
     padding: 20px;
@@ -7,9 +8,10 @@
 }
 
 h1{
+
     text-align: center;
     margin: 2.2rem auto 3.3rem ;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 
@@ -98,6 +100,12 @@ h1{
 }
 
 /* Estilos para la tabla */
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
 .productos table {
     width: 100%;
     border-collapse: collapse;
@@ -116,7 +124,7 @@ th{
 
 .productos th, .productos td {
     text-align: center;
-    padding: 1rem 2rem;
+    padding: 1.2rem 1.8rem;
 }
 
 .productos th {
@@ -149,4 +157,8 @@ th{
 .delete button:hover {
     background-color: #d32f2f;
 }
+
+
+
+
 
