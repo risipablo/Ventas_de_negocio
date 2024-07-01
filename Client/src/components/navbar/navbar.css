@@ -8,7 +8,6 @@
 
 .navbar {
     display: flex;
-    text-align: center;
     padding: 12px;
     justify-content: space-between;
     transition: .3s ease-in-out;
@@ -68,6 +67,10 @@ body.open .overlay {
 
 .menu a:hover {
     color: #ffcc00;
+}
+
+.active a {
+    color:#ffcc00;
 }
 
 .menu-icon {

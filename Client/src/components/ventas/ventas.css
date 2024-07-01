@@ -27,7 +27,7 @@ h1{
 
 .inputs-ventas input,
 .inputs-ventas select {
-    flex: 1 1 calc(30% - 12px); 
+    flex: 1 2 calc(30% - 12px); 
     padding: 12px;
     border: 1px solid #9a9898;
     border-radius: 8px;
@@ -91,7 +91,6 @@ h1{
 }
 
 .limpiar {
-
     background-color: #7a2ecc;
 }
 

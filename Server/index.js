@@ -143,6 +143,7 @@ app.get('/productos', async (req,res) => {
 })
 
 // Agregar productos 
+
 app.post('/add-productos', (req,res) => {
     const {marca,mascota,edad,kilo,precio,categoria} = req.body;
     if(!marca || !mascota || !edad || !kilo || !precio || !categoria) {
@@ -159,6 +160,24 @@ app.post('/add-productos', (req,res) => {
         res.status(500).json({error: err.message})
     })
 })
+
+// Eliminar productos 
+
+app.delete('/delete-productos/:id', (req,res) => {
+    const {id} = req.params;
+    ProductoModel.findByIdAndDelete(id)
+    .then(result => res.json(result))
+    .catch(err => res.status(500).json({error:err.message}))
+})
+
+// Editar productos
+app.patch('/edit-productos/:id', (req, res) => {
+    const { id } = req.params;
+    const { marca, mascota, edad, kilo, precio, } = req.body; 
+    ProductoModel.findByIdAndUpdate(id, { marca, mascota, edad, kilo, precio }, { new: true })
+        .then(result => res.json(result))
+        .catch(err => res.status(500).json({ error: err.message }));
+});
 
 app.listen(3001, () =>{
     console.log('Servidor funcionando en 3001')

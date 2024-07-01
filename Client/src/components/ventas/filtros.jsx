@@ -38,7 +38,7 @@ export function Filtros({ventas,setVentasFiltradas}){
     }
 
 
-    // Con el useEffect los filtros automáticamente cada vez que los valores de filterMonth o number cambian 
+    // Con el useEffect los filtros automáticamente cambiar cada vez que los valores de filterMonth o number cambian 
     useEffect(() => {
         filtros();
     },[filterMonth,number,pago])

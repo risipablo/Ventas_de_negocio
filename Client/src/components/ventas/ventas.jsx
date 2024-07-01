@@ -144,6 +144,12 @@ export function Ventas() {
             setVentas(ventas.map(venta => venta._id === id ? response.data : venta));
             setVentasFiltradas(ventasFiltradas.map(venta => venta._id === id ? response.data : venta));
             cancelEdit();
+            toast.success("Producto actualizado ", {
+                position: "top-center",
+                autoClose: 2000,
+                theme: "light",
+                transition: Bounce,
+            });
         })
         .catch(err => console.log(err));
     }
@@ -188,10 +194,15 @@ export function Ventas() {
                     onChange={(event) => setTp(event.target.value)}
                     value={newTp}
                 >
-                    <option value="">Seleccionar tipo de pago</option>
-                    <option value="Debito">Débito</option>
+                    <option value=""> Seleccionar tipo de pago </option>
+                    <option value="Debito "> Visa Débito </option>
+                    <option value="Debito "> Cabal Débito </option>
+                    <option value="Debito "> Master Débito </option>
+                    <option value="Debito"> Naranja Débito</option>
+                    <option value="Credito ">Visa Crédito </option>
+                    <option value="Credito ">Master Crédito </option>
+                    <option value="Credito "> Naranja Crédito </option>
                     <option value="Efectivo">Efectivo</option>
-                    <option value="Credito">Crédito</option>
                     <option value="Mercado Pago">Mercado Pago</option>
                 </select>
 
@@ -202,7 +213,7 @@ export function Ventas() {
                     value={newBoleta}
                 />
                    
-
+                
                 <input type="text"
                     placeholder="Ingresar producto" 
                     onChange={(event => setProducto(event.target.value))}

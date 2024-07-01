@@ -24,6 +24,18 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
+.filtros2 {
+    display: flex; 
+  }
+  
+  .filtro-input {
+    flex: 1 calc(30% - 12px); 
+    padding: 12px;
+    border: 1px solid #ddd; 
+    border-radius: 3px; 
+  }
+  
 /* Botones de edicion */
 
 .actions{
