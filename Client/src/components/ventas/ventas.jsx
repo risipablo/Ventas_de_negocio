@@ -17,7 +17,7 @@ export function Ventas() {
     const [newTp, setTp] = useState(""); // Tipo de pago 
     const [newProduct, setProducto] = useState(""); // Ingreso de producto
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
-    const [newBoleta, setBoleta] = useState(""); // Ingreso de boleta (no obligatorio)
+    const [newBoleta, setBoleta] = useState(""); // Ingreso de boleta 
 
     useEffect(() => {
         axios.get(`${serverFront}/ventas`)
@@ -29,14 +29,14 @@ export function Ventas() {
     }, []);
 
     const addVentas = () => {
-        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newTp.trim() !== "") {
+        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== "" ) {
             axios.post(`${serverFront}/add-ventas`, {
                 day: newDay,
                 month: newMonth,
                 tp: newTp,
                 product: newProduct,
                 total: newTotal,
-                boleta: newBoleta // Añadir boleta a la solicitud
+                boleta: newBoleta 
             })
             .then(response => {
                 const nuevaVenta = response.data;
@@ -96,12 +96,30 @@ export function Ventas() {
             return palabrasClave.every(palabra => 
                 venta.day.toLowerCase().includes(palabra) ||
                 venta.month.toLowerCase().includes(palabra) ||
+                (venta.boleta || '').toLowerCase().includes(palabra) ||
                 venta.tp.toLowerCase().includes(palabra) ||
                 venta.product.toLowerCase().includes(palabra) ||
                 venta.total.toString().includes(palabra)
             );
         }));
     };
+
+
+    // Condicion de pago cliente 
+    const condicionPago = (boleta) => {
+        return boleta && boleta.toLowerCase() === 'debe' ? 'rgba(218, 8, 25, 0.4)': null;
+    }
+
+    // Total de monto 
+    const totalMonto = (ventas) => {
+        
+        let monto = 0;
+        ventas.forEach(product => {
+            monto += product.total
+        });
+        return monto
+
+    }
 
     // Editar gastos
     const [editId, setEditId] = useState(null);
@@ -195,13 +213,15 @@ export function Ventas() {
                     value={newTp}
                 >
                     <option value=""> Seleccionar tipo de pago </option>
-                    <option value="Debito "> Visa Débito </option>
-                    <option value="Debito "> Cabal Débito </option>
-                    <option value="Debito "> Master Débito </option>
-                    <option value="Debito"> Naranja Débito</option>
-                    <option value="Credito ">Visa Crédito </option>
-                    <option value="Credito ">Master Crédito </option>
-                    <option value="Credito "> Naranja Crédito </option>
+                    <option value="Visa Débito" > Visa Débito </option>
+                    <option value="Visa PrePago"> Visa PrePago </option>
+                    <option value="Naranja Débito"> Naranja Débito</option>
+                    <option value="Cabal Débito "> Cabal Débito </option>
+                    <option value="Master Débito "> Master Débito </option>
+                    <option value="Naranja Débito"> Naranja Débito</option>
+                    <option value="Visa Crédito ">Visa Crédito </option>
+                    <option value=" Master Crédito "> Master Crédito </option>
+                    <option value="Naranja Crédito "> Naranja Crédito </option>
                     <option value="Efectivo">Efectivo</option>
                     <option value="Mercado Pago">Mercado Pago</option>
                 </select>
@@ -252,16 +272,18 @@ export function Ventas() {
                         </thead>
                         <tbody>
                             {ventasFiltradas.map((element, index) => 
-                            <tr key={index}>
-                                <td>{element.day}</td>
+                            <tr key={index} style={{ background: condicionPago(element.boleta || '')}}>
+                                <td >{element.day}</td>
                                 <td>{element.month}</td>
                                 <td>{editId === element._id ?
                                     <input value={editingId.tp} onChange={(e) => setEditingId({...editingId, tp: e.target.value})}/>  : element.tp}</td>
                                 
-                                <td>{editId === element._id ?
+                                <td >
+                                    {editId === element._id ?
                                     <input value={editingId.boleta} onChange={(e) => setEditingId({...editingId, boleta: e.target.value })}/> : element.boleta}</td>
 
-                                <td>{editId === element._id ?
+                                <td>             
+                                    {editId === element._id ?
                                     <input value={editingId.product} onChange={(e) => setEditingId({...editingId, product: e.target.value })}/> : element.product}</td>
 
                                 <td>${editId === element._id ?
@@ -282,7 +304,16 @@ export function Ventas() {
                             </tr>
                             )}
                         </tbody>
+                        <tfoot>
+                            <tr className='total'>
+                                <td>Total </td>
+                                <td colSpan="4"> </td>
+                                <td> ${totalMonto(ventasFiltradas)}</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
                     </table>
+                    
                     <ToastContainer/>
                 </div>
             </div>

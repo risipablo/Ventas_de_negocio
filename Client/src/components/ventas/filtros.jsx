@@ -82,11 +82,18 @@ export function Filtros({ventas,setVentasFiltradas}){
                     onChange={(event) => setPago(event.target.value)}
                     value={pago}
                 >
-                    <option value=""> Metodos de pagos</option>
-                    <option value="efectivo"> Efectivo </option>
-                    <option value="debito"> Debito </option>
-                    <option value="credito"> Credito </option>
-                    <option value="mercado pago"> Mercado Pago </option>
+                    <option value=""> Seleccionar tipo de pago </option>
+                    <option value="Visa Débito" > Visa Débito </option>
+                    <option value="Visa PrePago"> Visa PrePago </option>
+                    <option value="Naranja Débito"> Naranja Débito</option>
+                    <option value="Cabal Débito "> Cabal Débito </option>
+                    <option value="Master Débito "> Master Débito </option>
+                    <option value="Naranja Débito"> Naranja Débito</option>
+                    <option value="Visa Crédito ">Visa Crédito </option>
+                    <option value=" Master Crédito "> Master Crédito </option>
+                    <option value="Naranja Crédito "> Naranja Crédito </option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Mercado Pago">Mercado Pago</option>
                 </select>
 
                 <button className="button" onClick={ResetFilter}> <i className="fa-regular fa-circle-xmark"></i> </button>

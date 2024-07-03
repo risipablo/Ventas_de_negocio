@@ -53,11 +53,14 @@ export function FiltrosProductos({productos,setProductosFiltrados}){
                     onChange={(event) => setFilterMarca(event.target.value)}
                     value={marca}
                 >
-<option value=""> Seleccionar Marca </option>
+
+                    <option value=""> Seleccionar Marca </option>
                     <option value="Agility">Agility</option>
                     <option value="Balanced"> Balanced </option>
+                    <option value="Bandeja Sanitaria"> Bandeja Sanitaria </option>
                     <option value="Biopet"> Biopet </option>
                     <option value="Bocato"> Bocato </option>
+                    <option value="Buzo Animado"> Buzo Animado </option>
                     <option value="Cat Chow"> Cat Chow </option>
                     <option value="Collar Pitbull"> Collar Pitbull </option>
                     <option value="Colchoneta Desenfundable"> Colchoneta Desenfundable </option>
@@ -80,6 +83,7 @@ export function FiltrosProductos({productos,setProductosFiltrados}){
                     <option value="Pedigree"> Pedigree  </option>
                     <option value="Pellcats"> Pellcats </option>
                     <option value="Piedras"> Piedras Blancas </option>
+                    <option value="Pipetas"> Pipetas </option>
                     <option value="Pretal Completo "> Pretal Completo  </option>
                     <option value="Pretal Solo "> Pretal Solo  </option>
                     <option value="Pechera Pitbull"> Pechera Pitbull </option>
@@ -88,7 +92,9 @@ export function FiltrosProductos({productos,setProductosFiltrados}){
                     <option value="Royal Canin"> Royal Canin </option>
                     <option value="Stone"> Stone Cat </option>
                     <option value="Sieger"> Sieger</option>
+                    <option value="Shampoo"> Shampoo </option>
                     <option value="Suertudo"> Suertudo </option>
+                    <option value="Wishka"> Wishka </option>
 
             </select>
 

@@ -139,6 +139,7 @@ th{
 }
 
 
+
 .delete{
     text-align: center;
     padding: 12px;
@@ -158,6 +159,10 @@ th{
 }
 
 
-
+.total{
+    color: rgb(8, 8, 8);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
 
 

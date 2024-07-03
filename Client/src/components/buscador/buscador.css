@@ -1,6 +1,8 @@
 .buscador-container {
+    position: relative;
     display: flex;
-    margin: 4rem auto  ;
+    align-items: center;
+    margin: 4rem auto;
     max-width: 600px;
     background-color: #c6c6c6;
     border-radius: 12px;
@@ -20,4 +22,16 @@
     border-color: #ffcc00;
     outline: none;
     box-shadow: 0 4px 8px rgba(0, 0, 2, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #272626;
+    transition: color 0.3s ease;
+}
+
+.search-icon:hover {
+    color: #ffcc00;
 }

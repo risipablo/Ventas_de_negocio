@@ -114,6 +114,17 @@ export function Gastos(){
     const condicionEstado = (estado) => {
         return estado.toLowerCase() === 'pagado' ? '#26D429' : '#D41806';
     }
+    
+    const totalMonto = (gastos) => {
+        let total = 0;
+        gastos.forEach(products => {
+            total += products.monto
+        });
+
+        return total;
+    }
+
+
 
 
     // Estados para edicion
@@ -311,6 +322,14 @@ export function Gastos(){
                             </tr>
                             )}
                         </tbody>
+                        <tfoot>
+                            <tr className='total'>
+                                <td>Total </td>
+                                <td colSpan="4"> </td>
+                                <td> ${totalMonto(gastosFiltrados)}</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
                 <ToastContainer/>
