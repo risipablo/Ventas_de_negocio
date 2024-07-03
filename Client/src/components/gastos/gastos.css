@@ -40,12 +40,12 @@
 
 .actions{
     text-align: center;
-    padding: 4px;
+    padding: 12px;
 }
 
 
 .actions button{
-    margin: 2px 7px;
+    margin: 12px 6px;
     border: none;
     padding: 6px 12px;
     cursor: pointer;

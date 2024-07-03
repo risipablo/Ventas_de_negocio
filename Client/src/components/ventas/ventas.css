@@ -123,12 +123,14 @@ th{
 
 .productos th, .productos td {
     text-align: center;
-    padding: 1.2rem 1.8rem;
+    padding: 1.8rem 1.2rem;
 }
 
 .productos th {
     background-color: #1B5DC8;
 }
+
+
 
 .productos tr:nth-child(even) {
     background-color: #f9f9f9;
@@ -165,4 +167,6 @@ th{
     letter-spacing: 1px;
 }
 
-
+.monto{
+    font-weight: 600;
+}

@@ -299,7 +299,7 @@ export function Gastos(){
                                 <td> {editingId === element._id ? 
                                     <input value={editingData.factura} onChange={(e) => setEditingData({ ...editingData, factura: e.target.value })} /> : element.factura}</td> 
                                 
-                                <td> ${editingId === element._id ? 
+                                <td className='monto'> ${editingId === element._id ? 
                                     <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto}</td>
                                 
                                 <td style={{ background: condicionEstado(element.estado) }}>{editingId === element._id ?
@@ -325,7 +325,7 @@ export function Gastos(){
                         <tfoot>
                             <tr className='total'>
                                 <td>Total </td>
-                                <td colSpan="4"> </td>
+                                <td colSpan="3"> </td>
                                 <td> ${totalMonto(gastosFiltrados)}</td>
                                 <td></td>
                             </tr>

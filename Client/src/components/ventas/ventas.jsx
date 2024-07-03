@@ -286,7 +286,7 @@ export function Ventas() {
                                     {editId === element._id ?
                                     <input value={editingId.product} onChange={(e) => setEditingId({...editingId, product: e.target.value })}/> : element.product}</td>
 
-                                <td>${editId === element._id ?
+                                <td className='monto'>${editId === element._id ?
                                     <input value={editingId.total} onChange={(e) => setEditingId({...editingId, total: e.target.value})}/> : element.total}</td>
 
                                 <div className="actions">

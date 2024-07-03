@@ -303,7 +303,7 @@ export function Productos(){
                                     <td>{editingId === element._id ?
                                         <input value={editingData.kilo} onChange={(e) => setEditingData({...editingData, kilo: e.target.value })}/> :element.kilo}</td>
 
-                                    <td>${editingId === element._id ?
+                                    <td className='monto'>${editingId === element._id ?
                                         <input value={editingData.precio} onChange={(e) => setEditingData({...editingData, precio: e.target.value })}/> :element.precio}</td>
 
                                     <div className="actions"> 
