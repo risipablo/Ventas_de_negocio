@@ -73,6 +73,19 @@ body.open .overlay {
     color:#ffcc00;
 }
 
+.icon-notas i{
+    margin: 6px 12px;
+    font-size: 1.8rem;
+    color: #1d1c1c;
+    transition: .3s;
+
+}
+
+.icon-notas i:hover{
+    color: #ffcc00;
+}
+
+
 .menu-icon {
     display: flex;
     flex-direction: column;
@@ -83,7 +96,7 @@ body.open .overlay {
 .menu-icon span {
     height: 2px;
     width: 22px;
-    background-color: #161616;
+    background-color: #1d1c1c;
     margin: 4px 12px;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }

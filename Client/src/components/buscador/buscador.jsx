@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./buscador.css";
 
 export function Buscador({ placeholder, filtrarDatos }) {
@@ -11,6 +11,12 @@ export function Buscador({ placeholder, filtrarDatos }) {
         filtrarDatos(palabraClave);
     };
 
+    const Reset = () => {
+        setBuscar("");
+        filtrarDatos([])
+    }
+
+
     return (
         <div className="buscador-container">
             <input
@@ -21,7 +27,7 @@ export function Buscador({ placeholder, filtrarDatos }) {
                 className="buscador-input"
             />
             <div className="search-icon">
-                <i className="fa fa-x"></i>
+                <i onClick={Reset} className="fa fa-x"></i>
             </div>
         </div>
     );

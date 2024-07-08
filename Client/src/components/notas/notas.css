@@ -1,0 +1,47 @@
+.notas-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.agregar-notas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.agregar-notas input {
+    flex: 1;
+    padding: 9px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 200px; 
+}
+
+.botones-notas {
+    display: flex;
+    gap: 10px;
+}
+
+.botones-notas button {
+    margin: auto 1.2rem;
+}
+
+
+@media (max-width: 600px) {
+    .agregar-notas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .botones-notas {
+        flex-direction: row;
+        margin: 1rem 0;
+    }
+
+    .botones-notas button {
+        flex: 1;
+    }
+}

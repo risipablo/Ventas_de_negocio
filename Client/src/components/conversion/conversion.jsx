@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "./conversion.css"
+import { Helmet } from 'react-helmet';
 
 export function Conversion(){
     const [valor, setValor] = useState();
@@ -66,6 +67,11 @@ export function Conversion(){
 
     return(
         <>
+
+        <Helmet>
+            <title>Conversor</title>
+        </Helmet>
+
             <div className="grid">
                 <div className="conteiner">
                     <h2> Conversion IVA </h2>

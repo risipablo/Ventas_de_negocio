@@ -4,6 +4,7 @@ const cors = require('cors');
 const VentasModel = require('./models/Ventas');
 const GastosModel = require('./models/gastos');
 const ProductoModel = require('./models/Productos')
+const NotaModel = require('./models/Notas')
 require("dotenv").config();
 const app = express();
 
@@ -178,6 +179,45 @@ app.patch('/edit-productos/:id', (req, res) => {
         .then(result => res.json(result))
         .catch(err => res.status(500).json({ error: err.message }));
 });
+
+
+//obtener notas
+app.get('/notas', async (req,res) => {
+    try{
+        const notas = await NotaModel.find();
+        res.json(notas);
+        } 
+    catch (err) {
+        res.status(500).json({error: err.message})
+        }
+}) 
+
+app.post('/add-notas', (req,res) => {
+
+    const {notas} = req.body;
+    if(!notas) {
+        return res.status(400).json({error})
+    }
+    const newNota = new NotaModel({notas})
+    newNota.save()
+    .then(result => {
+        console.log(result);
+        res.json(result)
+    })
+    .catch(err => {
+        console.err(err)
+        res.status(500).json({error: err.message})
+    })
+
+})
+
+app.delete('/delete-notas/:id', (req,res) => {
+    const {id} = req.params;
+    NotaModel.findByIdAndDelete(id)
+    .then(result => res.json(result))
+    .catch(err => res.status(500).json({error:err.message}))
+})
+
 
 app.listen(3001, () =>{
     console.log('Servidor funcionando en 3001')

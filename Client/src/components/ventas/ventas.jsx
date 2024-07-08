@@ -5,6 +5,8 @@ import { Buscador } from '../buscador/buscador';
 import { Filtros } from './filtros';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ScrollTop } from '../others/scrollTop';
+
 
 // const serverFront = "http://localhost:3001";
 const serverFront = 'https://server-ventas.onrender.com'
@@ -117,7 +119,7 @@ export function Ventas() {
         ventas.forEach(product => {
             monto += product.total
         });
-        return monto
+        return monto;
 
     }
 
@@ -315,6 +317,7 @@ export function Ventas() {
                     </table>
                     
                     <ToastContainer/>
+                    <ScrollTop/>
                 </div>
             </div>
         </div>

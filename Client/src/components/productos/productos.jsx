@@ -3,7 +3,8 @@ import { Buscador } from "../buscador/buscador";
 import axios from "axios";
 import { ToastContainer,toast,Bounce } from "react-toastify";
 import { FiltrosProductos } from "./FiltroProductos";
-
+import { Helmet } from 'react-helmet';
+import { ScrollTop } from '../others/scrollTop';
 
 
 // const serverFront = "http://localhost:3001";
@@ -156,9 +157,13 @@ export function Productos(){
     };
     
 
-
     return(
         <div className="productos-container">
+
+            <Helmet>
+                <title>Productos</title>
+            </Helmet>
+            
             <h1> Lista Oficial </h1>
 
             <div className="inputs-ventas">
@@ -272,9 +277,10 @@ export function Productos(){
 
             <Buscador placeholder= "Buscar productos" filtrarDatos={filtrarProductos} />
             <FiltrosProductos productos={productos} setProductosFiltrados={setProductosFiltrado}/>
-
+      
             <div className="productos">
                 <div className="table-responsive">
+
                     <table>
                         <thead>
                             <tr>
@@ -328,6 +334,7 @@ export function Productos(){
                 </div>
             </div>
             <ToastContainer/>
+            <ScrollTop/>
         </div>
     )
 }

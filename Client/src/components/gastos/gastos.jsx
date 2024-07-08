@@ -5,7 +5,8 @@ import axios from "axios";
 import { ToastContainer, toast,Bounce } from 'react-toastify';
 import { FiltrosGastos } from "./filtrosGastos";
 import { Buscador } from "../buscador/buscador";
-
+import { Helmet } from 'react-helmet';
+import {ScrollTop} from '../others/scrollTop'
 
 
 // const serverFront = "http://localhost:3001";
@@ -112,7 +113,7 @@ export function Gastos(){
     };
 
     const condicionEstado = (estado) => {
-        return estado.toLowerCase() === 'pagado' ? '#26D429' : '#D41806';
+        return estado.toLowerCase() === 'pagado' ? 'rgba(64, 230, 67,0.8)' : 'rgba(218, 8, 25, 0.4)';
     }
     
     const totalMonto = (gastos) => {
@@ -185,6 +186,11 @@ export function Gastos(){
 
     return(
         <div className="gastos-container">
+            
+            <Helmet>
+                <title> Gastos</title>
+            </Helmet>
+
             <h1>Gastos Mensuales</h1>
 
             <div className="inputs-gastos">
@@ -302,7 +308,7 @@ export function Gastos(){
                                 <td className='monto'> ${editingId === element._id ? 
                                     <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto}</td>
                                 
-                                <td style={{ background: condicionEstado(element.estado) }}>{editingId === element._id ?
+                                <td  style={{ background: condicionEstado(element.estado || '')}}>{editingId === element._id ?
                                 <input value={editingData.estado} onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })} /> : element.estado}</td>
                                 
                                 <div className="actions"> 
@@ -334,7 +340,8 @@ export function Gastos(){
                 </div>
                 <ToastContainer/>
             </div>
-
+            
+            <ScrollTop/>
         </div>
     )
 }

@@ -1,7 +1,8 @@
 /* Estilos generales */
 .venta-container,
 .productos-container,
-.gastos-container {
+.gastos-container,
+.notas-container {
     max-width: 100%;
     padding: 20px;
     box-sizing: border-box;
@@ -121,9 +122,14 @@ th{
     letter-spacing: 1px;
 }
 
-.productos th, .productos td {
+.productos td {
     text-align: center;
-    padding: 1.8rem 1.2rem;
+    padding: 1.8rem 1rem;
+}
+
+.productos th{
+    text-align: center;
+    padding: 1.2rem;
 }
 
 .productos th {
@@ -169,4 +175,22 @@ th{
 
 .monto{
     font-weight: 600;
+}
+
+.btn-volver-arriba {
+    position: fixed;
+    bottom: 20px;
+    background-color: #2a6df1;
+    color: #faf7f7;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.btn-volver-arriba:hover {
+    opacity: 1;
 }

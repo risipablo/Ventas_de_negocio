@@ -34,13 +34,19 @@ export function Navbar(){
                     </div>
                 
                     <div onClick={toggleMenu} className={`menu-icon ${isMenuOpen ? 'open' : ''}`}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                       
                     </div>
 
+                    <div > 
+                        <NavLink to="/notas" className="icon-notas"><i class="fa-regular fa-clipboard"></i></NavLink>
+                    </div>
+                        
                     </div>
                 </div>
-    </nav>
+        </nav>
     )
 }
