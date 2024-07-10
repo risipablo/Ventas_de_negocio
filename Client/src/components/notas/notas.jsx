@@ -31,7 +31,7 @@ export function Notas() {
     };
 
     const deleteNotas = (id) => {
-        axios.delete(`${serverFront}/delete-notas` + id)
+        axios.delete(`${serverFront}/delete-notas/` + id)
         .then(response => {
             setNotes(notes.filter((note) => note._id !== id))
         })
@@ -40,6 +40,45 @@ export function Notas() {
     const clearInput = () => {
         setNewNota("");
     };
+
+    const [editingId, setEditingId] = useState(null); 
+    const [editingData, setEditingData] = useState({
+        notas:''
+    });
+
+    const startEditing = (note) => {
+        setEditingId(note._id);
+        setEditingData({
+            notas:note.notas,
+        })
+    }
+
+    const cancelEditing = () => {
+        setEditingId(null);
+        setEditingData({
+            notas: '',
+        })
+    }
+
+    const saveChanges = (id) => {
+        axios.patch(`${serverFront}/edit-notas/${id}`, editingData)
+        .then(response => {
+            setNotes(notes.map(note => note._id === id ? response.data : note))
+            cancelEditing();
+        })
+        .catch(err => console.log(err))
+    }
+
+    const completedNote = (id,completed) => {
+        axios.patch(`${serverFront}/completed-notas/${id}`, {completed: !completed })
+        .then(response => {
+            const completedNotes = notes.map(note => note._id === id ? response.data : note)
+            setNotes(completedNotes)
+        })
+        .catch(err => console.log(err))
+    }
+
+   
 
     return (
         <div className="notas-container"> 
@@ -74,11 +113,31 @@ export function Notas() {
                         </thead>
                         <tbody>
                             {notes.map((element, index) => 
-                                <tr key={index}>
-                                    <td>{element.notas}</td>
+                                <tr key={index} className={element.completed ? "completed-note" : ""}>
+                                    <td>{editingId === element._id ?
+                                        <input value={editingData.notas} onChange={(e) => setEditingData({...editingData, notas:e.target.value})} /> : element.notas}</td>
 
                                     <div className="actions">
+
                                     <button className="trash" onClick={() => deleteNotas(element._id)}> <i className="fa-solid fa-trash"></i> </button>
+                                    
+                                    
+                                    <button
+                                            className={element.completed ? "desmarcar" : "completar"}
+                                            onClick={() => completedNote(element._id,element.completed)}
+                                        >
+                                            {element.completed ? "Desmarcar" : "Completar"}
+                                    </button>
+                                    
+                                    {editingId === element._id ? (
+                                    <div  className='btn-edit'>
+                                        <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
+                                        <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
+                                    </div>
+                                        ) : (
+                                            <button className="edit" onClick={() => startEditing(element)}><i className="fa-solid fa-gear"></i></button>
+                                        )}
+
                                     </div>
                                 </tr>
                             )}

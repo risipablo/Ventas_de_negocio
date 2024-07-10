@@ -29,6 +29,21 @@
     margin: auto 1.2rem;
 }
 
+.completar {
+    background-color: rgb(3, 143, 3);
+    color: rgb(255, 255, 255);
+}
+
+.desmarcar {
+    background-color: rgb(241, 6, 6);
+    color: rgb(255, 255, 255);
+}
+
+.completed-note {
+    text-decoration: line-through;
+    color: rgb(156, 159, 155); 
+}
+
 
 @media (max-width: 600px) {
     .agregar-notas {

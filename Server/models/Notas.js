@@ -4,6 +4,10 @@ const notaSchema = new mongoose.Schema({
     notas:{
         type: String,
         require:true
+    },
+    completed: {
+        type:Boolean,
+        default: false
     }
 })
 

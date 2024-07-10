@@ -168,53 +168,14 @@ export function Productos(){
 
             <div className="inputs-ventas">
 
-                <select 
+                <input 
                     type="text" 
+                    placeholder="Ingresar Marca"
                     value={marca}
                     onChange={(e) => setMarca(e.target.value)}
-                >
-                    <option value=""> Seleccionar Marca </option>
-                    <option value="Agility">Agility</option>
-                    <option value="Balanced"> Balanced </option>
-                    <option value="Bandeja Sanitaria"> Bandeja Sanitaria </option>
-                    <option value="Biopet"> Biopet </option>
-                    <option value="Bocato"> Bocato </option>
-                    <option value="Buzo Animado"> Buzo Animado </option>
-                    <option value="Cat Chow"> Cat Chow </option>
-                    <option value="Collar Pitbull"> Collar Pitbull </option>
-                    <option value="Colchoneta Desenfundable"> Colchoneta Desenfundable </option>
-                    <option value="Hueso Corbato"> Hueso Corbato  </option>
-                    <option value="Dog Chow"> Dog Chow </option>
-                    <option value="Eukanuba"> Eukanuba</option>
-                    <option value="Excellent"> Excellent </option>
-                    <option value="Gati"> Gati </option>
-                    <option value="Golocan"> Golocan </option>
-                    <option value="Hueso "> Grisines  </option>
-                    <option value="Hueso"> Hueso 15 </option>
-                    <option value="Iglu"> Iglu  </option>
-                    <option value="Nutricare"> Nutricare </option>
-                    <option value="Optimun"> Optimun </option>
-                    <option value="Old Prince"> Old Prince  </option>
-                    <option value="Hueso "> Oreja de vaca  </option>
-                    <option value="Moises de Jean"> Moises de Jean </option>
-                    <option value="Nidos de Corderito"> Nidos de Corderito </option>
-                    <option value="Paños Pet"> Paños Pet  </option>
-                    <option value="Pedigree"> Pedigree  </option>
-                    <option value="Pellcats"> Pellcats </option>
-                    <option value="Piedras"> Piedras Blancas </option>
-                    <option value="Pipetas"> Pipetas </option>
-                    <option value="Pretal Completo "> Pretal Completo  </option>
-                    <option value="Pretal Solo "> Pretal Solo  </option>
-                    <option value="Pechera Pitbull"> Pechera Pitbull </option>
-                    <option value="Polares"> Polar </option>
-                    <option value="Pro Plan"> Pro Plan </option>
-                    <option value="Royal Canin"> Royal Canin </option>
-                    <option value="Stone"> Stone Cat </option>
-                    <option value="Sieger"> Sieger</option>
-                    <option value="Shampoo"> Shampoo </option>
-                    <option value="Suertudo"> Suertudo </option>
-                    <option value="Wishka"> Wishka </option>
-                </select>
+                />
+ 
+               
 
                 <select 
                     type="text"
@@ -224,6 +185,7 @@ export function Productos(){
                     <option value=""> Seleccionar Mascota </option>
                     <option value="Perro"> Perro </option>
                     <option value="Gato"> Gato </option>
+                    <option value="Mixto"> Mixto </option>
                 </select>
 
                 <select type="text" value={edad} onChange={(e => SetEdad(e.target.value))} >
@@ -315,7 +277,7 @@ export function Productos(){
                                     <div className="actions"> 
                                     <button className="trash" onClick={() => deleteProductos(element._id, element.proveedor, element.monto)}><i className="fa-solid fa-trash"></i></button>
 
-                                                {editingId === element._id ? (
+                                    {editingId === element._id ? (
                                     <div  className='btn-edit'>
                                         <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
                                         <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>

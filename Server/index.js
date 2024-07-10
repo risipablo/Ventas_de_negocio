@@ -181,7 +181,7 @@ app.patch('/edit-productos/:id', (req, res) => {
 });
 
 
-//obtener notas
+// Obtener notas
 app.get('/notas', async (req,res) => {
     try{
         const notas = await NotaModel.find();
@@ -192,6 +192,7 @@ app.get('/notas', async (req,res) => {
         }
 }) 
 
+// Añadir notas
 app.post('/add-notas', (req,res) => {
 
     const {notas} = req.body;
@@ -211,11 +212,32 @@ app.post('/add-notas', (req,res) => {
 
 })
 
+
+
+// Eliminar notas
 app.delete('/delete-notas/:id', (req,res) => {
     const {id} = req.params;
     NotaModel.findByIdAndDelete(id)
     .then(result => res.json(result))
     .catch(err => res.status(500).json({error:err.message}))
+})
+
+// Editar notas
+app.patch('/edit-notas/:id', (req,res) => {
+    const {id} = req.params;
+    const {notas } = req.body;
+    NotaModel.findByIdAndUpdate(id,{notas}, {new:true})
+    .then(result => res.json(result))
+    .catch(err => res.status(500).json({error: err.message}))
+})
+
+// Completar notas
+app.patch('/completed-notas/:id', (req,res) => {
+    const {id} = req.params;
+    const { completed} = req.body;
+    NotaModel.findByIdAndUpdate(id,{completed}, {new:true})
+    .then(result => res.json(result))
+    .catch(err => res.status(500).json({error: err.message}))
 })
 
 

@@ -48,55 +48,12 @@ export function FiltrosProductos({productos,setProductosFiltrados}){
     return(
         <div className="filtros2">
 
-            <select className="filtro-input"
+            <input className="filtro-input"
                     type="text" 
+                    placeholder="Ingresar Marca"
                     onChange={(event) => setFilterMarca(event.target.value)}
                     value={marca}
-                >
-
-                    <option value=""> Seleccionar Marca </option>
-                    <option value="Agility">Agility</option>
-                    <option value="Balanced"> Balanced </option>
-                    <option value="Bandeja Sanitaria"> Bandeja Sanitaria </option>
-                    <option value="Biopet"> Biopet </option>
-                    <option value="Bocato"> Bocato </option>
-                    <option value="Buzo Animado"> Buzo Animado </option>
-                    <option value="Cat Chow"> Cat Chow </option>
-                    <option value="Collar Pitbull"> Collar Pitbull </option>
-                    <option value="Colchoneta Desenfundable"> Colchoneta Desenfundable </option>
-                    <option value="Hueso Corbato"> Hueso Corbato  </option>
-                    <option value="Dog Chow"> Dog Chow </option>
-                    <option value="Eukanuba"> Eukanuba</option>
-                    <option value="Excellent"> Excellent </option>
-                    <option value="Gati"> Gati </option>
-                    <option value="Golocan"> Golocan </option>
-                    <option value="Hueso "> Grisines  </option>
-                    <option value="Hueso"> Hueso 15 </option>
-                    <option value="Iglu"> Iglu  </option>
-                    <option value="Nutricare"> Nutricare </option>
-                    <option value="Optimun"> Optimun </option>
-                    <option value="Old Prince"> Old Prince  </option>
-                    <option value="Hueso "> Oreja de vaca  </option>
-                    <option value="Moises de Jean"> Moises de Jean </option>
-                    <option value="Nidos de Corderito"> Nidos de Corderito </option>
-                    <option value="Paños Pet"> Paños Pet  </option>
-                    <option value="Pedigree"> Pedigree  </option>
-                    <option value="Pellcats"> Pellcats </option>
-                    <option value="Piedras"> Piedras Blancas </option>
-                    <option value="Pipetas"> Pipetas </option>
-                    <option value="Pretal Completo "> Pretal Completo  </option>
-                    <option value="Pretal Solo "> Pretal Solo  </option>
-                    <option value="Pechera Pitbull"> Pechera Pitbull </option>
-                    <option value="Polares"> Polar </option>
-                    <option value="Pro Plan"> Pro Plan </option>
-                    <option value="Royal Canin"> Royal Canin </option>
-                    <option value="Stone"> Stone Cat </option>
-                    <option value="Sieger"> Sieger</option>
-                    <option value="Shampoo"> Shampoo </option>
-                    <option value="Suertudo"> Suertudo </option>
-                    <option value="Wishka"> Wishka </option>
-
-            </select>
+            />
 
             <select className="filtro-input"
                 type="text"
