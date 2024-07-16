@@ -106,18 +106,29 @@ export function Ventas() {
         }));
     };
 
+    // Funcion de boton de input
+
+    const openInput = () => {
+        setOpen(!open);
+    }
+
 
     // Condicion de pago cliente 
     const condicionPago = (boleta) => {
-        return boleta && boleta.toLowerCase() === 'debe' ? 'rgba(218, 8, 25, 0.4)': null;
+        return boleta && boleta.toLowerCase() === 'debe' ? 'rgba(218, 8, 25, 0.4)' : null;
     }
 
     // Total de monto 
     const totalMonto = (ventas) => {
-        
         let monto = 0;
+
         ventas.forEach(product => {
-            monto += product.total
+            if(product.boleta && product.boleta.toLowerCase() === 'debe'){
+                monto == product.total
+            } else {
+                monto += product.total
+            }
+
         });
         return monto;
 
@@ -178,7 +189,9 @@ export function Ventas() {
         <div className="venta-container">
             <h1>Ingresos de ventas</h1>
 
-            <div className="inputs-ventas"> 
+  
+
+            <div className='inputs-ventas' > 
 
                 <select type="text"
                     onChange={(event => setDay(event.target.value))}
@@ -247,6 +260,7 @@ export function Ventas() {
                     onChange={(event => setTotal(event.target.value))}
                     value={newTotal}
                 />
+
  
             </div>
 

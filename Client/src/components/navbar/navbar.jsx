@@ -27,7 +27,7 @@ export function Navbar(){
                     <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
                         <NavLink to="/lista" onClick={closeMenu}> <a className="active"> Lista </a></NavLink>
                         <NavLink to="/conversion" onClick={closeMenu}> <a className="active">Conversion</a></NavLink>
-                        <a href="https://risipablo.github.io/ListaLocal/Calculadora.html">Calculadora</a>
+                        <a href="https://risipablo.github.io/ListaLocal/Calculadora.html" className="active">Calculadora</a>
                         <a href="https://risipablo.github.io/ListaLocal/Proveedores.html">Proveedor</a>
                         <NavLink to="/" onClick={closeMenu}><a className="active">Ventas</a></NavLink>
                         <NavLink  to="/gastos" onClick={closeMenu}><a className="active">Gastos</a></NavLink>

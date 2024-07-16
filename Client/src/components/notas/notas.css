@@ -1,6 +1,6 @@
 .notas-container {
     padding: 20px;
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
 }
 
@@ -42,6 +42,10 @@
 .completed-note {
     text-decoration: line-through;
     color: rgb(156, 159, 155); 
+}
+
+Button .colapse{
+    margin: 2rem auto;
 }
 
 

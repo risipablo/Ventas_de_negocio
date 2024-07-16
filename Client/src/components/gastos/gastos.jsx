@@ -119,6 +119,7 @@ export function Gastos(){
     const totalMonto = (gastos) => {
         let total = 0;
         gastos.forEach(products => {
+            if(products.estado.toLowerCase() === 'pagado')
             total += products.monto
         });
 

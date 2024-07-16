@@ -6,6 +6,7 @@ import { Productos } from "./components/productos/productos"
 import { Ventas } from "./components/ventas/ventas"
 import { BrowserRouter, Route, Routes  } from 'react-router-dom'
 import { Notas } from "./components/notas/notas"
+import { Proveedor } from "./components/proveedor/proveedor"
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={ <Ventas/>}/>
           <Route path='/lista' element={<Productos/>}/>
-          <Route path="/gastos" element={ <Gastos/>}/>
+          <Route path="/gastos" element={<Gastos/>}/>
+          <Route path="/proveedor" element={<Proveedor/>}/>
           <Route path="/conversion" element={<Conversion/>}/>
           <Route path="/notas" element={<Notas/>}/>
         </Routes>

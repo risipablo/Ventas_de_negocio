@@ -2,6 +2,10 @@ import { Helmet } from "react-helmet";
 import "./notas.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ScrollTop } from "../others/scrollTop";
+
 
 const serverFront = "http://localhost:3001";
 // const serverFront = 'https://server-ventas.onrender.com';
@@ -25,6 +29,13 @@ export function Notas() {
                     const nuevaNota = response.data;
                     setNotes(notas => [...notas, nuevaNota]);
                     setNewNota("");
+                    toast.success(
+                        ` Se agregó una anotacion nueva`,
+                        {
+                        position: "top-center",
+                        autoClose: 2000,
+                        theme: "light"
+                      });
                 })
                 .catch(err => console.log(err));
         }
@@ -65,6 +76,12 @@ export function Notas() {
         .then(response => {
             setNotes(notes.map(note => note._id === id ? response.data : note))
             cancelEditing();
+            toast.success("Nota actualizada ", {
+                position: "top-center",
+                autoClose: 2000,
+                theme: "light",
+                transition: Bounce,
+            });
         })
         .catch(err => console.log(err))
     }
@@ -77,8 +94,6 @@ export function Notas() {
         })
         .catch(err => console.log(err))
     }
-
-   
 
     return (
         <div className="notas-container"> 
@@ -101,50 +116,55 @@ export function Notas() {
                     <button className="limpiar" onClick={clearInput}>Limpiar</button>  
                 </div>
             </div>
-
-            <div className="productos">
-                <div className="table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Notas</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {notes.map((element, index) => 
-                                <tr key={index} className={element.completed ? "completed-note" : ""}>
-                                    <td>{editingId === element._id ?
-                                        <input value={editingData.notas} onChange={(e) => setEditingData({...editingData, notas:e.target.value})} /> : element.notas}</td>
-
-                                    <div className="actions">
-
-                                    <button className="trash" onClick={() => deleteNotas(element._id)}> <i className="fa-solid fa-trash"></i> </button>
-                                    
-                                    
-                                    <button
-                                            className={element.completed ? "desmarcar" : "completar"}
-                                            onClick={() => completedNote(element._id,element.completed)}
-                                        >
-                                            {element.completed ? "Desmarcar" : "Completar"}
-                                    </button>
-                                    
-                                    {editingId === element._id ? (
-                                    <div  className='btn-edit'>
-                                        <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
-                                        <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
-                                    </div>
-                                        ) : (
-                                            <button className="edit" onClick={() => startEditing(element)}><i className="fa-solid fa-gear"></i></button>
-                                        )}
-
-                                    </div>
+            
+                <div className="productos">
+                    <div className="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Notas</th>
+                                    <th></th>
                                 </tr>
-                            )}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {notes.map((element, index) => 
+                                    <tr key={index} className={element.completed ? "completed-note" : ""}>
+                                        <td>{editingId === element._id ?
+                                            <input value={editingData.notas} onChange={(e) => setEditingData({...editingData, notas:e.target.value})} /> : element.notas}</td>
+
+                                        <div className="actions">
+
+                                        <button className="trash" onClick={() => deleteNotas(element._id)}> <i className="fa-solid fa-trash"></i> </button>
+                                        
+                                        
+                                        <button
+                                                className={element.completed ? "desmarcar" : "completar"}
+                                                onClick={() => completedNote(element._id,element.completed)}
+                                            >
+                                                {element.completed ? "Desmarcar" : "Completar"}
+                                        </button>
+                                        
+                                        {editingId === element._id ? (
+                                        <div  className='btn-edit'>
+                                            <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
+                                            <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
+
+                                        </div>
+                                            ) : (
+                                                <button className="edit" onClick={() => startEditing(element)}><i className="fa-solid fa-gear"></i></button>
+                                            )}
+
+                                        </div>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
+                        
+                        <ToastContainer/>
+                        <ScrollTop/>
+                    </div>
                 </div>
-            </div>
+            
         </div>
     );
 }
