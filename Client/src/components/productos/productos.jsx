@@ -138,7 +138,7 @@ export function Productos() {
     }
 
     const saveChanges = (id) => {
-        console.log(`Saving changes for product ID: ${id}`);
+        console.log(`Cambios guardados: ${id}`);
         axios.patch(`${serverFront}/edit-productos/${id}`, editingData)
             .then(response => {
                 setProductos(productos.map(producto => producto._id === id ? response.data : producto));

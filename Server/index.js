@@ -5,6 +5,7 @@ const VentasModel = require('./models/Ventas');
 const GastosModel = require('./models/gastos');
 const ProductoModel = require('./models/Productos')
 const NotaModel = require('./models/Notas')
+const ProveedorModel = require('./models/Proveedor')
 require("dotenv").config();
 const app = express();
 
@@ -241,6 +242,33 @@ app.patch('/completed-notas/:id', (req,res) => {
 })
 
 
+// Obtener Datos de los proveedores
+app.get('/proveedors', async (req, res) => {
+    try {
+        const proveedores = await ProveedorModel.find();
+        res.json(proveedores);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Ingresar Proveedores
+app.post('/add-proveedors', (req, res) => {
+    const { proveedores, marcas, edades, kilos, precios, mascotas } = req.body;
+    if (!proveedores || !marcas || !edades || !kilos || !precios || !mascotas) {
+        return res.status(400).json({ error});
+    }
+    const newProveedor = new ProveedorModel({ proveedores, marcas, edades, kilos, precios, mascotas });
+    newProveedor.save()
+        .then(result => {
+            console.log(result);
+            res.json(result);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({ error: err.message });
+        });
+});
 
 app.listen(3001, () =>{
     console.log('Servidor funcionando en 3001')

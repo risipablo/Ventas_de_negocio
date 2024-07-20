@@ -82,8 +82,8 @@ h1{
     /* width: calc(50% - 5px); */
 }
 
+
 .agregar {
-    
     background-color: #2ecc71;
 }
 
@@ -98,6 +98,7 @@ h1{
 .limpiar:hover {
     background-color: #5d1ebc;
 }
+
 
 /* Estilos para la tabla */
 
@@ -147,6 +148,7 @@ th{
 }
 
 
+/* Botones de edicion */
 
 .delete{
     text-align: center;
@@ -164,6 +166,20 @@ th{
 
 .delete button:hover {
     background-color: #d32f2f;
+}
+
+.agregar-prod{
+
+    background-color: #0381e2;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.agregar-prod:hover{
+    background-color: #2e6bcc;
 }
 
 

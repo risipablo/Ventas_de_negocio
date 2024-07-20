@@ -7,8 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ScrollTop } from "../others/scrollTop";
 
 
-const serverFront = "http://localhost:3001";
-// const serverFront = 'https://server-ventas.onrender.com';
+// const serverFront = "http://localhost:3001";
+const serverFront = 'https://server-ventas.onrender.com';
 
 export function Notas() {
     const [notes, setNotes] = useState([]);

@@ -1,0 +1,134 @@
+/* CarritoVertical.css */
+.carrito-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.carrito-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.carrito-item > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20px;
+}
+
+.carrito-item h3 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #333;
+}
+
+.carrito-item p {
+    margin: 4px 0;
+    color: #666;
+}
+
+.carrito-item button {
+    padding: 8px 12px;
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carrito-item button:hover {
+    background-color: #e55342;
+}
+
+.carrito-total {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: space-between;
+    color: #333;
+}
+
+.carrito-total h3{
+    font-size: 1.4rem;
+}
+
+.carrito-total button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carrito-total button:hover {
+    background-color: #0069d9;
+}
+
+.item-count {
+    display: flex;
+    flex-direction: row; 
+}
+
+.item-count button {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    background-color: #0476f0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.item-count button:hover {
+    background-color: #1284fe;
+}
+
+.item-count p {
+    margin: 0 10px; 
+    font-size: 18px;
+}
+
+
+@media (max-width: 600px) {
+    .carrito-list {
+        width: 100%;
+    }
+
+    .carrito-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .carrito-item > div {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .carrito-item img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .carrito-item button {
+        width: 100%;
+    }
+}
