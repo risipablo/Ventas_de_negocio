@@ -6,10 +6,13 @@ import { TransitionGroup } from 'react-transition-group';
 import { Buscador } from "../buscador/buscador";
 import axios from "axios";
 import { CarritoContext } from "../carrito/carritoContext";
+import { ToastContainer,toast,Bounce } from "react-toastify";
+import { ScrollTop } from "../others/scrollTop";
 
 
-const serverFront = "http://localhost:3001";
-// const serverFront = 'https://server-ventas.onrender.com'
+
+// const serverFront = "http://localhost:3001";
+const serverFront = 'https://server-ventas.onrender.com'
 
 export function Proveedor() {
     const [showInputs, setShowInputs] = useState(true);
@@ -52,22 +55,66 @@ export function Proveedor() {
                     setNewProveedor("");
                     setNewEdad("");
                     setNewMascota("");
+                    toast.success("Producto agregado ", {
+                        position: "top-center",
+                        autoClose: 2000,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        theme: "light",
+                        transition: Bounce,
+                    });
                 })
                 .catch(err => console.error(err));
         }
     };
 
+    const deleteProveedors = (id) =>{
+        axios.delete(`${serverFront}/delete-proveedors/` + id)
+        .then(response => {
+            setProducts(products.filter((product) => product._id !== id));
+            setProveedorFiltrado(products.filter((product) => product._id !== id))
+            toast.error('Producto eliminado', {
+                position: "top-center",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+                });
+        })
+        .catch(err => console.log(err))
+    }
+
     
     const filtrarProveedores = (palabrasClave) => {
         setProveedorFiltrado(products.filter(product => {
             return palabrasClave.every(palabra =>
-                product.marcas.toLowerCase().includes(palabra)
+                product.marcas.toLowerCase().includes(palabra)||
+                product.precios.toString().includes(palabra)||
+                product.proveedores.toLowerCase().includes(palabra)||
+                product.edades.toLowerCase().includes(palabra)||
+                product.kilos.toLowerCase().includes(palabra)||
+                product.mascotas.toLowerCase().includes(palabra)
             );
         }));
     };
 
     const agregarProductoAlCarrito = (producto) => {
-        agregarAlCarrito(producto);
+        toast.success(
+            ` Se agrego ${producto.marcas} ${producto.mascotas} ${producto.kilos} $${producto.precios} `, 
+            {
+            position: "top-center",
+            autoClose: 2000,
+            closeOnClick: true,
+            pauseOnHover: false,
+            theme: "light",
+            transition: Bounce,
+        });
+        agregarAlCarrito(producto)
+
     };
 
  
@@ -108,6 +155,18 @@ export function Proveedor() {
         })
     }
 
+    const saveChanges = (id) => {
+        console.log(`cambios guardados: ${id}`)
+        axios.patch(`${serverFront}/edit-proveedors/${id}`, editingData)
+        .then(response => {
+            setProducts(products.map(product => product._id === id ? response.data : product));
+            setProveedorFiltrado(proveedorFiltrado.map(product => product._id === id ? response.data : product));
+            cancelEditing();
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
 
 
 
@@ -219,16 +278,22 @@ export function Proveedor() {
                         <tbody>
                             {proveedorFiltrado.map((element, index) =>
                                 <tr key={index}>
-                                    <td>{element.marcas}</td>
-                                    <td>{element.mascotas}</td>
-                                    <td>{element.edades}</td>
-                                    <td>{element.kilos}</td>
-                                    <td>{element.precios}</td>
-                                    <td> <button className="agregar-prod" onClick={() => agregarProductoAlCarrito(element)}>Agregar</button> </td>
+                                    <td>{editingId === element._id ?
+                                        <input value={editingData.marcas} onChange={(e) => setEditingData({ ...editingData, marcas: e.target.value })} /> : element.marcas}</td>
+                                    <td>{editingId === element._id ?
+                                        <input value={editingData.mascotas} onChange={(e) => setEditingData({ ...editingData, mascotas: e.target.value })} /> : element.mascotas}</td>
+                                    <td>{editingId === element._id ?
+                                        <input value={editingData.edades} onChange={(e) => setEditingData({ ...editingData, edades: e.target.value })} /> : element.edades}</td>
+                                    <td>{editingId === element._id ?
+                                        <input value={editingData.kilos} onChange={(e) => setEditingData({ ...editingData, kilos: e.target.value })} /> : element.kilos}</td>
+                                    <td> $ {editingId === element._id ? 
+                                        <input value={editingData.precios} onChange={(e) => setEditingData({ ...editingData, precios: e.target.value })} /> : element.precios}</td>
                                     
+                                    <td> <button className="agregar-prod" onClick={() => agregarProductoAlCarrito(element)}>Agregar</button> </td>
+
                                     <div className="actions">
                                     
-                                        <button className="trash" onClick={() => deleteProductos(element._id, element.proveedor, element.monto)}><i className="fa-solid fa-trash"></i></button>
+                                        <button className="trash" onClick={() => deleteProveedors(element._id, element.proveedor, element.monto)}><i className="fa-solid fa-trash"></i></button>
 
                                         {editingId === element._id ? (
                                             <div className='btn-edit'>
@@ -247,7 +312,9 @@ export function Proveedor() {
                     </table>
                 </div>
             </div>
-            
+    
+            <ToastContainer/>
+            <ScrollTop/>
         </div>
     );
 }

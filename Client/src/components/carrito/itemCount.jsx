@@ -1,25 +1,29 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./carrito.css"
+import { CarritoContext } from "./carritoContext";
 
-function ItemCount ({InitialCantidad}){
-
+function ItemCount ({InitialCantidad,handleRestar,handleSumar}){
+    const {carrito} = useContext(CarritoContext)
     const [cantidad,setCantidad] = useState(InitialCantidad);
 
-    const handleRestar = () => {
+    const decrecer = () => {
         if(cantidad > 0)
         setCantidad(cantidad - 1 )
+        handleRestar()
     }
 
-    const handleSumar = () => {
+    const crecer = () => {
         setCantidad(cantidad + 1 )
+        handleSumar()
     }
 
+  
 
     return(
         <div className="item-count">
-            <button onClick={handleRestar}> - </button>
+            <button onClick={decrecer}> - </button>
             <p> {cantidad} </p>
-            <button onClick={handleSumar}> + </button>
+            <button onClick={crecer}> + </button>
         </div>
     )
 }

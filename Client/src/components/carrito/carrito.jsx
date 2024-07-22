@@ -4,7 +4,7 @@ import './carrito.css'
 import ItemCount from "./itemCount";
 
 export function Carrito(){
-    const {carrito,vaciarCarrito, eliminarProd, precioTotal} = useContext(CarritoContext)
+    const { carrito, vaciarCarrito, eliminarProd, precioTotal ,handleSumar, handleRestar} = useContext(CarritoContext)
 
     const handleVaciar = () => {
         vaciarCarrito();
@@ -15,8 +15,6 @@ export function Carrito(){
     }
 
 
-
- 
     return(
         <div className="carrito-container">
             <h2> Gasto de compra </h2>
@@ -30,7 +28,14 @@ export function Carrito(){
                             <p> Costo: ${producto.precios} </p>
                             <p> Cantidad: {producto.cantidad} </p>
                             <p> Precio Total: ${producto.precios * producto.cantidad}</p>
-                            <ItemCount  InitialCantidad={producto.cantidad}/>
+                            
+                            <ItemCount 
+                             InitialCantidad={producto.cantidad} 
+                             precioUnitario={producto.precios}
+                             handleRestar={() => handleRestar(index)}
+                             handleSumar={() => handleSumar(index)}
+                             />
+
                           <button onClick={() => handleEliminar(index)}> <i className="fa-solid fa-trash"></i></button>
                           
                     </li>

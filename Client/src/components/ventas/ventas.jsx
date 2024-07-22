@@ -106,12 +106,6 @@ export function Ventas() {
         }));
     };
 
-    // Funcion de boton de input
-
-    const openInput = () => {
-        setOpen(!open);
-    }
-
 
     // Condicion de pago cliente 
     const condicionPago = (boleta) => {

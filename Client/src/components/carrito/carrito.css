@@ -1,10 +1,10 @@
-/* CarritoVertical.css */
+
 .carrito-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+  
     padding: 20px;
-    font-family: Arial, sans-serif;
 }
 
 .carrito-list {
@@ -27,12 +27,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.carrito-item > div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-right: 20px;
-}
+
 
 .carrito-item h3 {
     font-size: 1.2em;
@@ -85,14 +80,13 @@
 }
 
 .item-count {
-    display: flex;
-    flex-direction: row; 
+    display: block;
 }
+
 
 .item-count button {
     width: 30px;
     height: 30px;
-    align-items: center;
     background-color: #0476f0;
     border-radius: 5px;
     cursor: pointer;
@@ -106,6 +100,33 @@
     margin: 0 10px; 
     font-size: 18px;
 }
+
+.cart-link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.cart-link .fa-cart-shopping {
+    font-size: 1.5em; 
+}
+
+.cart-count {
+    position: absolute;
+    top: -9px; 
+    right: -9px; 
+    background-color: #7d03e8; 
+    color: #e0e0e0;
+    border-radius: 50%; 
+    padding: 2px 6px; 
+    font-size: 0.8em; 
+    font-weight: bold; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 @media (max-width: 600px) {
@@ -123,12 +144,10 @@
         margin-bottom: 10px;
     }
 
-    .carrito-item img {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
 
     .carrito-item button {
         width: 100%;
     }
+
+   
 }

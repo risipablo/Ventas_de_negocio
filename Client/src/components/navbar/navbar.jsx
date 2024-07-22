@@ -2,6 +2,7 @@
 import { NavLink } from "react-router-dom"
 import "./navbar.css"
 import {  useState } from "react";
+import { Shop } from "../carrito/shop";
 
 export function Navbar(){
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,8 +43,8 @@ export function Navbar(){
                     </div>
 
                     <div className="icon-notas" > 
-                        <NavLink to="/carrito"><i class="fa-sharp fa-solid fa-cart-shopping"></i></NavLink>
                         <NavLink to="/notas" ><i class="fa-regular fa-clipboard"></i></NavLink>
+                        <Shop/>
                     </div>
                         
                     </div>
