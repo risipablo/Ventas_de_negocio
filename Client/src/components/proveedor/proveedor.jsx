@@ -165,7 +165,7 @@ export function Proveedor() {
         })
         .catch(err => {
             console.log(err);
-        })
+        });
     }
 
 
@@ -286,7 +286,7 @@ export function Proveedor() {
                                         <input value={editingData.edades} onChange={(e) => setEditingData({ ...editingData, edades: e.target.value })} /> : element.edades}</td>
                                     <td>{editingId === element._id ?
                                         <input value={editingData.kilos} onChange={(e) => setEditingData({ ...editingData, kilos: e.target.value })} /> : element.kilos}</td>
-                                    <td> $ {editingId === element._id ? 
+                                    <td className="monto"> $ {editingId === element._id ? 
                                         <input value={editingData.precios} onChange={(e) => setEditingData({ ...editingData, precios: e.target.value })} /> : element.precios}</td>
                                     
                                     <td> <button className="agregar-prod" onClick={() => agregarProductoAlCarrito(element)}>Agregar</button> </td>

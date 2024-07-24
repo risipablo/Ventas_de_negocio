@@ -6,6 +6,7 @@ import { Filtros } from './filtros';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ScrollTop } from '../others/scrollTop';
+import { Notificacion } from '../others/notificacion';
 
 
 // const serverFront = "http://localhost:3001";
@@ -323,7 +324,7 @@ export function Ventas() {
                             </tr>
                         </tfoot>
                     </table>
-                    
+                    <Notificacion/>
                     <ToastContainer/>
                     <ScrollTop/>
                 </div>

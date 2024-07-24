@@ -3,12 +3,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  
     padding: 20px;
 }
 
 .carrito-list {
-    list-style-type: none;
+
     padding: 0;
     width: 100%;
     max-width: 1200px;
@@ -32,7 +31,7 @@
 .carrito-item h3 {
     font-size: 1.2em;
     margin: 0;
-    color: #333;
+    color: #232222;
 }
 
 .carrito-item p {
@@ -58,7 +57,7 @@
     display: flex;
     margin-top: 2rem;
     justify-content: space-between;
-    color: #333;
+    color: #232222;
 }
 
 .carrito-total h3{
@@ -82,6 +81,7 @@
 .item-count {
     display: block;
 }
+
 
 
 .item-count button {

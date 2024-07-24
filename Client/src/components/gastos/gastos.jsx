@@ -119,11 +119,10 @@ export function Gastos(){
     const totalMonto = (gastos) => {
         let total = 0;
         gastos.forEach(products => {
-            if(products.estado.toLowerCase() === 'pagado')
             total += products.monto
         });
 
-        return total;
+        return total.toLocaleString('en-US');
     }
 
 
@@ -307,7 +306,7 @@ export function Gastos(){
                                     <input value={editingData.factura} onChange={(e) => setEditingData({ ...editingData, factura: e.target.value })} /> : element.factura}</td> 
                                 
                                 <td className='monto'> ${editingId === element._id ? 
-                                    <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto}</td>
+                                    <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto.toLocaleString('en-US')}</td>
                                 
                                 <td  style={{ background: condicionEstado(element.estado || '')}}>{editingId === element._id ?
                                 <input value={editingData.estado} onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })} /> : element.estado}</td>

@@ -214,7 +214,6 @@ app.post('/add-notas', (req,res) => {
 })
 
 
-
 // Eliminar notas
 app.delete('/delete-notas/:id', (req,res) => {
     const {id} = req.params;
@@ -269,6 +268,23 @@ app.post('/add-proveedors', (req, res) => {
             res.status(500).json({ error: err.message });
         });
 });
+
+// Eliminar producto
+app.delete('/delete-proveedors/:id', (req,res) => {
+    const {id} = req.params;
+    ProveedorModel.findByIdAndDelete(id)
+    .then(result => res.json(result))
+    .catch(err => res.status(500).json({err:err.message}))
+})
+
+app.patch('/edit-proveedors/:id', (req,res) => {
+    const {id} = req.params;
+    const {proveedores,marcas,mascotas,edades,kilos,precios} = req.body;
+    ProveedorModel.findByIdAndUpdate(id,{proveedores,marcas,mascotas,edades,kilos,precios}, {new:true})
+    .then(result => res.json(result))
+    .catch(err => res.status(500).json({error: err.message}))
+})
+
 
 app.listen(3001, () =>{
     console.log('Servidor funcionando en 3001')

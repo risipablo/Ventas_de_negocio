@@ -8,6 +8,7 @@ import { ScrollTop } from '../others/scrollTop';
 import { Button, Collapse } from '@mui/material';
 import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import { TransitionGroup } from 'react-transition-group';
+import { Notificacion } from "../others/notificacion";
 
 // const serverFront = "http://localhost:3001";
 const serverFront = 'https://server-ventas.onrender.com'
@@ -173,7 +174,7 @@ export function Productos() {
             >
                 {showInputs ? '' : '' } 
             </Button>
-
+            
             <TransitionGroup>
                 {!showInputs && (
                     <Collapse>
@@ -249,9 +250,11 @@ export function Productos() {
   
 
             <Buscador placeholder="Buscar productos" filtrarDatos={filtrarProductos} />
+            
             <FiltrosProductos productos={productos} setProductosFiltrados={setProductosFiltrado} />
-
+            
             <div className="productos">
+                
                 <div className="table-responsive">
                     <table>
                         <thead>
@@ -306,6 +309,7 @@ export function Productos() {
             </div>
             <ToastContainer />
             <ScrollTop />
+            <Notificacion/>
         </div>
     )
 }

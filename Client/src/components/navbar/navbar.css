@@ -118,3 +118,14 @@ body.open .overlay {
         width: 100%;
     }
 }
+
+
+.icon-container .MuiIconButton-root {
+    margin-right: 18px; 
+}
+
+
+
+.icon-container .MuiSvgIcon-root {
+    color: rgb(47, 46, 46);
+}

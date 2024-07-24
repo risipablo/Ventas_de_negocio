@@ -192,21 +192,3 @@ th{
 .monto{
     font-weight: 600;
 }
-
-.btn-volver-arriba {
-    position: fixed;
-    bottom: 20px;
-    background-color: #2a6df1;
-    color: #faf7f7;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    opacity: 0.3;
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-.btn-volver-arriba:hover {
-    opacity: 1;
-}

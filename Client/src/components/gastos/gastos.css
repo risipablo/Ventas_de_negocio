@@ -25,10 +25,6 @@
 }
 
 
-.filtros2 {
-    display: flex; 
-  }
-  
   .filtro-input {
     flex: 1 calc(30% - 12px); 
     padding: 12px;
@@ -36,6 +32,7 @@
     border-radius: 3px; 
   }
   
+
 /* Botones de edicion */
 
 .actions{

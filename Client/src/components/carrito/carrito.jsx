@@ -25,9 +25,9 @@ export function Carrito(){
                             <p>{producto.edades} </p>
                             <p>{producto.mascotas} </p>
                             <p>{producto.kilos} kg </p>
-                            <p> Costo: ${producto.precios} </p>
+                            <p className="monto"> Costo: ${producto.precios} </p>
                             <p> Cantidad: {producto.cantidad} </p>
-                            <p> Precio Total: ${producto.precios * producto.cantidad}</p>
+                            <p className="monto"> Precio Total: ${producto.precios * producto.cantidad}</p>
                             
                             <ItemCount 
                              InitialCantidad={producto.cantidad} 

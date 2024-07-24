@@ -1,11 +1,16 @@
 
 import { NavLink } from "react-router-dom"
 import "./navbar.css"
-import {  useState } from "react";
+import {  useContext, useState } from "react";
 import { Shop } from "../carrito/shop";
+import { Box, IconButton, Tooltip } from '@mui/material';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import { NotasContext } from "../notas/notasContext/notasContext";
+
 
 export function Navbar(){
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [active, setActive] = useState(null)
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -18,6 +23,15 @@ export function Navbar(){
         document.body.classList.remove('open');
     }
 
+    const apretar = (icon) => {
+        setActive(icon);
+    }
+
+    const soltar = () => {
+        setActive(null);
+    }
+
+    // const {cantidadNotas} = useContext(NotasContext)
 
     return (
 
@@ -42,13 +56,19 @@ export function Navbar(){
                        
                     </div>
 
-                    <div className="icon-notas" > 
-                        <NavLink to="/notas" ><i class="fa-regular fa-clipboard"></i></NavLink>
-                        <Shop/>
-                    </div>
-                        
-                    </div>
+                    <Box className="icon-container" display="flex" alignItems="center" position="relative">
+                        <NavLink to="/notas" onMouseEnter={() => apretar('notas')} onMouseLeave={soltar} >
+                            <Tooltip title={active === 'notas' ? "notas" : ""} arrow>
+                                <IconButton>
+                                    <AssignmentIcon fontSize="large" />
+                                    {/* <span>{cantidadNotas()}</span> */}
+                                </IconButton>
+                            </Tooltip>
+                        </NavLink>
+                        <Shop />
+                    </Box>
                 </div>
+            </div>
         </nav>
     )
 }
