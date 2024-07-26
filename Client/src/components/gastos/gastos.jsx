@@ -62,6 +62,8 @@ export function Gastos(){
                     {
                     position: "top-center",
                     autoClose: 2000,
+                    closeOnClick: true,
+                    pauseOnHover: false,
                     theme: "light"
                   });
             })
@@ -89,7 +91,7 @@ export function Gastos(){
                     autoClose: 1000,
                     hideProgressBar: true,
                     closeOnClick: true,
-                    pauseOnHover: true,
+                    pauseOnHover: false,
                     draggable: true,
                     theme: "light",
                     transition: Bounce,
@@ -176,12 +178,13 @@ export function Gastos(){
                     position: "top-center",
                     autoClose: 2000,
                     theme: "light",
+                    closeOnClick: true,
+                    pauseOnHover: false,
                     transition: Bounce,
                 });
             })
             .catch(err => console.log(err));
     };
-
 
 
     return(

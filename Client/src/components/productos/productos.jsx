@@ -57,6 +57,8 @@ export function Productos() {
                         position: "top-center",
                         autoClose: 2000,
                         theme: "light",
+                        closeOnClick: true,
+                        pauseOnHover: false,
                         transition: Bounce,
                     });
                 })
@@ -84,7 +86,7 @@ export function Productos() {
                         autoClose: 1000,
                         hideProgressBar: true,
                         closeOnClick: true,
-                        pauseOnHover: true,
+                        pauseOnHover: false,
                         draggable: true,
                         theme: "light",
                         transition: Bounce,
@@ -148,6 +150,8 @@ export function Productos() {
                 toast.success("Producto actualizado ", {
                     position: "top-center",
                     autoClose: 2000,
+                    closeOnClick: true,
+                    pauseOnHover: false,
                     theme: "light",
                     transition: Bounce,
                 });

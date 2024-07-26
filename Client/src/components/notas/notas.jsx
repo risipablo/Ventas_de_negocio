@@ -1,10 +1,11 @@
 import { Helmet } from "react-helmet";
 import "./notas.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ScrollTop } from "../others/scrollTop";
+import { NotasContext } from "./notasContext/notasContext";
 
 
 // const serverFront = "http://localhost:3001";
@@ -13,6 +14,8 @@ const serverFront = 'https://server-ventas.onrender.com';
 export function Notas() {
     const [notes, setNotes] = useState([]);
     const [newNota, setNewNota] = useState("");
+
+    const { agregarNotas , completarNotas, eliminarNota, } = useContext(NotasContext)
 
     useEffect(() => {
         axios.get(`${serverFront}/notas`)
@@ -29,13 +32,17 @@ export function Notas() {
                     const nuevaNota = response.data;
                     setNotes(notas => [...notas, nuevaNota]);
                     setNewNota("");
+                    agregarNotas(nuevaNota);
                     toast.success(
                         ` Se agregó una anotacion nueva`,
                         {
                         position: "top-center",
                         autoClose: 2000,
-                        theme: "light"
+                        theme: "light",
+                        closeOnClick: true,
+                        pauseOnHover: false,
                       });
+                      
                 })
                 .catch(err => console.log(err));
         }
@@ -45,6 +52,7 @@ export function Notas() {
         axios.delete(`${serverFront}/delete-notas/` + id)
         .then(response => {
             setNotes(notes.filter((note) => note._id !== id))
+            eliminarNota(id);
         })
     }
 
@@ -80,6 +88,8 @@ export function Notas() {
                 position: "top-center",
                 autoClose: 2000,
                 theme: "light",
+                closeOnClick: true,
+                pauseOnHover: false,
                 transition: Bounce,
             });
         })
@@ -91,6 +101,7 @@ export function Notas() {
         .then(response => {
             const completedNotes = notes.map(note => note._id === id ? response.data : note)
             setNotes(completedNotes)
+            completarNotas(id, !completed)
         })
         .catch(err => console.log(err))
     }
@@ -113,7 +124,7 @@ export function Notas() {
 
                 <div className="botones-notas">
                     <button className="agregar" onClick={addNotas}>Agregar</button>
-                    <button className="limpiar" onClick={clearInput}>Limpiar</button>  
+                    <button className="limpiar" onClick={clearInput}>Limpiar</button> 
                 </div>
             </div>
             

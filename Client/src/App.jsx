@@ -8,6 +8,7 @@ import { Notas } from "./components/notas/notas"
 import { Proveedor } from "./components/proveedor/proveedor"
 import { Carrito } from "./components/carrito/carrito"
 import { CarritoProvider } from "./components/carrito/carritoContext"
+import { NotasProvider } from "./components/notas/notasContext/notasContext"
 
 
 
@@ -16,9 +17,10 @@ function App() {
   return (
     <div>
       <CarritoProvider>
+      <NotasProvider>
+      
       <BrowserRouter>
         <Navbar/>
-        
         <Routes>
           <Route path="/" element={ <Ventas/>}/>
           <Route path='/lista' element={<Productos/>}/>
@@ -30,6 +32,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
+      </NotasProvider>
       </CarritoProvider>
 
 

@@ -41,7 +41,7 @@
 .notificacion button:hover {
     opacity: 1; 
     color: #242424; 
-    transform: scale(1.2); 
+    transform: scale(1.2) rotate(12deg);
     transition: transform 0.9s, opacity 0.3s; 
 }
 

@@ -29,7 +29,7 @@ export function Notificacion() {
                         <i className="fa-regular fa-circle-xmark"></i>
                     </button>
                 </DialogActions>
-                <DialogTitle>Oferta del mes</DialogTitle>
+                <DialogTitle className="dialog-content"> Ofertas</DialogTitle>
                 <DialogContent className="dialog-content">
                     Biopet y Suertudo 10% descuento
                 </DialogContent>

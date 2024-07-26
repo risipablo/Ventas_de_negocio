@@ -1,19 +1,35 @@
 import { Link } from "react-router-dom";
 import { CarritoContext } from "./carritoContext";
-import { useContext } from "react";
-import "./carrito.css"
+import { useContext, useState } from "react";
+import { Badge, IconButton, Tooltip } from "@mui/material";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import "./carrito.css"; 
 
-export function Shop(){
+export function Shop() {
+    const { cantidadCarrito } = useContext(CarritoContext);
+    const [active, setActive] = useState(null);
 
-    const {cantidadCarrito} = useContext(CarritoContext)
+    const open = (icon) => {
+        setActive(icon);
+    };
 
-    return(
+    const close = () => {
+        setActive(null);
+    };
+
+    return (
         <>
-            <Link to="/carrito" className="cart-link">
-                <i className="fa-sharp fa-solid fa-cart-shopping"></i>
-                <span className="cart-count">{cantidadCarrito ()}</span>
+            <Link to="/carrito" onMouseEnter={() => open('carrito')} onMouseLeave={close} className="cart-link">
+                <Tooltip title={active === 'carrito' ? "Carrito" : ""} arrow>
+                    <IconButton>
+                        <ShoppingCartIcon className="icon" />
+                        <span  className="cart-count"> {cantidadCarrito()} </span>
+                    </IconButton>
+                </Tooltip>
             </Link>
         </>
-    )
+    );
 }
+
+
 

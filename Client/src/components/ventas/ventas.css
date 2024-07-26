@@ -71,7 +71,7 @@ h1{
     margin: 2.8rem auto ;
 }
 
-.agregar, .limpiar {
+.agregar, .limpiar, .vaciar {
     padding: 10px 20px;
     margin-right: 2rem;
     color: white;
@@ -98,6 +98,15 @@ h1{
 .limpiar:hover {
     background-color: #5d1ebc;
 }
+
+.vaciar {
+    background-color: #ee3636;
+}
+
+.vaciar:hover {
+    background-color: #b32222;
+}
+
 
 
 /* Estilos para la tabla */

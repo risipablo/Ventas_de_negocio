@@ -162,6 +162,16 @@ export function Proveedor() {
             setProducts(products.map(product => product._id === id ? response.data : product));
             setProveedorFiltrado(proveedorFiltrado.map(product => product._id === id ? response.data : product));
             cancelEditing();
+            toast.success(
+                ` Cambios guardados `, 
+                {
+                position: "top-center",
+                autoClose: 2000,
+                closeOnClick: true,
+                pauseOnHover: false,
+                theme: "light",
+                transition: Bounce,
+            });
         })
         .catch(err => {
             console.log(err);
