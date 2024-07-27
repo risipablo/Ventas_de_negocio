@@ -1,19 +1,14 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 
 export const NotasContext = createContext();
-const notasInicial = [];
+
 
 export function NotasProvider({children}){
 
-    const [notero,setNotero] = useState(() => {
-        const storedNotas = localStorage.getItem('notero')
-        return storedNotas ? JSON.parse(storedNotas) : notasInicial;
-    });
+    const [notero,setNotero] = useState([])
 
-    useEffect(() => {
-        localStorage.setItem('notero', JSON.stringify(notero))
-    },[notero])
+
 
     const agregarNotas = (note) => {
         setNotero((prevNotas) => {
