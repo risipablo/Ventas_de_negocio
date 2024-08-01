@@ -9,6 +9,7 @@ import { Helmet } from 'react-helmet';
 import {ScrollTop} from '../others/scrollTop'
 
 
+
 // const serverFront = "http://localhost:3001";
 const serverFront = 'https://server-ventas.onrender.com'
 
@@ -34,7 +35,6 @@ export function Gastos(){
             })
           .catch(err => console.log(err));
       }, []);
-
 
 
     const addGastos = () => {

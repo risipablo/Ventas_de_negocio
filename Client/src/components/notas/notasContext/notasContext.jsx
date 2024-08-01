@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import axios from "axios";
+import { createContext, useEffect, useState } from "react";
 
 
 export const NotasContext = createContext();
@@ -8,7 +9,16 @@ export function NotasProvider({children}){
 
     const [notero,setNotero] = useState([])
 
+    const serverFront = 'https://server-ventas.onrender.com';
 
+    useEffect(() => {
+        axios.get(`${serverFront}/notas`)
+        .then(response => {
+            const notas = response.data.map(nota => ({...nota,cantidad:1}))
+            setNotero(notas)
+        })
+        .catch(err => console.log(err))
+    },[])
 
     const agregarNotas = (note) => {
         setNotero((prevNotas) => {
