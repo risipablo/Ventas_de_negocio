@@ -21,6 +21,7 @@ export function Ventas() {
     const [newProduct, setProducto] = useState(""); // Ingreso de producto
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
     const [newBoleta, setBoleta] = useState(""); // Ingreso de boleta 
+    const [searchReset,setSearchReset] = useState("") // Evitar el reinicio del buscador
 
     useEffect(() => {
         axios.get(`${serverFront}/ventas`)
@@ -68,8 +69,9 @@ export function Ventas() {
     const deleteVentas = (id, product, total) => {
         axios.delete(`${serverFront}/delete-ventas/` + id)
         .then(response => {
-            setVentas(ventas.filter((venta) => venta._id !== id));
-            setVentasFiltradas(ventas.filter((venta) => venta._id !== id));
+            const updatedVentas = ventas.filter((venta) => venta._id !== id);
+            setVentas(updatedVentas);
+            setVentasFiltradas(updatedVentas)
             toast.error(
                 `Se eliminó ${product} $${total}`,
                 {
@@ -96,6 +98,8 @@ export function Ventas() {
         setBoleta(""); // Resetear el campo boleta
     };
 
+
+
     const filtrarVentas = (palabrasClave) => {
         setVentasFiltradas(ventas.filter(venta => {
             return palabrasClave.every(palabra => 
@@ -112,7 +116,7 @@ export function Ventas() {
 
     // Condicion de pago cliente 
     const condicionPago = (boleta) => {
-        return boleta && boleta.toLowerCase() === 'debe' ? 'rgba(218, 8, 25, 0.4)' : null;
+        return boleta && boleta.toLowerCase() === 'debe' ? 'rgba(218, 8, 25, 0.4)' : null || boleta && boleta.toLowerCase() === 'cuota' ? 'rgba(234, 44, 44,0.7)'  : null
     }
 
     // Total de monto 
@@ -122,6 +126,10 @@ export function Ventas() {
         ventas.forEach(product => {
             if(product.boleta && product.boleta.toLowerCase() === 'debe'){
                 monto == product.total
+
+            } else if (product.boleta && product.boleta.toLowerCase() === 'cuota'){
+                monto -= product.total
+
             } else {
                 monto += product.total
             }
@@ -288,8 +296,12 @@ export function Ventas() {
                         <tbody>
                             {ventasFiltradas.map((element, index) => 
                             <tr key={index} style={{ background: condicionPago(element.boleta || '')}}>
-                                <td >{element.day}</td>
-                                <td>{element.month}</td>
+
+                                <td>{element.day}</td>
+                                
+                                <td>{editId === element._id ?
+                                    <input value={editingId.month} onChange={(e) => setEditingId({...editingId, month: e.target.value})} />: element.month}</td>
+                               
                                 <td>{editId === element._id ?
                                     <input value={editingId.tp} onChange={(e) => setEditingId({...editingId, tp: e.target.value})}/>  : element.tp}</td>
                                 

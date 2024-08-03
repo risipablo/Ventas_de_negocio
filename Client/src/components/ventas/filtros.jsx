@@ -24,8 +24,6 @@ export function Filtros({ventas,setVentasFiltradas}){
             ventaFiltradas = ventaFiltradas.filter(venta => venta.tp.toLowerCase() === pago.toLowerCase())
         }
 
-
-        
         setVentasFiltradas(ventaFiltradas)
   
     }
@@ -35,6 +33,7 @@ export function Filtros({ventas,setVentasFiltradas}){
         setFilterMonth("")
         setNumber("")
         setPago("")
+        setVentasFiltradas(ventas)
     }
 
 

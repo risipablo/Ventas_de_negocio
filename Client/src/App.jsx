@@ -9,6 +9,7 @@ import { Proveedor } from "./components/proveedor/proveedor"
 import { Carrito } from "./components/carrito/carrito"
 import { CarritoProvider } from "./components/carrito/carritoContext"
 import { NotasProvider } from "./components/notas/notasContext/notasContext"
+import { Stock } from "./components/stock/stock"
 
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/conversion" element={<Conversion/>}/>
           <Route path="/carrito" element={<Carrito/>} />
           <Route path="/notas" element={<Notas/>}/>
+          <Route path="/stock" element={<Stock/>} />
         </Routes>
       </BrowserRouter>
 

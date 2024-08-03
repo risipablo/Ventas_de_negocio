@@ -157,28 +157,70 @@ th{
 }
 
 
+
 /* Botones de edicion */
 
-.delete{
+/* Container for the buttons */
+.actions {
     text-align: center;
     padding: 12px;
 }
 
-.delete button {
-    background-color: #f44336;
-    color: white;
+
+.actions button {
+    margin: 12px 6px;
     border: none;
     padding: 6px 12px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 50%; 
+    font-size: 1rem; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; 
+    height: 40px;
+    transition: background-color 0.3s, color 0.3s; 
+    background-color: none;
 }
 
-.delete button:hover {
+
+.trash {
+    color: #f44336;
+}
+
+.trash:hover {
     background-color: #d32f2f;
+    color: white; 
+}
+
+.edit {
+    color: #181818;
+}
+
+.edit:hover {
+    background-color: #181818;
+    color: #ccc8c8; 
+}
+
+.check {
+    color: white;
+    background-color: rgb(12, 229, 12);
+}
+
+.check:hover {
+    background-color: rgb(8, 186, 8);
+}
+
+.cancel {
+    color: white;
+    background-color: rgb(227, 10, 10);
+}
+
+.cancel:hover {
+    background-color: #b32525;
 }
 
 .agregar-prod{
-
     background-color: #0381e2;
     color: white;
     border: none;

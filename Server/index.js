@@ -3,9 +3,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const VentasModel = require('./models/Ventas');
 const GastosModel = require('./models/gastos');
-const ProductoModel = require('./models/Productos')
-const NotaModel = require('./models/Notas')
-const ProveedorModel = require('./models/Proveedor')
+const ProductoModel = require('./models/Productos');
+const NotaModel = require('./models/Notas');
+const ProveedorModel = require('./models/Proveedor');
+const StockModel = require('./models/Stock');
+const http = require('http')
+const socketIo = require ('socket.io');
+const { error } = require('console');
 require("dotenv").config();
 const app = express();
 
@@ -193,53 +197,59 @@ app.get('/notas', async (req,res) => {
         }
 }) 
 
-// Añadir notas
-app.post('/add-notas', (req,res) => {
-
-    const {notas} = req.body;
-    if(!notas) {
-        return res.status(400).json({error})
+// Ruta para añadir una nota
+app.post('/add-notas', async (req, res) => {
+    const { notas } = req.body;
+    if (!notas) {
+        return res.status(400).json({ error: 'Nota no proporcionada' });
     }
-    const newNota = new NotaModel({notas})
-    newNota.save()
-    .then(result => {
-        console.log(result);
-        res.json(result)
-    })
-    .catch(err => {
-        console.err(err)
-        res.status(500).json({error: err.message})
-    })
+    try {
+        const newNota = new NotaModel({ notas });
+        const result = await newNota.save();
+        io.emit('notaAdded', result);
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
-})
+// Ruta para eliminar una nota
+app.delete('/delete-notas/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await NotaModel.findByIdAndDelete(id);
+        io.emit('notaDeleted', id); 
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
-
-// Eliminar notas
-app.delete('/delete-notas/:id', (req,res) => {
-    const {id} = req.params;
-    NotaModel.findByIdAndDelete(id)
-    .then(result => res.json(result))
-    .catch(err => res.status(500).json({error:err.message}))
-})
-
-// Editar notas
-app.patch('/edit-notas/:id', (req,res) => {
-    const {id} = req.params;
-    const {notas } = req.body;
-    NotaModel.findByIdAndUpdate(id,{notas}, {new:true})
-    .then(result => res.json(result))
-    .catch(err => res.status(500).json({error: err.message}))
-})
+// Ruta para editar una nota
+app.patch('/edit-notas/:id', async (req, res) => {
+    const { id } = req.params;
+    const { notas } = req.body;
+    try {
+        const result = await NotaModel.findByIdAndUpdate(id, { notas }, { new: true });
+        io.emit('notaUpdated', result);
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // Completar notas
-app.patch('/completed-notas/:id', (req,res) => {
-    const {id} = req.params;
-    const { completed} = req.body;
-    NotaModel.findByIdAndUpdate(id,{completed}, {new:true})
-    .then(result => res.json(result))
-    .catch(err => res.status(500).json({error: err.message}))
-})
-
+app.patch('/completed-notas/:id', async (req, res) => {
+    const { id } = req.params;
+    const { completed } = req.body;
+    try {
+        const result = await NotaModel.findByIdAndUpdate(id, { completed }, { new: true });
+        io.emit('notaCompleted', result); 
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // Obtener Datos de los proveedores
 app.get('/proveedors', async (req, res) => {
@@ -285,6 +295,43 @@ app.patch('/edit-proveedors/:id', (req,res) => {
     .catch(err => res.status(500).json({error: err.message}))
 })
 
+
+// Agregar Stock
+app.get('/stock', async (req,res) => {
+    try {
+        const stock = await StockModel.find();
+        res.json(stock);
+    } catch (err) {
+        res.status(500).json({error: err.message})
+    }
+})
+
+// Ingresar Stock
+app.post('/add-stock', (req,res) => {
+    const {brands, pet , size , kg , amount , condition} = req.body;
+    if(!brands || !pet || !size || !kg || !amount || !condition){
+        return res.status(400).json({error});
+    } 
+    const newStock = new StockModel({ brands,pet,size,kg,amount,condition});
+    newStock.save()
+    .then(result => {
+        console.log(result);
+        res.json(result);
+    })
+    .catch (err => {
+        console.error(err);
+        res.status(500).json({ error:err.message })
+    })
+})
+
+// Configuracion de Socket
+// io.on('connection',(socket) => {
+//     console.log("cliente conectado")
+
+//     socket.on('disconnect', () => {
+//         console.log('Cliente desconectado')
+//     })
+// })
 
 app.listen(3001, () =>{
     console.log('Servidor funcionando en 3001')
