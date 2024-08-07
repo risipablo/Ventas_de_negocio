@@ -7,29 +7,24 @@ const ProductoModel = require('./models/Productos');
 const NotaModel = require('./models/Notas');
 const ProveedorModel = require('./models/Proveedor');
 const StockModel = require('./models/Stock');
-const http = require('http')
-const socketIo = require ('socket.io');
-const { error } = require('console');
 require("dotenv").config();
+
 const app = express();
 
 
 app.use(express.json());
 
-const corsOptions ={
+const corsOptions = {
     origin: ['http://localhost:5173', 'https://ventas-de-negocio.vercel.app'],
     optionsSuccessStatus: 200
-}
+};
 
 app.use(cors(corsOptions));
 
-
-
 mongoose
-.connect(process.env.MONGODB)
-.then(() => console.log("conexión exitosa con MongoDb"))
-.catch((err) => console.log("Conexión fallida: " + err))
-
+    .connect(process.env.MONGODB)
+    .then(() => console.log("Conexión exitosa con MongoDB"))
+    .catch((err) => console.error("Conexión fallida: " + err));
 
 
 // Obtener registro de ventas
@@ -38,54 +33,50 @@ app.get('/ventas', async (req, res) => {
         const ventas = await VentasModel.find();
         res.json(ventas);
     } catch (err) {
-        res.status(500).json({
-            error: err.message
-        });
+        res.status(500).json({ error: err.message });
     }
 });
 
-
 // Agregar registro de ventas
-app.post('/add-ventas', (req,res) => {
-    const { day, month, total, tp, product, boleta} = req.body;
-    if(!day || !month || !tp || !product || !total || !boleta) {
-        return res.status(400).json({error});
+app.post('/add-ventas', async (req, res) => {
+    const { day, month, total, tp, product, boleta } = req.body;
+    if (!day || !month || !tp || !product || !total || !boleta) {
+        return res.status(400).json({ error: 'Faltan datos requeridos' });
     }
-    const newVenta = new VentasModel({ day, month, total, tp, product, boleta });
-    newVenta.save()
-    .then(result =>{
-        console.log(result);
-        res.json(result)
-    })
-    .catch(err => {
-        console.err(err)
-        res.status(500).json({error: err.message})
-    })
-})
+    try {
+        const newVenta = new VentasModel({ day, month, total, tp, product, boleta });
+        const result = await newVenta.save();
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // Eliminar ventas
-
-app.delete('/delete-ventas/:id', (req,res) => {
-    const {id} = req.params;
-    VentasModel.findByIdAndDelete(id)
-    .then(result => res.json(result))
-    .catch(err => res.status(500).json({error:err.message}))
-})
+app.delete('/delete-ventas/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await VentasModel.findByIdAndDelete(id);
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // Editar Ventas
-
-app.patch('/edit-ventas/:id', (req,res) => {
+app.patch('/edit-ventas/:id', async (req, res) => {
     const { id } = req.params;
-    const { total, product , tp , boleta  } = req.body;
-    VentasModel.findByIdAndUpdate(id,{total, product , tp , boleta },{new:true})
-    .then(result => res.json(result))
-    .catch(err => res.status(500).json({error: err.message}))
-})
+    const { total, product, tp, boleta } = req.body;
+    try {
+        const result = await VentasModel.findByIdAndUpdate(id, { total, product, tp, boleta }, { new: true });
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
-
-
-//Obtener gastos
-
+// Obtener gastos
 app.get('/gastos', async (req, res) => {
     try {
         const gastos = await GastosModel.find();
@@ -95,163 +86,146 @@ app.get('/gastos', async (req, res) => {
     }
 });
 
-
-
 // Agregar gastos
+app.post('/add-gastos', async (req, res) => {
+    const { proveedor, dia, mes, factura, monto, estado } = req.body;
+    if (!proveedor || !dia || !mes || !factura || !monto || !estado) {
+        return res.status(400).json({ error: 'Faltan datos requeridos' });
+    }
+    try {
+        const newGasto = new GastosModel({ proveedor, dia, mes, factura, monto, estado });
+        const result = await newGasto.save();
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
 
-app.post('/add-gastos', (req,res) => {
-    const { proveedor, dia , mes, factura, monto, estado } = req.body;
-    if(!proveedor || !dia || !mes || !factura || !monto || !estado){
-        return res.status(400).json({error});
-    } 
-    const newGasto = new GastosModel({proveedor, dia , mes, factura, monto, estado});
-    newGasto.save()
-    .then(result => {
-        console.log(result);
-        res.json(result)
-    })
-    .catch(err => {
-        console.err(err)
-        res.status(500).json({error: err.message})
-    })
-})
-
-//Eliminar gastos
-
-app.delete('/delete-gastos/:id', (req,res) => {
-    const {id} = req.params;
-    GastosModel.findByIdAndDelete(id)
-    .then(result => res.json(result))
-    .catch(err => res.json(500).json({error: err.message }))
-})
-
+// Eliminar gastos
+app.delete('/delete-gastos/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await GastosModel.findByIdAndDelete(id);
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // Editar gastos
-app.patch('/edit-gastos/:id', (req,res) => {
+app.patch('/edit-gastos/:id', async (req, res) => {
     const { id } = req.params;
     const { estado, proveedor, monto, factura } = req.body;
-    GastosModel.findByIdAndUpdate(id,{estado , proveedor, monto, factura},{new:true})
-    .then(result => res.json(result))
-    .catch(err => res.status(500).json({error: err.message}))
-})
-
+    try {
+        const result = await GastosModel.findByIdAndUpdate(id, { estado, proveedor, monto, factura }, { new: true });
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // Obtener datos de productos
-app.get('/productos', async (req,res) => {
-    try{
+app.get('/productos', async (req, res) => {
+    try {
         const productos = await ProductoModel.find();
-        res.json(productos)
+        res.json(productos);
     } catch (err) {
-        res.status(500).json({
-            error: err.message
-        })
+        res.status(500).json({ error: err.message });
     }
-})
+});
 
-// Agregar productos 
-
-app.post('/add-productos', (req,res) => {
-    const {marca,mascota,edad,kilo,precio,categoria} = req.body;
-    if(!marca || !mascota || !edad || !kilo || !precio || !categoria) {
-        return res.status(400).json({error});
+// Agregar productos
+app.post('/add-productos', async (req, res) => {
+    const { marca, mascota, edad, kilo, precio, categoria } = req.body;
+    if (!marca || !mascota || !edad || !kilo || !precio || !categoria) {
+        return res.status(400).json({ error: 'Faltan datos requeridos' });
     }
-    const newProducto = new ProductoModel({marca,mascota,edad,kilo,precio,categoria})
-    newProducto.save()
-    .then(result => {
-        console.log(result)
-        res.json(result)
-    })
-    .catch(err => {
-        console.err(err)
-        res.status(500).json({error: err.message})
-    })
-})
+    try {
+        const newProducto = new ProductoModel({ marca, mascota, edad, kilo, precio, categoria });
+        const result = await newProducto.save();
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
 
-// Eliminar productos 
-
-app.delete('/delete-productos/:id', (req,res) => {
-    const {id} = req.params;
-    ProductoModel.findByIdAndDelete(id)
-    .then(result => res.json(result))
-    .catch(err => res.status(500).json({error:err.message}))
-})
+// Eliminar productos
+app.delete('/delete-productos/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await ProductoModel.findByIdAndDelete(id);
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // Editar productos
-app.patch('/edit-productos/:id', (req, res) => {
+app.patch('/edit-productos/:id', async (req, res) => {
     const { id } = req.params;
-    const { marca, mascota, edad, kilo, precio, } = req.body; 
-    ProductoModel.findByIdAndUpdate(id, { marca, mascota, edad, kilo, precio }, { new: true })
+    const { marca, mascota, edad, kilo, precio } = req.body;
+    try {
+        const result = await ProductoModel.findByIdAndUpdate(id, { marca, mascota, edad, kilo, precio }, { new: true });
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Ruta para obtener notas
+app.get('/notas', async (req, res) => {
+    try {
+        const notas = await NotaModel.find();
+        res.json(notas);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Ruta para añadir una nota
+app.post('/add-notas', async (req, res) => {
+    const { notas, meses } = req.body;
+    if (!notas || !meses) {
+        return res.status(400).json({ error: 'Nota no proporcionada' });
+    }
+    try {
+        const newNota = new NotaModel({ notas, meses});
+        const result = await newNota.save();
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Eliminar notas
+app.delete('/delete-notas/:id', (req, res) => {
+    const { id } = req.params;
+    NotaModel.findByIdAndDelete(id)
+        .then(result => res.json(result))
+        .catch(err => res.status(500).json({ error: err.message }));
+});
+
+// Editar notas
+app.patch('/edit-notas/:id', (req, res) => {
+    const { id } = req.params;
+    const { notas, meses } = req.body;
+    NotaModel.findByIdAndUpdate(id, { notas, meses }, { new: true })
         .then(result => res.json(result))
         .catch(err => res.status(500).json({ error: err.message }));
 });
 
 
-// Obtener notas
-app.get('/notas', async (req,res) => {
-    try{
-        const notas = await NotaModel.find();
-        res.json(notas);
-        } 
-    catch (err) {
-        res.status(500).json({error: err.message})
-        }
-}) 
-
-// Ruta para añadir una nota
-app.post('/add-notas', async (req, res) => {
-    const { notas } = req.body;
-    if (!notas) {
-        return res.status(400).json({ error: 'Nota no proporcionada' });
-    }
-    try {
-        const newNota = new NotaModel({ notas });
-        const result = await newNota.save();
-        io.emit('notaAdded', result);
-        res.json(result);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
-// Ruta para eliminar una nota
-app.delete('/delete-notas/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const result = await NotaModel.findByIdAndDelete(id);
-        io.emit('notaDeleted', id); 
-        res.json(result);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
-// Ruta para editar una nota
-app.patch('/edit-notas/:id', async (req, res) => {
-    const { id } = req.params;
-    const { notas } = req.body;
-    try {
-        const result = await NotaModel.findByIdAndUpdate(id, { notas }, { new: true });
-        io.emit('notaUpdated', result);
-        res.json(result);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
 // Completar notas
-app.patch('/completed-notas/:id', async (req, res) => {
+app.patch('/completed-notas/:id', (req, res) => {
     const { id } = req.params;
     const { completed } = req.body;
-    try {
-        const result = await NotaModel.findByIdAndUpdate(id, { completed }, { new: true });
-        io.emit('notaCompleted', result); 
-        res.json(result);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+    NotaModel.findByIdAndUpdate(id, { completed }, { new: true })
+        .then(result => res.json(result))
+        .catch(err => res.status(500).json({ error: err.message }));
 });
-
-// Obtener Datos de los proveedores
+// Obtener datos de los proveedores
 app.get('/proveedors', async (req, res) => {
     try {
         const proveedores = await ProveedorModel.find();
@@ -261,78 +235,97 @@ app.get('/proveedors', async (req, res) => {
     }
 });
 
-// Ingresar Proveedores
-app.post('/add-proveedors', (req, res) => {
+// Agregar proveedores
+app.post('/add-proveedors', async (req, res) => {
     const { proveedores, marcas, edades, kilos, precios, mascotas } = req.body;
     if (!proveedores || !marcas || !edades || !kilos || !precios || !mascotas) {
-        return res.status(400).json({ error});
+        return res.status(400).json({ error: 'Faltan datos requeridos' });
     }
-    const newProveedor = new ProveedorModel({ proveedores, marcas, edades, kilos, precios, mascotas });
-    newProveedor.save()
-        .then(result => {
-            console.log(result);
-            res.json(result);
-        })
-        .catch(err => {
-            console.error(err);
-            res.status(500).json({ error: err.message });
-        });
+    try {
+        const newProveedor = new ProveedorModel({ proveedores, marcas, edades, kilos, precios, mascotas });
+        const result = await newProveedor.save();
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
 });
 
-// Eliminar producto
-app.delete('/delete-proveedors/:id', (req,res) => {
-    const {id} = req.params;
-    ProveedorModel.findByIdAndDelete(id)
-    .then(result => res.json(result))
-    .catch(err => res.status(500).json({err:err.message}))
-})
+// Eliminar proveedores
+app.delete('/delete-proveedors/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await ProveedorModel.findByIdAndDelete(id);
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
-app.patch('/edit-proveedors/:id', (req,res) => {
-    const {id} = req.params;
-    const {proveedores,marcas,mascotas,edades,kilos,precios} = req.body;
-    ProveedorModel.findByIdAndUpdate(id,{proveedores,marcas,mascotas,edades,kilos,precios}, {new:true})
-    .then(result => res.json(result))
-    .catch(err => res.status(500).json({error: err.message}))
-})
+// Editar proveedores
+app.patch('/edit-proveedors/:id', async (req, res) => {
+    const { id } = req.params;
+    const { proveedores, marcas, mascotas, edades, kilos, precios } = req.body;
+    try {
+        const result = await ProveedorModel.findByIdAndUpdate(id, { proveedores, marcas, mascotas, edades, kilos, precios }, { new: true });
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
-
-// Agregar Stock
-app.get('/stock', async (req,res) => {
+// Obtener stock
+app.get('/stock', async (req, res) => {
     try {
         const stock = await StockModel.find();
         res.json(stock);
     } catch (err) {
-        res.status(500).json({error: err.message})
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Agregar stock
+app.post('/add-stock', async (req, res) => {
+    const { brands, pet, size, kg, amount, condition } = req.body;
+    if (!brands || !pet || !size || !kg || !amount || !condition) {
+        return res.status(400).json({ error: 'Faltan datos requeridos' });
+    }
+    try {
+        const newStock = new StockModel({ brands, pet, size, kg, amount, condition });
+        const result = await newStock.save();
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+app.delete('/delete-stock/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const stock = await StockModel.findByIdAndDelete(id);
+        if (!stock) {
+            return res.status(404).json({ error: 'Stock not found' });
+        }
+        res.json(stock);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
     }
 })
 
-// Ingresar Stock
-app.post('/add-stock', (req,res) => {
-    const {brands, pet , size , kg , amount , condition} = req.body;
-    if(!brands || !pet || !size || !kg || !amount || !condition){
-        return res.status(400).json({error});
-    } 
-    const newStock = new StockModel({ brands,pet,size,kg,amount,condition});
-    newStock.save()
-    .then(result => {
-        console.log(result);
-        res.json(result);
-    })
-    .catch (err => {
-        console.error(err);
-        res.status(500).json({ error:err.message })
-    })
+// Sumar cantidad
+
+app.patch('/sumar-stock/:id', async (req,res) => {
+    try {
+        const {cantidad} = req.body;
+        const stockActualizado = await StockModel.findByIdAndUpdate(req.params.id, {amount:cantidad} , {new:true})
+        res.json(stockActualizado)
+    } catch (err) {
+        res.status(500).json({ error: err.message })
+    }
 })
 
-// Configuracion de Socket
-// io.on('connection',(socket) => {
-//     console.log("cliente conectado")
-
-//     socket.on('disconnect', () => {
-//         console.log('Cliente desconectado')
-//     })
-// })
-
-app.listen(3001, () =>{
-    console.log('Servidor funcionando en 3001')
-})
+app.listen(3001, () => {
+    console.log('Servidor funcionando en el puerto 3001');
+});

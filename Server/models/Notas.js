@@ -5,6 +5,10 @@ const notaSchema = new mongoose.Schema({
         type: String,
         require:true
     },
+    meses:{
+        type:String,
+        require:true
+    },
     completed: {
         type:Boolean,
         default: false

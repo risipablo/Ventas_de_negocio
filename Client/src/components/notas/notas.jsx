@@ -8,14 +8,15 @@ import { ScrollTop } from "../others/scrollTop";
 import { NotasContext } from "./notasContext/notasContext";
 
 
-// const serverFront = "http://localhost:3001";
-const serverFront = 'https://server-ventas.onrender.com';
+const serverFront = "http://localhost:3001";
+// const serverFront = 'https://server-ventas.onrender.com';
 
 export function Notas() {
     const [notes, setNotes] = useState([]);
     const [newNota, setNewNota] = useState("");
+    const [newMeses, setNewMeses ] = useState("");
 
-    const { agregarNotas , completarNotas, eliminarNota, } = useContext(NotasContext)
+    const { agregarNotas, completarNotas, eliminarNota } = useContext(NotasContext)
 
     useEffect(() => {
         axios.get(`${serverFront}/notas`)
@@ -25,24 +26,17 @@ export function Notas() {
             .catch(err => console.log(err));
     }, []);
 
+ 
     const addNotas = () => {
-        if (newNota.trim() !== "") {
-            axios.post(`${serverFront}/add-notas`, { notas: newNota })
+        if (newNota.trim() && newMeses.trim() !== "") {
+            axios.post(`${serverFront}/add-notas`, 
+                { notas: newNota, meses:newMeses })
                 .then(response => {
                     const nuevaNota = response.data;
                     setNotes(notas => [...notas, nuevaNota]);
                     setNewNota("");
-                    agregarNotas(nuevaNota);
-                    toast.success(
-                        ` Se agregó una anotacion nueva`,
-                        {
-                        position: "top-center",
-                        autoClose: 2000,
-                        theme: "light",
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                      });
-                      
+                    setNewMeses("")
+                    agregarNotas(nuevaNota)
                 })
                 .catch(err => console.log(err));
         }
@@ -54,21 +48,25 @@ export function Notas() {
             setNotes(notes.filter((note) => note._id !== id))
             eliminarNota(id);
         })
+        .catch(err => console.log(err));
     }
 
     const clearInput = () => {
         setNewNota("");
+        setNewMeses('');
     };
 
     const [editingId, setEditingId] = useState(null); 
     const [editingData, setEditingData] = useState({
-        notas:''
+        notas:'',
+        meses:''
     });
 
     const startEditing = (note) => {
         setEditingId(note._id);
         setEditingData({
             notas:note.notas,
+            meses:note.meses
         })
     }
 
@@ -76,6 +74,7 @@ export function Notas() {
         setEditingId(null);
         setEditingData({
             notas: '',
+            meses: '',
         })
     }
 
@@ -122,6 +121,13 @@ export function Notas() {
                     value={newNota} 
                 />
 
+                <input 
+                    type="text" 
+                    placeholder="Agregar Mes " 
+                    onChange={event => setNewMeses(event.target.value)}
+                    value={newMeses} 
+                />
+
                 <div className="botones-notas">
                     <button className="agregar" onClick={addNotas}>Agregar</button>
                     <button className="limpiar" onClick={clearInput}>Limpiar</button> 
@@ -134,38 +140,48 @@ export function Notas() {
                             <thead>
                                 <tr>
                                     <th>Notas</th>
+                                    <th>Mes</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {notes.map((element, index) => 
                                     <tr key={index} className={element.completed ? "completed-note" : ""}>
+
                                         <td>{editingId === element._id ?
-                                            <input value={editingData.notas} onChange={(e) => setEditingData({...editingData, notas:e.target.value})} /> : element.notas}</td>
-
-                                        <div className="actions">
-
-                                        <button className="trash" onClick={() => deleteNotas(element._id)}> <i className="fa-solid fa-trash"></i> </button>
+                                            <input value={editingData.notas} onChange={(e) => setEditingData({...editingData, notas:e.target.value})} /> : element.notas} </td>
                                         
-                                        
-                                        <button
+                                        <td>{editingId === element._id ?
+                                            <input value={editingData.meses} onChange={(e) => setEditingData({...editingData, meses:e.target.value})} /> : element.meses} </td>
+
+                                        <div className="actions2">
+                                            <button className="trash" onClick={() => deleteNotas(element._id)}>
+                                                <i className="fa-solid fa-trash"></i>
+                                            </button>
+
+                                            <button
                                                 className={element.completed ? "desmarcar" : "completar"}
-                                                onClick={() => completedNote(element._id,element.completed)}
+                                                onClick={() => completedNote(element._id, element.completed)}
                                             >
                                                 {element.completed ? "Desmarcar" : "Completar"}
-                                        </button>
-                                        
-                                        {editingId === element._id ? (
-                                        <div  className='btn-edit'>
-                                            <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
-                                            <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
+                                            </button>
 
-                                        </div>
+                                            {editingId === element._id ? (
+                                                <div className="btn-edit">
+                                                    <button className="check" onClick={() => saveChanges(element._id)}>
+                                                        <i className="fa-solid fa-check"></i>
+                                                    </button>
+                                                    <button className="cancel" onClick={cancelEditing}>
+                                                        <i className="fa-solid fa-ban"></i>
+                                                    </button>
+                                                </div>
                                             ) : (
-                                                <button className="edit" onClick={() => startEditing(element)}><i className="fa-solid fa-gear"></i></button>
+                                                <button className="edit" onClick={() => startEditing(element)}>
+                                                    <i className="fa-solid fa-pen-to-square"></i>
+                                                </button>
                                             )}
-
                                         </div>
+
                                     </tr>
                                 )}
                             </tbody>

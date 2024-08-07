@@ -4,12 +4,12 @@ import { createContext, useEffect, useState } from "react";
 
 export const NotasContext = createContext();
 
+const serverFront = 'https://server-ventas.onrender.com';
+// const serverFront = "http://localhost:3001";
 
 export function NotasProvider({children}){
 
     const [notero,setNotero] = useState([])
-
-    const serverFront = 'https://server-ventas.onrender.com';
 
     useEffect(() => {
         axios.get(`${serverFront}/notas`)
@@ -23,15 +23,11 @@ export function NotasProvider({children}){
     const agregarNotas = (note) => {
         setNotero((prevNotas) => {
             const notaExistente = prevNotas.find((item) => item._id === note._id);
-
             if (notaExistente) {
-                return prevNotas.map((item) => 
-                item._id === note._id ? {...item, cantidad: item.cantidad + 1} : item );
-            } else {
-                return [...prevNotas, {...note, cantidad: 1}]
+                return prevNotas.map((item) => item._id === note._id ? { ...item, cantidad: item.cantidad + 1 } : item);
             }
-
-        })
+            return [...prevNotas, { ...note, cantidad: 1 }];
+        });
     }
 
     const cantidadNotas = () => {

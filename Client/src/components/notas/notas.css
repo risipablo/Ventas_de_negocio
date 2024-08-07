@@ -29,9 +29,29 @@
     margin: auto 1.2rem;
 }
 
+.actions2 {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+}
+
+.actions2 button {
+   padding: 6px 12px;
+    margin: 12px 6px;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px; 
+    font-size: 0.8rem; 
+    transition: background-color 0.3s, color 0.3s; 
+    background-color: none;
+}
+
 .completar {
-    background-color: rgb(3, 143, 3);
+    background-color: rgb(8, 186, 8);
     color: rgb(255, 255, 255);
+}
+.completar:hover{  
+    background-color: rgb(3, 143, 3);
 }
 
 .desmarcar {
@@ -39,14 +59,15 @@
     color: rgb(255, 255, 255);
 }
 
+.desmarcar:hover {
+    background-color: #b32525;
+}
+
 .completed-note {
     text-decoration: line-through;
     color: rgb(156, 159, 155); 
 }
 
-Button .colapse{
-    margin: 2rem auto;
-}
 
 .link {
     text-decoration: none;

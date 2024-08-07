@@ -1,11 +1,15 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { StockCount } from "./stockCount";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Paper } from '@mui/material';
 import { Delete, Settings } from '@mui/icons-material';
+import { StockContext} from "./stockContext/stockContext"
+
+
 
 const serverFront = "http://localhost:3001";
+// const serverFront = 'https://server-ventas.onrender.com'
 
 export function Stock(){
     const [stock,setStock] = useState([]);
@@ -16,13 +20,16 @@ export function Stock(){
     const [amount, setAmount] = useState('');
     const [condition, setCondition] = useState('');
 
+    const { cantidadStock , restarStock, sumarStock} = useContext(StockContext)
+
     useEffect(() => {
         axios.get(`${serverFront}/stock`)
         .then(response => {
             setStock(response.data);
+            setStock(cantidadStock)
         })
         .catch(err => console.log(err));
-    },[]);
+    },[cantidadStock]);
 
     const addStock = () => {
         if (brands.trim() && size.trim() && pet.trim() && newKg.trim() && amount.trim() && condition.trim() !== "") {
@@ -42,7 +49,15 @@ export function Stock(){
             .catch(err => console.log(err));
         }
     };
-
+    const deleteStocks = (id) => {
+        console.log(`producto de stock eliminado: ${id}`);
+        axios.delete(`${serverFront}/delete-stock/${id}`)
+            .then(response => {
+                setStock(stock.filter((stoc) => stoc._id !== id))
+            })
+            .catch(err => console.log(err))
+    }
+    
     const clearFields = () => {
         setBrands('');
         setSize('');
@@ -51,6 +66,10 @@ export function Stock(){
         setAmount('');
         setCondition('');
     };
+
+    const condicionStock = (condition) => {
+        return condition.toLowerCase() === 'sin stock' ? 'rgba(218, 8, 25, 0.4)' : null;
+    }
 
     return (
         <div className="productos-container">
@@ -96,6 +115,7 @@ export function Stock(){
                     <option value="No Vigente">No Vigente</option>
                 </select>
             </div>
+
             <div className='botones'>
                 <button className="agregar" onClick={addStock}>Agregar</button>
                 <button className='limpiar' onClick={clearFields}>Limpiar</button>
@@ -118,15 +138,19 @@ export function Stock(){
                 </TableHead>
                 <TableBody>
                     {stock.map((element, index) => (
-                    <TableRow key={index}>
+                    <TableRow key={index} style={{ background: condicionStock(element.condition || '')}}>
                         <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>{element.brands}</TableCell>
                         <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>{element.size}</TableCell>
                         <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>{element.kg}</TableCell>
                         <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>{element.amount}</TableCell>
-                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}><StockCount /></TableCell>
-                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>{element.condition}</TableCell>
+                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}> <StockCount 
+                                                                                                                                            restarStock={() => restarStock(index)} 
+                                                                                                                                            sumarStock={() => sumarStock(index)} 
+                                                                                                                                            InitialStock={element.amount}
+                                                                                                                                            /> </TableCell>
+                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }} >{element.condition}</TableCell>
                         <TableCell sx={{ textAlign: 'center' }}>
-                        <IconButton aria-label="delete" sx={{ color: 'red' }}>
+                        <IconButton aria-label="delete" sx={{ color: 'red' }} onClick={() => deleteStocks(element._id)}>
                             <Delete />
                         </IconButton>
                         </TableCell>

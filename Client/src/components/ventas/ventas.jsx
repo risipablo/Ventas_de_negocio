@@ -21,7 +21,7 @@ export function Ventas() {
     const [newProduct, setProducto] = useState(""); // Ingreso de producto
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
     const [newBoleta, setBoleta] = useState(""); // Ingreso de boleta 
-    const [searchReset,setSearchReset] = useState("") // Evitar el reinicio del buscador
+   
 
     useEffect(() => {
         axios.get(`${serverFront}/ventas`)

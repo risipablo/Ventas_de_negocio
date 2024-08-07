@@ -18,7 +18,6 @@ function ItemCount ({InitialCantidad,handleRestar,handleSumar}){
     }
 
   
-
     return(
         <div className="item-count">
             <button onClick={decrecer}> - </button>

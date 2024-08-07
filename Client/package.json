@@ -26,6 +26,7 @@
     "react-scroll": "^1.9.0",
     "react-toastify": "^10.0.5",
     "reactjs-popup": "^2.0.6",
+    "socket.io-client": "^4.7.5",
     "styled-components": "^6.1.11",
     "vercel": "^34.2.7"
   },

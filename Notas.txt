@@ -1,0 +1,9 @@
+1. Agilizar la carga de datos (MongoDB).
+2. Corregir la funcion de eliminar un producto con respecto a el buscador y filtros, evitar el reinicio de ambos.
+3. Crear funciones de stock (Contador de productos).
+4. Corregir el conteo de notas. Cada vez que se borre una nota se descuente en el contador.
+5. Agregar un mes de cada nota y un buscador.
+6. Con Materia UI agregar un boton donde despliegue el total de cada vez y que se vincule con cada mes
+7. Login de usuarios (solo dar permiso a usuarios deseados).
+8. Usuarios no registrados puedan visitar y ver los datos pero no agregar,modificar o modificar.
+9. Mejorar estilos del proyecto
