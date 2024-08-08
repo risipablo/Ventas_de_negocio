@@ -133,12 +133,13 @@ export function Ventas() {
             } else {
                 monto += product.total
             }
-
         });
-        return monto;
+
+        return monto.toLocaleString('en-US');
 
     }
 
+ 
     // Editar gastos
     const [editId, setEditId] = useState(null);
     const [editingId, setEditingId] = useState({
@@ -279,6 +280,10 @@ export function Ventas() {
             <Buscador placeholder="Buscar ventas" filtrarDatos={filtrarVentas} />
             <Filtros ventas={ventas} setVentasFiltradas={setVentasFiltradas}/>
 
+            <tr className='total'>
+                <td> Total: ${totalMonto(ventasFiltradas)}</td>
+            </tr>
+            
             <div className="productos">
                 <div className='table-responsive'>
                     <table>

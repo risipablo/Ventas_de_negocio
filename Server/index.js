@@ -225,6 +225,8 @@ app.patch('/completed-notas/:id', (req, res) => {
         .then(result => res.json(result))
         .catch(err => res.status(500).json({ error: err.message }));
 });
+
+
 // Obtener datos de los proveedores
 app.get('/proveedors', async (req, res) => {
     try {

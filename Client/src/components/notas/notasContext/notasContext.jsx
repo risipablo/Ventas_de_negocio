@@ -33,7 +33,7 @@ export function NotasProvider({children}){
     }
 
     const cantidadNotas = () => {
-        return notero.reduce((acumulador,note) => acumulador + note.cantidad, 0)
+        return notero.filter(note => !note.completed).reduce((acumulador,note) => acumulador + note.cantidad, 0)
     }
 
     const eliminarNota = (id) => {

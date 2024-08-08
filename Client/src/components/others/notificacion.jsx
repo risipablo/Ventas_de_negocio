@@ -20,7 +20,7 @@ export function Notificacion() {
     return(
         <div className="notificacion">
             <Button className="outlined" onClick={handleOpen}>
-                <i className="fa-sharp fa-solid fa-bell"></i>
+            <i className="fa-sharp fa-solid fa-bell fa-2x " style={{ color: 'rgba(134, 10, 180)' }} ></i>
             </Button>
 
             <Dialog open={open} onClose={handleClose}>
@@ -31,7 +31,7 @@ export function Notificacion() {
                 </DialogActions>
                 <DialogTitle className="dialog-content"> Ofertas</DialogTitle>
                 <DialogContent className="dialog-content">
-                    Biopet y Suertudo 10% descuento
+                    Biopet , Suertudo y linea Excellent 10% descuento
                 </DialogContent>
                 <DialogContent className="dialog-content">
                     Indumentaria 20% descuento
