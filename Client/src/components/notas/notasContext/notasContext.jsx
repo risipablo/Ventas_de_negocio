@@ -4,10 +4,12 @@ import { createContext, useEffect, useState } from "react";
 
 export const NotasContext = createContext();
 
-const serverFront = 'https://server-ventas.onrender.com';
-// const serverFront = "http://localhost:3001";
 
 export function NotasProvider({children}){
+
+    const serverFront = 'https://server-ventas.onrender.com';
+// const serverFront = "http://localhost:3001";
+
 
     const [notero,setNotero] = useState([])
 

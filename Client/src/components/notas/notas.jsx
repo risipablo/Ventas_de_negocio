@@ -6,13 +6,16 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ScrollTop } from "../others/scrollTop";
 import { NotasContext } from "./notasContext/notasContext";
+import { Buscador } from "../buscador/buscador";
+import { FiltrosGastos } from "../gastos/filtrosGastos";
 
 
-const serverFront = "http://localhost:3001";
-// const serverFront = 'https://server-ventas.onrender.com';
+// const serverFront = "http://localhost:3001";
+const serverFront = 'https://server-ventas.onrender.com';
 
 export function Notas() {
     const [notes, setNotes] = useState([]);
+    const [notesFilter, setNotesFilter] = useState([])
     const [newNota, setNewNota] = useState("");
     const [newMeses, setNewMeses ] = useState("");
 
@@ -22,6 +25,7 @@ export function Notas() {
         axios.get(`${serverFront}/notas`)
             .then(response => {
                 setNotes(response.data);
+                setNotesFilter(response.data)
             })
             .catch(err => console.log(err));
     }, []);
@@ -34,6 +38,7 @@ export function Notas() {
                 .then(response => {
                     const nuevaNota = response.data;
                     setNotes(notas => [...notas, nuevaNota]);
+                    setNotesFilter(notas => [...notas, nuevaNota])
                     setNewNota("");
                     setNewMeses("")
                     agregarNotas(nuevaNota)
@@ -49,6 +54,15 @@ export function Notas() {
             eliminarNota(id);
         })
         .catch(err => console.log(err));
+    }
+
+    const FiltarNotas = (palabrasClave) => {
+        setNotesFilter(notes.filter(note => {
+            return palabrasClave.every(palabra => 
+                note.notas.toLowerCase().includes(palabra) ||
+                note.meses.toLowerCase().includes(palabra)
+            )
+        }))
     }
 
     const clearInput = () => {
@@ -82,6 +96,7 @@ export function Notas() {
         axios.patch(`${serverFront}/edit-notas/${id}`, editingData)
         .then(response => {
             setNotes(notes.map(note => note._id === id ? response.data : note))
+            setNotesFilter(notesFilter.map(note => note._id === id ? response.data : note))
             cancelEditing();
             toast.success("Nota actualizada ", {
                 position: "top-center",
@@ -100,6 +115,7 @@ export function Notas() {
         .then(response => {
             const completedNotes = notes.map(note => note._id === id ? response.data : note)
             setNotes(completedNotes)
+            setNotesFilter(completedNotes)
             completarNotas(id, !completed)
         })
         .catch(err => console.log(err))
@@ -112,6 +128,8 @@ export function Notas() {
             </Helmet>
 
             <h1>Notas</h1>
+
+            <Buscador placeholder="Buscar Notas " filtrarDatos={FiltarNotas}/>
 
             <div className="agregar-notas">
                 <input 
@@ -133,6 +151,8 @@ export function Notas() {
                     <button className="limpiar" onClick={clearInput}>Limpiar</button> 
                 </div>
             </div>
+
+            
             
                 <div className="productos">
                     <div className="table-responsive">
@@ -145,7 +165,7 @@ export function Notas() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {notes.map((element, index) => 
+                                {notesFilter.map((element, index) => 
                                     <tr key={index} className={element.completed ? "completed-note" : ""}>
 
                                         <td>{editingId === element._id ?
