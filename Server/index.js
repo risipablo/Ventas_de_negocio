@@ -1,18 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const redis = require('redis');
+const compression = require('compression');
 const VentasModel = require('./models/Ventas');
 const GastosModel = require('./models/gastos');
 const ProductoModel = require('./models/Productos');
 const NotaModel = require('./models/Notas');
 const ProveedorModel = require('./models/Proveedor');
 const StockModel = require('./models/Stock');
+
 require("dotenv").config();
+console.log("MongoDB URI:", process.env.MONGODB); 
 
 const app = express();
-
+const redisClient = redis.createClient();
 
 app.use(express.json());
+app.use(compression());
 
 const corsOptions = {
     origin: ['http://localhost:5173', 'https://ventas-de-negocio.vercel.app'],
@@ -29,12 +34,36 @@ mongoose
 
 // Obtener registro de ventas
 app.get('/ventas', async (req, res) => {
-    try {
-        const ventas = await VentasModel.find();
-        res.json(ventas);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+    const { page = 1, limit = 10 } = req.query; // Valores por defecto para paginación
+
+    // Verificar si las ventas están en caché
+    redisClient.get(`ventas:page:${page}`, async (err, ventas) => {
+        if (ventas) {
+            return res.json(JSON.parse(ventas));
+        } else {
+            try {
+                const ventasData = await VentasModel.find({}, { day: 1, month: 1, total: 1, tp: 1, product: 1 }) // Proyección de campos
+                    .limit(limit * 1) // Limitar la cantidad de resultados
+                    .skip((page - 1) * limit) // Paginación
+                    .exec();
+
+                const count = await VentasModel.countDocuments(); // Contar el total de ventas
+
+                const response = {
+                    ventas: ventasData,
+                    totalPages: Math.ceil(count / limit),
+                    currentPage: page
+                };
+
+                // Almacenar las ventas en caché
+                redisClient.setex(`ventas:page:${page}`, 3600, JSON.stringify(response)); // Caché por 1 hora
+
+                res.json(response);
+            } catch (err) {
+                res.status(500).json({ error: err.message });
+            }
+        }
+    });
 });
 
 // Agregar registro de ventas
@@ -51,20 +80,6 @@ app.post('/add-ventas', async (req, res) => {
         console.error(err);
         res.status(500).json({ error: err.message });
     }
-});
-
-// Eliminar ventas
-app.delete('/delete-ventas/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const result = await VentasModel.findByIdAndDelete(id);
-        res.json(result);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
-// Editar Ventas
 app.patch('/edit-ventas/:id', async (req, res) => {
     const { id } = req.params;
     const { total, product, tp, boleta } = req.body;
@@ -123,7 +138,21 @@ app.patch('/edit-gastos/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+});});
+
+// Eliminar ventas
+app.delete('/delete-ventas/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await VentasModel.findByIdAndDelete(id);
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 });
+
+// Editar Ventas
+
 
 // Obtener datos de productos
 app.get('/productos', async (req, res) => {
