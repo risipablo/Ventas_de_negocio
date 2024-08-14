@@ -10,4 +10,3 @@
 10. Ponen un alerta a productos con descuento (opcional) 
 11. Cambiar el menu por iconos (opcional)
 12. Realizar una seccion de estadisticas
-13. Guardar productos del carrito en MongoDB.

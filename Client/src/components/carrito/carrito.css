@@ -55,10 +55,11 @@
 
 .carrito-total {
     display: flex;
-    margin-top: 2rem;
     justify-content: space-between;
+    margin-top: 2rem;
     color: #232222;
 }
+
 
 .carrito-total h3{
     font-size: 1.4rem;

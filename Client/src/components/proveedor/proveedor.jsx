@@ -8,6 +8,7 @@ import axios from "axios";
 import { CarritoContext } from "../carrito/carritoContext";
 import { ToastContainer,toast,Bounce } from "react-toastify";
 import { ScrollTop } from "../others/scrollTop";
+import { FiltroProveedor } from "./filtroProveedor";
 
 
 
@@ -24,6 +25,7 @@ export function Proveedor() {
     const [newEdad, setNewEdad] = useState("");
     const [newKilo, setNewKilo] = useState("");
     const [newPrecio, setNewPrecio] = useState("");
+
     const { agregarAlCarrito } = useContext(CarritoContext)
 
     useEffect(() => {
@@ -271,11 +273,14 @@ export function Proveedor() {
 
             <Buscador placeholder="Buscar productos" filtrarDatos={filtrarProveedores} />
 
+            <FiltroProveedor products={products} setProovedorFiltrado={setProveedorFiltrado} />
+
             <div className="productos">
                 <div className="table-responsive">
                     <table>
                         <thead>
                             <tr>
+                                <th>Proveedor</th>
                                 <th>Marca</th>
                                 <th>Mascota</th>
                                 <th>Edad</th>
@@ -288,6 +293,7 @@ export function Proveedor() {
                         <tbody>
                             {proveedorFiltrado.map((element, index) =>
                                 <tr key={index}>
+                                    <td>{element.proveedores}</td>
                                     <td>{editingId === element._id ?
                                         <input value={editingData.marcas} onChange={(e) => setEditingData({ ...editingData, marcas: e.target.value })} /> : element.marcas}</td>
                                     <td>{editingId === element._id ?

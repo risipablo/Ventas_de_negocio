@@ -27,7 +27,7 @@ export function Gastos(){
 
 
     useEffect(() => {
-        axios.get(`${serverFront}/gastos`)
+        axios.get(`${serverFront}/gasto`)
           .then(response => 
             {
                 setGastos(response.data);

@@ -65,7 +65,7 @@ app.patch('/edit-ventas/:id', async (req, res) => {
 });
 
 // Obtener gastos
-app.get('/gastos', async (req, res) => {
+app.get('/gasto', async (req, res) => {
     try {
         const gastos = await GastosModel.find();
         res.json(gastos);
@@ -278,6 +278,7 @@ app.patch('/edit-proveedors/:id', async (req, res) => {
     }
 });
 
+
 // Obtener stock
 app.get('/stock', async (req, res) => {
     try {
@@ -319,7 +320,6 @@ app.delete('/delete-stock/:id', async (req, res) => {
 })
 
 // Sumar cantidad
-
 app.patch('/sumar-stock/:id', async (req,res) => {
     try {
         const {cantidad} = req.body;

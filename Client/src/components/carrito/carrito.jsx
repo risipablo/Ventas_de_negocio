@@ -1,13 +1,18 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CarritoContext } from "./carritoContext";
 import './carrito.css'
 import ItemCount from "./itemCount";
 
+
+
 export function Carrito(){
     const { carrito, vaciarCarrito, eliminarProd, precioTotal ,handleSumar, handleRestar} = useContext(CarritoContext)
 
+
     const handleVaciar = () => {
         vaciarCarrito();
+        setTotalCompra(null);
+        setProveedor('');
     }
 
     const handleEliminar = (index) => {
@@ -28,7 +33,8 @@ export function Carrito(){
                             <p className="monto"> Costo: ${producto.precios} </p>
                             <p> Cantidad: {producto.cantidad} </p>
                             <p className="monto"> Precio Total: ${producto.precios * producto.cantidad}</p>
-                            
+                            <p>{producto.proveedores}</p>
+
                             <ItemCount 
                              InitialCantidad={producto.cantidad} 
                              precioUnitario={producto.precios}
@@ -49,12 +55,12 @@ export function Carrito(){
                         <div className="carrito-total">
                         <h3>Total: $ {precioTotal()} </h3>
                         <button onClick={handleVaciar}> Vaciar</button>
-                        </div> 
-                    )} 
-             
-            </ul>
+        
 
+                        </div> 
+                        
+                    )} 
+            </ul>
         </div>
     )
 }
-
