@@ -6,6 +6,7 @@ import { Shop } from "../carrito/shop";
 import { Box } from '@mui/material';
 import { NotasIcon } from "../notas/notasIcon";
 import { StockIcon } from "../stock/stockIcon";
+import { ArchivoIcon } from "../archivos/archivoIcon";
 
 
 export function Navbar(){
@@ -47,6 +48,7 @@ export function Navbar(){
                     </div>
 
                     <Box className="icon-container" display="flex" alignItems="center" position="relative">
+                        <ArchivoIcon/>
                         <StockIcon/>
                         <NotasIcon/>
                         <Shop />
