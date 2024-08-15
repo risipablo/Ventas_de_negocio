@@ -31,6 +31,17 @@ router.post('/add', async (req, res) => {
     }
 });
 
+// Eliminar ventas
+route.delete('/delete/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await VentasModel.findByIdAndDelete(id);
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // Editar registro de ventas
 router.patch('/edit/:id', async (req, res) => {
     const { id } = req.params;
@@ -43,4 +54,4 @@ router.patch('/edit/:id', async (req, res) => {
     }
 });
 
-module.exports = router;
+

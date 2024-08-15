@@ -10,8 +10,8 @@ import {ScrollTop} from '../others/scrollTop'
 
 
 
-const serverFront = 'http://localhost:3001';
-// const serverFront = 'https://server-ventas.onrender.com'
+// const serverFront = 'http://localhost:3001';
+const serverFront = 'https://server-ventas.onrender.com'
 
 
 
@@ -27,7 +27,7 @@ export function Gastos(){
 
 
     useEffect(() => {
-        axios.get(`${serverFront}/gastos`)
+        axios.get(`${serverFront}/gastos `)
         .then(response => {
             setGastos(response.data)
             setGastosFiltrados(response.data)
