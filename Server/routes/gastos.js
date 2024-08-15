@@ -1,8 +1,7 @@
 const express = require('express')
 const GastosModel = require ('../models/Gastos');
-const { route } = require('./ventas');
 
-const router = express.Router();
+const route = express.Router();
 
 
 // Obtener gastos
@@ -16,7 +15,7 @@ route.get('/', async (req,res) => {
 })
 
 // Agregar gastos
-route.post('/add', async (req,res) => {
+route.post('/add-gastos', async (req,res) => {
     const { proveedor, dia, mes, factura, monto, estado } = req.body;
         if (!proveedor || !dia || !mes || !factura || !monto || !estado) {
             return res.status(400).json({ error: 'Faltan datos requeridos' });
@@ -32,7 +31,7 @@ route.post('/add', async (req,res) => {
 })
 
 // Eliminar gastos
-route.delete('/delete/:id', async (req, res) => {
+route.delete('/delete-gastos/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const result = await GastosModel.findByIdAndDelete(id);
@@ -45,7 +44,7 @@ route.delete('/delete/:id', async (req, res) => {
 
 
 // Editar gastos
-route.patch('/edit/:id', async (req, res) => {
+route.patch('/edit-gastos/:id', async (req, res) => {
     const { id } = req.params;
     const { estado, proveedor, monto, factura } = req.body;
     try {
@@ -57,4 +56,4 @@ route.patch('/edit/:id', async (req, res) => {
 });
 
 
-module.exports = router;
+module.exports = route;

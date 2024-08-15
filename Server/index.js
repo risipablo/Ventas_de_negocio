@@ -1,19 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
-const ventasRoutes = require('./routes/ventas');
-const gastosRoutes = require ('./routes/gastos');
-const ProductoModel = require('./models/Productos');
+const VentasModel = require('./models/Ventas')
+const gastosRoutes = require('./routes/gastos');
+const productosRoutes = require('./routes/productos');
+const proveedorRoutes = require('./routes/proveedores')
 const NotaModel = require('./models/Notas');
-const ProveedorModel = require('./models/Proveedor');
 const StockModel = require('./models/Stock');
+
 require("dotenv").config();
 
 const app = express();
-
-
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const corsOptions = {
     origin: ['http://localhost:5173', 'https://ventas-de-negocio.vercel.app'],
@@ -23,36 +22,36 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 
-mongoose
-    .connect(process.env.MONGODB)
+mongoose.connect(process.env.MONGODB)
     .then(() => console.log("Conexión exitosa con MongoDB"))
     .catch((err) => console.error("Conexión fallida: " + err));
 
-    
-
-app.use('/ventas', ventasRoutes);
+// app.use('/ventas', ventasRouter);
 app.use('/gastos', gastosRoutes);
+app.use('/productos', productosRoutes);
+app.use('/proveedors', proveedorRoutes);
 
 
-// Obtener datos de productos
-app.get('/productos', async (req, res) => {
+// Obtener registro de ventas
+app.get('/ventas', async (req, res) => {
     try {
-        const productos = await ProductoModel.find();
-        res.json(productos);
+        const ventas = await VentasModel.find();
+        res.json(ventas);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
 
-// Agregar productos
-app.post('/add-productos', async (req, res) => {
-    const { marca, mascota, edad, kilo, precio, categoria } = req.body;
-    if (!marca || !mascota || !edad || !kilo || !precio || !categoria) {
+
+// Agregar registro de ventas
+app.post('/add-ventas', async (req, res) => {
+    const { day, month, total, tp, product, boleta } = req.body;
+    if (!day || !month || !tp || !product || !total || !boleta) {
         return res.status(400).json({ error: 'Faltan datos requeridos' });
     }
     try {
-        const newProducto = new ProductoModel({ marca, mascota, edad, kilo, precio, categoria });
-        const result = await newProducto.save();
+        const newVenta = new VentasModel({ day, month, total, tp, product, boleta });
+        const result = await newVenta.save();
         res.json(result);
     } catch (err) {
         console.error(err);
@@ -60,28 +59,31 @@ app.post('/add-productos', async (req, res) => {
     }
 });
 
-// Eliminar productos
-app.delete('/delete-productos/:id', async (req, res) => {
+
+// Eliminar ventas
+app.delete('/delete-ventas/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await ProductoModel.findByIdAndDelete(id);
+        const result = await VentasModel.findByIdAndDelete(id);
         res.json(result);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
 
-// Editar productos
-app.patch('/edit-productos/:id', async (req, res) => {
+// Editar registro de ventas
+app.patch('/edit-ventas/:id', async (req, res) => {
     const { id } = req.params;
-    const { marca, mascota, edad, kilo, precio } = req.body;
+    const { total, product, tp, boleta } = req.body;
     try {
-        const result = await ProductoModel.findByIdAndUpdate(id, { marca, mascota, edad, kilo, precio }, { new: true });
+        const result = await VentasModel.findByIdAndUpdate(id, { total, product, tp, boleta }, { new: true });
         res.json(result);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
+
+
 
 // Ruta para obtener notas
 app.get('/notas', async (req, res) => {
@@ -136,55 +138,6 @@ app.patch('/completed-notas/:id', (req, res) => {
 });
 
 
-// Obtener datos de los proveedores
-app.get('/proveedors', async (req, res) => {
-    try {
-        const proveedores = await ProveedorModel.find();
-        res.json(proveedores);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
-// Agregar proveedores
-app.post('/add-proveedors', async (req, res) => {
-    const { proveedores, marcas, edades, kilos, precios, mascotas } = req.body;
-    if (!proveedores || !marcas || !edades || !kilos || !precios || !mascotas) {
-        return res.status(400).json({ error: 'Faltan datos requeridos' });
-    }
-    try {
-        const newProveedor = new ProveedorModel({ proveedores, marcas, edades, kilos, precios, mascotas });
-        const result = await newProveedor.save();
-        res.json(result);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: err.message });
-    }
-});
-
-// Eliminar proveedores
-app.delete('/delete-proveedors/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const result = await ProveedorModel.findByIdAndDelete(id);
-        res.json(result);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
-// Editar proveedores
-app.patch('/edit-proveedors/:id', async (req, res) => {
-    const { id } = req.params;
-    const { proveedores, marcas, mascotas, edades, kilos, precios } = req.body;
-    try {
-        const result = await ProveedorModel.findByIdAndUpdate(id, { proveedores, marcas, mascotas, edades, kilos, precios }, { new: true });
-        res.json(result);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
 
 // Obtener stock
 app.get('/stock', async (req, res) => {
@@ -237,6 +190,6 @@ app.patch('/sumar-stock/:id', async (req,res) => {
     }
 })
 
-app.listen(3001, () => {
+app.listen(3002, () => {
     console.log('Servidor funcionando en el puerto 3001');
 });

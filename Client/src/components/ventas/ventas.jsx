@@ -9,8 +9,10 @@ import { ScrollTop } from '../others/scrollTop';
 import { Notificacion } from '../others/notificacion';
 
 
-// const serverFront = "http://localhost:3001";
-const serverFront = 'https://server-ventas.onrender.com'
+// const serverFront = "http://localhost:3002";
+const serverFront = 'https://server-ventas.onrender.com';
+
+
 
 export function Ventas() {
     const [ventas, setVentas] = useState([]);
