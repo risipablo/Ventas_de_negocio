@@ -28,5 +28,5 @@ const ventaSchema = new mongoose.Schema({
     }
 })
 
-const Ventas = mongoose.model('venta', ventaSchema)
+const Ventas = mongoose.model('Ventas', ventaSchema)
 module.exports = Ventas;

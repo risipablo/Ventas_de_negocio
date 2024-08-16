@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 import { useEffect, useState } from "react";
 import "./ventas.css"
 import { Buscador } from '../buscador/buscador';
@@ -9,10 +9,8 @@ import { ScrollTop } from '../others/scrollTop';
 import { Notificacion } from '../others/notificacion';
 
 
-// const serverFront = "http://localhost:3002";
+// const serverFront = "http://localhost:3001";
 const serverFront = 'https://server-ventas.onrender.com';
-
-
 
 export function Ventas() {
     const [ventas, setVentas] = useState([]);
@@ -33,6 +31,7 @@ export function Ventas() {
             })
             .catch(err => console.log(err));
     }, []);
+
 
     const addVentas = () => {
         if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== "" ) {
@@ -69,7 +68,7 @@ export function Ventas() {
     };
 
     const deleteVentas = (id, product, total) => {
-        axios.delete(`${serverFront}/delete-ventas/` + id)
+        axios.delete(`${serverFront}/delete-venta/` + id)
         .then(response => {
             const updatedVentas = ventas.filter((venta) => venta._id !== id);
             setVentas(updatedVentas);

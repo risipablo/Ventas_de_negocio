@@ -23,7 +23,7 @@ export function Stock(){
     const { cantidadStock , restarStock, sumarStock} = useContext(StockContext)
 
     useEffect(() => {
-        axios.get(`${serverFront}/stock`)
+        axios.get(`${serverFront}/stocks`)
         .then(response => {
             setStock(response.data);
             setStock(cantidadStock)

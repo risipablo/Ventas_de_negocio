@@ -8,8 +8,7 @@ import axios from "axios";
 import { CarritoContext } from "../carrito/carritoContext";
 import { ToastContainer,toast,Bounce } from "react-toastify";
 import { ScrollTop } from "../others/scrollTop";
-import { FiltroProveedor } from "./filtroProveedor";
-
+// import { FiltroProveedor } from "./filtroProveedor";
 
 
 // const serverFront = "http://localhost:3001";
@@ -273,7 +272,7 @@ export function Proveedor() {
 
             <Buscador placeholder="Buscar productos" filtrarDatos={filtrarProveedores} />
 
-            <FiltroProveedor products={products} setProovedorFiltrado={setProveedorFiltrado} />
+            {/* <FiltroProveedor products={products} setProovedorFiltrado={setProveedorFiltrado} /> */}
 
             <div className="productos">
                 <div className="table-responsive">
