@@ -15,7 +15,7 @@ routes.get('/stocks', async (req, res) => {
 });
 
 // Agregar stock
-routes.post('/add-stocks', async (req, res) => {
+routes.post('/add-stock', async (req, res) => {
     const { brands, pet, size, kg, amount, condition } = req.body;
     if (!brands || !pet || !size || !kg || !amount || !condition) {
         return res.status(400).json({ error: 'Faltan datos requeridos' });

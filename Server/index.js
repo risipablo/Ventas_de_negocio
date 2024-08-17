@@ -9,6 +9,9 @@ const proveedorRoutes = require('./routes/proveedores')
 const notasRoutes = require('./routes/notas')
 const stockRoutes = require('./routes/stock')
 
+const VentasModel = require('./models/Ventas');
+const multer = require('multer');
+
 require("dotenv").config();
 
 const app = express();
@@ -27,7 +30,7 @@ mongoose.connect(process.env.MONGODB)
     .then(() => console.log("Conexión exitosa con MongoDB"))
     .catch((err) => console.error("Conexión fallida: " + err));
 
-app.use('/ventas', ventasRoutes);
+app.use('/venta', ventasRoutes);
 app.use('/gastos', gastosRoutes);
 app.use('/productos', productosRoutes);
 app.use('/proveedors', proveedorRoutes);
@@ -35,7 +38,29 @@ app.use('/notas', notasRoutes )
 app.use('/stocks', stockRoutes)
 
 
+const storage = multer.diskStorage({
+    destination: './uploads',
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    },
+});
 
-app.listen(3001, () => {
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 1000000 }, // Limit file size to 1MB
+}).single('file'); // Specify the name of the file field in the form
+
+app.post('/upload', (req, res) => {
+    upload(req, res, (err) => {
+        if (err) {
+            return res.status(500).json({ message: 'Error uploading file', error: err.message });
+        }
+        res.status(200).json({ message: 'File uploaded successfully' });
+    });
+});
+
+
+const PORT = process.env.PORT || 3002;
+app.listen(PORT, () => {
     console.log('Servidor funcionando en el puerto 3001');
 });

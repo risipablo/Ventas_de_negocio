@@ -16,7 +16,7 @@ app.get('/ventas', async (req, res) => {
 
 
 // Agregar registro de ventas
-app.post('/add-ventas', async (req, res) => {
+app.post('/add-ventas',async (req, res) => {
     const { day, month, total, tp, product, boleta } = req.body;
     if (!day || !month || !tp || !product || !total || !boleta) {
         return res.status(400).json({ error: 'Faltan datos requeridos' });
@@ -33,7 +33,7 @@ app.post('/add-ventas', async (req, res) => {
 
 
 // Eliminar ventas
-app.delete('/delete-venta/:id', async (req, res) => {
+app.delete('/delete-ventas/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const result = await VentasModel.findByIdAndDelete(id);
@@ -44,7 +44,7 @@ app.delete('/delete-venta/:id', async (req, res) => {
 });
 
 // Editar registro de ventas
-app.patch('/edit-ventas/:id', async (req, res) => {
+app.patch('/edit/:id', async (req, res) => {
     const { id } = req.params;
     const { total, product, tp, boleta } = req.body;
     try {

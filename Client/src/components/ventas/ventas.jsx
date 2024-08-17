@@ -32,9 +32,8 @@ export function Ventas() {
             .catch(err => console.log(err));
     }, []);
 
-
     const addVentas = () => {
-        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== "" ) {
+        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== "") {
             axios.post(`${serverFront}/add-ventas`, {
                 day: newDay,
                 month: newMonth,
@@ -67,8 +66,10 @@ export function Ventas() {
         }
     };
 
+
+
     const deleteVentas = (id, product, total) => {
-        axios.delete(`${serverFront}/delete-venta/` + id)
+        axios.delete(`${serverFront}/delete-ventas/` + id)
         .then(response => {
             const updatedVentas = ventas.filter((venta) => venta._id !== id);
             setVentas(updatedVentas);
@@ -141,59 +142,55 @@ export function Ventas() {
     }
 
  
-    // Editar gastos
-    const [editId, setEditId] = useState(null);
-    const [editingId, setEditingId] = useState({
-        day: '',
-        month: '',
-        tp:'',
-        product: '',
-        total:'',
-        boleta: ''
-    });
-
-    const editing = (venta) => {
-        setEditId(venta._id);
-        setEditingId({
-            day:venta.day,
-            month:venta.month,
-            tp:venta.tp,
-            product:venta.product,
-            total:venta.total,
-            boleta:venta.boleta
-        });
-    }
-
-    const cancelEdit = () => {
-        setEditId(null);
-        setEditingId({
-            day: '',
-            month: '',
-            tp:'',
-            product: '',
-            total:'',
-            boleta: ''
-        });
-    }
-
-    const saveEdit = (id) => {
-        axios.patch(`${serverFront}/edit-ventas/${id}`, editingId)
-        .then(response => {
-            setVentas(ventas.map(venta => venta._id === id ? response.data : venta));
-            setVentasFiltradas(ventasFiltradas.map(venta => venta._id === id ? response.data : venta));
-            cancelEdit();
-            toast.success("Producto actualizado ", {
-                position: "top-center",
-                autoClose: 2000,
-                closeOnClick: true,
-                pauseOnHover: false,
-                theme: "light",
-                transition: Bounce,
-            });
-        })
-        .catch(err => console.log(err));
-    }
-
+      // Editar gastos
+      const [editId, setEditId] = useState(null);
+      const [editingId, setEditingId] = useState({
+          day: '',
+          month: '',
+          tp:'',
+          product: '',
+          total:'',
+          boleta: ''
+      });
+      const editing = (venta) => {
+          setEditId(venta._id);
+          setEditingId({
+              day:venta.day,
+              month:venta.month,
+              tp:venta.tp,
+              product:venta.product,
+              total:venta.total,
+              boleta:venta.boleta
+          });
+      }
+      const cancelEdit = () => {
+          setEditId(null);
+          setEditingId({
+              day: '',
+              month: '',
+              tp:'',
+              product: '',
+              total:'',
+              boleta: ''
+          });
+      }
+      const saveEdit = (id) => {
+          axios.patch(`${serverFront}/edit-ventas/${id}`, editingId)
+          .then(response => {
+              setVentas(ventas.map(venta => venta._id === id ? response.data : venta));
+              setVentasFiltradas(ventasFiltradas.map(venta => venta._id === id ? response.data : venta));
+              cancelEdit();
+              toast.success("Producto actualizado ", {
+                  position: "top-center",
+                  autoClose: 2000,
+                  closeOnClick: true,
+                  pauseOnHover: false,
+                  theme: "light",
+                  transition: Bounce,
+              });
+          })
+          .catch(err => console.log(err));
+      }
     return (
         <div className="venta-container">
             <h1>Ingresos de ventas</h1>
@@ -328,7 +325,7 @@ export function Ventas() {
                                     {editId === element._id ? (
                                     <div className='btn-edit'>
                                         <button className="check" onClick={() => saveEdit(element._id)}><i className="fa-solid fa-check"></i></button>
-                                        <button className="cancel" onClick={cancelEdit}><i className="fa-solid fa-ban"></i></button>
+                                        <button className="cancel" onClick={''}><i className="fa-solid fa-ban"></i></button>
                                     </div>
                                         ) : (
                                             <button className="edit" onClick={() => editing(element)}><i className="fa-solid fa-gear"></i></button>

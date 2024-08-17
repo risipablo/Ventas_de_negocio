@@ -8,8 +8,8 @@ import { StockContext} from "./stockContext/stockContext"
 
 
 
-const serverFront = "http://localhost:3001";
-// const serverFront = 'https://server-ventas.onrender.com'
+// const serverFront = "http://localhost:3001";
+const serverFront = 'https://server-ventas.onrender.com'
 
 export function Stock(){
     const [stock,setStock] = useState([]);
@@ -23,13 +23,13 @@ export function Stock(){
     const { cantidadStock , restarStock, sumarStock} = useContext(StockContext)
 
     useEffect(() => {
-        axios.get(`${serverFront}/stocks`)
+        axios.get(`${serverFront}/stocks `) 
         .then(response => {
-            setStock(response.data);
-            setStock(cantidadStock)
+            setStock(response.data)
+            // setStock(cantidadStock)
         })
-        .catch(err => console.log(err));
-    },[cantidadStock]);
+        .catch(err => console.log(err))
+    },[])
 
     const addStock = () => {
         if (brands.trim() && size.trim() && pet.trim() && newKg.trim() && amount.trim() && condition.trim() !== "") {
