@@ -9,8 +9,6 @@ import { Helmet } from 'react-helmet';
 import {ScrollTop} from '../others/scrollTop'
 
 
-
-// const serverFront = 'http://localhost:3001';
 const serverFront = 'https://server-ventas.onrender.com'
 
 
@@ -36,7 +34,7 @@ export function Gastos(){
 
 
     const addGastos = () => {
-        if(proveedor.trim() && dia.trim() && mes.trim() && factura.trim()  && monto.trim() && estado.trim() !=="" ) {
+        if(proveedor.trim() && dia.trim() && mes.trim() && factura.trim() && monto.trim() && estado.trim() !== "") {
             axios.post(`${serverFront}/add-gastos`, {
                 proveedor:proveedor,
                 dia:dia,
@@ -310,7 +308,11 @@ export function Gastos(){
                                     <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto.toLocaleString('en-US')}</td>
                                 
                                 <td  style={{ background: condicionEstado(element.estado || '')}}>{editingId === element._id ?
-                                <input value={editingData.estado} onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })} /> : element.estado}</td>
+                                <select value={editingData.estado} onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })} > 
+                                                    <option value="Pagado">Pagado</option>
+                                                    <option value="Impago">Impago</option>
+                                </select>
+                                : element.estado}</td>
                                 
                                 <div className="actions"> 
                                     <button className="trash" onClick={() => deleteGastos(element._id, element.proveedor, element.monto)}><i className="fa-solid fa-trash"></i></button>

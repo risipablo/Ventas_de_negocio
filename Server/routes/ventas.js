@@ -1,11 +1,11 @@
 const express = require('express')
 const VentasModel = require('../models/Ventas')
 
-const app = express.Router()
+const routes = express.Router()
 
 
 // Obtener registro de ventas
-app.get('/ventas', async (req, res) => {
+routes.get('/ventas', async (req, res) => {
     try {
         const ventas = await VentasModel.find();
         res.json(ventas);
@@ -16,7 +16,8 @@ app.get('/ventas', async (req, res) => {
 
 
 // Agregar registro de ventas
-app.post('/add-ventas',async (req, res) => {
+
+routes.post('/add-venta', async (req, res) => {
     const { day, month, total, tp, product, boleta } = req.body;
     if (!day || !month || !tp || !product || !total || !boleta) {
         return res.status(400).json({ error: 'Faltan datos requeridos' });
@@ -33,7 +34,7 @@ app.post('/add-ventas',async (req, res) => {
 
 
 // Eliminar ventas
-app.delete('/delete-ventas/:id', async (req, res) => {
+routes.delete('/delete-ventas/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const result = await VentasModel.findByIdAndDelete(id);
@@ -44,7 +45,7 @@ app.delete('/delete-ventas/:id', async (req, res) => {
 });
 
 // Editar registro de ventas
-app.patch('/edit/:id', async (req, res) => {
+routes.patch('/edit-ventas/:id', async (req, res) => {
     const { id } = req.params;
     const { total, product, tp, boleta } = req.body;
     try {
@@ -55,4 +56,4 @@ app.patch('/edit/:id', async (req, res) => {
     }
 });
 
-module.exports = app;
+module.exports = routes;

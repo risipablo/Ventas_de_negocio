@@ -3,9 +3,8 @@ const StockModel = require('../models/Stock')
 
 const routes = express.Router()
 
-
 // Obtener stock
-routes.get('/stocks', async (req, res) => {
+routes.get('/stock', async (req, res) => { 
     try {
         const stock = await StockModel.find();
         res.json(stock);
@@ -30,29 +29,36 @@ routes.post('/add-stock', async (req, res) => {
     }
 });
 
-
+// Eliminar stock
 routes.delete('/delete-stock/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const stock = await StockModel.findByIdAndDelete(id);
         if (!stock) {
-            return res.status(404).json({ error: 'Stock not found' });
+            return res.status(404).json({ error: 'Producto no encontrado' }); // Cambié el mensaje a español
         }
         res.json(stock);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
-})
+});
 
-// Sumar cantidad
-routes.patch('/sumar-stock/:id', async (req,res) => {
+// Editar stock
+routes.patch('/edit-stock/:id', async (req, res) => {
+    const { id } = req.params;
+    console.log("ID recibido:", id); // Log para verificar el ID
+    const { brands, pet, size, kg, amount, condition } = req.body;
     try {
-        const {cantidad} = req.body;
-        const stockActualizado = await StockModel.findByIdAndUpdate(req.params.id, {amount:cantidad} , {new:true})
-        res.json(stockActualizado)
+        const result = await StockModel.findByIdAndUpdate(id, { brands, pet, size, kg, amount, condition }, { new: true });
+        if (!result) {
+            return res.status(404).json({ error: 'Producto no encontrado' });
+        }
+        res.json(result);
     } catch (err) {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: err.message });
     }
-})
+});
 
-module.exports = routes; 
+
+module.exports = routes;
+

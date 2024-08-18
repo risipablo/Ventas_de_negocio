@@ -33,14 +33,14 @@ export function Ventas() {
     }, []);
 
     const addVentas = () => {
-        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== "") {
-            axios.post(`${serverFront}/add-ventas`, {
+        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !=="") {
+            axios.post(' https://server-ventas.onrender.com/api/add-ventas ', {
                 day: newDay,
                 month: newMonth,
                 tp: newTp,
                 product: newProduct,
                 total: newTotal,
-                boleta: newBoleta 
+                boleta: newBoleta
             })
             .then(response => {
                 const nuevaVenta = response.data;
@@ -69,7 +69,7 @@ export function Ventas() {
 
 
     const deleteVentas = (id, product, total) => {
-        axios.delete(`${serverFront}/delete-ventas/` + id)
+        axios.delete(`${serverFront}/delete-ventas/${id}`)
         .then(response => {
             const updatedVentas = ventas.filter((venta) => venta._id !== id);
             setVentas(updatedVentas);
@@ -325,7 +325,8 @@ export function Ventas() {
                                     {editId === element._id ? (
                                     <div className='btn-edit'>
                                         <button className="check" onClick={() => saveEdit(element._id)}><i className="fa-solid fa-check"></i></button>
-                                        <button className="cancel" onClick={''}><i className="fa-solid fa-ban"></i></button>
+                                        <button className="cancel" onClick={cancelEdit}><i className="fa-solid fa-ban"></i></button>
+
                                     </div>
                                         ) : (
                                             <button className="edit" onClick={() => editing(element)}><i className="fa-solid fa-gear"></i></button>

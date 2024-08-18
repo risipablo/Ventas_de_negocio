@@ -4,25 +4,11 @@ import { createContext, useEffect, useState } from "react";
 
 export const StockContext = createContext();
 
+
 export function StockProvider({ children }) {
     const [cantidadStock,setCantidadStock] = useState([])
 
-    const serverFront = "http://localhost:3001";
-    // const serverFront = 'https://server-ventas.onrender.com';
-
-    useEffect(() => {
-        axios.get(`${serverFront}/stock`)
-        .then(response => {
-            setCantidadStock(response.data)
-        })
-        .catch(err => console.log(err))
-    },[])
-
-    const actualizarStock = (id,nuevaCantidad) => {
-        axios.patch(`${serverFront}/sumar-stock/${id}`, {amount:nuevaCantidad})
-        .catch(err => console.log(err))
-    }
-
+    
     const sumarStock = (index) => {
         setCantidadStock((prevStock) => 
             prevStock.map((item,i) => {
