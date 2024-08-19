@@ -162,7 +162,7 @@ th{
 
 .actions {
     text-align: center;
-    padding: 12px;
+    padding: 8px;
 }
 
 
@@ -172,12 +172,12 @@ th{
     padding: 6px 12px;
     cursor: pointer;
     border-radius: 50%; 
-    font-size: 1rem; 
+    font-size: .9rem; 
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px; 
-    height: 40px;
+    width: 35px; 
+    height: 35px;
     transition: background-color 0.3s, color 0.3s; 
     background-color: none;
 }

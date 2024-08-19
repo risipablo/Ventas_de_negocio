@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { StockCount } from "./stockCount";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Paper } from '@mui/material';
 import { Delete, Settings, Save, Cancel } from '@mui/icons-material';
 import { StockContext } from "./stockContext/stockContext";
 import { toast, Bounce } from 'react-toastify';
 
 const serverFront = 'https://server-ventas.onrender.com';
+// const serverFront = 'http://localhost:5000'
+
 
 export function Stock() {
     const [stock, setStock] = useState([]);

@@ -1,4 +1,4 @@
-import axios from 'axios'
+
 import { useEffect, useState } from "react";
 import "./ventas.css"
 import { Buscador } from '../buscador/buscador';
@@ -7,11 +7,13 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ScrollTop } from '../others/scrollTop';
 import { Notificacion } from '../others/notificacion';
+import axios from "axios";
 
 
-const serverFront = 'https://server-ventas.onrender.com'
+// const serverFront = 'https://server-ventas.onrender.com'
+const serverFront = 'http://localhost:3001'
 
-export function Ventas() {
+ export function Ventas() {
     const [ventas, setVentas] = useState([]);
     const [ventasFiltradas, setVentasFiltradas] = useState([]);
     const [newDay, setDay] = useState(""); // Ingreso de dia
@@ -23,7 +25,7 @@ export function Ventas() {
    
 
     useEffect(() => {
-        axios.get(`${serverFront}/ventas`)
+        axios.get(`${serverFront}/venta`)
             .then(response => {
                 setVentas(response.data);
                 setVentasFiltradas(response.data);
@@ -33,7 +35,7 @@ export function Ventas() {
 
     const addVentas = () => {
         if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== " ") {
-            axios.post((`${serverFront}/add-ventas`) , {
+            axios.post(`${serverFront}/add-ventas`, {
                 day: newDay,
                 month: newMonth,
                 tp: newTp,
@@ -68,7 +70,7 @@ export function Ventas() {
 
 
     const deleteVentas = (id, product, total) => {
-        axios.delete(`${serverFront}/delete-ventas/${id}`)
+        axios.delete(`${serverFront}/delete-venta/${id}`)
         .then(response => {
             const updatedVentas = ventas.filter((venta) => venta._id !== id);
             setVentas(updatedVentas);

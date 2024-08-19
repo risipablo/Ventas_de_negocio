@@ -1,14 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
-const VentasModel = require('./models/Ventas')
+const VentasModel = require ('./models/ventas')
 const gastosRoutes = require('./routes/gastos');
 const productosRoutes = require('./routes/productos');
 const proveedorRoutes = require('./routes/proveedores')
 const notasRoutes = require('./routes/notas')
 const stockRoutes = require('./routes/stock')
-
 
 
 require("dotenv").config();
@@ -33,11 +31,13 @@ mongoose.connect(process.env.MONGODB)
 app.use('/gastos', gastosRoutes);
 app.use('/productos', productosRoutes);
 app.use('/proveedors', proveedorRoutes);
-app.use('/notas', notasRoutes )
-app.use('/stocks', stockRoutes)
+app.use('/notas', notasRoutes );
+app.use('/stocks', stockRoutes);
 
 
-app.get('/ventas', async (req, res) => {
+
+// Obtener registro de ventas
+app.get('/venta', async (req, res) => {
     try {
         const ventas = await VentasModel.find();
         res.json(ventas);
@@ -49,7 +49,7 @@ app.get('/ventas', async (req, res) => {
 
 // Agregar registro de ventas
 
-app.post('/add-ventas' , async (req, res) => {
+app.post('/add-ventas', async (req, res) => {
     const { day, month, total, tp, product, boleta } = req.body;
     if (!day || !month || !tp || !product || !total || !boleta) {
         return res.status(400).json({ error: 'Faltan datos requeridos' });
@@ -65,7 +65,6 @@ app.post('/add-ventas' , async (req, res) => {
 });
 
 
-
 // Eliminar ventas
 app.delete('/delete-venta/:id', async (req, res) => {
     const { id } = req.params;
@@ -78,7 +77,7 @@ app.delete('/delete-venta/:id', async (req, res) => {
 });
 
 // Editar registro de ventas
-app.patch('/edit-venta/:id', async (req, res) => {
+app.patch('/edit-ventas/:id', async (req, res) => {
     const { id } = req.params;
     const { total, product, tp, boleta } = req.body;
     try {
@@ -91,7 +90,7 @@ app.patch('/edit-venta/:id', async (req, res) => {
 
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-    console.log('Servidor funcionando en el puerto 5000');
+    console.log('Servidor funcionando en el puerto 3001');
 });
