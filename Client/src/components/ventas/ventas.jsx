@@ -9,9 +9,8 @@ import { ScrollTop } from '../others/scrollTop';
 import { Notificacion } from '../others/notificacion';
 
 
-const serverFront = process.env.REACT_APP_SERVER_URL === 'production'
-    ? 'https://server-ventas.onrender.com'
-    : 'http://localhost:5000';
+const serverFront = 'https://server-ventas.onrender.com'
+
 
 export function Ventas() {
     const [ventas, setVentas] = useState([]);
