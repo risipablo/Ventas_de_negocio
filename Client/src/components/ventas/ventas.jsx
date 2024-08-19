@@ -9,8 +9,9 @@ import { ScrollTop } from '../others/scrollTop';
 import { Notificacion } from '../others/notificacion';
 
 
-// const serverFront = "http://localhost:3001";
-const serverFront = 'https://server-ventas.onrender.com';
+const serverFront = process.env.REACT_APP_SERVER_URL === 'production'
+    ? 'https://server-ventas.onrender.com'
+    : 'http://localhost:5000';
 
 export function Ventas() {
     const [ventas, setVentas] = useState([]);
@@ -24,7 +25,7 @@ export function Ventas() {
    
 
     useEffect(() => {
-        axios.get(`${serverFront}/ventas`)
+        axios.get(`${serverFront}/venta`)
             .then(response => {
                 setVentas(response.data);
                 setVentasFiltradas(response.data);
@@ -33,8 +34,8 @@ export function Ventas() {
     }, []);
 
     const addVentas = () => {
-        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !=="") {
-            axios.post(' https://server-ventas.onrender.com/api/add-ventas ', {
+        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== " ") {
+            axios.post((`${serverFront}/add-venta`) , {
                 day: newDay,
                 month: newMonth,
                 tp: newTp,

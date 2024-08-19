@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const corsOptions = {
-    origin: ['http://localhost:5173', 'https://ventas-de-negocio.vercel.app'],
+    origin: ['http://localhost:5173', 'https://ventas-de-negocio.vercel.app', 'https://server-ventas.onrender.com'],
     optionsSuccessStatus: 200
 };
 
@@ -49,7 +49,7 @@ app.get('/ventas', async (req, res) => {
 
 // Agregar registro de ventas
 
-app.post(' /add-ventas ', async (req, res) => {
+app.post('/add-ventas' , async (req, res) => {
     const { day, month, total, tp, product, boleta } = req.body;
     if (!day || !month || !tp || !product || !total || !boleta) {
         return res.status(400).json({ error: 'Faltan datos requeridos' });
@@ -67,7 +67,7 @@ app.post(' /add-ventas ', async (req, res) => {
 
 
 // Eliminar ventas
-app.delete('/delete-ventas/:id', async (req, res) => {
+app.delete('/delete-venta/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const result = await VentasModel.findByIdAndDelete(id);
@@ -78,7 +78,7 @@ app.delete('/delete-ventas/:id', async (req, res) => {
 });
 
 // Editar registro de ventas
-app.patch('/edit-ventas/:id', async (req, res) => {
+app.patch('/edit-venta/:id', async (req, res) => {
     const { id } = req.params;
     const { total, product, tp, boleta } = req.body;
     try {
@@ -91,7 +91,7 @@ app.patch('/edit-ventas/:id', async (req, res) => {
 
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log('Servidor funcionando en el puerto 3001');
+    console.log('Servidor funcionando en el puerto 5000');
 });
