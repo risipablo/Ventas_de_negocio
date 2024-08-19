@@ -25,7 +25,7 @@ const serverFront = 'http://localhost:3001'
    
 
     useEffect(() => {
-        axios.get(`${serverFront}/venta`)
+        axios.get(`${serverFront}/ventas`)
             .then(response => {
                 setVentas(response.data);
                 setVentasFiltradas(response.data);
