@@ -10,9 +10,8 @@ import { Notificacion } from '../others/notificacion';
 import axios from "axios";
 
 
-const serverFront = process.env.REACT_APP_SERVER_URL === 'production'
-    ? 'https://server-ventas.onrender.com'
-    : 'http://localhost:5000';
+// const serverFront = 'https://server-ventas.onrender.com'
+const serverFront = 'http://localhost:3001'
 
  export function Ventas() {
     const [ventas, setVentas] = useState([]);
