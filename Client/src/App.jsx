@@ -13,7 +13,6 @@ import { StockProvider } from "./components/stock/stockContext/stockContext"
 import { Archivos } from "./components/archivos/archivo"
 import { Ventas } from "./components/ventas/ventas"
 
-// import { Ingresos } from "./components/ingresos/ingresos"
 
 function App() {
 
@@ -26,7 +25,6 @@ function App() {
       <BrowserRouter>
         <Navbar/>
         <Routes>
-          {/* <Route path="/ingresos" element={<Ingresos/>}/> */}
           <Route path="/" element={<Ventas/>}/>
           <Route path='/lista' element={<Productos/>}/>
           <Route path="/gastos" element={<Gastos/>}/>

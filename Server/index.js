@@ -37,7 +37,7 @@ app.use('/stocks', stockRoutes);
 
 
 // Obtener registro de ventas
-app.get('/venta', async (req, res) => {
+app.get('/ventas', async (req, res) => {
     try {
         const ventas = await VentasModel.find();
         res.json(ventas);
