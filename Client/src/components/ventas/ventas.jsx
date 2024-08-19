@@ -25,7 +25,7 @@ export function Ventas() {
    
 
     useEffect(() => {
-        axios.get(`${serverFront}/venta`)
+        axios.get(`${serverFront}/ventas`)
             .then(response => {
                 setVentas(response.data);
                 setVentasFiltradas(response.data);
@@ -35,7 +35,7 @@ export function Ventas() {
 
     const addVentas = () => {
         if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== " ") {
-            axios.post((`${serverFront}/add-venta`) , {
+            axios.post((`${serverFront}/add-ventas`) , {
                 day: newDay,
                 month: newMonth,
                 tp: newTp,
