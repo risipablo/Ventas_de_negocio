@@ -1,43 +1,48 @@
-import axios from "axios";
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-// const serverFront = 'http://localhost:3001';
-const serverFront = 'https://server-ventas.onrender.com';
+const Archivos = () => {
+  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
 
-export function Archivos() {
-    const [file, setFile] = useState(null);
-    const [message, setMessage] = useState('');
+  useEffect(() => {
+    axios.get('/files').then((res) => setFiles(res.data));
+  }, []);
 
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]); 
-    };
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData(); 
-        formData.append('file', file);
+  const handleFileUpload = () => {
+    const formData = new FormData();
+    formData.append('file', file);
 
-        try {
-            const res = await axios.post(`${serverFront}/upload`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-            setMessage('File uploaded successfully');
-        } catch (err) {
-            console.error(err);
-            setMessage('Failed to upload file');
-        }
-    };
+    axios.post('/upload', formData).then(() => {
+      alert('File uploaded successfully');
+      setFile(null);
+      axios.get('/files').then((res) => setFiles(res.data));
+    });
+  };
 
-    return (
-        <>
-            <h1>Archivos Subidos</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="file" onChange={handleFileChange} />
-                <button type="submit">Upload</button>
-            </form>
-            {message && <p>{message}</p>}
-        </>
-    );
-}
+  return (
+    <div className="gastos-container">
+      <input type="file" onChange={handleFileChange} />
+      <button onClick={handleFileUpload}>Upload</button>
+
+      <h3>Uploaded Files</h3>
+      {files.length > 0 ? (
+      <ul>
+        {files.map((_,file) => (
+          <li key={file._id}>
+            <a href={`/files/${file.filename}`} download>{file.originalName}</a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>No files uploaded yet.</p>
+    )}
+    </div>
+  );
+};
+
+export default Archivos;

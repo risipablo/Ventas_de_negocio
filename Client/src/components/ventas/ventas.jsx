@@ -10,8 +10,8 @@ import { Notificacion } from '../others/notificacion';
 import axios from "axios";
 
 
-// const serverFront = 'https://server-ventas.onrender.com'
-const serverFront = 'http://localhost:3001'
+const serverFront = 'https://server-ventas.onrender.com'
+// const serverFront = 'http://localhost:3001'
 
  export function Ventas() {
     const [ventas, setVentas] = useState([]);
@@ -25,7 +25,7 @@ const serverFront = 'http://localhost:3001'
    
 
     useEffect(() => {
-        axios.get(`${serverFront}/venta`)
+        axios.get(`${serverFront}/ventas`)
             .then(response => {
                 setVentas(response.data);
                 setVentasFiltradas(response.data);

@@ -15,6 +15,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+
 const corsOptions = {
     origin: ['http://localhost:5173', 'https://ventas-de-negocio.vercel.app', 'https://server-ventas.onrender.com'],
     optionsSuccessStatus: 200
@@ -33,7 +35,6 @@ app.use('/productos', productosRoutes);
 app.use('/proveedors', proveedorRoutes);
 app.use('/notas', notasRoutes );
 app.use('/stocks', stockRoutes);
-
 
 
 // Obtener registro de ventas

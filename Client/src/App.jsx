@@ -10,8 +10,9 @@ import { CarritoProvider } from "./components/carrito/carritoContext"
 import { NotasProvider } from "./components/notas/notasContext/notasContext"
 import { Stock } from "./components/stock/stock"
 import { StockProvider } from "./components/stock/stockContext/stockContext"
-import { Archivos } from "./components/archivos/archivo"
 import { Ventas } from "./components/ventas/ventas"
+import Archivos from "./components/archivos/archivo"
+
 
 
 function App() {

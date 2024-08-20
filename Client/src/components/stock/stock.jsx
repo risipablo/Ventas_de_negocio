@@ -7,7 +7,7 @@ import { StockContext } from "./stockContext/stockContext";
 import { toast, Bounce } from 'react-toastify';
 
 const serverFront = 'https://server-ventas.onrender.com';
-// const serverFront = 'http://localhost:5000'
+// const serverFront = 'http://localhost:3001'
 
 
 export function Stock() {
