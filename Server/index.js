@@ -13,12 +13,13 @@ app.use(express.json());
 
 const corsOptions = {
 
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173', 'https://ventas-de-negocio.onrender.com'],
     methods: 'GET,POST,DELETE,PATCH',
     optionsSuccessStatus: 200
 };
 
 app.use(cors(corsOptions));
+
 mongoose
     .connect(process.env.MONGODB)
     .then(() => console.log("Conexión exitosa con MongoDB"))

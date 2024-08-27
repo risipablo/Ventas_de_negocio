@@ -10,7 +10,8 @@ import { Buscador } from "../buscador/buscador";
 import { FiltrosGastos } from "../gastos/filtrosGastos";
 
 
-const serverFront = "http://localhost:3001";
+// const serverFront = "http://localhost:3001";
+const serverFront = 'https://ventas-de-negocio.onrender.com'
 
 
 export function Notas() {
