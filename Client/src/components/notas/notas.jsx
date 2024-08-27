@@ -10,8 +10,8 @@ import { Buscador } from "../buscador/buscador";
 import { FiltrosGastos } from "../gastos/filtrosGastos";
 
 
-// const serverFront = "http://localhost:3001";
-const serverFront = 'https://ventas-de-negocio.vercel.app';
+const serverFront = "http://localhost:3001";
+
 
 export function Notas() {
     const [notes, setNotes] = useState([]);

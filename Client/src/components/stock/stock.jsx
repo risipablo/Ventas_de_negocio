@@ -5,8 +5,8 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconB
 import { Delete, Settings, Save, Cancel } from '@mui/icons-material';
 import { toast, Bounce } from 'react-toastify';
 
-const serverFront = 'https://ventas-de-negocio.vercel.app';
-// const serverFront = 'http://localhost:3001'
+
+const serverFront = 'http://localhost:3001'
 
 
 export function Stock() {
