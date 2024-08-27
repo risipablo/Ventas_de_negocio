@@ -12,7 +12,8 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-    origin: ['http://localhost:5173', 'https://ventas-de-negocio.vercel.app'],
+    origin: ['http://localhost:5173', 'https://ventas-de-negocio-w2hm.vercel.app'],
+    methods: 'GET,POST,DELETE,PATCH',
     optionsSuccessStatus: 200
 };
 
