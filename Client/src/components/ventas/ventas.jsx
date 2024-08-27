@@ -22,8 +22,10 @@ import axios from "axios";
     const [newBoleta, setBoleta] = useState(""); // Ingreso de boleta 
    
 
+
     // const serverFront = ''
     const serverFront = 'http://localhost:3001'
+
 
 
     useEffect(() => {
@@ -196,7 +198,7 @@ import axios from "axios";
       }
     return (
         <div className="venta-container">
-            <h1>Ingresos de ventas</h1>
+            <h1>Ingresos de venta</h1>
 
   
 
