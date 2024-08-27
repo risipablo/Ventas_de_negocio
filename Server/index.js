@@ -13,7 +13,7 @@ app.use(express.json());
 
 const corsOptions = {
 
-    origin: ['http://localhost:5173', 'https://ventas-de-negocio.onrender.com'],
+    origin: ['http://localhost:5173', 'https://ventas-de-negocio.onrender.com', 'https://ventas-de-negocio.vercel.app'],
     methods: 'GET,POST,DELETE,PATCH',
     optionsSuccessStatus: 200
 };
