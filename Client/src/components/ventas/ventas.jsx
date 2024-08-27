@@ -196,7 +196,7 @@ import axios from "axios";
       }
     return (
         <div className="venta-container">
-            <h1>Ingresos de ventas</h1>
+            <h1>Ingresos de venta</h1>
 
   
 
