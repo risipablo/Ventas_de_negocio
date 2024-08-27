@@ -10,8 +10,6 @@ import { Notificacion } from '../others/notificacion';
 import axios from "axios";
 
 
-const serverFront = 'https://server-ventas.onrender.com'
-// const serverFront = 'http://localhost:3001'
 
  export function Ventas() {
     const [ventas, setVentas] = useState([]);
@@ -23,6 +21,10 @@ const serverFront = 'https://server-ventas.onrender.com'
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
     const [newBoleta, setBoleta] = useState(""); // Ingreso de boleta 
    
+
+    // const serverFront = 'https://server-ventas.onrender.com'
+    const serverFront = 'http://localhost:3001'
+
 
     useEffect(() => {
         axios.get(`${serverFront}/ventas`)

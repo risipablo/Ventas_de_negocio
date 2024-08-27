@@ -10,7 +10,7 @@ import {ScrollTop} from '../others/scrollTop'
 
 
 const serverFront = 'https://server-ventas.onrender.com'
-// const serverFront = 'http://localhost:5000'
+// const serverFront = 'http://localhost:3001'
 
 
 export function Gastos(){

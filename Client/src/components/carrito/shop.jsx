@@ -21,7 +21,7 @@ export function Shop() {
         <>
             <Link to="/carrito" onMouseEnter={() => open('carrito')} onMouseLeave={close} className="cart-link">
                 <Tooltip title={active === 'carrito' ? "Carrito" : ""} arrow>
-                    <IconButton>
+                    <IconButton >
                         <ShoppingCartIcon className="icon" />
                         <span  className="cart-count"> {cantidadCarrito()} </span>
                     </IconButton>
