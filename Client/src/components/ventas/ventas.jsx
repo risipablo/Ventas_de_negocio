@@ -22,8 +22,8 @@ import axios from "axios";
     const [newBoleta, setBoleta] = useState(""); // Ingreso de boleta 
    
 
-    const serverFront = 'https://server-ventas.onrender.com'
-    // const serverFront = 'http://localhost:3001'
+    // const serverFront = 'https://server-ventas.onrender.com'
+    const serverFront = 'http://localhost:3001'
 
 
     useEffect(() => {

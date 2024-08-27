@@ -10,15 +10,21 @@ const StockModel = require('./models/Stock');
 require("dotenv").config();
 const app = express();
 app.use(express.json());
+
 const corsOptions = {
     origin: ['http://localhost:5173', 'https://ventas-de-negocio.vercel.app'],
     optionsSuccessStatus: 200
 };
+
 app.use(cors(corsOptions));
 mongoose
     .connect(process.env.MONGODB)
     .then(() => console.log("Conexión exitosa con MongoDB"))
     .catch((err) => console.error("Conexión fallida: " + err));
+
+
+// Ventas
+
 // Obtener registro de ventas
 app.get('/ventas', async (req, res) => {
     try {
@@ -28,6 +34,7 @@ app.get('/ventas', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 // Agregar registro de ventas
 app.post('/add-ventas', async (req, res) => {
     const { day, month, total, tp, product, boleta } = req.body;
@@ -43,6 +50,7 @@ app.post('/add-ventas', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 // Eliminar ventas
 app.delete('/delete-ventas/:id', async (req, res) => {
     const { id } = req.params;
@@ -53,6 +61,7 @@ app.delete('/delete-ventas/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 // Editar Ventas
 app.patch('/edit-ventas/:id', async (req, res) => {
     const { id } = req.params;
@@ -64,6 +73,10 @@ app.patch('/edit-ventas/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+  
+
+// Gastos
+
 // Obtener gastos
 app.get('/gastos', async (req, res) => {
     try {
@@ -73,6 +86,7 @@ app.get('/gastos', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 // Agregar gastos
 app.post('/add-gastos', async (req, res) => {
     const { proveedor, dia, mes, factura, monto, estado } = req.body;
@@ -88,6 +102,8 @@ app.post('/add-gastos', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+
 // Eliminar gastos
 app.delete('/delete-gastos/:id', async (req, res) => {
     const { id } = req.params;
@@ -98,6 +114,7 @@ app.delete('/delete-gastos/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 // Editar gastos
 app.patch('/edit-gastos/:id', async (req, res) => {
     const { id } = req.params;
@@ -109,6 +126,11 @@ app.patch('/edit-gastos/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+
+
+// Productos
+
 // Obtener datos de productos
 app.get('/productos', async (req, res) => {
     try {
@@ -118,6 +140,7 @@ app.get('/productos', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 // Agregar productos
 app.post('/add-productos', async (req, res) => {
     const { marca, mascota, edad, kilo, precio, categoria } = req.body;
@@ -133,6 +156,7 @@ app.post('/add-productos', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 // Eliminar productos
 app.delete('/delete-productos/:id', async (req, res) => {
     const { id } = req.params;
@@ -143,6 +167,7 @@ app.delete('/delete-productos/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 // Editar productos
 app.patch('/edit-productos/:id', async (req, res) => {
     const { id } = req.params;
@@ -154,6 +179,11 @@ app.patch('/edit-productos/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+
+
+// Notas
+
 // Ruta para obtener notas
 app.get('/notas', async (req, res) => {
     try {
@@ -163,6 +193,8 @@ app.get('/notas', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+
 // Ruta para añadir una nota
 app.post('/add-notas', async (req, res) => {
     const { notas, meses } = req.body;
@@ -177,6 +209,7 @@ app.post('/add-notas', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 // Eliminar notas
 app.delete('/delete-notas/:id', (req, res) => {
     const { id } = req.params;
@@ -184,6 +217,8 @@ app.delete('/delete-notas/:id', (req, res) => {
         .then(result => res.json(result))
         .catch(err => res.status(500).json({ error: err.message }));
 });
+
+
 // Editar notas
 app.patch('/edit-notas/:id', (req, res) => {
     const { id } = req.params;
@@ -192,6 +227,8 @@ app.patch('/edit-notas/:id', (req, res) => {
         .then(result => res.json(result))
         .catch(err => res.status(500).json({ error: err.message }));
 });
+
+
 // Completar notas
 app.patch('/completed-notas/:id', (req, res) => {
     const { id } = req.params;
@@ -202,6 +239,8 @@ app.patch('/completed-notas/:id', (req, res) => {
 });
 
 
+// Proveedores
+
 // Obtener datos de los proveedores
 app.get('/proveedors', async (req, res) => {
     try {
@@ -211,6 +250,7 @@ app.get('/proveedors', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 // Agregar proveedores
 app.post('/add-proveedors', async (req, res) => {
     const { proveedores, marcas, edades, kilos, precios, mascotas } = req.body;
@@ -226,6 +266,8 @@ app.post('/add-proveedors', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+
 // Eliminar proveedores
 app.delete('/delete-proveedors/:id', async (req, res) => {
     const { id } = req.params;
@@ -236,6 +278,8 @@ app.delete('/delete-proveedors/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+
 // Editar proveedores
 app.patch('/edit-proveedors/:id', async (req, res) => {
     const { id } = req.params;
@@ -247,6 +291,10 @@ app.patch('/edit-proveedors/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+
+// Stock
+
 // Obtener stock
 app.get('/stock', async (req, res) => {
     try {
@@ -256,6 +304,8 @@ app.get('/stock', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+
 // Agregar stock
 app.post('/add-stock', async (req, res) => {
     const { brands, pet, size, kg, amount, condition } = req.body;
@@ -271,6 +321,8 @@ app.post('/add-stock', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+//Eliminar Stock
 app.delete('/delete-stock/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -283,16 +335,9 @@ app.delete('/delete-stock/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 })
-// Sumar cantidad
-app.patch('/sumar-stock/:id', async (req,res) => {
-    try {
-        const {cantidad} = req.body;
-        const stockActualizado = await StockModel.findByIdAndUpdate(req.params.id, {amount:cantidad} , {new:true})
-        res.json(stockActualizado)
-    } catch (err) {
-        res.status(500).json({ error: err.message })
-    }
-})
+
+
+
 app.listen(3001, () => {
     console.log('Servidor funcionando en el puerto 3001');
 })

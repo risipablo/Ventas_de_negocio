@@ -10,8 +10,8 @@ import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import { TransitionGroup } from 'react-transition-group';
 import { Notificacion } from "../others/notificacion";
 
-// const serverFront = "http://localhost:3001";
-const serverFront = 'https://server-ventas.onrender.com'
+const serverFront = "http://localhost:3001";
+// const serverFront = 'https://server-ventas.onrender.com'
 
 export function Productos() {
     const [productos, setProductos] = useState([]);

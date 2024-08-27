@@ -1,13 +1,12 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Paper } from '@mui/material';
 import { Delete, Settings, Save, Cancel } from '@mui/icons-material';
-import { StockContext } from "./stockContext/stockContext";
 import { toast, Bounce } from 'react-toastify';
 
-const serverFront = 'https://server-ventas.onrender.com';
-// const serverFront = 'http://localhost:3001'
+// const serverFront = 'https://server-ventas.onrender.com';
+const serverFront = 'http://localhost:3001'
 
 
 export function Stock() {
@@ -19,7 +18,7 @@ export function Stock() {
     const [amount, setAmount] = useState('');
     const [condition, setCondition] = useState('');
 
-    const { cantidadStock, restarStock, sumarStock } = useContext(StockContext);
+
 
     useEffect(() => {
         axios.get(`${serverFront}/stock`)
@@ -239,9 +238,6 @@ export function Stock() {
                                         )}
                                     </TableCell>
                                     <TableCell>
-                                        <IconButton onClick={() => restarStock(index)}>
-                                            -
-                                        </IconButton>
                                     </TableCell>
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
                                         {editingId === element._id ? (

@@ -1,5 +1,5 @@
 import { IconButton, Tooltip } from "@mui/material";
-import { Inventory } from "@mui/icons-material"; // Import the Material UI icon
+import { Inventory } from "@mui/icons-material"; 
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 

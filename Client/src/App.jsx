@@ -9,7 +9,6 @@ import { Carrito } from "./components/carrito/carrito"
 import { CarritoProvider } from "./components/carrito/carritoContext"
 import { NotasProvider } from "./components/notas/notasContext/notasContext"
 import { Stock } from "./components/stock/stock"
-import { StockProvider } from "./components/stock/stockContext/stockContext"
 import { Ventas } from "./components/ventas/ventas"
 import Archivos from "./components/archivos/archivo"
 
@@ -21,7 +20,6 @@ function App() {
     <div>
       <CarritoProvider>
       <NotasProvider>
-      <StockProvider>
 
       <BrowserRouter>
         <Navbar/>
@@ -38,7 +36,6 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      </StockProvider>
       </NotasProvider>
       </CarritoProvider>
 
