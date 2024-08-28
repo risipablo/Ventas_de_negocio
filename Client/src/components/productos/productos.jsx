@@ -10,7 +10,8 @@ import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import { TransitionGroup } from 'react-transition-group';
 import { Notificacion } from "../others/notificacion";
 
-const serverFront = "http://localhost:3001"
+// const serverFront = "http://localhost:3001"
+const serverFront = 'https://ventas-de-negocio.onrender.com'
 
 export function Productos() {
     const [productos, setProductos] = useState([]);
@@ -78,19 +79,17 @@ export function Productos() {
         axios.delete(`${serverFront}/delete-productos/` + id)
             .then(response => {
                 setProductos(productos.filter((producto) => producto._id !== id))
-                toast.error(
-                    `Se elimino producto `,
-                    {
-                        position: "top-center",
-                        autoClose: 1000,
-                        hideProgressBar: true,
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                        draggable: true,
-                        theme: "light",
-                        transition: Bounce,
-                    }
-                )
+                toast.error('Producto eliminado', {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                    });
             })
             .catch(err => console.log(err))
     }

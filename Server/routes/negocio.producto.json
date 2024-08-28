@@ -1,0 +1,3624 @@
+[{
+  "_id": {
+    "$oid": "6680182a2818f794743d1cb0"
+  },
+  "marca": "Biopet",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 2000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668018412818f794743d1cb2"
+  },
+  "marca": "Biopet",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "20",
+  "precio": 29000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668018ca2818f794743d1cb4"
+  },
+  "marca": "Biopet",
+  "mascota": "Perro",
+  "edad": "Derma Adulto",
+  "kilo": "Suelto",
+  "precio": 2200,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668019692818f794743d1cb6"
+  },
+  "marca": "Biopet",
+  "mascota": "Perro",
+  "edad": "Derma Adulto",
+  "kilo": "20",
+  "precio": 30000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680d34e56bc0758d76a4c8a"
+  },
+  "marca": "Biopet",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 2000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680d37d56bc0758d76a4c8c"
+  },
+  "marca": "Biopet",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "15",
+  "precio": 24000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680dd5a9f0e44a86d68ec89"
+  },
+  "marca": "Agility",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 2800,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680dd869f0e44a86d68ec8d"
+  },
+  "marca": "Agility",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "15",
+  "precio": 39000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680dd989f0e44a86d68ec90"
+  },
+  "marca": "Agility",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "20",
+  "precio": 48000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680ddac9f0e44a86d68ec92"
+  },
+  "marca": "Agility",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 3500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680ddc29f0e44a86d68ec94"
+  },
+  "marca": "Agility",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "15",
+  "precio": 44000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680dde09f0e44a86d68ec96"
+  },
+  "marca": "Agility",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "Suelto",
+  "precio": 3500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680ddfc9f0e44a86d68ec98"
+  },
+  "marca": "Agility",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "20",
+  "precio": 55000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680de129f0e44a86d68ec9a"
+  },
+  "marca": "Agility",
+  "mascota": "Perro",
+  "edad": "Derma Adulto",
+  "kilo": "Suelto",
+  "precio": 3500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680de269f0e44a86d68ec9c"
+  },
+  "marca": "Agility",
+  "mascota": "Perro",
+  "edad": "Derma Adulto",
+  "kilo": "15",
+  "precio": 48000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680de449f0e44a86d68ec9e"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 5000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680de689f0e44a86d68eca1"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1.5",
+  "precio": 9800,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680de8f9f0e44a86d68eca4"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "10",
+  "precio": 45000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680deaf9f0e44a86d68eca6"
+  },
+  "marca": "Agility",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "Suelto",
+  "precio": 5500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680dee19f0e44a86d68eca8"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Kitten",
+  "kilo": "1.5",
+  "precio": 10500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680dfb59f0e44a86d68ecac"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Kitten",
+  "kilo": "10",
+  "precio": 50000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680dfc99f0e44a86d68ecae"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Urinary",
+  "kilo": "Suelto",
+  "precio": 5500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680dfd89f0e44a86d68ecb0"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Urinary",
+  "kilo": "1.5",
+  "precio": 10500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680dfe69f0e44a86d68ecb2"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Urinary",
+  "kilo": "10",
+  "precio": 50000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e0009f0e44a86d68ecb4"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Weight Control",
+  "kilo": "Suelto",
+  "precio": 5500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e00e9f0e44a86d68ecb6"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Weight Control",
+  "kilo": "1.5",
+  "precio": 10500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e0219f0e44a86d68ecb8"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Weight Control",
+  "kilo": "10",
+  "precio": 50000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e3479f0e44a86d68ecce"
+  },
+  "marca": "Bocato",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 2000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e35e9f0e44a86d68ecd0"
+  },
+  "marca": "Bocato",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "10",
+  "precio": 16000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e3779f0e44a86d68ecd2"
+  },
+  "marca": "Bocato",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 2000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e3cc9f0e44a86d68ecd5"
+  },
+  "marca": "Bocato",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "20",
+  "precio": 22000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e4419f0e44a86d68ecd7"
+  },
+  "marca": "Cat Chow",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 4800,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e45e9f0e44a86d68ecd9"
+  },
+  "marca": "Cat Chow",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "7.5",
+  "precio": 39000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e47c9f0e44a86d68ecdb"
+  },
+  "marca": "Cat Chow",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "15",
+  "precio": 71000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e4999f0e44a86d68ecdd"
+  },
+  "marca": "Cat Chow",
+  "mascota": "Gato",
+  "edad": "Cachorro",
+  "kilo": "Suelto",
+  "precio": 5200,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e5179f0e44a86d68ecdf"
+  },
+  "marca": "Cat Chow",
+  "mascota": "Gato",
+  "edad": "Cachorro",
+  "kilo": "7.5",
+  "precio": 43000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e52e9f0e44a86d68ece1"
+  },
+  "marca": "Cat Chow",
+  "mascota": "Gato",
+  "edad": "Cachorro",
+  "kilo": "15",
+  "precio": 77000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e5829f0e44a86d68ece3"
+  },
+  "marca": "Dog Chow",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 3500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e5999f0e44a86d68ece5"
+  },
+  "marca": "Dog Chow",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "20",
+  "precio": 66000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e5c49f0e44a86d68ece7"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "1",
+  "precio": 5800,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e5d69f0e44a86d68ece9"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Gato",
+  "edad": "Mini Puppy",
+  "kilo": "3",
+  "precio": 15000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e5ef9f0e44a86d68eceb"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "15",
+  "precio": 54000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e64e9f0e44a86d68eced"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "1",
+  "precio": 5700,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e6a19f0e44a86d68ecf0"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "3",
+  "precio": 15000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e6b79f0e44a86d68ecf2"
+  },
+  "marca": "Dog Chow",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "15",
+  "precio": 52000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e6cd9f0e44a86d68ecf4"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "1",
+  "precio": 5600,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e6e29f0e44a86d68ecf6"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "3",
+  "precio": 14500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e6f39f0e44a86d68ecf8"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "15",
+  "precio": 50000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e70a9f0e44a86d68ecfa"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 14500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e73f9f0e44a86d68ecfc"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "15",
+  "precio": 50000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e7659f0e44a86d68ecff"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": " Senior",
+  "kilo": "3",
+  "precio": 15800,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680e77a9f0e44a86d68ed01"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": "Weight Control",
+  "kilo": "3",
+  "precio": 16000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66815ed935ba79cbca239eae"
+  },
+  "marca": "Excellent",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 7500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66815ee735ba79cbca239eb0"
+  },
+  "marca": "Excellent",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 9800,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66815f0e35ba79cbca239eb2"
+  },
+  "marca": "Excellent",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 26700,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66815f2735ba79cbca239eb4"
+  },
+  "marca": "Excellent",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "7.5",
+  "precio": 55000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66815f3a35ba79cbca239eb6"
+  },
+  "marca": "Excellent",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "15",
+  "precio": 107000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66815f5235ba79cbca239eb8"
+  },
+  "marca": "Excellent",
+  "mascota": "Gato",
+  "edad": "Kitten",
+  "kilo": "Suelto",
+  "precio": 8600,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66815f6b35ba79cbca239eba"
+  },
+  "marca": "Excellent",
+  "mascota": "Gato",
+  "edad": "Kitten ",
+  "kilo": "1",
+  "precio": 10800,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66815f8435ba79cbca239ebc"
+  },
+  "marca": "Excellent",
+  "mascota": "Gato",
+  "edad": "Kitten ",
+  "kilo": "7.5",
+  "precio": 62000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66815fc935ba79cbca239ebe"
+  },
+  "marca": "Excellent",
+  "mascota": "Gato",
+  "edad": "Urinary",
+  "kilo": "Suelto",
+  "precio": 8800,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66815fd835ba79cbca239ec0"
+  },
+  "marca": "Excellent",
+  "mascota": "Gato",
+  "edad": "Urinary",
+  "kilo": "1",
+  "precio": 11400,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681600335ba79cbca239ec2"
+  },
+  "marca": "Excellent",
+  "mascota": "Gato",
+  "edad": "Urinary",
+  "kilo": "7.5",
+  "precio": 64000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681603e35ba79cbca239ec4"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "Suelto",
+  "precio": 5000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681605135ba79cbca239ec6"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "3",
+  "precio": 18000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681607635ba79cbca239ec8"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "15",
+  "precio": 70000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668160bc35ba79cbca239eca"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "Suelto",
+  "precio": 4800,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668160cd35ba79cbca239ecc"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "3",
+  "precio": 18000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668160dd35ba79cbca239ece"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "15",
+  "precio": 68000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668160ec35ba79cbca239ed0"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 4500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668161c135ba79cbca239ed2"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "3",
+  "precio": 17000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668161d735ba79cbca239ed4"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "15",
+  "precio": 65000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681620735ba79cbca239ed6"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 4500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681621d35ba79cbca239ed8"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 16000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681623635ba79cbca239eda"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "15",
+  "precio": 62000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681624a35ba79cbca239edc"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "20",
+  "precio": 74000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681628435ba79cbca239ede"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": " Senior",
+  "kilo": "Suelto",
+  "precio": 5000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681629435ba79cbca239ee0"
+  },
+  "marca": "Excellent",
+  "mascota": "Perro",
+  "edad": " Senior",
+  "kilo": "15",
+  "precio": 69000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668162e735ba79cbca239ee2"
+  },
+  "marca": "Gati",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 3000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668162f435ba79cbca239ee4"
+  },
+  "marca": "Gati",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "15",
+  "precio": 39000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681630c35ba79cbca239ee6"
+  },
+  "marca": "Golocan",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 1500,
+  "categoria": "Snack",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681631b35ba79cbca239ee8"
+  },
+  "marca": "Hueso Grisin",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 500,
+  "categoria": "Hueso",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681635835ba79cbca239eea"
+  },
+  "marca": "Hueso 12 cm",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 1400,
+  "categoria": "Hueso",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681637635ba79cbca239eec"
+  },
+  "marca": "Hueso Corbato",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 600,
+  "categoria": "Hueso",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681638c35ba79cbca239eee"
+  },
+  "marca": "Nutricare",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 2500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681639c35ba79cbca239ef0"
+  },
+  "marca": "Nutricare",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "20",
+  "precio": 35000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668163bd35ba79cbca239ef2"
+  },
+  "marca": "Nutricare",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 2500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668163d335ba79cbca239ef4"
+  },
+  "marca": "Nutricare",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "20",
+  "precio": 35000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668163fa35ba79cbca239ef6"
+  },
+  "marca": "Nutricare",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "Suelto",
+  "precio": 2500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681641135ba79cbca239ef8"
+  },
+  "marca": "Nutricare",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "15",
+  "precio": 28000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681644b35ba79cbca239efb"
+  },
+  "marca": "Nutricare",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 4000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681646f35ba79cbca239efd"
+  },
+  "marca": "Nutricare",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "7.5",
+  "precio": 30000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668164d735ba79cbca239eff"
+  },
+  "marca": "Optimun",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 5500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668164f235ba79cbca239f01"
+  },
+  "marca": "Optimun",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "10",
+  "precio": 48000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681650c35ba79cbca239f03"
+  },
+  "marca": "Optimun",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 18500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681653435ba79cbca239f05"
+  },
+  "marca": "Optimun",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "Suelto",
+  "precio": 4000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681654835ba79cbca239f07"
+  },
+  "marca": "Optimun",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "15",
+  "precio": 44000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681655a35ba79cbca239f09"
+  },
+  "marca": "Optimun",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 3500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681656d35ba79cbca239f0b"
+  },
+  "marca": "Optimun",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "15",
+  "precio": 40000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681661b35ba79cbca239f0d"
+  },
+  "marca": "Old Prince",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "Suelto",
+  "precio": 4000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681663035ba79cbca239f0f"
+  },
+  "marca": "Old Prince",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "7.5",
+  "precio": 24000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681665735ba79cbca239f11"
+  },
+  "marca": "Old Prince",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 3500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681666d35ba79cbca239f13"
+  },
+  "marca": "Old Prince",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "7.5",
+  "precio": 24000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681668435ba79cbca239f15"
+  },
+  "marca": "Old Prince",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "15",
+  "precio": 44000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668166c135ba79cbca239f17"
+  },
+  "marca": "Old Prince",
+  "mascota": "Perro",
+  "edad": "Derma Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 5000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668166f935ba79cbca239f1a"
+  },
+  "marca": "Old Prince",
+  "mascota": "Perro",
+  "edad": "Derma Mini Adulto",
+  "kilo": "7.5",
+  "precio": 33000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681670635ba79cbca239f1c"
+  },
+  "marca": "Old Prince",
+  "mascota": "Perro",
+  "edad": "Derma Mini Adulto",
+  "kilo": "15",
+  "precio": 64000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681673b35ba79cbca239f1e"
+  },
+  "marca": "Old Prince",
+  "mascota": "Perro",
+  "edad": "Derma Adulto",
+  "kilo": "Suelto",
+  "precio": 4500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681674e35ba79cbca239f20"
+  },
+  "marca": "Old Prince",
+  "mascota": "Perro",
+  "edad": "Derma Adulto",
+  "kilo": "7.5",
+  "precio": 30000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681677135ba79cbca239f23"
+  },
+  "marca": "Old Prince",
+  "mascota": "Perro",
+  "edad": "Derma Adulto",
+  "kilo": "15",
+  "precio": 59000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6681679d35ba79cbca239f25"
+  },
+  "marca": "Oreja de vaca",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 400,
+  "categoria": "Hueso",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668167b435ba79cbca239f27"
+  },
+  "marca": "Pedigree",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 3500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668167cf35ba79cbca239f29"
+  },
+  "marca": "Pedigree",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "15",
+  "precio": 40000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668168cc35ba79cbca239f31"
+  },
+  "marca": "Pellcats",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "4",
+  "precio": 2500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668169ada8c799c80771320a"
+  },
+  "marca": "Piedras",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "2",
+  "precio": 1400,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668169d2a8c799c80771320c"
+  },
+  "marca": "Piedras",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "4",
+  "precio": 2500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66816ceda8c799c807713213"
+  },
+  "marca": "Pretal Completo ",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1.5",
+  "precio": 8000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66816d00a8c799c807713215"
+  },
+  "marca": "Pretal Completo ",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "2",
+  "precio": 8500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66816d1ca8c799c807713217"
+  },
+  "marca": "Pretal Completo ",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "2.5",
+  "precio": 10500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66816d32a8c799c807713219"
+  },
+  "marca": "Pretal Completo ",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 12000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66816d66a8c799c80771321b"
+  },
+  "marca": "Pretal Solo ",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1.5",
+  "precio": 5000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66816d7ca8c799c80771321d"
+  },
+  "marca": "Pretal Solo ",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "2",
+  "precio": 5500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66816d95a8c799c80771321f"
+  },
+  "marca": "Pretal Solo ",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "2.5",
+  "precio": 6000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66816dd8a8c799c807713225"
+  },
+  "marca": "Pretal Solo ",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 7000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66816dfda8c799c807713227"
+  },
+  "marca": "Pechera Pitbull",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 18000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66816e30a8c799c80771322a"
+  },
+  "marca": "Collar Pitbull",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 7000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b1faba2d885bb9b3a68d"
+  },
+  "marca": "Pro Plan",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 8500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b245ba2d885bb9b3a68f"
+  },
+  "marca": "Pro Plan",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "3",
+  "precio": 28000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b25dba2d885bb9b3a691"
+  },
+  "marca": "Pro Plan",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "7.5",
+  "precio": 60000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b307ba2d885bb9b3a694"
+  },
+  "marca": "Pro Plan",
+  "mascota": "Perro",
+  "edad": "Mini Adulto Active Mind",
+  "kilo": "3",
+  "precio": 32000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b32fba2d885bb9b3a696"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "Suelto",
+  "precio": 9000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b346ba2d885bb9b3a698"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "1",
+  "precio": 11500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b35bba2d885bb9b3a69a"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "3",
+  "precio": 31000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b36eba2d885bb9b3a69c"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "7.5",
+  "precio": 58000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b381ba2d885bb9b3a69e"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "15",
+  "precio": 88000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b39aba2d885bb9b3a6a0"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 9000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b3adba2d885bb9b3a6a2"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "1",
+  "precio": 10500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bb73ba2d885bb9b3a6b7"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "3",
+  "precio": 28500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bb9aba2d885bb9b3a6b9"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "7.5",
+  "precio": 60000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bbdaba2d885bb9b3a6bb"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Gato",
+  "edad": "Urinary",
+  "kilo": "1.5",
+  "precio": 26000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bbefba2d885bb9b3a6bd"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Gato",
+  "edad": "Weight Control",
+  "kilo": "1.5",
+  "precio": 26000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bc8bba2d885bb9b3a6bf"
+  },
+  "marca": "Stone Cat",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "4",
+  "precio": 5500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bca0ba2d885bb9b3a6c1"
+  },
+  "marca": "Stone Cat",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "15",
+  "precio": 18000,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bcebba2d885bb9b3a6c3"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "Suelto",
+  "precio": 5500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bd7fba2d885bb9b3a6c5"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "3",
+  "precio": 19000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bd91ba2d885bb9b3a6c7"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Mini Puppy",
+  "kilo": "12",
+  "precio": 60000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bdaaba2d885bb9b3a6c9"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "Suelto",
+  "precio": 5000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bdc5ba2d885bb9b3a6cb"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "3",
+  "precio": 18000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bdfbba2d885bb9b3a6cd"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "15",
+  "precio": 70000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682be0eba2d885bb9b3a6cf"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 4500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682be2aba2d885bb9b3a6d1"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 18000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682be3eba2d885bb9b3a6d3"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "15",
+  "precio": 64000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682be79ba2d885bb9b3a6d5"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "Suelto",
+  "precio": 5000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682be92ba2d885bb9b3a6d7"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "3",
+  "precio": 18000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bea5ba2d885bb9b3a6d9"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "12",
+  "precio": 52000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bfacba2d885bb9b3a6dc"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": " Senior",
+  "kilo": "3",
+  "precio": 19000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682bfc0ba2d885bb9b3a6de"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Weight Control",
+  "kilo": "3",
+  "precio": 18000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c035ba2d885bb9b3a6e1"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Criadores",
+  "kilo": "20",
+  "precio": 72000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c081ba2d885bb9b3a6e3"
+  },
+  "marca": "Sieger",
+  "mascota": "Gato",
+  "edad": "Cachorro",
+  "kilo": "1",
+  "precio": 10700,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c094ba2d885bb9b3a6e5"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "7.5",
+  "precio": 52000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c0b3ba2d885bb9b3a6e7"
+  },
+  "marca": "Sieger",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 52000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c1ceba2d885bb9b3a6e9"
+  },
+  "marca": "Sieger",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 10700,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c1f3ba2d885bb9b3a6eb"
+  },
+  "marca": "Sieger",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "7.5",
+  "precio": 52000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c217ba2d885bb9b3a6ed"
+  },
+  "marca": "Sieger",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 10700,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c256ba2d885bb9b3a6ef"
+  },
+  "marca": "Sieger",
+  "mascota": "Perro",
+  "edad": "Urinary",
+  "kilo": "1",
+  "precio": 10700,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c26aba2d885bb9b3a6f1"
+  },
+  "marca": "Sieger",
+  "mascota": "Gato",
+  "edad": "Urinary",
+  "kilo": "7.5",
+  "precio": 52000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c61eba2d885bb9b3a6f3"
+  },
+  "marca": "Sieger",
+  "mascota": "Gato",
+  "edad": " Senior",
+  "kilo": "1",
+  "precio": 10700,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c62dba2d885bb9b3a6f5"
+  },
+  "marca": "Sieger",
+  "mascota": "Gato",
+  "edad": " Senior",
+  "kilo": "7.5",
+  "precio": 52000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c645ba2d885bb9b3a6f7"
+  },
+  "marca": "Sieger",
+  "mascota": "Gato",
+  "edad": "Weight Control",
+  "kilo": "1",
+  "precio": 10700,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c65bba2d885bb9b3a6f9"
+  },
+  "marca": "Sieger",
+  "mascota": "Gato",
+  "edad": "Weight Control",
+  "kilo": "7.5",
+  "precio": 52000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c67aba2d885bb9b3a6fb"
+  },
+  "marca": "Suertudo",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "Suelto",
+  "precio": 1500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c688ba2d885bb9b3a6fd"
+  },
+  "marca": "Suertudo",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "20",
+  "precio": 20000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c6adba2d885bb9b3a6ff"
+  },
+  "marca": "Agility",
+  "mascota": "Perro",
+  "edad": "Lata",
+  "kilo": "1",
+  "precio": 4000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c6bdba2d885bb9b3a701"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Lata",
+  "kilo": "1",
+  "precio": 4000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c6d7ba2d885bb9b3a703"
+  },
+  "marca": "Pedigree",
+  "mascota": "Perro",
+  "edad": "Lata",
+  "kilo": "1",
+  "precio": 3000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c6e6ba2d885bb9b3a705"
+  },
+  "marca": "Pedigree",
+  "mascota": "Perro",
+  "edad": "Pouch",
+  "kilo": "1",
+  "precio": 600,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c76bba2d885bb9b3a708"
+  },
+  "marca": "Paños Pet",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 900,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c783ba2d885bb9b3a70a"
+  },
+  "marca": "Paños Pet",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "10",
+  "precio": 8000,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c8a8ba2d885bb9b3a70f"
+  },
+  "marca": "Iglu",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 10000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c94dba2d885bb9b3a711"
+  },
+  "marca": "Iglu",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "2",
+  "precio": 12000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c9b8ba2d885bb9b3a715"
+  },
+  "marca": "Iglu",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 14000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c9ddba2d885bb9b3a718"
+  },
+  "marca": "Iglu",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "4",
+  "precio": 16000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682ca39ba2d885bb9b3a71a"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "0",
+  "precio": 3800,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682ca39ba2d885bb9b3a71b"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 4200,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cacdba2d885bb9b3a71e"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "2",
+  "precio": 4400,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cbd1ba2d885bb9b3a729"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 4800,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cbe3ba2d885bb9b3a72b"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "4",
+  "precio": 5300,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cbfbba2d885bb9b3a72d"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "5",
+  "precio": 5700,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cc20ba2d885bb9b3a72f"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "6",
+  "precio": 6300,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682ccb8ba2d885bb9b3a732"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "7",
+  "precio": 6500,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682ccccba2d885bb9b3a734"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "8",
+  "precio": 6900,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cce9ba2d885bb9b3a736"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "9",
+  "precio": 7500,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682ccfcba2d885bb9b3a738"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "10",
+  "precio": 8000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cd0aba2d885bb9b3a73a"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "11",
+  "precio": 8500,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cd17ba2d885bb9b3a73c"
+  },
+  "marca": "Polares",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "12",
+  "precio": 8500,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cdb5ba2d885bb9b3a73f"
+  },
+  "marca": "Colchoneta Desenfundable",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "60x70",
+  "precio": 16000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cdefba2d885bb9b3a742"
+  },
+  "marca": "Colchoneta Desenfundable",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "70x80",
+  "precio": 18000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682ce1fba2d885bb9b3a744"
+  },
+  "marca": "Colchoneta Desenfundable",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "80x90",
+  "precio": 21000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682ce30ba2d885bb9b3a746"
+  },
+  "marca": "Colchoneta Desenfundable",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "90x90",
+  "precio": 22000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cee5ba2d885bb9b3a74c"
+  },
+  "marca": "Moises de Jean",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 35000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682cf40ba2d885bb9b3a750"
+  },
+  "marca": "Nidos de Corderito",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 18000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846d858f3be37f423e35eb"
+  },
+  "marca": "Buzo Animado",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 12000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846d978f3be37f423e35ed"
+  },
+  "marca": "Buzo Animado",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "2",
+  "precio": 13000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846e330d6b3df2e7ff2914"
+  },
+  "marca": "Buzo Animado",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 14000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846e700d6b3df2e7ff2915"
+  },
+  "marca": "Buzo Animado",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "4",
+  "precio": 15000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846e7b0d6b3df2e7ff2916"
+  },
+  "marca": "Buzo Animado",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "5",
+  "precio": 16000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846e830d6b3df2e7ff2917"
+  },
+  "marca": "Buzo Animado",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "6",
+  "precio": 17000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846ec58f3be37f423e35f5"
+  },
+  "marca": "Bandeja Sanitaria",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "Mediana",
+  "precio": 3500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846f3b8f3be37f423e35f8"
+  },
+  "marca": "Pipetas",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "2-10",
+  "precio": 4500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846f7f0d6b3df2e7ff2918"
+  },
+  "marca": "Pipetas",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "11-20",
+  "precio": 4500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846f910d6b3df2e7ff2919"
+  },
+  "marca": "Pipetas",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "21-40",
+  "precio": 4500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846f9f0d6b3df2e7ff291a"
+  },
+  "marca": "Pipetas",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "40",
+  "precio": 4500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846fb00d6b3df2e7ff291b"
+  },
+  "marca": "Pipetas",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "2-4",
+  "precio": 4500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846fbf0d6b3df2e7ff291c"
+  },
+  "marca": "Pipetas",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "+ 4",
+  "precio": 4500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668470918f3be37f423e35fc"
+  },
+  "marca": "Shampoo Double",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 7500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6684711c8f3be37f423e3600"
+  },
+  "marca": "Wishka",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 4500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668471308f3be37f423e3602"
+  },
+  "marca": "Wishka",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "10",
+  "precio": 35000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ec9bc863dac3035e3c0eb"
+  },
+  "marca": "Gallina Grande",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 6000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ec9f0863dac3035e3c0ed"
+  },
+  "marca": "Gallina Mediana",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 5700,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668eca19863dac3035e3c0ef"
+  },
+  "marca": "Gallina Chica ",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 2500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668eca78863dac3035e3c0f1"
+  },
+  "marca": "Collar Pañuelo",
+  "mascota": "Mixto",
+  "edad": "Mini Adulto",
+  "kilo": "1",
+  "precio": 2000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ecabb863dac3035e3c0f3"
+  },
+  "marca": "Peluches Elefante Buho",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "Descuento con efectivo",
+  "precio": 12000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ecaf5863dac3035e3c0f5"
+  },
+  "marca": "Peluche Gusano ",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 6500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ecb16863dac3035e3c0f7"
+  },
+  "marca": "Peluche Oso con agarre",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 6500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ecb42863dac3035e3c0f9"
+  },
+  "marca": "Hueso Soga",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "2",
+  "precio": 2000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ecba9863dac3035e3c0fb"
+  },
+  "marca": "Pelota Sponge Chica",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "48 MM",
+  "precio": 2200,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ecbec863dac3035e3c0fe"
+  },
+  "marca": "Pretal Animal Print",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 5000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ecc6b863dac3035e3c102"
+  },
+  "marca": "Tirador Dos Pelotas Tenis",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 6000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ecd19863dac3035e3c106"
+  },
+  "marca": "Tirador Soga 5 Nudos Chicos",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 5000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ecda7863dac3035e3c109"
+  },
+  "marca": "Tirador Doble Horca",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 9000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ecddd863dac3035e3c10b"
+  },
+  "marca": "Tirador Soga 4 Nudos Chico",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 4500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ece5b863dac3035e3c10e"
+  },
+  "marca": "Tirador Grande Horca Manija",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 5000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ece86863dac3035e3c110"
+  },
+  "marca": "Palita Sanitaria",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 900,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668eceb4863dac3035e3c112"
+  },
+  "marca": "Pelota Sponge Fluor",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 3000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668eced8863dac3035e3c114"
+  },
+  "marca": "Ratita - Pollito Cuerda",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 3500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ecf1e863dac3035e3c116"
+  },
+  "marca": "Alicate ",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "Mini",
+  "precio": 2000,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed0a8863dac3035e3c119"
+  },
+  "marca": "Pelota Pulpo",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "2",
+  "precio": 3500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed0d5863dac3035e3c11b"
+  },
+  "marca": "Bebedero Transportadora",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 4000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed0fd863dac3035e3c11d"
+  },
+  "marca": "Gallina Mediana",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 4500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed11b863dac3035e3c11f"
+  },
+  "marca": "Cepillo Manopla",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 6000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed148863dac3035e3c121"
+  },
+  "marca": "Cardina con Expulsor",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 8000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed166863dac3035e3c123"
+  },
+  "marca": "Tirador Soga 3 Nudos Chico",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 3500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed1c4863dac3035e3c125"
+  },
+  "marca": "Manoplo de Goma Oval",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 3000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed24c863dac3035e3c127"
+  },
+  "marca": "Bowl de Acero",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "18 Cm",
+  "precio": 6000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed268863dac3035e3c129"
+  },
+  "marca": "Bowl de Acero",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "22 Cm",
+  "precio": 7500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed2bf863dac3035e3c12d"
+  },
+  "marca": "Juguete Vinilo con Chifle",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 6000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed2e1863dac3035e3c12f"
+  },
+  "marca": "Pelota Tenis",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 5000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed318863dac3035e3c131"
+  },
+  "marca": "Hueso Pinches Grande",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 5000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed35e863dac3035e3c133"
+  },
+  "marca": "Aro Multicolor Grande",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 4500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed37e863dac3035e3c135"
+  },
+  "marca": "Hueso Mordillo",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 3000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed407863dac3035e3c137"
+  },
+  "marca": "Juguete Caucho Grande",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 3500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed41c863dac3035e3c139"
+  },
+  "marca": "Pelota Chupete Bambi",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 3500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed467863dac3035e3c13b"
+  },
+  "marca": "Chapita Delux ",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 2500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed482863dac3035e3c13d"
+  },
+  "marca": "Chapita Deluxe",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 2800,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed4b1863dac3035e3c13f"
+  },
+  "marca": "Pelota Saltarina Fluo",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 1800,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed4d3863dac3035e3c141"
+  },
+  "marca": "Anteojos de Sol",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "Chico",
+  "precio": 3500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed66c863dac3035e3c143"
+  },
+  "marca": "Anteojos de Sol ",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "Mediano",
+  "precio": 3500,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed814863dac3035e3c14f"
+  },
+  "marca": "Saca Pelusa",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 7000,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed83a863dac3035e3c151"
+  },
+  "marca": "Repuesto Saca Pelusa ",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 6000,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66945bd278839136d1074b36"
+  },
+  "marca": "Correa Extensible ",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "5 Mts",
+  "precio": 16000,
+  "categoria": "Accesorio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66945c0178839136d1074b38"
+  },
+  "marca": "Correa Extensible",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "3 Mts",
+  "precio": 12000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6695183cfd9d1707a6259571"
+  },
+  "marca": "Bolsitas ",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 1500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6695185ffd9d1707a6259573"
+  },
+  "marca": "Bolsita",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 800,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6695940ebf5e5978beaa4f29"
+  },
+  "marca": "Asaditos",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 1500,
+  "categoria": "Snack",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66982870bf46d746b548e852"
+  },
+  "marca": "Balanced",
+  "mascota": "Perro",
+  "edad": "Derma Adulto",
+  "kilo": "1",
+  "precio": 4500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66982897bf46d746b548e854"
+  },
+  "marca": "Balanced",
+  "mascota": "Perro",
+  "edad": "Derma Adulto",
+  "kilo": "3",
+  "precio": 17000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669828b4bf46d746b548e856"
+  },
+  "marca": "Balanced",
+  "mascota": "Perro",
+  "edad": "Derma Adulto",
+  "kilo": "15",
+  "precio": 58000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a102a0176883321185dbee"
+  },
+  "marca": "Suertudo",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "15",
+  "precio": 1800,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a1034e176883321185dbf4"
+  },
+  "marca": "Suertudo",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "15",
+  "precio": 22000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a96f67614731a62b815316"
+  },
+  "marca": "Shampoo Hipoalergenico",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 6500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b391c9903eabebf9942f11"
+  },
+  "marca": "Eukanuba",
+  "mascota": "Perro",
+  "edad": "Weight Control",
+  "kilo": "15",
+  "precio": 72000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4c9aaaf20ad15de1b4c29"
+  },
+  "marca": "Duo",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 2000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4c9ceaf20ad15de1b4c2b"
+  },
+  "marca": "Duo",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "20",
+  "precio": 26000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4cd6baf20ad15de1b4c3d"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Gato",
+  "edad": "Urinary",
+  "kilo": "7.5",
+  "precio": 100000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4cdedaf20ad15de1b4c3f"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Perro",
+  "edad": "Urinary S/O",
+  "kilo": "1.5",
+  "precio": 25000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4ce1eaf20ad15de1b4c42"
+  },
+  "marca": "Royal Canin",
+  "mascota": "Perro",
+  "edad": "Urinary S/0",
+  "kilo": "7.5",
+  "precio": 94000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4d40348a4232f53004975"
+  },
+  "marca": "Royal Canin Permorfance",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 4000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4d44648a4232f5300497b"
+  },
+  "marca": "Royal Canin Performance",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "20",
+  "precio": 62000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4d9c248a4232f53004990"
+  },
+  "marca": "Infinity",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "1",
+  "precio": 3000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4d9d548a4232f53004992"
+  },
+  "marca": "Infinity",
+  "mascota": "Perro",
+  "edad": "Mini Adulto",
+  "kilo": "15",
+  "precio": 33000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4d9ff48a4232f53004994"
+  },
+  "marca": "Infinity",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 3000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4da1348a4232f53004996"
+  },
+  "marca": "Infinity",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "21",
+  "precio": 40000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4da6848a4232f53004998"
+  },
+  "marca": "Royal Canin Performance",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "1",
+  "precio": 4500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4db2748a4232f5300499a"
+  },
+  "marca": "Royal Canin Performance",
+  "mascota": "Perro",
+  "edad": "Cachorro",
+  "kilo": "15",
+  "precio": 55000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4dbc548a4232f5300499e"
+  },
+  "marca": "Royal Canin Performance",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 6500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4dbde48a4232f530049a0"
+  },
+  "marca": "Royal Canin Performance",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "7.5",
+  "precio": 42000,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b54310544649065579a8a4"
+  },
+  "marca": "Buzo Garfield",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "2",
+  "precio": 17000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b54321544649065579a8a6"
+  },
+  "marca": "Buzo Garfield",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 19000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b54332544649065579a8a8"
+  },
+  "marca": "Buzo Garfield",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "4",
+  "precio": 21000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b54341544649065579a8aa"
+  },
+  "marca": "Buzo Garfield",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "5",
+  "precio": 25000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b5435a544649065579a8ac"
+  },
+  "marca": "Buzo Lakers",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 25000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b5436c544649065579a8ae"
+  },
+  "marca": "Buzo Lakers",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "4",
+  "precio": 27000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b543a3544649065579a8b0"
+  },
+  "marca": "Buzo Lakers",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "5",
+  "precio": 29000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b543b7544649065579a8b2"
+  },
+  "marca": "Buzo Coraje",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 19000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b543cb544649065579a8b4"
+  },
+  "marca": "Buzo Coraje",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "4",
+  "precio": 20500,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b543db544649065579a8b6"
+  },
+  "marca": "Buzo Coraje",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "5",
+  "precio": 25000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b543f1544649065579a8b8"
+  },
+  "marca": "Buzo Coraje",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "6",
+  "precio": 27000,
+  "categoria": "Indumentaria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b76fdff41fa2beca7b583c"
+  },
+  "marca": "Bolsitas Suletas",
+  "mascota": "Perro",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 700,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b8d48761d1926f8e9761c0"
+  },
+  "marca": "Alicate Profesional",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 4500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b8d4d561d1926f8e9761c2"
+  },
+  "marca": "Alicate Mediano",
+  "mascota": "Mixto",
+  "edad": "Adulto",
+  "kilo": "1",
+  "precio": 4500,
+  "categoria": "Higiene",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba1ed8b9b44f8093abf135"
+  },
+  "marca": "Agility",
+  "mascota": "Gato",
+  "edad": "Kitten",
+  "kilo": "Suelto",
+  "precio": 5500,
+  "categoria": "Alimento",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66be766308b8c2a3b9ad4259"
+  },
+  "marca": "Neupell",
+  "mascota": "Gato",
+  "edad": "Adulto",
+  "kilo": "3",
+  "precio": 3000,
+  "categoria": "Indumentaria",
+  "__v": 0
+}]

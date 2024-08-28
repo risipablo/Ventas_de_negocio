@@ -7,6 +7,11 @@ import { Box } from '@mui/material';
 import { NotasIcon } from "../notas/notasIcon";
 import { StockIcon } from "../stock/stockIcon";
 import { ArchivoIcon } from "../archivos/archivoIcon";
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
+import StoreIcon from '@mui/icons-material/Store';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import MoneyOffIcon from '@mui/icons-material/MoneyOff';
 
 
 export function Navbar(){
@@ -30,14 +35,26 @@ export function Navbar(){
             <div className={`overlay ${isMenuOpen ? 'open' : ''}`} onClick={closeMenu}></div>
                 <div className="container">
                     <div className="navbar">           
-                    <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
-                        <NavLink to="/lista" onClick={closeMenu}> <a className="active"> Lista </a></NavLink>
-                        <NavLink to="/conversion" onClick={closeMenu}> <a className="active">Conversion</a></NavLink>
-                        <a href="https://risipablo.github.io/ListaLocal/Calculadora.html" className="active">Calculadora</a>
-                        <NavLink to="/proveedor" onClick={closeMenu}> <a className="active"> Proveedor </a></NavLink>
-                        <NavLink to="/" onClick={closeMenu}><a className="active">Ventas</a></NavLink>
-                        <NavLink  to="/gastos" onClick={closeMenu}><a className="active">Gastos</a></NavLink>
-                    </div>
+                        <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
+                            <NavLink to="/lista" onClick={closeMenu}>
+                                <ListAltIcon /> <a className="active"> Lista </a>
+                            </NavLink>
+                            <NavLink to="/conversion" onClick={closeMenu}>
+                                <CompareArrowsIcon /> <a className="active"> Conversion </a>
+                            </NavLink>
+                            <a href="https://risipablo.github.io/ListaLocal/Calculadora.html" className="active">
+                                <span className="calculator-icon">🧮</span> Calculadora
+                            </a>
+                            <NavLink to="/proveedor" onClick={closeMenu}>
+                                <StoreIcon /> <a className="active"> Proveedor </a>
+                            </NavLink>
+                            <NavLink to="/" onClick={closeMenu}>
+                                <AttachMoneyIcon /> <a className="active"> Ventas </a>
+                            </NavLink>
+                            <NavLink to="/gastos" onClick={closeMenu}>
+                                <MoneyOffIcon /> <a className="active"> Gastos </a>
+                            </NavLink>
+                        </div>
                 
                     <div onClick={toggleMenu} className={`menu-icon ${isMenuOpen ? 'open' : ''}`}>
                         

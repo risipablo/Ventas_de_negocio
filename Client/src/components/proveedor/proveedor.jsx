@@ -11,7 +11,8 @@ import { ScrollTop } from "../others/scrollTop";
 // import { FiltroProveedor } from "./filtroProveedor";
 
 
-const serverFront = "http://localhost:3001";
+// const serverFront = "http://localhost:3001";
+const serverFront = "https://ventas-de-negocio.onrender.com"
 
 export function Proveedor() {
     const [showInputs, setShowInputs] = useState(true);

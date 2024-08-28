@@ -9,7 +9,8 @@ import { Helmet } from 'react-helmet';
 import {ScrollTop} from '../others/scrollTop'
 
 
-const serverFront = 'http://localhost:3001'
+// const serverFront = 'http://localhost:3001'
+const serverFront = 'https://ventas-de-negocio.onrender.com'
 
 
 export function Gastos(){
@@ -79,19 +80,17 @@ export function Gastos(){
         axios.delete(`${serverFront}/delete-gastos/` + id)
         .then(response => {
             setGastos(gastos.filter((gasto) => gasto._id !== id))
-            toast.error(
-                `Se elimino ${monto} $${proveedor}`,
-                {
-                    position: "top-center",
-                    autoClose: 1000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: true,
-                    theme: "light",
-                    transition: Bounce,
-                }
-            )
+            toast.error('Producto eliminado', {
+                position: "top-center",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+                });
         })
         .catch( err => console.log(err));
     }

@@ -1,0 +1,6320 @@
+[{
+  "_id": {
+    "$oid": "6671fa6b83fc9af01f008f96"
+  },
+  "day": "1",
+  "month": "junio",
+  "tp": "debito",
+  "product": "Biopet",
+  "total": 2000,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "6671fa9683fc9af01f008f98"
+  },
+  "day": "1",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "sieger",
+  "total": 35000,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "6671faaa83fc9af01f008f9a"
+  },
+  "day": "1",
+  "month": "junio",
+  "tp": "debito",
+  "product": "polar",
+  "total": 6500,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "6671fac583fc9af01f008f9c"
+  },
+  "day": "1",
+  "month": "junio",
+  "tp": "debito",
+  "product": "pellcats",
+  "total": 4400,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "6671fadd83fc9af01f008f9e"
+  },
+  "day": "1",
+  "month": "junio",
+  "tp": "debito",
+  "product": "excellent",
+  "total": 3700,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "6671faf083fc9af01f008fa0"
+  },
+  "day": "1",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "bocato",
+  "total": 2000,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "6671fb0983fc9af01f008fa2"
+  },
+  "day": "1",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "pechera",
+  "total": 7000,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "6671fde983fc9af01f008fad"
+  },
+  "day": "4",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "alimentos varios",
+  "total": 30000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6671fe2b83fc9af01f008fb2"
+  },
+  "day": "4",
+  "month": "junio",
+  "tp": "debito",
+  "product": "sieger",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6671fe3883fc9af01f008fb4"
+  },
+  "day": "4",
+  "month": "junio",
+  "tp": "debito",
+  "product": "agility",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6671fe6783fc9af01f008fb7"
+  },
+  "day": "4",
+  "month": "junio",
+  "tp": "debito",
+  "product": "huesos",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6671fe9583fc9af01f008fb9"
+  },
+  "day": "5",
+  "month": "junio",
+  "tp": "debito",
+  "product": "suertudo",
+  "total": 18000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6671fec483fc9af01f008fbb"
+  },
+  "day": "5",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "polares, suertudo,biopet,hueso",
+  "total": 14100,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6671fedd83fc9af01f008fbd"
+  },
+  "day": "5",
+  "month": "junio",
+  "tp": "debito",
+  "product": "agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6671fef783fc9af01f008fbf"
+  },
+  "day": "5",
+  "month": "junio",
+  "tp": "debito",
+  "product": "bocato,piedras",
+  "total": 11000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6671ff1883fc9af01f008fc1"
+  },
+  "day": "5",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "agility,pellcats",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6671ff3283fc9af01f008fc3"
+  },
+  "day": "6",
+  "month": "junio",
+  "tp": "debito",
+  "product": "optimun",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6671ffe383fc9af01f008fcc"
+  },
+  "day": "6",
+  "month": "junio",
+  "tp": "debito",
+  "product": "agility",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6671fffe83fc9af01f008fd0"
+  },
+  "day": "6",
+  "month": "junio",
+  "tp": "credito",
+  "product": "excellent",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672001883fc9af01f008fd2"
+  },
+  "day": "6",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "royal",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672002a83fc9af01f008fd4"
+  },
+  "day": "6",
+  "month": "junio",
+  "tp": "debito",
+  "product": "biopet",
+  "total": 34000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672027483fc9af01f008fd6"
+  },
+  "day": "7",
+  "month": "junio",
+  "tp": "biopet",
+  "product": "biopet",
+  "total": 30000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672029b83fc9af01f008fd8"
+  },
+  "day": "7",
+  "month": "junio",
+  "tp": "credito",
+  "product": "suertudo",
+  "total": 18000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667202bf83fc9af01f008fda"
+  },
+  "day": "7",
+  "month": "junio",
+  "tp": "credito",
+  "product": "excellent perro",
+  "total": 13500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672031b83fc9af01f008fdc"
+  },
+  "day": "7",
+  "month": "junio",
+  "tp": "debito",
+  "product": "agility",
+  "total": 6700,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672038583fc9af01f008fde"
+  },
+  "day": "7",
+  "month": "junio",
+  "tp": "debito",
+  "product": "polares",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672052683fc9af01f008fe0"
+  },
+  "day": "7",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "alimentos varios",
+  "total": 57000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672054483fc9af01f008fe2"
+  },
+  "day": "8",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "alimentos, stone cat",
+  "total": 22000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672056683fc9af01f008fe4"
+  },
+  "day": "10",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "alimentos  varios",
+  "total": 42000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672057b83fc9af01f008fe6"
+  },
+  "day": "10",
+  "month": "junio",
+  "tp": "debito",
+  "product": "excellent",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667205ae83fc9af01f008fe8"
+  },
+  "day": "10",
+  "month": "junio",
+  "tp": "debito",
+  "product": "excellent",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667205c883fc9af01f008fea"
+  },
+  "day": "10",
+  "month": "junio",
+  "tp": "debito",
+  "product": "polar, hueso",
+  "total": 5200,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667205e483fc9af01f008fec"
+  },
+  "day": "10",
+  "month": "junio",
+  "tp": "credito",
+  "product": "shampoo, pipeta",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667205f983fc9af01f008fee"
+  },
+  "day": "10",
+  "month": " junio",
+  "tp": "credito",
+  "product": " agility kitten",
+  "total": 23500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672063383fc9af01f008ff0"
+  },
+  "day": "11",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "pellcats,polares,alimento varios",
+  "total": 30000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672064883fc9af01f008ff2"
+  },
+  "day": "11",
+  "month": "junio",
+  "tp": "debito",
+  "product": "hueso",
+  "total": 600,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672066583fc9af01f008ff4"
+  },
+  "day": "11",
+  "month": "junio",
+  "tp": "debito",
+  "product": "optimun",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672067f83fc9af01f008ff6"
+  },
+  "day": "11",
+  "month": "junio",
+  "tp": "credito",
+  "product": "biopet",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672069a83fc9af01f008ff8"
+  },
+  "day": "12",
+  "month": "junio",
+  "tp": "debito",
+  "product": "agility, hueso",
+  "total": 5100,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667206ba83fc9af01f008ffa"
+  },
+  "day": "12",
+  "month": "junio",
+  "tp": "debito",
+  "product": "suertudo",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667206cb83fc9af01f008ffc"
+  },
+  "day": "12",
+  "month": "junio",
+  "tp": "debito",
+  "product": "optimun",
+  "total": 12000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667206de83fc9af01f008ffe"
+  },
+  "day": "12",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "iglu",
+  "total": 14000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672070d83fc9af01f009000"
+  },
+  "day": "12",
+  "month": "junio",
+  "tp": "debito",
+  "product": "excellent",
+  "total": 13000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672072583fc9af01f009002"
+  },
+  "day": "13",
+  "month": "junio",
+  "tp": "debito",
+  "product": "juguete",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672073283fc9af01f009004"
+  },
+  "day": "13",
+  "month": "junio",
+  "tp": "debito",
+  "product": "agility",
+  "total": 18000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672074783fc9af01f009006"
+  },
+  "day": "13",
+  "month": "junio",
+  "tp": "debito",
+  "product": "excellent",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672075883fc9af01f009008"
+  },
+  "day": "13",
+  "month": "junio",
+  "tp": "debito",
+  "product": "sieger",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672078583fc9af01f00900a"
+  },
+  "day": "13",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "biopet, wishka",
+  "total": 37000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672079983fc9af01f00900c"
+  },
+  "day": "13",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "polares",
+  "total": 21000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667207bc83fc9af01f00900e"
+  },
+  "day": "14",
+  "month": "junio",
+  "tp": "debito",
+  "product": "bocato",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667207d383fc9af01f009010"
+  },
+  "day": "14",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "excellent bolsa",
+  "total": 55000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667207e483fc9af01f009012"
+  },
+  "day": "14",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "hueso",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667207fc83fc9af01f009014"
+  },
+  "day": "14",
+  "month": "junio",
+  "tp": "credito",
+  "product": "proplan",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672081283fc9af01f009016"
+  },
+  "day": "14",
+  "month": "junio",
+  "tp": "debito",
+  "product": "old prince",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672082983fc9af01f009018"
+  },
+  "day": "14",
+  "month": "junio",
+  "tp": "debito",
+  "product": "nutricare, hueso",
+  "total": 3800,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672083f83fc9af01f00901a"
+  },
+  "day": "14",
+  "month": "junio",
+  "tp": "debito",
+  "product": "agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672085483fc9af01f00901c"
+  },
+  "day": "14",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "excellent",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672087883fc9af01f00901e"
+  },
+  "day": "15",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "alimento, juguetes , plato",
+  "total": 27500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667208f783fc9af01f009020"
+  },
+  "day": "18",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "agility",
+  "total": 10500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672090983fc9af01f009022"
+  },
+  "day": "18",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "biopet,lata",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672091b83fc9af01f009024"
+  },
+  "day": "18",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "biopet",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672093083fc9af01f009026"
+  },
+  "day": "18",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "biopet bolsa",
+  "total": 26000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672094283fc9af01f009028"
+  },
+  "day": "18",
+  "month": "junio",
+  "tp": "debito",
+  "product": "mini excellent",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672095083fc9af01f00902a"
+  },
+  "day": "18",
+  "month": "junio",
+  "tp": "debito",
+  "product": "derma biopet",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672096383fc9af01f00902c"
+  },
+  "day": "18",
+  "month": "junio",
+  "tp": "credito",
+  "product": "polares, hueso",
+  "total": 15700,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672097783fc9af01f00902e"
+  },
+  "day": "18",
+  "month": "junio",
+  "tp": "debito",
+  "product": "bolsa old prince",
+  "total": 60000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672dc3af4740f4335f8e827"
+  },
+  "day": "19",
+  "month": "junio",
+  "tp": "debito",
+  "product": "agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672e97ff4740f4335f8e82f"
+  },
+  "day": "19",
+  "month": "Junio",
+  "tp": "debito",
+  "product": "Polares",
+  "total": 10500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672efcff4740f4335f8e832"
+  },
+  "day": "19",
+  "month": "Junio",
+  "tp": "debito",
+  "product": "optimun",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672fd08f4740f4335f8e83b"
+  },
+  "day": "19",
+  "month": "Junio",
+  "tp": "mercado pago",
+  "product": "Agility",
+  "total": 2500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672fdd7f4740f4335f8e83d"
+  },
+  "day": "19",
+  "month": "Junio",
+  "tp": "debito",
+  "product": "Excellent Perro",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6673478ff4740f4335f8e843"
+  },
+  "day": "19",
+  "month": "Junio",
+  "tp": "efectivo",
+  "product": "Bocato",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66737a8189bb3c9d91005f62"
+  },
+  "day": "19",
+  "month": "Junio",
+  "tp": "debito",
+  "product": "Royal canin",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66737a9889bb3c9d91005f64"
+  },
+  "day": "19",
+  "month": "Junio",
+  "tp": "efectivo",
+  "product": "Optimun",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66737aa889bb3c9d91005f66"
+  },
+  "day": "19",
+  "month": "Junio",
+  "tp": "mercado pago",
+  "product": "Biopet",
+  "total": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66737ac889bb3c9d91005f68"
+  },
+  "day": "19",
+  "month": "Junio",
+  "tp": "mercado pago",
+  "product": "Stone cat",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66758616a8723452724b10bb"
+  },
+  "day": "21",
+  "month": "Junio",
+  "tp": "efectivo",
+  "product": "Bocato Raul",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6675c47b1fac126e6e23303e"
+  },
+  "day": "21",
+  "month": "Junio",
+  "tp": "efectivo",
+  "product": "Biopet",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6675ee5c546a99a42274b2dd"
+  },
+  "day": "21",
+  "month": "Junio",
+  "tp": "debito",
+  "product": "Bocato",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6675f5e0546a99a42274b2eb"
+  },
+  "day": "21",
+  "month": "junio",
+  "tp": "mercado pago",
+  "product": "Juguete",
+  "total": 6500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6675f747546a99a42274b2ed"
+  },
+  "day": "21",
+  "month": "junio",
+  "tp": "mercado pago",
+  "product": "Biopet",
+  "total": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6675fed122ed51ee7c80beac"
+  },
+  "day": "21",
+  "month": "junio",
+  "tp": "debito",
+  "product": "Excellent",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676de6d2e499ffcf79d6f92"
+  },
+  "day": "22",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "Nutricare",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e12b2e499ffcf79d6f94"
+  },
+  "day": "22",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "Nutricare Irma",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e809ba54a84acbb9b4b1"
+  },
+  "day": "22",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "Agility",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e827ba54a84acbb9b4b3"
+  },
+  "day": "22",
+  "month": "junio",
+  "tp": "debito",
+  "product": "optimun",
+  "total": 5500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676ec6d503404428601f246"
+  },
+  "day": "22",
+  "month": "junio",
+  "tp": "mercado pago",
+  "product": "Agility",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676f0cb503404428601f24a"
+  },
+  "day": "22",
+  "month": "junio",
+  "tp": "efectivo",
+  "product": "Royal Canin",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676f0de503404428601f24c"
+  },
+  "day": "22",
+  "month": "junio",
+  "tp": "debito",
+  "product": "Agility adulto",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6677568adbfcdbda409563cc"
+  },
+  "day": "22",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Bocato panadero",
+  "total": 12000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679789fb132fec3e19d8fc5"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Debito",
+  "product": "Excellent",
+  "total": 7500,
+  "__v": 0,
+  "boleta": "74"
+},
+{
+  "_id": {
+    "$oid": "66797c0eb132fec3e19d8fc8"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Polar",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66797c26b132fec3e19d8fca"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Visa Debito 7001",
+  "product": "Excellent",
+  "total": 7500,
+  "__v": 0,
+  "boleta": "75"
+},
+{
+  "_id": {
+    "$oid": "66797e71b132fec3e19d8fcc"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Latas",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679839eb132fec3e19d8fd2"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Credito VISA",
+  "product": "Excellent",
+  "total": 17000,
+  "__v": 0,
+  "boleta": "76"
+},
+{
+  "_id": {
+    "$oid": "6679853db132fec3e19d8fd4"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Suertudo",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679d4c5bd37113bdd6cc304"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Bocato",
+  "total": 1000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679d89c0fbb4d3b5dc2218a"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Pro Plan",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679de7eda959b9866bbe60d"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Excellent ",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679de92da959b9866bbe60f"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Debito Master 8006",
+  "product": "Huesos",
+  "total": 4000,
+  "__v": 0,
+  "boleta": "77"
+},
+{
+  "_id": {
+    "$oid": "6679e028da959b9866bbe611"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Bocato",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679e245da959b9866bbe613"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Visa Debito 2106",
+  "product": "Balanced Derma ",
+  "total": 15000,
+  "__v": 0,
+  "boleta": "78"
+},
+{
+  "_id": {
+    "$oid": "6679e2ddda959b9866bbe615"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Agility ",
+  "total": 3500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679e593da959b9866bbe617"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Visa Debito 9852",
+  "product": "Nutricare",
+  "total": 4000,
+  "__v": 0,
+  "boleta": "79"
+},
+{
+  "_id": {
+    "$oid": "6679e5a3da959b9866bbe619"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Polar Lucre",
+  "total": 6500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679ef5d898c5c69d95734dd"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Visa Debito 5811",
+  "product": "Polar",
+  "total": 4000,
+  "__v": 0,
+  "boleta": "80"
+},
+{
+  "_id": {
+    "$oid": "6679efac898c5c69d95734df"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Biopet",
+  "total": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679f1a6898c5c69d95734e1"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Visa Debito 0829",
+  "product": "Biopet parte",
+  "total": 22000,
+  "__v": 0,
+  "boleta": "81"
+},
+{
+  "_id": {
+    "$oid": "6679f1b6898c5c69d95734e3"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Biopet parte",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679f1da898c5c69d95734e5"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Polar",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6679fae98c2be5fa4996b9b9"
+  },
+  "day": "24",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Optimun Perro",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667ad4c9a1d927c83059a9dc"
+  },
+  "day": "25",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Excellent ",
+  "total": 42100,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667ad4e2a1d927c83059a9de"
+  },
+  "day": "25",
+  "month": "Junio",
+  "tp": "Debito Cabal 2794",
+  "product": "Optimun ",
+  "total": 3500,
+  "__v": 0,
+  "boleta": "82"
+},
+{
+  "_id": {
+    "$oid": "667ad4f2a1d927c83059a9e0"
+  },
+  "day": "25",
+  "month": "Junio",
+  "tp": "Debito 4002",
+  "product": "Pechera",
+  "total": 12000,
+  "__v": 0,
+  "boleta": "83"
+},
+{
+  "_id": {
+    "$oid": "667ae3ff5c650e5ea9273436"
+  },
+  "day": "25",
+  "month": "Junio",
+  "tp": "Credito VISA 8410",
+  "product": "Sieger",
+  "total": 14000,
+  "__v": 0,
+  "boleta": "84"
+},
+{
+  "_id": {
+    "$oid": "667b2477cd631cfa1dff256e"
+  },
+  "day": "25",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Balanced",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667b3c8a1fac2b9aa42071a7"
+  },
+  "day": "25",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Polares",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667b3cac1fac2b9aa42071a9"
+  },
+  "day": "25",
+  "month": "Junio",
+  "tp": "Credito FALTA",
+  "product": "Agility , Nutricare , Biopet",
+  "total": 45000,
+  "__v": 0,
+  "boleta": "85"
+},
+{
+  "_id": {
+    "$oid": "667b435e7cec64aa1c96e54c"
+  },
+  "day": "25",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Polares",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667b84c29a596928049af3c1"
+  },
+  "day": "25",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Excellent Perro",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c1597885be84fcf868678"
+  },
+  "day": "25",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Lata ",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c1bcfa666b3cc1d6b98ac"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Bocato Raul",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c1bdca666b3cc1d6b98ae"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Polar",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c26849c7190c83f6bc9b9"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Biopet",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c26939c7190c83f6bc9bb"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": " Mc Debit 1009",
+  "product": "Polar",
+  "total": 3000,
+  "__v": 0,
+  "boleta": "86"
+},
+{
+  "_id": {
+    "$oid": "667c371a85e2d5f0ec8f4a29"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Biopet",
+  "total": 27000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c381685e2d5f0ec8f4a2d"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Agility",
+  "total": 2500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c385f85e2d5f0ec8f4a2f"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Polar",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c7e7d8557660e95e66cb2"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Credito NARANJA 7629",
+  "product": "Agility adulto",
+  "total": 5000,
+  "__v": 0,
+  "boleta": "87"
+},
+{
+  "_id": {
+    "$oid": "667c831c8557660e95e66cb4"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Agility Gato",
+  "total": 2500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c85528557660e95e66cb6"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Agility Kitten",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c85648557660e95e66cb8"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Agility Perro",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c8a918557660e95e66cc7"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Nutricare",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c97db8557660e95e66d0a"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Royal Silvia (6000)",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c97f98557660e95e66d0c"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Agility, polar",
+  "total": 11500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c980a8557660e95e66d0e"
+  },
+  "day": "26",
+  "month": "Junio",
+  "tp": "Visa Debito 9566",
+  "product": "Polares",
+  "total": 14000,
+  "__v": 0,
+  "boleta": "88"
+},
+{
+  "_id": {
+    "$oid": "667d665b4f319e2425697dc7"
+  },
+  "day": "27",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Juguete",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667d8721bbf050561f8e9c30"
+  },
+  "day": "27",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Bocato",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667d88c1bbf050561f8e9c32"
+  },
+  "day": "27",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Excellent",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667dc7e9acfc28495fb0ba05"
+  },
+  "day": "27",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Juguete",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667dd2b3acfc28495fb0ba07"
+  },
+  "day": "27",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Bocato",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667dd924acfc28495fb0ba3e"
+  },
+  "day": "27",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Nutricare",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667ddaefacfc28495fb0ba40"
+  },
+  "day": "27",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Agility",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667ddc87acfc28495fb0ba42"
+  },
+  "day": "27",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Ratas - Agility",
+  "total": 17000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667de46eacfc28495fb0ba54"
+  },
+  "day": "1",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "product": "Nutricare Irma",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667e17c208005c153f39de42"
+  },
+  "day": "27",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "product": "Excellent bolsa Lucia",
+  "total": 32000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667eb43385961240b802660c"
+  },
+  "day": "28",
+  "month": "Junio",
+  "tp": "Visa Debito 1007",
+  "product": "Collar Gato",
+  "total": 4000,
+  "__v": 0,
+  "boleta": "0089-1"
+},
+{
+  "_id": {
+    "$oid": "667eb61685961240b802660e"
+  },
+  "day": "28",
+  "month": "Junio",
+  "tp": "Mc Debit 6695",
+  "product": "Nutricare",
+  "total": 8000,
+  "__v": 0,
+  "boleta": "0090-1"
+},
+{
+  "_id": {
+    "$oid": "667f1c0ef6f01c8b741364ee"
+  },
+  "day": "28",
+  "month": "Junio",
+  "tp": "Visa débito 2984",
+  "boleta": "0091-1",
+  "product": "Oreja",
+  "total": 300,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667f1c51f6f01c8b741364f0"
+  },
+  "day": "28",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Wishka",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667f1c65f6f01c8b741364f2"
+  },
+  "day": "28",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility Gato",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667f2af2f6f01c8b7413651b"
+  },
+  "day": "28",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Bocato",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667f2f9bf6f01c8b74136520"
+  },
+  "day": "28",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Pretal - Agility",
+  "total": 14500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667f356af6f01c8b7413653b"
+  },
+  "day": "28",
+  "month": "Junio",
+  "tp": "Mc debit 3008",
+  "boleta": "0092-1",
+  "product": "Royal Canin",
+  "total": 8500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667f45471a82b47b931b6dee"
+  },
+  "day": "28",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Pechera - Agility Gato",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667f47fb146ce6346f06d182"
+  },
+  "day": "28",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet Mini Adulto",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66800bedf943893f87ce10da"
+  },
+  "day": "29",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Irma ",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668024b15d68ff1ec2b34aaf"
+  },
+  "day": "29",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Optimun",
+  "total": 8500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66802b46b1f0e8003cc603b0"
+  },
+  "day": "29",
+  "month": "Junio",
+  "tp": "Visa Debito 4795",
+  "boleta": "0093",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66802d76b1f0e8003cc603b2"
+  },
+  "day": "29",
+  "month": "Junio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Bocato",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66803678acdd93c9cda7311f"
+  },
+  "day": "29",
+  "month": "Junio",
+  "tp": "DVisa debito 1630",
+  "boleta": "0094",
+  "product": "Bocato Lita",
+  "total": 18000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6680470d1bf1f038cb2c6d78"
+  },
+  "day": "29",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "boleta": "Eugenio",
+  "product": "Balanced ",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682ae9fb41d0b3a5da6673f"
+  },
+  "day": "29",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682aeb1b41d0b3a5da66741"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682b4a6a3b163330f08545a"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c190793b99c70f684e3b"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Bocados",
+  "total": 2400,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c1ab793b99c70f684e3d"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Wishka",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6682c50a793b99c70f684e41"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668319aa7a28645767d67cff"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66831f331d52c333c5f90690"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Debito ",
+  "boleta": "0095",
+  "product": "Stone Cat",
+  "total": 5400,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668321941d52c333c5f90692"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Royal Canin",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66832b06ef4f33abc4c80e27"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Bocato",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66832b48ef4f33abc4c80e29"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6683390811003125502a6825"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Stone Cat",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668404ad88168e47bd34a760"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Sieger",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66840b355af9d3bb9caa62df"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Visa Debito",
+  "boleta": "0096",
+  "product": "Buzo",
+  "total": 12000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66840b705af9d3bb9caa62e1"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Visa Debito",
+  "boleta": "0097",
+  "product": "Biopet",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668412c1f51f610183694fad"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668412ecf51f610183694faf"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "Fernanda Deuda",
+  "product": "Excellent , pouch",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66841301f51f610183694fb1"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668419cbcbd7106d517630d7"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Master Debito",
+  "boleta": "0098",
+  "product": "Excellent",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846b428f3be37f423e35dc"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Visa Debito",
+  "boleta": "0099 (ticket faltante)",
+  "product": "Biopet Mini Adulto",
+  "total": 21000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846b728f3be37f423e35de"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Visa PrePago",
+  "boleta": "0100",
+  "product": "Bocato",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846b868f3be37f423e35e0"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Suertudo",
+  "total": 3500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66846b998f3be37f423e35e2"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Excellent Perro",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6684706e8f3be37f423e35fa"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Visa Debito",
+  "boleta": "0101",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668477b48f3be37f423e360c"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668482028f3be37f423e3638"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0102",
+  "product": "Balanced ",
+  "total": 14000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668482268f3be37f423e363a"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Pro Plan ",
+  "total": 18000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6684823d8f3be37f423e363c"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Excellent ",
+  "total": 10500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668482508f3be37f423e363e"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 5500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668482608f3be37f423e3640"
+  },
+  "day": "2",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Excellent Collares",
+  "total": 18000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66854886da1f8b62497f8dd8"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Naranja Crédito ",
+  "boleta": "0103",
+  "product": "Royal Canin",
+  "total": 18000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66854f742d5413c4ba2f3772"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Huesos",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685517d2d5413c4ba2f3774"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Juguete gato ",
+  "total": 9500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685586ed8a2705ee1e8f867"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0104",
+  "product": "Nutricare Biopet ",
+  "total": 50000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66855a6ed8a2705ee1e8f86a"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0105",
+  "product": "Orejas",
+  "total": 600,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66855bb1d8a2705ee1e8f86d"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare Latas",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66855d72d8a2705ee1e8f86f"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66855f3ad8a2705ee1e8f871"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Polar ",
+  "total": 5500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66856d9fe29d3b6ccdff8346"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Bocato",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685bb119969db9098ae9f90"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "Debe",
+  "product": "Royal Canin Silvia",
+  "total": 22500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685bbe29969db9098ae9f93"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 14000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685c644e1b85543bb37f53e"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": " Master Crédito ",
+  "boleta": "0106",
+  "product": "Agility Kitten",
+  "total": 29000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685c79ae1b85543bb37f546"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Pellcats",
+  "total": 2500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685c87ee1b85543bb37f548"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "Agus deuda",
+  "product": "Bocato , Biopet",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685c8aae1b85543bb37f54b"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Excellent Romina",
+  "total": 8500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685cb32e1b85543bb37f54d"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0107",
+  "product": "Excellent",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685d2debaa141b72f365433"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 14000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685d2dfbaa141b72f365435"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Master Débito",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685d464baa141b72f365438"
+  },
+  "day": "3",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6686a13a1f9253e76d27bf0d"
+  },
+  "day": "4",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agiliy",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6686a751bdf10fef90fb205c"
+  },
+  "day": "4",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Old prince",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6686b86e87191f5f3dcf60a2"
+  },
+  "day": "4",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6687017dc467721e865700a9"
+  },
+  "day": "4",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Optimun",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66871d3579bc1021227d2499"
+  },
+  "day": "4",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Chaleco ",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668720b679bc1021227d249b"
+  },
+  "day": "4",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agus",
+  "total": 8400,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6687235c79bc1021227d24a8"
+  },
+  "day": "4",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Polar ",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6687f019019e09da858f15b9"
+  },
+  "day": "5",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6687f0c5019e09da858f15be"
+  },
+  "day": "5",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Bocato",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6687f8e2f74ff1706d4f517a"
+  },
+  "day": "5",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Bocato",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6687fc42f74ff1706d4f5182"
+  },
+  "day": "5",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668807bdaf3400e3ea1ba7a8"
+  },
+  "day": "5",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6688122dafcc64caddd8bbfe"
+  },
+  "day": "5",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "Eugenio",
+  "product": " Balanced",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66885a37433c458844ffcafb"
+  },
+  "day": "5",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Polares",
+  "total": 12000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668864d1433c458844ffcb0a"
+  },
+  "day": "5",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Polares",
+  "total": 18000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66887002c4e2e8321ac7ad47"
+  },
+  "day": "5",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "9999",
+  "product": "Excellent Gato",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6688770b0c0a77468283b117"
+  },
+  "day": "5",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Huesos",
+  "total": 1500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66887ebd7378bcfb7e0b3fd2"
+  },
+  "day": "5",
+  "month": "Julio",
+  "tp": "Cabal Débito ",
+  "boleta": "0001",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6689459ecadb800c6588aef2"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare Irma",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66894e49f9ea1780b5d7d9a4"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Royal canin",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66894e5cf9ea1780b5d7d9a6"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility ",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66894e72f9ea1780b5d7d9a8"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0002",
+  "product": "Rascador",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66894e85f9ea1780b5d7d9aa"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility ",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6689528d1668177f8c205c8d"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Bocato",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6689584c23f6de80d413c6e4"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0003",
+  "product": "Nutricare",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668959ae23f6de80d413c6e6"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Polar Hueso",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66895a2e23f6de80d413c6e8"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet mini adulto Bondy",
+  "total": 24000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66895a4523f6de80d413c6ea"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Biopet Paula",
+  "total": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66895a8423f6de80d413c6ec"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet Analia",
+  "total": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66895b9123f6de80d413c6f2"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Sonia Excellent - Pellcats - Optimun",
+  "total": 20000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66895fe335b7ee2712c7eee4"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6689635835b7ee2712c7eee7"
+  },
+  "day": "6",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0004",
+  "product": "Agility Perro",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668be550c038bd405682c207"
+  },
+  "day": "8",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Hueso",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668be8c9c038bd405682c20b"
+  },
+  "day": "8",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0005",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668bf4333718c688ed2a4e40"
+  },
+  "day": "8",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0006",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668bfa373718c688ed2a4e4b"
+  },
+  "day": "8",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Polar",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668bfa483718c688ed2a4e4d"
+  },
+  "day": "8",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668c02133718c688ed2a4e5b"
+  },
+  "day": "8",
+  "month": "Julio",
+  "tp": "Naranja Crédito ",
+  "boleta": "0007",
+  "product": "Polar",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668c08249b52fb50aab00f55"
+  },
+  "day": "8",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0008",
+  "product": "Polares",
+  "total": 24000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668c5a3290d2816e0dde88c5"
+  },
+  "day": "8",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent Urinary",
+  "total": 8500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669515f7fd9d1707a625956f"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet Mini Adulto",
+  "total": 21000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66952178b1f7200b06c16b70"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Polares",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669522b3b1f7200b06c16b72"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0009",
+  "product": "Huesos",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66953964840f8950e0e4b1b3"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Optimun",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669539e6840f8950e0e4b1b5"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "Eugenio",
+  "product": "Balanced",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669585748e533a0480b22afd"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0010",
+  "product": "Biopet",
+  "total": 50000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669590ccbf5e5978beaa4f1b"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0011",
+  "product": "Polar - Asaditos",
+  "total": 8500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669590ecbf5e5978beaa4f1d"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6695911cbf5e5978beaa4f1f"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Nutricare",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66959183bf5e5978beaa4f22"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare Latas",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66959453bf5e5978beaa4f2b"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Stone Cat 16 kg (cheli)",
+  "total": 18000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669597ccbf5e5978beaa4f3b"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet Optimun",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66959e0cd28d3ca61726d1dc"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent ",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6695a3b620d8953550daff63"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6695a69120d8953550daff69"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Huesos",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6695a6a620d8953550daff6b"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Polar",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6695ad73cc1eb1b0b2029849"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0013",
+  "product": "Juguetes",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6695ade6cc1eb1b0b202984b"
+  },
+  "day": "15",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6696785159386cb733f14686"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0014",
+  "product": "Pechera - Royal Canin",
+  "total": 49000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6696786f59386cb733f14688"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0015",
+  "product": "Excellent",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669687d616e5fb53b048e2b7"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Polar - Juguete",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669687f816e5fb53b048e2b9"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0016",
+  "product": "Agility latas - Manopla",
+  "total": 17000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6696897d16e5fb53b048e2be"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0017",
+  "product": "Bocato - Piedras",
+  "total": 12000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66968a5316e5fb53b048e2c0"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Huesos",
+  "total": 900,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66969068bfb7f400512b51b3"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "Debe",
+  "product": "Bocato Raul",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66969069bfb7f400512b51b5"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "",
+  "product": "Buzo Polar",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6696de8f03131e15145ad2a1"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility - Rata - Excellent - Polar",
+  "total": 16000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6696dea203131e15145ad2a3"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6696dea203131e15145ad2a5"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Visa Debito",
+  "boleta": "0018",
+  "product": "Biopet",
+  "total": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6696deec03131e15145ad2a8"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Buzo Polar",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6696fa0747cd7317996c0f77"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0019",
+  "product": "Excellent Perro",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6696fb2b47cd7317996c0f79"
+  },
+  "day": "16",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Balanced",
+  "total": 14000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6698279abf46d746b548e84e"
+  },
+  "day": "17",
+  "month": "Julio",
+  "tp": "Cabal Débito ",
+  "boleta": "0020",
+  "product": "Balanced Derma",
+  "total": 17000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66982b0cbf46d746b548e85b"
+  },
+  "day": "17",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0021",
+  "product": "Biopet Oreja",
+  "total": 6300,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669839460b213f0fe1cc3665"
+  },
+  "day": "17",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Buzo polar",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66983cb30b213f0fe1cc3668"
+  },
+  "day": "17",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Polar",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669849ac9fc77eb03d26557f"
+  },
+  "day": "17",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent Mini Puppy",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669917bb157f1a96c1374d20"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Polares",
+  "total": 1000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6699180e157f1a96c1374d22"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0022",
+  "product": "Optimun",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66991a88157f1a96c1374d28"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility Kitten",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66992005157f1a96c1374d33"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0023",
+  "product": "2 Stone Cat - Agility",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6699241ca45ba85d0f6d2eba"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "Silvana",
+  "product": "Stone Cat",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66992474a45ba85d0f6d2ebf"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "Silvana",
+  "product": "Stone cat ",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66992d115bd1d732c374ae8a"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 13000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669932dc10782a3d10aee4fe"
+  },
+  "day": "16",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "Debe",
+  "product": "Biopet - Bocato (Panadero)",
+  "total": 38000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669932f610782a3d10aee500"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Biopet Panadero",
+  "total": 30000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6699379910782a3d10aee504"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0024",
+  "product": "Hueso",
+  "total": 750,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66998442a71ad24a41a0268e"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66998b708da18c459797c340"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0025",
+  "product": "Excellent Perro",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66999881531cf4067c919401"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0026",
+  "product": "Sieger",
+  "total": 37000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66999d52590974492d9c2307"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Royal ",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66999e10590974492d9c230a"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Huesos",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66999f21590974492d9c230c"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Huesos",
+  "total": 1600,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669bb222851bcbcb3212b623"
+  },
+  "day": "18",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669bb7b60c7cc8876dfca971"
+  },
+  "day": "20",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0027",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669bc46baf247e934fbaa575"
+  },
+  "day": "20",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Huesos",
+  "total": 5500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669bc71aaf247e934fbaa577"
+  },
+  "day": "20",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669bd14165e35529d396183e"
+  },
+  "day": "20",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0028",
+  "product": "Nutricare",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669bd1be65e35529d3961840"
+  },
+  "day": "20",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Bocato",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669bd6639e86ed62a85c4ebd"
+  },
+  "day": "20",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Nutricare",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669bdda6b62d2e143baa9f8e"
+  },
+  "day": "20",
+  "month": "Julio",
+  "tp": "Visa Débito 4372",
+  "boleta": "0029",
+  "product": "Excellent Perro",
+  "total": 6500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669bdddab62d2e143baa9f90"
+  },
+  "day": "20",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent Cheli",
+  "total": 35000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ebf089e7424f3ebd95e76"
+  },
+  "day": "22",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ebf229e7424f3ebd95e78"
+  },
+  "day": "22",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 2500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ebf689e7424f3ebd95e7a"
+  },
+  "day": "22",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0030",
+  "product": "Nutricare",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ec6449e7424f3ebd95e80"
+  },
+  "day": "22",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0031",
+  "product": "Royal - Plato",
+  "total": 11000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ed3e4c1d1d3a6ccd4ed7e"
+  },
+  "day": "22",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0032",
+  "product": "Polar",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ed41cc1d1d3a6ccd4ed80"
+  },
+  "day": "22",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Alimento Marroc ",
+  "total": 32000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669edced73e5275bf18297ae"
+  },
+  "day": "22",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Optimun",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669fa47842ec557474b27547"
+  },
+  "day": "23",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Optimun",
+  "total": 3300,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669fb4420d923fb61e580499"
+  },
+  "day": "23",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0033",
+  "product": "Agility",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669fbc95e0257e03ba6b21c2"
+  },
+  "day": "23",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0034",
+  "product": "Excellent (error de precio)",
+  "total": 7050,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669fcbedc0c9b7ed8ab5677c"
+  },
+  "day": "23",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0035",
+  "product": "Biopet ($1000 efectivo)",
+  "total": 24000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a0138a9b656329b59be45d"
+  },
+  "day": "23",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0036",
+  "product": "Agility - Bandeja",
+  "total": 10400,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a01e2dfb10b54a0629d9da"
+  },
+  "day": "23",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Optimun Perro",
+  "total": 3500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a02a47fb10b54a0629da11"
+  },
+  "day": "23",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0037",
+  "product": "Bocato",
+  "total": 1800,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a0fdc4176883321185dbe9"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Huesos Lata",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a111bcb1901c85048d1bcd"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Royal - Quita pelusa",
+  "total": 14000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a113b2b1901c85048d1bcf"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0038",
+  "product": "Bolsita - Oreja",
+  "total": 2500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a113deb1901c85048d1bd1"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Visa Crédito ",
+  "boleta": "0039",
+  "product": "Asaditos - Juguete",
+  "total": 8500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a166d19226d6ac6283544c"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 5500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a166e69226d6ac6283544e"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 3500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a16b219226d6ac62835456"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Cepillo ",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a16b3c9226d6ac62835458"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare - Latas",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a16bf99226d6ac6283545e"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Latas jorge",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a175a7d441e580062e2515"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a17617d441e580062e2519"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0040",
+  "product": "Excellent",
+  "total": 8500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a17bd9d441e580062e2521"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0041",
+  "product": "Agility - Rata",
+  "total": 5400,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a17c00d441e580062e2523"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0042",
+  "product": "Excellent Perro",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a19df23a6254e98afc25dd"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "'",
+  "product": "Excellent",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a247f1d5ed1b86d846a37c"
+  },
+  "day": "25",
+  "month": "Julio",
+  "tp": "Visa Débito 2424",
+  "boleta": "0043",
+  "product": "Juguetes",
+  "total": 10500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a258967ee8757f0428e952"
+  },
+  "day": "24",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Royal Canin",
+  "total": 24000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a25c827ee8757f0428e956"
+  },
+  "day": "25",
+  "month": "Julio",
+  "tp": "Master Débito 6181",
+  "boleta": "0044",
+  "product": "Biopet",
+  "total": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a261c47ee8757f0428e969"
+  },
+  "day": "25",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "debe",
+  "product": "Agility derma (patricia)",
+  "total": 58000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a269817ee8757f0428e973"
+  },
+  "day": "25",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Pechera",
+  "total": 12000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a2b5556f3726c771e00cca"
+  },
+  "day": "25",
+  "month": "Julio",
+  "tp": "Visa Crédito ",
+  "boleta": "0045",
+  "product": "Biopet ",
+  "total": 29000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a2b57a6f3726c771e00ccc"
+  },
+  "day": "25",
+  "month": "Julio",
+  "tp": "Visa Crédito 5872",
+  "boleta": "0046",
+  "product": "Bandeja - Rata",
+  "total": 5500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a2b6066f3726c771e00cce"
+  },
+  "day": "25",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet Mini Adulto (bondy)",
+  "total": 22000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a3b144878c964211adaf9f"
+  },
+  "day": "26",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare (Irma)",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a3bccb015d0773760c5c57"
+  },
+  "day": "26",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent ",
+  "total": 20000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a406bc406493db89c6ea63"
+  },
+  "day": "26",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a4184c5507c7e1eeaf88b5"
+  },
+  "day": "26",
+  "month": "Julio",
+  "tp": "Visa Débito 0085",
+  "boleta": "0047",
+  "product": "Piedras",
+  "total": 2500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a4292ef8fe9ad6632ce490"
+  },
+  "day": "26",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a4f222435547eb3942d1be"
+  },
+  "day": "27",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet Huesos",
+  "total": 6500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a4f237435547eb3942d1c0"
+  },
+  "day": "27",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Huesos",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a50221e473c7fcfae4210e"
+  },
+  "day": "27",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "Lucia",
+  "product": "Excellent - Juguetes",
+  "total": 23200,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a515aa7ae14c21df49d2b2"
+  },
+  "day": "27",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Balanced Eugenio",
+  "total": 16000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a5165c7ae14c21df49d2b4"
+  },
+  "day": "27",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agustina",
+  "total": 34400,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a518527ae14c21df49d2b6"
+  },
+  "day": "27",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Royal Canin",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a7a5cb5235b79a9165955f"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Stone Cat ",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a7a5ed5235b79a91659561"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0048",
+  "product": "Excellent Gato",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a7b91fdfdbe811e945d08e"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Polar",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a80ede049a387c1ee5befa"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare - Excellent",
+  "total": 12000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a80efc049a387c1ee5befc"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0049",
+  "product": "Nutricare - Agility Gato",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a813ec4ce77e63a2683fc4"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Naranja Crédito",
+  "boleta": "0051",
+  "product": "Agility Kitten - Hueso",
+  "total": 22500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a813ed4ce77e63a2683fc6"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "",
+  "product": "Optimun",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a81ad10d2f95f58b8bcd17"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0052",
+  "product": "Huesos",
+  "total": 1200,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a81ba90d2f95f58b8bcd1c"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0053",
+  "product": "Orejas",
+  "total": 600,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a81be30d2f95f58b8bcd1e"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Nutricare",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a81bf10d2f95f58b8bcd20"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a81c050d2f95f58b8bcd22"
+  },
+  "day": "29",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Pechera",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a90a89766cc1ad128940c5"
+  },
+  "day": "30",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0054",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a94cea6004cf9c959a7dc5"
+  },
+  "day": "30",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Buzo Polar",
+  "total": 12000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a94d436004cf9c959a7dc7"
+  },
+  "day": "30",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Royal Canin - Pelota",
+  "total": 9800,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a96331051055fc0ddba8b0"
+  },
+  "day": "30",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Bolsas",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aa2de7840b515bfd5f3520"
+  },
+  "day": "30",
+  "month": "Junio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Ventas por MP",
+  "total": 368600,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aa53cdcc00fcb2c1f05eec"
+  },
+  "day": "31",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "055",
+  "product": "Excellent",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aa57d91bbf0cbf6d12dadb"
+  },
+  "day": "31",
+  "month": "Julio",
+  "tp": "Naranja Crédito ",
+  "boleta": "0056",
+  "product": "Agility ",
+  "total": 2700,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aa57d91bbf0cbf6d12dadd"
+  },
+  "day": "31",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "0056",
+  "product": "Agility ",
+  "total": 2500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aaa9adf1493c826d959a2a"
+  },
+  "day": "31",
+  "month": "Julio",
+  "tp": "Master Débito ",
+  "boleta": "0057",
+  "product": "Optimun Perro",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aab0d158d38422a763d9d4"
+  },
+  "day": "31",
+  "month": "Julio",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Gati",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aab4e23dcc476e3f5b6d74"
+  },
+  "day": "31",
+  "month": "Julio",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ab88972285052db8b69f5f"
+  },
+  "day": "1",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ab8c902285052db8b69f65"
+  },
+  "day": "1",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0058",
+  "product": "Polar Simon",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ab9a9bef2120d82a4702b0"
+  },
+  "day": "1",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ab9ab2ef2120d82a4702b2"
+  },
+  "day": "1",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility Gato Adulto",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aba6ea5fdc94788f5d3207"
+  },
+  "day": "1",
+  "month": "Julio",
+  "tp": "Visa Débito",
+  "boleta": "0059",
+  "product": "Excellent Perro",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66abacefbf473119c76520b6"
+  },
+  "day": "1",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Royal Silvia",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66abf3f1bf501f31f260c14c"
+  },
+  "day": "1",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Royal Canin",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ac0112bf501f31f260c180"
+  },
+  "day": "1",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0060",
+  "product": "Agility Urinary",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ac0132bf501f31f260c182"
+  },
+  "day": "1",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility Gato",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ac118e63ca38d7ca58f1fb"
+  },
+  "day": "1",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0061",
+  "product": "Biopet ",
+  "total": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66acdc632c21aa7e3f3c50b3"
+  },
+  "day": "2",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Polares",
+  "total": 17000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aced3fedf958c177112eda"
+  },
+  "day": "2",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent senior",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66acf2d9265e74aed0493d79"
+  },
+  "day": "2",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0063",
+  "product": "Biopet - Hueso",
+  "total": 2500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66acf32e265e74aed0493d7c"
+  },
+  "day": "2",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Pelotas",
+  "total": 9500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66acf534265e74aed0493d80"
+  },
+  "day": "2",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Gati",
+  "total": 1500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66acfc885af6febd05b1cedd"
+  },
+  "day": "2",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0064 (ticket faltante)",
+  "product": "Chapita Gato",
+  "total": 2500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66acfcb55af6febd05b1cedf"
+  },
+  "day": "2",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0065",
+  "product": "Agility - Rata",
+  "total": 5900,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66acff275af6febd05b1cee1"
+  },
+  "day": "2",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae320247e93466c9043e04"
+  },
+  "day": "3",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Huesos",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae858feecc4daff4159c32"
+  },
+  "day": "3",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Shampoo",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae85ceeecc4daff4159c34"
+  },
+  "day": "3",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Latas ",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae85dceecc4daff4159c36"
+  },
+  "day": "3",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Optimun",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae8a9deecc4daff4159c53"
+  },
+  "day": "3",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0066",
+  "product": "Nutricare",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae8ac1eecc4daff4159c55"
+  },
+  "day": "3",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0067",
+  "product": "Biopet",
+  "total": 1000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae8b4ceecc4daff4159c57"
+  },
+  "day": "3",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0068",
+  "product": "Excellent - Optimun (Sonia)",
+  "total": 19500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae8b74eecc4daff4159c59"
+  },
+  "day": "3",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0069",
+  "product": "Excellent Mini Adulto",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae8bb1eecc4daff4159c5b"
+  },
+  "day": "3",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0070",
+  "product": "Nutricare",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae8bcbeecc4daff4159c5d"
+  },
+  "day": "3",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0071",
+  "product": "Senior Excellent",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae8bf8eecc4daff4159c5f"
+  },
+  "day": "3",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare (irma)",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b0d7a749e7426749d397d6"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Royal Canin",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b0dc4bcbd983c67cbcfabc"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b0e3af37b7d63b0eb8a112"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Fernando pago deuda",
+  "total": 68000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b0eccf2acd86cdce75bc3b"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0072",
+  "product": "Agility Gato ",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b0f65fcd1f005f7e7f1504"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b130c5a2ecf0b123c4d3f2"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b136e4a2ecf0b123c4d438"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": " Master Crédito ",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b1407d2b56a9bda65dbbd4"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility Adulto",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b1424e2b56a9bda65dbbde"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0074",
+  "product": "Lata Pedigree",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b1425e2b56a9bda65dbbe0"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0075",
+  "product": "Lata Pedigree",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b146f62b56a9bda65dbbe9"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "5000",
+  "product": "Agility ",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b147082b56a9bda65dbbeb"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Biopet - Hueso",
+  "total": 11000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b151e70e904fca6b7af2ac"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Optimun Perro ",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b151f90e904fca6b7af2ae"
+  },
+  "day": "5",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b230b984145bf2b376f423"
+  },
+  "day": "6",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility Adulto",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b282177a536040a160c8f4"
+  },
+  "day": "6",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b284777a536040a160c8fc"
+  },
+  "day": "6",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0076",
+  "product": "Shampoo - Huesos",
+  "total": 8200,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b286a77a536040a160c8fe"
+  },
+  "day": "6",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Balanced - Old Prince Marroc",
+  "total": 28500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b28d3848ea1ea0a952af56"
+  },
+  "day": "6",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Bocato",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b292903f355b81f78a4d84"
+  },
+  "day": "6",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0077",
+  "product": "Excellent Mini Adulto",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b298293f355b81f78a4d8e"
+  },
+  "day": "6",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0078",
+  "product": "Nutricare - Bolsitas",
+  "total": 5500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b29cd83f355b81f78a4d98"
+  },
+  "day": "6",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Gati",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b2a39b3f355b81f78a4dbc"
+  },
+  "day": "6",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 26000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b2a9bb3f355b81f78a4de4"
+  },
+  "day": "6",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b2b08abfd911e5775cd380"
+  },
+  "day": "6",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0079 (ticket Faltante)",
+  "product": "Excellent",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b2df6ff485c1335c267831"
+  },
+  "day": "2",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "062",
+  "product": "Alimento",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b36c8e3df1adc74db7dcaa"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Royal Canin",
+  "total": 16000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b373087fa14b42302fa47e"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Huesos",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3750f7fa14b42302fa483"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b37fb92711306ef2e92e7e"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Gallina",
+  "total": 4500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b39311903eabebf9942f18"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Polar",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3d86cfca9fbc026d81741"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Gati",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3d897fca9fbc026d81743"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Wishka",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3e142fca9fbc026d8175d"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 13000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3e16bfca9fbc026d8175f"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Polar - Orejas",
+  "total": 4900,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3e4b1fca9fbc026d8177b"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0080",
+  "product": "Agility Adulto",
+  "total": 8200,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3ef81fca9fbc026d817ed"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Biopet - Nutricare",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3f09cfca9fbc026d817f2"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Gati",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3f4f1c92963db08252c04"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent Gato Adulto",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3f518c92963db08252c06"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Cabal",
+  "boleta": "0082",
+  "product": "Excellent Gato Adulto",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3f8efc92963db08252c6d"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Transferencia",
+  "boleta": "S.R.L Group",
+  "product": "Suertudo",
+  "total": 80000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3fadec92963db08252c70"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b3fafbc92963db08252c72"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Juguetes",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b40305938f8213b05c488d"
+  },
+  "day": "7",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0083",
+  "product": "Agility Urinary",
+  "total": 7500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4c907af20ad15de1b4c24"
+  },
+  "day": "8",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Polar",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4d2ea48a4232f53004968"
+  },
+  "day": "8",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent Senior",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4d3ad48a4232f5300496e"
+  },
+  "day": "8",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "Debe",
+  "product": "Lita Wishka ",
+  "total": 18000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4d3c948a4232f53004972"
+  },
+  "day": "8",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Ada Suertudo",
+  "total": 20000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4db4748a4232f5300499c"
+  },
+  "day": "8",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Excellent Polar",
+  "total": 13000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b53351544649065579a831"
+  },
+  "day": "8",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Royal Canin Mini Puppy",
+  "total": 55000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b533f2544649065579a833"
+  },
+  "day": "8",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Rata",
+  "total": 1000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b5465b544649065579a8bc"
+  },
+  "day": "8",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0084",
+  "product": "Nutricare",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b601c5bffe2f2734c70c1a"
+  },
+  "day": "8",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b618108a45397ce9381d08"
+  },
+  "day": "9",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Biopet Paula",
+  "total": 26000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b634612a40c5b922194125"
+  },
+  "day": "9",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 55000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b634762a40c5b922194127"
+  },
+  "day": "9",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b68365faacaed0071446de"
+  },
+  "day": "9",
+  "month": "Agosto",
+  "tp": "Visa Crédito ",
+  "boleta": "0085 (ticket faltante 1585)",
+  "product": "Biopet - Chaleco - collar pitbull",
+  "total": 26000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b68398faacaed0071446e1"
+  },
+  "day": "9",
+  "month": "Agosto",
+  "tp": "Visa Crédito ",
+  "boleta": "0086 (1585)",
+  "product": "Pelota Sponge Fluor",
+  "total": 3500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b68773faacaed0071446e5"
+  },
+  "day": "9",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0087",
+  "product": "Old Prince Mini Adulto",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b6915b4f0fabce39631526"
+  },
+  "day": "9",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Buzo Polar",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b6986b1671eef54cbe472a"
+  },
+  "day": "9",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Polar",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b6c25db995ea4dc8239133"
+  },
+  "day": "9",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Balanced Derma",
+  "total": 9000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b768693cae86fd297ff60b"
+  },
+  "day": "10",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Huesos",
+  "total": 1000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b771a9f41fa2beca7b583e"
+  },
+  "day": "10",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 30000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b7774fd1b2b3534a8fb2d3"
+  },
+  "day": "10",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Bolsitas",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b77d74c2d2cdc43bb549b9"
+  },
+  "day": "10",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0088",
+  "product": "Excellent Gato",
+  "total": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b77dedc2d2cdc43bb549bb"
+  },
+  "day": "10",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet Mini Adulto",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b77f2ac2d2cdc43bb549c0"
+  },
+  "day": "10",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Royal Canin",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b78609643ec0a0bfaea1a3"
+  },
+  "day": "10",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Agility Adulto Perro",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba0874601bff33c2b83423"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Huesos Lata",
+  "total": 2500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba0b95601bff33c2b83430"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0089",
+  "product": "Agility Kitten",
+  "total": 2700,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba12e7601bff33c2b83440"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0090",
+  "product": "Biopet",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba18181dfc899442102333"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba1f38b9b44f8093abf13b"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": " Master Crédito ",
+  "boleta": "0091",
+  "product": "Agility Kitten",
+  "total": 11000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba21dab9b44f8093abf13e"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Excellent Kitten",
+  "total": 8500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba280a741b7dc4020e2e86"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility - Polar",
+  "total": 16000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba29be741b7dc4020e2e8a"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "Debe",
+  "product": "Sonia ",
+  "total": 9500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba29d1741b7dc4020e2e8c"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba737869b8949d3a96b718"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0092",
+  "product": "Biopet Mini Adulto - Agility ",
+  "total": 12700,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba7beeadb26196ce197c6e"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Wishka",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba7c1cadb26196ce197c72"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Excellent",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba83a8f2009d840bce761d"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0093",
+  "product": "Biopet Adulto",
+  "total": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba8dff5ece6f175f14ba4d"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent Gato",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba8e195ece6f175f14ba4f"
+  },
+  "day": "12",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0094",
+  "product": "Pechera ",
+  "total": 13000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba9598ff0603e9ec3f468e"
+  },
+  "day": "12",
+  "month": "Abril",
+  "tp": "Master Débito ",
+  "boleta": "0095",
+  "product": "Excellent Gato",
+  "total": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb561a748a3e4e95be1967"
+  },
+  "day": "13",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Eukanuba Fit Body",
+  "total": 72000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb6e3a0ad09c7b882e7059"
+  },
+  "day": "13",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0096",
+  "product": "Polar",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb6e5c0ad09c7b882e705b"
+  },
+  "day": "13",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility Adulto - Biopet Mini Adulto",
+  "total": 22000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb70200ad09c7b882e705d"
+  },
+  "day": "13",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet Mini Adulto",
+  "total": 7000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb75ad44c71a7ff3c9d491"
+  },
+  "day": "13",
+  "month": "Agosto",
+  "tp": "Master Débito ",
+  "boleta": "0097",
+  "product": "Sieger Mini Adulto",
+  "total": 10000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb75cf44c71a7ff3c9d493"
+  },
+  "day": "13",
+  "month": "Agosto",
+  "tp": "Visa Crédito ",
+  "boleta": "0098",
+  "product": "Excellent Senior",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bbbf64f761a2d98973a7e8"
+  },
+  "day": "13",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Biopet Adulto ",
+  "total": 20000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bbbf79f761a2d98973a7ea"
+  },
+  "day": "13",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Nutricare ",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bbd7d7d571630f2acf856f"
+  },
+  "day": "13",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "0099",
+  "product": "Nutricare - Orejas",
+  "total": 3200,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bbd7f2d571630f2acf8571"
+  },
+  "day": "13",
+  "month": "Agosto",
+  "tp": "Visa Crédito ",
+  "boleta": "100",
+  "product": "Optimun Gato",
+  "total": 1500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bcba2ea189f94ead6aba25"
+  },
+  "day": "14",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Royal Canin Mini Adulto",
+  "total": 50000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bcbab6a189f94ead6aba29"
+  },
+  "day": "14",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Royal Canin Mini Adulto",
+  "total": 8000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bd25a434fffe44fbf5d7f8"
+  },
+  "day": "14",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Balanced",
+  "total": 13000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bd326734fffe44fbf5d842"
+  },
+  "day": "14",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Agility",
+  "total": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bdf3f4b96e9c9302101324"
+  },
+  "day": "15",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "boleta": "101",
+  "product": "Lata Agility - Raton",
+  "total": 4900,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bdf642b96e9c9302101326"
+  },
+  "day": "15",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Nutricare ",
+  "total": 6000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66be0439ea2977b1374dbd8c"
+  },
+  "day": "15",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Sieger Mini Adulto",
+  "total": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c0b875b1d091163563fa9d"
+  },
+  "day": "15",
+  "month": "Agosto",
+  "tp": "Mercado pago",
+  "product": "Juguetes",
+  "total": 6500,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "66c0b8fab1d091163563fa9f"
+  },
+  "day": "15",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "product": "Huesos - Nutricare",
+  "total": 5500,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "66c0b91cb1d091163563faa0"
+  },
+  "day": "15",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "product": "Derma Mini Adulto ",
+  "total": 30000,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "66c0b942b1d091163563faa1"
+  },
+  "day": "15",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "product": "Excellent Adulto",
+  "total": 4000,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "66c0ba5fb1d091163563faa3"
+  },
+  "day": "15",
+  "month": "Agosto",
+  "tp": "Naranja Crédito",
+  "product": "Excellent - Pellcats",
+  "total": 13500,
+  "__v": 0,
+  "boleta": "102"
+},
+{
+  "_id": {
+    "$oid": "66c0bab5b1d091163563faa4"
+  },
+  "day": "15",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "product": "Balanced Derma",
+  "total": 13500,
+  "__v": 0,
+  "boleta": "103"
+},
+{
+  "_id": {
+    "$oid": "66c0bb37b1d091163563faa5"
+  },
+  "day": "16",
+  "month": "Agosto",
+  "tp": "Mercado pago",
+  "product": "Biopet - Bocato ",
+  "total": 35000,
+  "__v": 0,
+  "boleta": "Pago Panedero"
+},
+{
+  "_id": {
+    "$oid": "66c0bb57b1d091163563faa6"
+  },
+  "day": "15",
+  "month": "Agosto",
+  "tp": "Mercado pago",
+  "product": "Biopet - Huesos - Bocato",
+  "total": 34400,
+  "__v": 0,
+  "boleta": "Pago Agus"
+},
+{
+  "_id": {
+    "$oid": "66c0bf17b1d091163563faa7"
+  },
+  "day": "16",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "product": "Excellent Gato",
+  "total": 10000,
+  "__v": 0,
+  "boleta": "104"
+},
+{
+  "_id": {
+    "$oid": "66c0c0b1b1d091163563faa8"
+  },
+  "day": "16",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "product": "Biopet Mini Adulto - Piedras",
+  "total": 24500,
+  "__v": 0,
+  "boleta": "105"
+},
+{
+  "_id": {
+    "$oid": "66c0c20cb1d091163563faa9"
+  },
+  "day": "16",
+  "month": "Agosto",
+  "tp": "Master Débito",
+  "product": "Bocato",
+  "total": 2000,
+  "__v": 0,
+  "boleta": "106"
+},
+{
+  "_id": {
+    "$oid": "66c0c27db1d091163563faaa"
+  },
+  "day": "16",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "product": "Agility Adulto",
+  "total": 2500,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "66c0c337b1d091163563faab"
+  },
+  "day": "16",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "product": "Excellent Adulto",
+  "total": 18000,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "66c0c35eb1d091163563faac"
+  },
+  "day": "17",
+  "month": "Agosto",
+  "tp": "Mercado pago",
+  "product": "Excellent Gato",
+  "total": 14000,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "66c0c375b1d091163563faad"
+  },
+  "day": "17",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "product": "Nutricare Mini Adulto",
+  "total": 4000,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "66c0c3a3b1d091163563faae"
+  },
+  "day": "17",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "product": "Agility Kitten - Pellcats",
+  "total": 6000,
+  "__v": 0,
+  "boleta": "-"
+},
+{
+  "_id": {
+    "$oid": "66c0c3cab1d091163563faaf"
+  },
+  "day": "17",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "product": "Agility, Nutricare Mini Adulto  ",
+  "total": 6900,
+  "__v": 0,
+  "boleta": "108"
+},
+{
+  "_id": {
+    "$oid": "66c0c42bb1d091163563fab2"
+  },
+  "day": "17",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "product": "Royal Canin Mini Adulto",
+  "total": 25500,
+  "__v": 0,
+  "boleta": "107"
+},
+{
+  "_id": {
+    "$oid": "66c0c462b1d091163563fab3"
+  },
+  "day": "17",
+  "month": "Agosto",
+  "tp": "Visa Débito",
+  "product": "Juguetes - Bolsitas",
+  "total": 9500,
+  "__v": 0,
+  "boleta": "109 (ticket faltante)"
+},
+{
+  "_id": {
+    "$oid": "66c352dd89b5f8ff657072fa"
+  },
+  "day": "6",
+  "month": "Diciembre",
+  "tp": "Visa PrePago",
+  "boleta": "23",
+  "product": "dsa",
+  "total": 1234,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c3b5a2fab59bc102ff4ed6"
+  },
+  "day": "19",
+  "month": "Agosto",
+  "tp": "Mercado Pago",
+  "boleta": "-",
+  "product": "Biopet",
+  "total": 26000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c3b87c6ee977ff8eb9f018"
+  },
+  "day": "19",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Excellent Adulto Gato",
+  "total": 13500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c3b89b6ee977ff8eb9f01c"
+  },
+  "day": "19",
+  "month": "Agosto",
+  "tp": "Efectivo",
+  "boleta": "-",
+  "product": "Polar",
+  "total": 6000,
+  "__v": 0
+}]

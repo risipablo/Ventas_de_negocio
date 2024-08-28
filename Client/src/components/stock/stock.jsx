@@ -6,7 +6,8 @@ import { Delete, Settings, Save, Cancel } from '@mui/icons-material';
 import { toast, Bounce } from 'react-toastify';
 
 
-const serverFront = 'http://localhost:3001'
+// const serverFront = 'http://localhost:3001'
+    const serverFront = 'https://ventas-de-negocio.onrender.com'
 
 
 export function Stock() {

@@ -1,0 +1,1358 @@
+[{
+  "_id": {
+    "$oid": "6676cf9f5ddf403dbc415cd6"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "2",
+  "mes": "Enero",
+  "factura": "39190",
+  "monto": 81010,
+  "estado": "Pagado",
+  "__v": 0,
+  "completed": false
+},
+{
+  "_id": {
+    "$oid": "6676cfca5ddf403dbc415cda"
+  },
+  "proveedor": "Don Tomas",
+  "dia": "2",
+  "mes": "Enero",
+  "factura": "357706",
+  "monto": 40100,
+  "estado": "Pagado",
+  "__v": 0,
+  "completed": true
+},
+{
+  "_id": {
+    "$oid": "6676cfe55ddf403dbc415cdc"
+  },
+  "proveedor": "Popy",
+  "dia": "3",
+  "mes": "Enero",
+  "factura": "-",
+  "monto": 115600,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d00e5ddf403dbc415cde"
+  },
+  "proveedor": "Don Tomas",
+  "dia": "8",
+  "mes": "Enero",
+  "factura": "358575",
+  "monto": 12500,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d03c5ddf403dbc415ce0"
+  },
+  "proveedor": "Chubutin",
+  "dia": "8",
+  "mes": "Enero",
+  "factura": "-",
+  "monto": 93350,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d0585ddf403dbc415ce2"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "9",
+  "mes": "Enero",
+  "factura": "39527",
+  "monto": 69000,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d0d35ddf403dbc415ce7"
+  },
+  "proveedor": "Forastero",
+  "dia": "11",
+  "mes": "Enero",
+  "factura": "193763",
+  "monto": 115560,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d11e5ddf403dbc415ce9"
+  },
+  "proveedor": "Amadeo S.R.L",
+  "dia": "12",
+  "mes": "Enero",
+  "factura": "22222",
+  "monto": 95584,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d15f5ddf403dbc415cec"
+  },
+  "proveedor": "Nutripet",
+  "dia": "17",
+  "mes": "Enero",
+  "factura": "69618",
+  "monto": 155941,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d1855ddf403dbc415cef"
+  },
+  "proveedor": "Mercaba",
+  "dia": "16",
+  "mes": "Enero",
+  "factura": "13398",
+  "monto": 236500,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d1b35ddf403dbc415cf1"
+  },
+  "proveedor": "Forastero",
+  "dia": "23",
+  "mes": "Enero",
+  "factura": "194592",
+  "monto": 245302,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d1d35ddf403dbc415cf3"
+  },
+  "proveedor": "Forastero",
+  "dia": "23",
+  "mes": "Enero",
+  "factura": "194593",
+  "monto": 28520,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d1fb5ddf403dbc415cf5"
+  },
+  "proveedor": "Chubutin",
+  "dia": "25",
+  "mes": "Enero",
+  "factura": "-",
+  "monto": 100035,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d21c5ddf403dbc415cf7"
+  },
+  "proveedor": "Amadeo S.R.L",
+  "dia": "26",
+  "mes": "Enero",
+  "factura": "22377",
+  "monto": 81036,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d2315ddf403dbc415cf9"
+  },
+  "proveedor": "Amadeo S.R.L",
+  "dia": "26",
+  "mes": "Enero",
+  "factura": "53363",
+  "monto": 24113,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d2565ddf403dbc415cfb"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "1",
+  "mes": "Febrero",
+  "factura": "399661",
+  "monto": 111986,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d2715ddf403dbc415cfd"
+  },
+  "proveedor": "Chubutin",
+  "dia": "1",
+  "mes": "Febrero",
+  "factura": "-",
+  "monto": 78120,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d2975ddf403dbc415cff"
+  },
+  "proveedor": "Popy",
+  "dia": "10",
+  "mes": "Febrero",
+  "factura": "-",
+  "monto": 103900,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d2bc5ddf403dbc415d01"
+  },
+  "proveedor": "Chubutin",
+  "dia": "15",
+  "mes": "Febrero",
+  "factura": "-",
+  "monto": 123800,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d2d85ddf403dbc415d03"
+  },
+  "proveedor": "Nutripet",
+  "dia": "16",
+  "mes": "Febrero",
+  "factura": "70415",
+  "monto": 8968,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d2ee5ddf403dbc415d05"
+  },
+  "proveedor": "Popy",
+  "dia": "16",
+  "mes": "Febrero",
+  "factura": "-",
+  "monto": 100200,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d3115ddf403dbc415d07"
+  },
+  "proveedor": "Forastero",
+  "dia": "21",
+  "mes": "Febrero",
+  "factura": "195999",
+  "monto": 298429,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d3275ddf403dbc415d09"
+  },
+  "proveedor": "Popy",
+  "dia": "22",
+  "mes": "Febrero",
+  "factura": "-",
+  "monto": 121200,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d5875ddf403dbc415d0b"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "22",
+  "mes": "Febrero",
+  "factura": "-",
+  "monto": 66581,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d5a35ddf403dbc415d0d"
+  },
+  "proveedor": "Amadeo S.R.L",
+  "dia": "23",
+  "mes": "Febrero",
+  "factura": "22529",
+  "monto": 101108,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d5dd5ddf403dbc415d10"
+  },
+  "proveedor": "Cancid",
+  "dia": "23",
+  "mes": "Febrero",
+  "factura": "16435",
+  "monto": 79739,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d5f65ddf403dbc415d12"
+  },
+  "proveedor": "Don Tomas",
+  "dia": "26",
+  "mes": "Febrero",
+  "factura": "366932",
+  "monto": 92861,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d6105ddf403dbc415d14"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "29",
+  "mes": "Febrero",
+  "factura": "84803",
+  "monto": 129277,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d6255ddf403dbc415d16"
+  },
+  "proveedor": "Chubutin",
+  "dia": "29",
+  "mes": "Febrero",
+  "factura": "366932",
+  "monto": 100000,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d6505ddf403dbc415d18"
+  },
+  "proveedor": "Popy",
+  "dia": "1",
+  "mes": "Marzo",
+  "factura": "-",
+  "monto": 137700,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d6e55ddf403dbc415d1a"
+  },
+  "proveedor": "Nutripet",
+  "dia": "8",
+  "mes": "Marzo",
+  "factura": "71050",
+  "monto": 118733,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d7175ddf403dbc415d1c"
+  },
+  "proveedor": "Popy",
+  "dia": "8",
+  "mes": "Marzo",
+  "factura": "-",
+  "monto": 297400,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d7375ddf403dbc415d1e"
+  },
+  "proveedor": "Forastero",
+  "dia": "13",
+  "mes": "Marzo",
+  "factura": "197251",
+  "monto": 609700,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d74d5ddf403dbc415d20"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "14",
+  "mes": "Marzo",
+  "factura": "85267",
+  "monto": 79506,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d76f5ddf403dbc415d22"
+  },
+  "proveedor": "Chubutin",
+  "dia": "14",
+  "mes": "Marzo",
+  "factura": "9330",
+  "monto": 156840,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d7875ddf403dbc415d24"
+  },
+  "proveedor": "Don Tomas",
+  "dia": "18",
+  "mes": "Marzo",
+  "factura": "370979",
+  "monto": 73930,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d7a05ddf403dbc415d26"
+  },
+  "proveedor": "Chubutin",
+  "dia": "21",
+  "mes": "Marzo",
+  "factura": "9425",
+  "monto": 153500,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d7bd5ddf403dbc415d28"
+  },
+  "proveedor": "Amadeo S.R.L",
+  "dia": "20",
+  "mes": "Marzo",
+  "factura": "22767",
+  "monto": 90250,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d8915ddf403dbc415d2a"
+  },
+  "proveedor": "Nutripet",
+  "dia": "18",
+  "mes": "Marzo",
+  "factura": "71282",
+  "monto": 118564,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d8a75ddf403dbc415d2c"
+  },
+  "proveedor": "Popy",
+  "dia": "21",
+  "mes": "Marzo",
+  "factura": "-",
+  "monto": 89100,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d8be5ddf403dbc415d2e"
+  },
+  "proveedor": "Forastero",
+  "dia": "22",
+  "mes": "Marzo",
+  "factura": "197752",
+  "monto": 210455,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d8db5ddf403dbc415d30"
+  },
+  "proveedor": "Otros",
+  "dia": "22",
+  "mes": "Marzo",
+  "factura": "-",
+  "monto": 13000,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d9175ddf403dbc415d33"
+  },
+  "proveedor": "Indumentaria",
+  "dia": "3",
+  "mes": "Abril",
+  "factura": "-",
+  "monto": 126138,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d9325ddf403dbc415d35"
+  },
+  "proveedor": "Forastero",
+  "dia": "5",
+  "mes": "Abril",
+  "factura": "198313",
+  "monto": 86270,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d94d5ddf403dbc415d37"
+  },
+  "proveedor": "Chubutin",
+  "dia": "8",
+  "mes": "Abril",
+  "factura": "9625",
+  "monto": 218500,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d9785ddf403dbc415d39"
+  },
+  "proveedor": "Don Tomas",
+  "dia": "8",
+  "mes": "Abril",
+  "factura": "374818-9",
+  "monto": 58950,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d98e5ddf403dbc415d3b"
+  },
+  "proveedor": "Popy",
+  "dia": "9",
+  "mes": "Abril",
+  "factura": "-",
+  "monto": 232500,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676d9b25ddf403dbc415d3d"
+  },
+  "proveedor": "Nutripet",
+  "dia": "9",
+  "mes": "Abril",
+  "factura": "72043\t",
+  "monto": 231850,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676da0f5ddf403dbc415d3f"
+  },
+  "proveedor": "Amadeo S.R.L",
+  "dia": "11",
+  "mes": "Abril",
+  "factura": "23023",
+  "monto": 135400,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676da215ddf403dbc415d41"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "17",
+  "mes": "Abril",
+  "factura": "86086",
+  "monto": 246996,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676da645ddf403dbc415d43"
+  },
+  "proveedor": "Forastero",
+  "dia": "18",
+  "mes": "Abril",
+  "factura": "198973",
+  "monto": 168286,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676da7a5ddf403dbc415d45"
+  },
+  "proveedor": "Chubutin",
+  "dia": "18",
+  "mes": "Abril",
+  "factura": "9778",
+  "monto": 85300,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676da8c5ddf403dbc415d47"
+  },
+  "proveedor": "Popy",
+  "dia": "23",
+  "mes": "Abril",
+  "factura": "-",
+  "monto": 170800,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676daa55ddf403dbc415d49"
+  },
+  "proveedor": "Cancid",
+  "dia": "24",
+  "mes": "Abril",
+  "factura": "5469",
+  "monto": 41540,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676dad25ddf403dbc415d4b"
+  },
+  "proveedor": "Cancid",
+  "dia": "24",
+  "mes": "Abril",
+  "factura": "-",
+  "monto": 10985,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676daf65ddf403dbc415d4d"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "30",
+  "mes": "Abril",
+  "factura": "86444",
+  "monto": 153854,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676dc925ddf403dbc415d4f"
+  },
+  "proveedor": "Popy",
+  "dia": "4",
+  "mes": "Mayo",
+  "factura": "-",
+  "monto": 194100,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e8c45ddf403dbc415d57"
+  },
+  "proveedor": "Chubutin",
+  "dia": "6",
+  "mes": "Mayo",
+  "factura": "9981",
+  "monto": 118600,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e8f15ddf403dbc415d59"
+  },
+  "proveedor": "Cancid",
+  "dia": "9",
+  "mes": "Mayo",
+  "factura": "5556",
+  "monto": 65600,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e9095ddf403dbc415d5b"
+  },
+  "proveedor": "Indumentaria",
+  "dia": "9",
+  "mes": "Mayo",
+  "factura": "-",
+  "monto": 33100,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e9245ddf403dbc415d5d"
+  },
+  "proveedor": "Forastero",
+  "dia": "9",
+  "mes": "Mayo",
+  "factura": "200179",
+  "monto": 237590,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e9405ddf403dbc415d5f"
+  },
+  "proveedor": "Nutripet",
+  "dia": "14",
+  "mes": "Mayo",
+  "factura": "73196",
+  "monto": 157868,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e95c5ddf403dbc415d61"
+  },
+  "proveedor": "Chubutin",
+  "dia": "16",
+  "mes": "Mayo",
+  "factura": "10157",
+  "monto": 183000,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e9715ddf403dbc415d63"
+  },
+  "proveedor": "Don Tomas",
+  "dia": "20",
+  "mes": "Mayo",
+  "factura": "382805",
+  "monto": 100600,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e98e5ddf403dbc415d65"
+  },
+  "proveedor": "Popy",
+  "dia": "20",
+  "mes": "Mayo",
+  "factura": "-",
+  "monto": 99000,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e9ad5ddf403dbc415d67"
+  },
+  "proveedor": "Chubutin",
+  "dia": "23",
+  "mes": "Mayo",
+  "factura": "10252",
+  "monto": 199000,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e9cd5ddf403dbc415d69"
+  },
+  "proveedor": "Popy",
+  "dia": "24",
+  "mes": "Mayo",
+  "factura": "-",
+  "monto": 108900,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e9e55ddf403dbc415d6b"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "30",
+  "mes": "Mayo",
+  "factura": "41894",
+  "monto": 56147,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676e9fc5ddf403dbc415d6d"
+  },
+  "proveedor": "Chubutin",
+  "dia": "30",
+  "mes": "Mayo",
+  "factura": "10340",
+  "monto": 73315,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676ea345ddf403dbc415d6f"
+  },
+  "proveedor": "Forastero",
+  "dia": "3",
+  "mes": "Junio",
+  "factura": "201611",
+  "monto": 156240,
+  "estado": "pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676ea495ddf403dbc415d71"
+  },
+  "proveedor": "Forastero",
+  "dia": "4",
+  "mes": "Junio",
+  "factura": "201697\t",
+  "monto": 121652,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676ea6f5ddf403dbc415d73"
+  },
+  "proveedor": "Chubutin",
+  "dia": "4",
+  "mes": "Junio",
+  "factura": "10414",
+  "monto": 66640,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676ea8d5ddf403dbc415d75"
+  },
+  "proveedor": "Kro Line",
+  "dia": "9",
+  "mes": "Junio",
+  "factura": "-",
+  "monto": 220000,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676eaa95ddf403dbc415d77"
+  },
+  "proveedor": "Nutripet",
+  "dia": "11",
+  "mes": "Junio",
+  "factura": "74075",
+  "monto": 305780,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676eace5ddf403dbc415d79"
+  },
+  "proveedor": "Forastero",
+  "dia": "11",
+  "mes": "Junio",
+  "factura": "202085",
+  "monto": 84647,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676eaf65ddf403dbc415d7b"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "12",
+  "mes": "Junio",
+  "factura": "42147",
+  "monto": 223943,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676eb365ddf403dbc415d7d"
+  },
+  "proveedor": "Don Tomas",
+  "dia": "18",
+  "mes": "Junio",
+  "factura": "387283",
+  "monto": 74400,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676eba55ddf403dbc415d7f"
+  },
+  "proveedor": "Popy",
+  "dia": "19",
+  "mes": "Junio",
+  "factura": "-",
+  "monto": 121200,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6676ec1e5ddf403dbc415d81"
+  },
+  "proveedor": "Amadeo S.R.L",
+  "dia": "19",
+  "mes": "Junio",
+  "factura": "5820",
+  "monto": 45100,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667d5f564f319e2425697dc3"
+  },
+  "proveedor": "Forastero",
+  "dia": "27",
+  "mes": "Junio",
+  "factura": "202695",
+  "monto": 152898,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667f68245727621fa68f04c0"
+  },
+  "proveedor": "Otros",
+  "dia": "28",
+  "mes": "Junio",
+  "factura": "-",
+  "monto": 122736,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667ffdef62b9b682c3cdd43f"
+  },
+  "proveedor": "Popy",
+  "dia": "29",
+  "mes": "Junio",
+  "factura": "21932",
+  "monto": 174000,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668019db0855962fa01aa90e"
+  },
+  "proveedor": "Chubutin",
+  "dia": "1",
+  "mes": "Julio",
+  "factura": "10757",
+  "monto": 205150,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6685ba189969db9098ae9f8d"
+  },
+  "proveedor": "Forastero",
+  "dia": "3",
+  "mes": "Julio",
+  "factura": "203330",
+  "monto": 81096,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6686a1581f9253e76d27bf10"
+  },
+  "proveedor": "Popy",
+  "dia": "4",
+  "mes": "Julio",
+  "factura": "21752",
+  "monto": 151800,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66880a9aaf3400e3ea1ba7b2"
+  },
+  "proveedor": "Amadeo S.R.L",
+  "dia": "4",
+  "mes": "Julio",
+  "factura": "23970",
+  "monto": 63790,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ec7b9863dac3035e3c0df"
+  },
+  "proveedor": "Mercaba",
+  "dia": "10",
+  "mes": "Julio",
+  "factura": "43239",
+  "monto": 270810,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668ed7d4863dac3035e3c14b"
+  },
+  "proveedor": "Indumentaria",
+  "dia": "10",
+  "mes": "Julio",
+  "factura": "-",
+  "monto": 34460,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6695967fbf5e5978beaa4f35"
+  },
+  "proveedor": "Otros",
+  "dia": "15",
+  "mes": "Julio",
+  "factura": "Timons ",
+  "monto": 15000,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66966f210652fa7616ebdf95"
+  },
+  "proveedor": "Cancid",
+  "dia": "16",
+  "mes": "Julio",
+  "factura": "-",
+  "monto": 34000,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6697e707e8f2c56a1ce7d254"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "17",
+  "mes": "Julio",
+  "factura": "88437",
+  "monto": 189650,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669918fb157f1a96c1374d26"
+  },
+  "proveedor": "Forastero",
+  "dia": "18",
+  "mes": "Julio",
+  "factura": "203977",
+  "monto": 307266,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669bb264851bcbcb3212b628"
+  },
+  "proveedor": "Chubutin",
+  "dia": "19",
+  "mes": "Julio",
+  "factura": "11041",
+  "monto": 215700,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669fd88c435ae79a891100b8"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "17",
+  "mes": "Julio",
+  "factura": "42699",
+  "monto": 29328,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a10fdfb1901c85048d1bc7"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "24",
+  "mes": "Julio",
+  "factura": "88655",
+  "monto": 66419,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a309bfe55af2e76376e564"
+  },
+  "proveedor": "Forastero",
+  "dia": "26",
+  "mes": "Julio",
+  "factura": "21545",
+  "monto": 118800,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a3be2e015d0773760c5c5c"
+  },
+  "proveedor": "Forastero",
+  "dia": "24",
+  "mes": "Julio",
+  "factura": "204444",
+  "monto": 12897,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a96d57614731a62b815305"
+  },
+  "proveedor": "Amadeo S.R.L",
+  "dia": "25",
+  "mes": "Julio",
+  "factura": "24181",
+  "monto": 94015,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a96d8a614731a62b815307"
+  },
+  "proveedor": "Amadeo S.R.L",
+  "dia": "25",
+  "mes": "Julio",
+  "factura": "53955",
+  "monto": 48455,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aaa909f1493c826d959a28"
+  },
+  "proveedor": "Forastero",
+  "dia": "30",
+  "mes": "Julio",
+  "factura": "2044881",
+  "monto": 110577,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b21d5b84145bf2b376f3e1"
+  },
+  "proveedor": "Chubutin",
+  "dia": "6",
+  "mes": "Agosto",
+  "factura": "11271",
+  "monto": 65340,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b392e3903eabebf9942f16"
+  },
+  "proveedor": "Nutripet",
+  "dia": "6",
+  "mes": "Agosto",
+  "factura": "75861",
+  "monto": 188122,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b4cad0af20ad15de1b4c33"
+  },
+  "proveedor": "Popy",
+  "dia": "8",
+  "mes": "Agosto",
+  "factura": "21194",
+  "monto": 180000,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba18441dfc899442102335"
+  },
+  "proveedor": "Don Tomas",
+  "dia": "12",
+  "mes": "Agosto",
+  "factura": "396495",
+  "monto": 64650,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba18681dfc899442102337"
+  },
+  "proveedor": "Don Tomas",
+  "dia": "12",
+  "mes": "Agosto",
+  "factura": "396496",
+  "monto": 45800,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66be0ee51042ae7be6570c6d"
+  },
+  "proveedor": "Nutrisur",
+  "dia": "12",
+  "mes": "Agosto",
+  "factura": "89125",
+  "monto": 152484,
+  "estado": "Impago",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66be6f8d86fe3aefaf39dbf4"
+  },
+  "proveedor": "Popy",
+  "dia": "15",
+  "mes": "Agosto",
+  "factura": "21234",
+  "monto": 196300,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bf5c3e195c0e2fe8674139"
+  },
+  "proveedor": "Chubutin",
+  "dia": "16",
+  "mes": "Agosto",
+  "factura": "11439",
+  "monto": 112130,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c4d4dacc7a6a04d750520a"
+  },
+  "proveedor": "Cancid",
+  "dia": "20",
+  "mes": "Agosto",
+  "factura": "16474",
+  "monto": 39800,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c5e5ae785a892c0fad94f4"
+  },
+  "proveedor": "Otros",
+  "dia": "21",
+  "mes": "Agosto",
+  "factura": "-",
+  "monto": 9500,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c5fc71e82686a62c67381c"
+  },
+  "proveedor": "Forastero",
+  "dia": "21",
+  "mes": "Agosto",
+  "factura": "206004",
+  "monto": 83760,
+  "estado": "Impago",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66cc8ef768a4cb2a33ef0851"
+  },
+  "proveedor": "Don Tomas",
+  "dia": "26",
+  "mes": "Agosto",
+  "factura": "398759",
+  "monto": 30776,
+  "estado": "Pagado",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66cc8f9c68a4cb2a33ef0853"
+  },
+  "proveedor": "Don Tomas",
+  "dia": "26",
+  "mes": "Agosto",
+  "factura": "398760",
+  "monto": 15094,
+  "estado": "Pagado",
+  "__v": 0
+}]

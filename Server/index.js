@@ -339,6 +339,18 @@ app.delete('/delete-stock/:id', async (req, res) => {
     }
 })
 
+// Editas Stock
+app.patch('/edit-stock/:id', async (req,res) => {
+    const {id} = req.params;
+    const { brands, pet, size, kg, amount, condition } = req.body;
+    try{
+        const result = await StockModel.findByIdAndUpdate(id, { brands, pet, size, kg, amount, condition }, {new: true} );
+        res.json(result)
+    } catch (err) {
+        res.status(500).json({ error:err.message })
+    }
+})
+
 
 
 app.listen(3001, () => {

@@ -8,7 +8,8 @@ export const NotasContext = createContext();
 export function NotasProvider({children}){
 
 
-const serverFront = "http://localhost:3001";
+// const serverFront = "http://localhost:3001";
+const serverFront = 'https://ventas-de-negocio.onrender.com'
 
 
     const [notero,setNotero] = useState([])

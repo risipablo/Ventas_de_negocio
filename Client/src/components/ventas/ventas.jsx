@@ -11,6 +11,7 @@ import axios from "axios";
 
 
 
+
  export function Ventas() {
     const [ventas, setVentas] = useState([]);
     const [ventasFiltradas, setVentasFiltradas] = useState([]);
@@ -57,15 +58,18 @@ import axios from "axios";
                 setProducto("");
                 setTp("");
                 setBoleta(""); // Resetear el campo boleta
-                toast.success(
-                    ` Se agregó ${newProduct} $${newTotal}`,
-                    {
-                    position: "top-center",
-                    autoClose: 2000,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    theme: "light"
-                  });
+                toast.success(` Se agregó ${newProduct} $${newTotal}`, {
+                    position: 'top-right',
+                });
+                // toast.success(
+                //     ` Se agregó ${newProduct} $${newTotal}`,
+                //     {
+                //     position: "top-center",
+                //     autoClose: 2000,
+                //     closeOnClick: true,
+                //     pauseOnHover: false,
+                //     theme: "light"
+                //   });
             })
             .catch(err => console.log(err));
         }
@@ -74,7 +78,7 @@ import axios from "axios";
 
 
     const deleteVentas = (id, product, total) => {
-        axios.delete(`${serverFront}/delete-venta/${id}`)
+        axios.delete(`${serverFront}/delete-ventas/${id}`)
         .then(response => {
             const updatedVentas = ventas.filter((venta) => venta._id !== id);
             setVentas(updatedVentas);
