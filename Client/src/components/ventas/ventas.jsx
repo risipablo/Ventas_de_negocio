@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import "./ventas.css"
 import { Buscador } from '../buscador/buscador';
 import { Filtros } from './filtros';
-import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ScrollTop } from '../others/scrollTop';
 import { Notificacion } from '../others/notificacion';
+import { toast, Toaster } from 'react-hot-toast';
 import axios from "axios";
 
 
@@ -58,18 +58,7 @@ import axios from "axios";
                 setProducto("");
                 setTp("");
                 setBoleta(""); // Resetear el campo boleta
-                toast.success(` Se agregó ${newProduct} $${newTotal}`, {
-                    position: 'top-right',
-                });
-                // toast.success(
-                //     ` Se agregó ${newProduct} $${newTotal}`,
-                //     {
-                //     position: "top-center",
-                //     autoClose: 2000,
-                //     closeOnClick: true,
-                //     pauseOnHover: false,
-                //     theme: "light"
-                //   });
+                toast.success(`Se agrego ${newProduct} $${newTotal}`);
             })
             .catch(err => console.log(err));
         }
@@ -83,19 +72,7 @@ import axios from "axios";
             const updatedVentas = ventas.filter((venta) => venta._id !== id);
             setVentas(updatedVentas);
             setVentasFiltradas(updatedVentas)
-            toast.error(
-                `Se eliminó ${product} $${total}`,
-                {
-                    position: "top-center",
-                    autoClose: 1000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: true,
-                    theme: "light",
-                    transition: Bounce,
-                }
-            )
+            toast.success(`Se elimino ${product} $${total}`);
         })
         .catch(err => console.log(err));
     };
@@ -184,25 +161,27 @@ import axios from "axios";
           });
       }
       const saveEdit = (id) => {
-          axios.patch(`${serverFront}/edit-ventas/${id}`, editingId)
-          .then(response => {
-              setVentas(ventas.map(venta => venta._id === id ? response.data : venta));
-              setVentasFiltradas(ventasFiltradas.map(venta => venta._id === id ? response.data : venta));
-              cancelEdit();
-              toast.success("Producto actualizado ", {
-                  position: "top-center",
-                  autoClose: 2000,
-                  closeOnClick: true,
-                  pauseOnHover: false,
-                  theme: "light",
-                  transition: Bounce,
-              });
-          })
-          .catch(err => console.log(err));
+        toast.promise(
+            axios.patch(`${serverFront}/edit-ventas/${id}`, editingId)
+            .then(response => {
+                setVentas(ventas.map(venta => venta._id === id ? response.data : venta));
+                setVentasFiltradas(ventasFiltradas.map(venta => venta._id === id ? response.data : venta));
+                cancelEdit();
+            })
+            .catch(err => console.log(err)),
+
+            {
+                loading: 'Guardando...',
+                success: <b>Producto guardado!</b>,
+                error: <b>No se pudo guardar.</b>,
+            }
+
+        )
+
       }
     return (
         <div className="venta-container">
-            <h1>Ingresos de venta</h1>
+            <h1>Ingresos de ventas</h1>
 
   
 
@@ -354,7 +333,7 @@ import axios from "axios";
                         </tfoot>
                     </table>
                     <Notificacion/>
-                    <ToastContainer/>
+                    <Toaster/>
                     <ScrollTop/>
                 </div>
             </div>

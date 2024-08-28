@@ -2,11 +2,11 @@
 import { useEffect, useState } from "react"
 import "./gastos.css"
 import axios from "axios";
-import { ToastContainer, toast,Bounce } from 'react-toastify';
 import { FiltrosGastos } from "./filtrosGastos";
 import { Buscador } from "../buscador/buscador";
 import { Helmet } from 'react-helmet';
 import {ScrollTop} from '../others/scrollTop'
+import { toast, Toaster } from 'react-hot-toast';
 
 
 // const serverFront = 'http://localhost:3001'
@@ -53,15 +53,7 @@ export function Gastos(){
                 setFactura('');
                 setMes('');
                 setMonto('');
-                toast.success(
-                    ` Se agrego ${proveedor} $${monto}`,
-                    {
-                    position: "top-center",
-                    autoClose: 2000,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    theme: "light"
-                  });
+                toast.success(`Se agrego ${proveedor} $${monto}`);
             })
             .catch(err => console.log(err))
         }
@@ -76,21 +68,12 @@ export function Gastos(){
         setProveedor('')
     }
 
-    const deleteGastos = (id,monto, proveedor) => {
+    const deleteGastos = (id, proveedor, monto) => {
         axios.delete(`${serverFront}/delete-gastos/` + id)
         .then(response => {
             setGastos(gastos.filter((gasto) => gasto._id !== id))
-            toast.error('Producto eliminado', {
-                position: "top-center",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Bounce,
-                });
+            setGastosFiltrados(gastosFiltrados.filter((gasto) => gasto._id !== id))
+            toast.error(`Se elimino ${proveedor} $${monto} correctamente `);
         })
         .catch( err => console.log(err));
     }
@@ -163,21 +146,25 @@ export function Gastos(){
 
     // Guardar cambios
     const saveChanges = (id) => {
-        axios.patch(`${serverFront}/edit-gastos/${id}`, editingData)
+        toast.promise(
+            axios.patch(`${serverFront}/edit-gastos/${id}`, editingData)
             .then(response => {
                 setGastos(gastos.map(gasto => gasto._id === id ? response.data : gasto));
                 setGastosFiltrados(gastosFiltrados.map(gasto => gasto._id === id ? response.data : gasto));
                 cancelEditing();
-                toast.success("Gasto actualizado ", {
-                    position: "top-center",
-                    autoClose: 2000,
-                    theme: "light",
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    transition: Bounce,
-                });
+                
+
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err);
+            }),
+
+            {
+                loading: 'Guardando...',
+                success: <b>Producto guardado!</b>,
+                error: <b>No se pudo guardar.</b>,
+            }
+        )
     };
 
 
@@ -339,9 +326,8 @@ export function Gastos(){
                         </tfoot>
                     </table>
                 </div>
-                <ToastContainer/>
             </div>
-            
+            <Toaster/>
             <ScrollTop/>
         </div>
     )

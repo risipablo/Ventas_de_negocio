@@ -1,6 +1,7 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 3fr);
+    padding: 2rem ;
 }
 
 .conteiner {

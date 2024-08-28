@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Paper } from '@mui/material';
 import { Delete, Settings, Save, Cancel } from '@mui/icons-material';
-import { toast, Bounce } from 'react-toastify';
+import { toast, Toaster } from 'react-hot-toast';
 
 
 // const serverFront = 'http://localhost:3001'
@@ -46,6 +46,7 @@ export function Stock() {
                 const nuevoStock = response.data;
                 setStock(stock => [...stock, nuevoStock]);
                 clearFields();
+                toast.success(`Se agrego producto en el stock`);
             })
             .catch(err => console.log(err));
         }
@@ -55,6 +56,7 @@ export function Stock() {
         axios.delete(`${serverFront}/delete-stock/${id}`)
             .then(() => {
                 setStock(stock.filter((stoc) => stoc._id !== id));
+                toast.error(`Se elimino producto en el stock`);
             })
             .catch(err => console.log(err));
     };
@@ -110,7 +112,8 @@ export function Stock() {
 
     // Guardar cambios
     const saveChanges = (id) => {
-        axios.patch(`${serverFront}/edit-stock/${id}`, editingData)
+        toast.promise(
+            axios.patch(`${serverFront}/edit-stock/${id}`, editingData)
             .then(response => {
                 setStock(stock.map(stoc => stoc._id === id ? response.data : stoc));
                 cancelEditing();
@@ -123,7 +126,15 @@ export function Stock() {
                     transition: Bounce,
                 });
             })
-            .catch(err => console.log(err));
+            .catch(err => {console.log(err)}),
+
+            {
+                loading: 'Guardando...',
+                success: <b>Producto guardado!</b>,
+                error: <b>No se pudo guardar.</b>,
+            }
+        )
+
     };
 
     return (
@@ -280,6 +291,7 @@ export function Stock() {
                         </TableBody>
                     </Table>
                 </TableContainer>
+                <Toaster/>
             </div>
         </div>
     );

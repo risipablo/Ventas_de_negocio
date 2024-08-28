@@ -339,8 +339,8 @@ app.delete('/delete-stock/:id', async (req, res) => {
     }
 })
 
-// Editas Stock
-app.patch('/edit-stock/:id', async (req,res) => {
+// Editar Stock
+app.patch('/edit-stock/:id', async ( req, res ) => {
     const {id} = req.params;
     const { brands, pet, size, kg, amount, condition } = req.body;
     try{

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Buscador } from "../buscador/buscador";
 import axios from "axios";
-import { ToastContainer, toast, Bounce } from "react-toastify";
 import { FiltrosProductos } from "./FiltroProductos";
 import { Helmet } from 'react-helmet';
 import { ScrollTop } from '../others/scrollTop';
@@ -9,6 +8,8 @@ import { Button, Collapse } from '@mui/material';
 import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import { TransitionGroup } from 'react-transition-group';
 import { Notificacion } from "../others/notificacion";
+import { toast, Toaster } from 'react-hot-toast';
+
 
 // const serverFront = "http://localhost:3001"
 const serverFront = 'https://ventas-de-negocio.onrender.com'
@@ -53,16 +54,10 @@ export function Productos() {
                     setKilo("");
                     setPrecio("");
                     setCategoriaProducto("");
-                    toast.success("Producto agregado ", {
-                        position: "top-center",
-                        autoClose: 2000,
-                        theme: "light",
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                        transition: Bounce,
-                    });
+                    toast.success('Producto agregado exitosamente!');
                 })
                 .catch(err => console.log(err))
+
         }
     }
 
@@ -78,18 +73,9 @@ export function Productos() {
     const deleteProductos = (id) => {
         axios.delete(`${serverFront}/delete-productos/` + id)
             .then(response => {
-                setProductos(productos.filter((producto) => producto._id !== id))
-                toast.error('Producto eliminado', {
-                    position: "top-center",
-                    autoClose: 1000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                    transition: Bounce,
-                    });
+                setProductos(productos.filter((producto) => producto._id !== id));
+                setProductosFiltrado(productosFiltrado.filter((producto) => producto._id !== id)); // Actualiza productosFiltrado
+                toast.error('Producto eliminado exitosamente!');
             })
             .catch(err => console.log(err))
     }
@@ -139,24 +125,22 @@ export function Productos() {
     }
 
     const saveChanges = (id) => {
-        console.log(`Cambios guardados: ${id}`);
-        axios.patch(`${serverFront}/edit-productos/${id}`, editingData)
-            .then(response => {
-                setProductos(productos.map(producto => producto._id === id ? response.data : producto));
-                setProductosFiltrado(productosFiltrado.map(producto => producto._id === id ? response.data : producto));
-                cancelEditing();
-                toast.success("Producto actualizado ", {
-                    position: "top-center",
-                    autoClose: 2000,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    theme: "light",
-                    transition: Bounce,
-                });
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        toast.promise(
+            axios.patch(`${serverFront}/edit-productos/${id}`, editingData)
+                .then(response => {
+                    setProductos(productos.map(producto => producto._id === id ? response.data : producto));
+                    setProductosFiltrado(productosFiltrado.map(producto => producto._id === id ? response.data : producto));
+                    cancelEditing();
+                })
+                .catch(err => {
+                    console.log(err);
+                }),
+            {
+                loading: 'Guardando...',
+                success: <b>Producto guardado!</b>,
+                error: <b>No se pudo guardar.</b>,
+            }
+        );
     };
 
     return (
@@ -309,9 +293,9 @@ export function Productos() {
 
                 </div>
             </div>
-            <ToastContainer />
             <ScrollTop />
             <Notificacion/>
+            <Toaster/>
         </div>
     )
 }

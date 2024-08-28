@@ -2,12 +2,11 @@ import { Helmet } from "react-helmet";
 import "./notas.css";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ScrollTop } from "../others/scrollTop";
 import { NotasContext } from "./notasContext/notasContext";
 import { Buscador } from "../buscador/buscador";
-import { FiltrosGastos } from "../gastos/filtrosGastos";
+import { toast, Toaster } from 'react-hot-toast';
 
 
 // const serverFront = "http://localhost:3001";
@@ -43,6 +42,7 @@ export function Notas() {
                     setNewNota("");
                     setNewMeses("")
                     agregarNotas(nuevaNota)
+                    toast.success(`Se agrego nueva nota`);
                 })
                 .catch(err => console.log(err));
         }
@@ -52,7 +52,9 @@ export function Notas() {
         axios.delete(`${serverFront}/delete-notas/` + id)
         .then(response => {
             setNotes(notes.filter((note) => note._id !== id))
+            setNotesFilter(notesFilter.filter((note) => note._id !== id))
             eliminarNota(id);
+            toast.error(`Se elimino correctamente `);
         })
         .catch(err => console.log(err));
     }
@@ -94,30 +96,43 @@ export function Notas() {
     }
 
     const saveChanges = (id) => {
-        axios.patch(`${serverFront}/edit-notas/${id}`, editingData)
-        .then(response => {
-            setNotes(notes.map(note => note._id === id ? response.data : note))
-            setNotesFilter(notesFilter.map(note => note._id === id ? response.data : note))
-            cancelEditing();
-            toast.success("Nota actualizada ", {
-                position: "top-center",
-                autoClose: 2000,
-                theme: "light",
-                closeOnClick: true,
-                pauseOnHover: false,
-                transition: Bounce,
-            });
-        })
-        .catch(err => console.log(err))
+        toast.promise(
+            axios.patch(`${serverFront}/edit-notas/${id}`, editingData)
+            .then(response => {
+                setNotes(notes.map(note => note._id === id ? response.data : note))
+                setNotesFilter(notesFilter.map(note => note._id === id ? response.data : note))
+                cancelEditing();
+            })
+            .catch(err => {
+                console.log(err);
+            }),
+
+
+            {
+                loading: 'Guardando...',
+                success: <b>Producto guardado!</b>,
+                error: <b>No se pudo guardar.</b>,
+            }
+        )
+        
+ 
     }
 
     const completedNote = (id,completed) => {
         axios.patch(`${serverFront}/completed-notas/${id}`, {completed: !completed })
         .then(response => {
+        
             const completedNotes = notes.map(note => note._id === id ? response.data : note)
             setNotes(completedNotes)
             setNotesFilter(completedNotes)
             completarNotas(id, !completed)
+
+            if(response.data.completed){
+
+                toast.success(`Nota completada `);
+            } else {
+                toast.error(`Nota incompleta `);
+            }
         })
         .catch(err => console.log(err))
     }
@@ -208,7 +223,7 @@ export function Notas() {
                             </tbody>
                         </table>
                         
-                        <ToastContainer/>
+                        <Toaster/>
                         <ScrollTop/>
                     </div>
                 </div>

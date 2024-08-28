@@ -1,8 +1,8 @@
 .container {
     width: 100%;
     position: fixed;
-    z-index: 99;
     top: 0;
+    z-index: 99;
 }
 
 .navbar {
@@ -14,7 +14,9 @@
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
+
 .menu {
+    
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -28,13 +30,30 @@
     transform: translateX(-100%); 
 }
 
+
+
+@media (min-width: 850px) {
+    .menu{
+        width: 40vw;
+        background: rgba(2, 12, 36, 0.7);
+    }
+
+    .overlay{
+        display: none;
+    }
+
+
+}
+
+
+
 .overlay {
     position: fixed;
     z-index: 2;
     top: 0;
     left: 0; 
     bottom: 0;
-    width: 100%; 
+    width: 100vw; 
     background: rgba(2, 12, 36, 0.7);
     visibility: hidden;
     opacity: 0;
@@ -61,6 +80,7 @@ body.open .overlay {
     letter-spacing: 2px;
     color: #ece9e9;
     transition: color 0.6s; 
+    
 }
 
 .menu a:hover {
@@ -98,13 +118,6 @@ body.open .overlay {
 .menu-icon.open span:nth-child(3) {
     transform: rotate(-45deg) translate(8px, -6px);
 }
-
-@media (max-width: 850px) {
-    .menu {
-        width: 100%;
-    }
-}
-
 
 .icon-container .MuiIconButton-root {
     margin-right: 18px; 
