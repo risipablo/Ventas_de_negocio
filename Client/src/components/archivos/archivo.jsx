@@ -2,7 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './archivos.css'; // Asegúrate de crear este archivo para los estilos
 
-const serverFront = 'http://localhost:3001';
+// const serverFront = 'http://localhost:3001';
+   const serverFront = 'https://ventas-de-negocio.onrender.com'
 
 const FileUpload = () => {
     const [selectedFile, setSelectedFile] = useState(null);

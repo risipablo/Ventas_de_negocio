@@ -7,7 +7,8 @@ import { FiltrosVentaChart } from './filtrosVenChart';
 
 
 export function VentasEstadisticas(){
-    const serverFront = 'http://localhost:3001'
+    // const serverFront = 'http://localhost:3001'
+       const serverFront = 'https://ventas-de-negocio.onrender.com'
 
     const [ventas,setVentas] = useState([]);
     const [ventasFiltradas, setVentasFiltradas] = useState([]);
