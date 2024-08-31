@@ -6,7 +6,9 @@ import ItemCount from "./itemCount";
 
 
 export function Carrito(){
+
     const { carrito, vaciarCarrito, eliminarProd, precioTotal ,handleSumar, handleRestar} = useContext(CarritoContext)
+
 
 
     const handleVaciar = () => {
@@ -54,13 +56,16 @@ export function Carrito(){
                        
                         <div className="carrito-total">
                         <h3>Total: $ {precioTotal()} </h3>
-                        <button onClick={handleVaciar}> Vaciar</button>
-        
+
+                            <div className="carrito-botones">
+                                <button onClick={handleVaciar}> Vaciar</button>
+                            </div>
 
                         </div> 
                         
                     )} 
             </ul>
+
         </div>
     )
 }

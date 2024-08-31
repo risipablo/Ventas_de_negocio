@@ -71,8 +71,8 @@ export function Stock() {
     };
 
     const condicionStock = (condition) => {
-        return condition.toLowerCase() === 'sin stock' ? 'rgba(218, 8, 25, 0.4)' : null;
-    };
+        return condition.toLowerCase() === 'sin stock' ? 'rgba(218, 8, 25, 0.4)' : null || condition.toLowerCase() === 'no vigente' ? 'rgba(150, 8, 8, 0.4)' : null
+    }
 
     const [editingId, setEditingId] = useState(null); 
     const [editingData, setEditingData] = useState({
@@ -161,6 +161,7 @@ export function Stock() {
                     <option value="Perro">Perro</option>
                     <option value="Gato">Gato</option>
                     <option value="Piedras">Piedras</option>
+                    <option value="Shampoo">Shampoo</option>
                 </select>
                 <input
                     type="text"
@@ -195,8 +196,8 @@ export function Stock() {
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Producto</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Tamaño</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Kilos</TableCell>
+                                <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Tipo </TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Cantidad</TableCell>
-                                <TableCell> </TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Estado</TableCell>
                                 <TableCell> </TableCell>
                                 <TableCell> </TableCell>
@@ -239,6 +240,9 @@ export function Stock() {
                                         )}
                                     </TableCell>
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
+                                        {element.pet}
+                                    </TableCell>
+                                    <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
                                         {editingId === element._id ? (
                                             <input
                                                 type="number"
@@ -248,8 +252,6 @@ export function Stock() {
                                         ) : (
                                             element.amount
                                         )}
-                                    </TableCell>
-                                    <TableCell>
                                     </TableCell>
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
                                         {editingId === element._id ? (

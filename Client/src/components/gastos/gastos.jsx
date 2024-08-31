@@ -262,6 +262,9 @@ export function Gastos(){
             <Buscador placeholder="Buscar gastos" filtrarDatos={filtrarGastos} />
             <FiltrosGastos gastos={gastos} setGastosFiltrados={setGastosFiltrados} />
 
+            <tr className='total'>
+                <td> Total: ${totalMonto(gastosFiltrados)}</td>
+            </tr>
 
             <div className="productos">
                 <div className='table-responsive'>

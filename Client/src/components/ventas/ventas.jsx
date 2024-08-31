@@ -12,6 +12,7 @@ import axios from "axios";
 
 
 
+
  export function Ventas() {
     const [ventas, setVentas] = useState([]);
     const [ventasFiltradas, setVentasFiltradas] = useState([]);
@@ -263,6 +264,7 @@ import axios from "axios";
                 <button className='limpiar' onClick={resetVentas}> Limpiar </button>  
             </div>
 
+            
             <Buscador placeholder="Buscar ventas" filtrarDatos={filtrarVentas} />
             <Filtros ventas={ventas} setVentasFiltradas={setVentasFiltradas}/>
 

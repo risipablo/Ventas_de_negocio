@@ -1,11 +1,15 @@
 import { createContext, useEffect, useState } from "react";
 
+
+
 export const CarritoContext = createContext();
 const carritoInicial = [];
+  const serverFront = 'http://localhost:3001'
 
 export function CarritoProvider({ children }) {
     const [carrito,setCarrito] = useState(() => {
-      
+    
+
       const storedCart = localStorage.getItem('carrito')
       return storedCart ? JSON.parse(storedCart) : carritoInicial 
     });
@@ -64,6 +68,8 @@ export function CarritoProvider({ children }) {
         const eliminar = carrito.filter((_,i) => i !== index)
         setCarrito(eliminar)
     }
+
+
    
     return(
         <CarritoContext.Provider value={{ carrito, agregarAlCarrito, vaciarCarrito, eliminarProd, precioTotal,handleRestar,handleSumar,cantidadCarrito}}>

@@ -3,11 +3,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 4rem 20px;
 }
 
 .carrito-list {
-
     padding: 0;
     width: 100%;
     max-width: 1200px;
@@ -52,17 +51,21 @@
 .carrito-item button:hover {
     background-color: #e55342;
 }
-
 .carrito-total {
     display: flex;
     justify-content: space-between;
+    align-items: center; 
     margin-top: 2rem;
     color: #232222;
 }
 
-
-.carrito-total h3{
+.carrito-total h3 {
     font-size: 1.4rem;
+}
+
+.carrito-botones {
+    display: flex;
+    gap: 1rem; 
 }
 
 .carrito-total button {
@@ -78,6 +81,7 @@
 .carrito-total button:hover {
     background-color: #0069d9;
 }
+
 
 .item-count {
     display: block;

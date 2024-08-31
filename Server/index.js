@@ -7,12 +7,18 @@ const ProductoModel = require('./models/Productos');
 const NotaModel = require('./models/Notas');
 const ProveedorModel = require('./models/Proveedor');
 const StockModel = require('./models/Stock');
+const File = require ('./models/Files')
+const multer = require('multer');
+
+// Configuración de multer
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
 require("dotenv").config();
 const app = express();
 app.use(express.json());
 
 const corsOptions = {
-
     origin: ['http://localhost:5173', 'https://ventas-de-negocio.onrender.com', 'https://ventas-de-negocio.vercel.app'],
     methods: 'GET,POST,DELETE,PATCH',
     optionsSuccessStatus: 200
@@ -24,6 +30,7 @@ mongoose
     .connect(process.env.MONGODB)
     .then(() => console.log("Conexión exitosa con MongoDB"))
     .catch((err) => console.error("Conexión fallida: " + err));
+
 
 
 // Ventas
@@ -350,6 +357,49 @@ app.patch('/edit-stock/:id', async ( req, res ) => {
         res.status(500).json({ error:err.message })
     }
 })
+
+
+// Ruta para subir archivos
+app.post('/upload', upload.single('file'), async (req, res) => {
+    const file = new File({
+        filename: req.file.originalname,
+        contentType: req.file.mimetype,
+        data: req.file.buffer
+    });
+
+    try {
+        await file.save();
+        res.status(201).send({ message: 'Archivo subido exitosamente' });
+    } catch (error) {
+        res.status(500).send({ message: 'Error al subir el archivo', error });
+    }
+});
+
+// Ruta para listar archivos
+app.get('/files', async (req, res) => {
+    try {
+        const files = await File.find({});
+        res.status(200).json(files);
+    } catch (error) {
+        res.status(500).send({ message: 'Error al listar archivos', error });
+    }
+});
+
+// Ruta para descargar un archivo
+app.get('/files/:id', async (req, res) => {
+    try {
+        const file = await File.findById(req.params.id);
+
+        res.set({
+            'Content-Type': file.contentType,
+            'Content-Disposition': `attachment; filename=${file.filename}`
+        });
+
+        res.send(file.data);
+    } catch (error) {
+        res.status(500).send({ message: 'Error al descargar el archivo', error });
+    }
+});
 
 
 

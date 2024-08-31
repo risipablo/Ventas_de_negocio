@@ -10,7 +10,10 @@ import { CarritoProvider } from "./components/carrito/carritoContext"
 import { NotasProvider } from "./components/notas/notasContext/notasContext"
 import { Stock } from "./components/stock/stock"
 import { Ventas } from "./components/ventas/ventas"
-import Archivos from "./components/archivos/archivo"
+import FileUpload from "./components/archivos/archivo"
+import { VentasEstadisticas } from "./components/chart/ventas/ventasEstadisticas"
+
+
 
 
 
@@ -29,10 +32,11 @@ function App() {
           <Route path="/gastos" element={<Gastos/>}/>
           <Route path="/proveedor" element={<Proveedor/>}/>
           <Route path="/conversion" element={<Conversion/>}/>
-          <Route path="/archivos" element={<Archivos/>}/>
+          <Route path="/archivos" element={<FileUpload/>}/>
           <Route path="/notas" element={<Notas/>}/>
           <Route path="/stock" element={<Stock/>} />
           <Route path="/carrito" element={<Carrito/>} />
+          <Route path="/ventas-chart" element={<VentasEstadisticas />} />
         </Routes>
       </BrowserRouter>
 
