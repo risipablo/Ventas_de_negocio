@@ -3,6 +3,8 @@ import "./notas.css";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
+import { Accordion, AccordionSummary} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ScrollTop } from "../others/scrollTop";
 import { NotasContext } from "./notasContext/notasContext";
 import { Buscador } from "../buscador/buscador";
@@ -17,6 +19,7 @@ export function Notas() {
     const [notes, setNotes] = useState([]);
     const [notesFilter, setNotesFilter] = useState([])
     const [newNota, setNewNota] = useState("");
+    const [newDescription, setNewDescription] = useState("")
     const [newMeses, setNewMeses ] = useState("");
 
     const { agregarNotas, completarNotas, eliminarNota } = useContext(NotasContext)
@@ -32,14 +35,15 @@ export function Notas() {
 
  
     const addNotas = () => {
-        if (newNota.trim() && newMeses.trim() !== "") {
+        if (newNota.trim() && newMeses.trim() !== "" && newDescription.trim() !== "") {
             axios.post(`${serverFront}/add-notas`, 
-                { notas: newNota, meses:newMeses })
+                { notas: newNota, meses:newMeses, description:newDescription })
                 .then(response => {
                     const nuevaNota = response.data;
                     setNotes(notas => [...notas, nuevaNota]);
                     setNotesFilter(notas => [...notas, nuevaNota])
                     setNewNota("");
+                    setNewDescription("")
                     setNewMeses("")
                     agregarNotas(nuevaNota)
                     toast.success(`Se agrego nueva nota`);
@@ -63,13 +67,15 @@ export function Notas() {
         setNotesFilter(notes.filter(note => {
             return palabrasClave.every(palabra => 
                 note.notas.toLowerCase().includes(palabra) ||
-                note.meses.toLowerCase().includes(palabra)
+                note.meses.toLowerCase().includes(palabra) ||
+                note.description.toLowerCase().includes(palabra)
             )
         }))
     }
 
     const clearInput = () => {
         setNewNota("");
+        setNewDescription("")
         setNewMeses('');
     };
 
@@ -157,6 +163,13 @@ export function Notas() {
 
                 <input 
                     type="text" 
+                    placeholder="Agregar Descripcion " 
+                    onChange={event => setNewDescription(event.target.value)}
+                    value={newDescription} 
+                />
+
+                <input 
+                    type="text" 
                     placeholder="Agregar Mes " 
                     onChange={event => setNewMeses(event.target.value)}
                     value={newMeses} 
@@ -170,12 +183,23 @@ export function Notas() {
 
             
             
+            <Accordion 
+                sx={{ 
+                    mt: 2,  
+                    mb: 2,  
+                    boxShadow: 'none', 
+                    border: 'none', 
+                }}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                </AccordionSummary>
+
                 <div className="productos">
                     <div className="table-responsive">
                         <table>
                             <thead>
                                 <tr>
                                     <th>Notas</th>
+                                    <th>Description</th>
                                     <th>Mes</th>
                                     <th></th>
                                 </tr>
@@ -184,13 +208,17 @@ export function Notas() {
                                 {notesFilter.map((element, index) => 
                                     <tr key={index} className={element.completed ? "completed-note" : ""}>
 
-                                        <td>{editingId === element._id ?
+                                        <td className="texto-notas">{editingId === element._id ?
                                             <input value={editingData.notas} onChange={(e) => setEditingData({...editingData, notas:e.target.value})} /> : element.notas} </td>
                                         
+                                        <td className="texto-notas">{editingId === element._id ? 
+                                            <input value={editingData.description} onChange={(e) => setEditingData({...editingData, description:e.target.value})}/> :
+                                            element.description}</td>
+
                                         <td>{editingId === element._id ?
                                             <input value={editingData.meses} onChange={(e) => setEditingData({...editingData, meses:e.target.value})} /> : element.meses} </td>
 
-                                        <div className="actions2">
+                                        <td className="actions2">
                                             <button className="trash" onClick={() => deleteNotas(element._id)}>
                                                 <i className="fa-solid fa-trash"></i>
                                             </button>
@@ -216,7 +244,7 @@ export function Notas() {
                                                     <i className="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                             )}
-                                        </div>
+                                        </td>
 
                                     </tr>
                                 )}
@@ -227,6 +255,8 @@ export function Notas() {
                         <ScrollTop/>
                     </div>
                 </div>
+
+            </Accordion>
             
         </div>
     );

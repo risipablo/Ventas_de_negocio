@@ -207,12 +207,12 @@ app.get('/notas', async (req, res) => {
 
 // Ruta para añadir una nota
 app.post('/add-notas', async (req, res) => {
-    const { notas, meses } = req.body;
-    if (!notas || !meses) {
+    const { notas, meses, description } = req.body;
+    if (!notas || !meses || !description) {
         return res.status(400).json({ error: 'Nota no proporcionada' });
     }
     try {
-        const newNota = new NotaModel({ notas, meses});
+        const newNota = new NotaModel({ notas, meses, description});
         const result = await newNota.save();
         res.json(result);
     } catch (err) {
@@ -232,8 +232,8 @@ app.delete('/delete-notas/:id', (req, res) => {
 // Editar notas
 app.patch('/edit-notas/:id', (req, res) => {
     const { id } = req.params;
-    const { notas, meses } = req.body;
-    NotaModel.findByIdAndUpdate(id, { notas, meses }, { new: true })
+    const { notas, meses, description } = req.body;
+    NotaModel.findByIdAndUpdate(id, { notas, meses, description }, { new: true })
         .then(result => res.json(result))
         .catch(err => res.status(500).json({ error: err.message }));
 });

@@ -1,6 +1,6 @@
 .notas-container {
-    padding: 20px;
-    max-width: 900px;
+    padding: 20px 12px;
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -76,7 +76,11 @@
     align-items: center;
 }
 
-
+.texto-notas{
+    flex-wrap: wrap;
+    max-width: 300px;
+    text-align: center;
+}
 
 
 .note-count {
