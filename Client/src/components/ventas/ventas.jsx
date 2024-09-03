@@ -298,11 +298,11 @@ import axios from "axios";
                                 <td>{editId === element._id ?
                                     <input value={editingId.tp} onChange={(e) => setEditingId({...editingId, tp: e.target.value})}/>  : element.tp}</td>
                                 
-                                <td >
+                                <td  className="texto-notas">
                                     {editId === element._id ?
                                     <input value={editingId.boleta} onChange={(e) => setEditingId({...editingId, boleta: e.target.value })}/> : element.boleta}</td>
 
-                                <td>             
+                                <td className="texto-notas">             
                                     {editId === element._id ?
                                     <input value={editingId.product} onChange={(e) => setEditingId({...editingId, product: e.target.value })}/> : element.product}</td>
 

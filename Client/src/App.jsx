@@ -11,7 +11,9 @@ import { NotasProvider } from "./components/notas/notasContext/notasContext"
 import { Stock } from "./components/stock/stock"
 import { Ventas } from "./components/ventas/ventas"
 import FileUpload from "./components/archivos/archivo"
-import { VentasEstadisticas } from "./components/chart/ventas/ventasEstadisticas"
+import { VentasEstadisticas } from "./components/ventas/ventasChart/ventasEstadisticas"
+import { Chart } from "./components/chart/chart"
+import { GastosEstadisticas } from "./components/gastos/gastosChart/gastosEstadisticas"
 
 
 
@@ -36,7 +38,9 @@ function App() {
           <Route path="/notas" element={<Notas/>}/>
           <Route path="/stock" element={<Stock/>} />
           <Route path="/carrito" element={<Carrito/>} />
+          <Route path="/estadisticas" element={<Chart/>} />
           <Route path="/ventas-chart" element={<VentasEstadisticas />} />
+          <Route path="/gastos-chart" element={<GastosEstadisticas/>} />
         </Routes>
       </BrowserRouter>
 

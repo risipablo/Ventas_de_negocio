@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../../ventas/filtros.css";
+import "../filtros.css";
 
 export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
     const [filterMonth, setFilterMonth] = useState('');

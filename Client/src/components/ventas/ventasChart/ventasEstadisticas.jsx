@@ -2,13 +2,11 @@ import { useEffect, useState } from 'react'
 import "../../chart/chart.css"
 import VentasChart from './ventasChart'
 import axios from 'axios';
-import { FiltrosVentaChart } from './filtrosVenChart';
+import { FiltrosVentaChart } from './filtrosVenChart.jsx';
 
 
 
 export function VentasEstadisticas(){
-    // const serverFront = 'http://localhost:3001'
-       const serverFront = 'https://ventas-de-negocio.onrender.com'
 
     const [ventas,setVentas] = useState([]);
     const [ventasFiltradas, setVentasFiltradas] = useState([]);

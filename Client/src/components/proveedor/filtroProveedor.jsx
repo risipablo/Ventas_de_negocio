@@ -70,12 +70,28 @@ export function FiltroProveedor({products, setProveedorFiltrado}) {
                     <option value="Agility">Agility</option>
                     <option value="Biopet">Biopet</option>
                     <option value="Nutricare">Nutricare</option>
-                    <option value="Royal Canin">Nutripet</option>
-                    <option value="Cat Chow">Nutrisur</option>
-                    <option value="Dog Chow">Amadeo</option>
-                    <option value="Gati">Don Tomas</option>
-                    <option value="Balanced">Chubutin</option>
+                    <option value="Royal Canin">Royal Canin</option>
+                    <option value="Cat Chow">Cat Chow</option>
+                    <option value="Dog Chow">Dog Chow</option>
+                    <option value="Gati">Gati</option>
+                    <option value="Balanced">Balanced</option>
                     <option value="Pretal">Pretal</option>
+                    <option value="Pro Plan">Pro Plan</option>
+                    <option value="Sieger">Sieger</option>
+                    <option value="Osspret">Osspret</option>
+                    <option value="Old Prince">Old Prince</option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="Suertudo">Suertudo</option>
+                    <option value="Optimun">Optimun</option>
+                    <option value="Stone Cat">Stone Cat</option>
+                    <option value="Pellcats">Pellcats</option>
+                    <option value="Neupell">Neupell</option>
+                    <option value="Pedigree">Pedigree</option>
+                    <option value="Golocan">Golocan</option>
+                    <option value="Paños Pet">Paños Pet</option>
+                    <option value="Wishka">Wishka</option>
+                    <option value="Huesos">Huesos</option>
+                    <option value="Mascot">Mascot</option>
             </select>
 
             <select

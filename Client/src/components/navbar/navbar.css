@@ -23,11 +23,12 @@
     right: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 120vh;
     top: 100%;    
     backdrop-filter: blur(6px);
     transition: 0.3s;
     transform: translateX(-100%); 
+
 }
 
 
@@ -41,8 +42,6 @@
     .overlay{
         display: none;
     }
-
-
 }
 
 
@@ -103,7 +102,7 @@ body.open .overlay {
     height: 2px;
     width: 22px;
     background-color: #1d1c1c;
-    margin: 4px 12px;
+    margin: 4px 8px;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
@@ -122,8 +121,6 @@ body.open .overlay {
 .icon-container .MuiIconButton-root {
     margin-right: 18px; 
 }
-
-
 
 .icon-container .MuiSvgIcon-root {
     color: rgb(47, 46, 46);

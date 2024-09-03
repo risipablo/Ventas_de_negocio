@@ -45,9 +45,9 @@ export function Navbar(){
                                 <CompareArrowsIcon /> <a className="active"> Conversion </a>
                             </NavLink>
 
-                            {/* <a href="https://risipablo.github.io/ListaLocal/Calculadora.html" className="active">
+                            <a href="https://risipablo.github.io/ListaLocal/Calculadora.html" className="active">
                                 <span className="calculator-icon">🧮</span> Calculadora
-                            </a> */}
+                            </a>
 
                             <NavLink to="/proveedor" onClick={closeMenu}>
                                 <StoreIcon /> <a className="active"> Proveedor </a>
@@ -61,7 +61,7 @@ export function Navbar(){
                                 <MoneyOffIcon /> <a className="active"> Gastos </a>
                             </NavLink>
 
-                            <NavLink to="/ventas-chart" onClick={closeMenu}>
+                            <NavLink to="/estadisticas" onClick={closeMenu}>
                                 <a className="active"> Estadisticas </a>
                             </NavLink>
                         </div>

@@ -1,4 +1,5 @@
-.ventas-chart{
+.ventas-chart,
+.container-estadisticas{
     margin: 3rem 0 ;
     max-width: 100%;
     padding: 30px;
@@ -6,23 +7,21 @@
 }
 
 
-/* styles.css */
 
-/* Asegura que el contenedor del gráfico tenga un tamaño adecuado y sea responsivo */
 .chart-container {
     width: 100%;
-    max-width: 900px; /* Ajusta este valor según sea necesario */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    padding: 20px 12px; /* Añade un poco de espacio alrededor del contenedor */
+    max-width: 900px;
+    margin: 0 auto; 
+    padding: 20px 12px; 
   }
   
-  /* Ajusta el tamaño del gráfico */
+ 
   .chart-container canvas {
-    width: 100% !important; /* Asegura que el canvas del gráfico sea 100% del contenedor */
-    height: auto !important; /* Ajusta la altura automáticamente */
+    width: 100% !important; 
+    height: auto !important; 
   }
   
-  /* Estilo adicional para el título del gráfico */
+
   .chart-title {
     text-align: center;
     margin-bottom: 20px;
