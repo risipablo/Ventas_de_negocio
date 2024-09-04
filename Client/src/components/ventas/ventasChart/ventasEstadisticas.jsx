@@ -11,6 +11,10 @@ export function VentasEstadisticas(){
     const [ventas,setVentas] = useState([]);
     const [ventasFiltradas, setVentasFiltradas] = useState([]);
 
+    // const serverFront = 'http://localhost:3001'
+    const serverFront = 'https://ventas-de-negocio.onrender.com'
+
+
     useEffect(() => {
         axios.get(`${serverFront}/ventas`)
         .then(response => {

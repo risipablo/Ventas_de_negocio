@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Paper } from '@mui/material';
 import { Delete, Settings, Save, Cancel } from '@mui/icons-material';
 import { toast, Toaster } from 'react-hot-toast';
+import { ScrollTop } from "../others/scrollTop";
+import { Buscador } from "../buscador/buscador";
 
 
 // const serverFront = 'http://localhost:3001'
@@ -12,6 +14,7 @@ import { toast, Toaster } from 'react-hot-toast';
 
 export function Stock() {
     const [stock, setStock] = useState([]);
+    const [stockFiltrados, setStockFiltrados] = useState([]);
     const [brands, setBrands] = useState('');
     const [size, setSize] = useState('');
     const [pet, setPet] = useState('');
@@ -26,6 +29,7 @@ export function Stock() {
             .then(response => {
                 console.log(response.data);
                 setStock(response.data);
+                setStockFiltrados(response.data)
             })
             .catch(err => {
                 console.error("Error al obtener stock:", err); 
@@ -45,6 +49,7 @@ export function Stock() {
             .then(response => {
                 const nuevoStock = response.data;
                 setStock(stock => [...stock, nuevoStock]);
+                setStockFiltrados(stock => [...stock,nuevoStock]);
                 clearFields();
                 toast.success(`Se agrego producto en el stock`);
             })
@@ -56,6 +61,7 @@ export function Stock() {
         axios.delete(`${serverFront}/delete-stock/${id}`)
             .then(() => {
                 setStock(stock.filter((stoc) => stoc._id !== id));
+                setStockFiltrados(stock.filter((stoc) => stoc._id !== id));
                 toast.error(`Se elimino producto en el stock`);
             })
             .catch(err => console.log(err));
@@ -69,6 +75,19 @@ export function Stock() {
         setAmount('');
         setCondition('');
     };
+
+    const FiltrarStock = (palabrasClave) => {
+        setStockFiltrados(stock.filter(stoc => {
+            return palabrasClave.every(palabra => 
+                stoc.brands.toLowerCase().includes(palabra) ||
+                stoc.size.toLowerCase().includes(palabra) ||
+                stoc.pet.toLowerCase().includes(palabra) ||
+                stoc.kg.toLowerCase().includes(palabra) ||
+                stoc.condition.toLowerCase().includes(palabra)
+            )
+        }))
+    }
+
 
     const condicionStock = (condition) => {
         return condition.toLowerCase() === 'sin stock' ? 'rgba(218, 8, 25, 0.4)' : null || condition.toLowerCase() === 'no vigente' ? 'rgba(150, 8, 8, 0.4)' : null
@@ -116,6 +135,7 @@ export function Stock() {
             axios.patch(`${serverFront}/edit-stock/${id}`, editingData)
             .then(response => {
                 setStock(stock.map(stoc => stoc._id === id ? response.data : stoc));
+                setStockFiltrados(stock.map(stoc => stoc._id === id ? response.data : stoc));
                 cancelEditing();
                 toast.success("Producto actualizado", {
                     position: "top-center",
@@ -187,6 +207,8 @@ export function Stock() {
                 <button className="agregar" onClick={addStock}>Agregar</button>
                 <button className='limpiar' onClick={clearFields}>Limpiar</button>
             </div>
+
+            <Buscador placeholder="Buscar Productos" filtrarDatos={FiltrarStock} />
             
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <TableContainer component={Paper} sx={{ mt: 2, maxWidth: '95%' }}>
@@ -204,7 +226,7 @@ export function Stock() {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {stock.map((element, index) => (
+                            {stockFiltrados.map((element, index) => (
                                 <TableRow key={index} style={{ background: condicionStock(element.condition || '')}}>
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
                                         {editingId === element._id ? (
@@ -294,7 +316,9 @@ export function Stock() {
                     </Table>
                 </TableContainer>
                 <Toaster/>
+                
             </div>
+            <ScrollTop/>
         </div>
     );
 }
