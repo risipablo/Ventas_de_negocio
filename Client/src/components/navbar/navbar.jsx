@@ -12,6 +12,7 @@ import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import StoreIcon from '@mui/icons-material/Store';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import MoneyOffIcon from '@mui/icons-material/MoneyOff';
+import QueryStatsIcon from '@mui/icons-material/QueryStats';
 
 
 export function Navbar(){
@@ -62,7 +63,7 @@ export function Navbar(){
                             </NavLink>
 
                             <NavLink to="/estadisticas" onClick={closeMenu}>
-                                <a className="active"> Estadisticas </a>
+                            <QueryStatsIcon /> <a className="active"> Estadisticas </a>
                             </NavLink>
                         </div>
                 

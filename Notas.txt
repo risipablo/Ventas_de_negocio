@@ -1,13 +1,14 @@
 01. Agilizar la carga de datos (MongoDB).
 02. Corregir la funcion de eliminar un producto con respecto a el buscador y filtros, evitar el reinicio de ambos.
-03. Crear funciones de stock (Contador de productos).
+03. Crear funciones de stock (Contador de productos).(Hecho)
 04. Corregir el conteo de notas. Cada vez que se borre una nota se descuente en el contador. (Hecho)
 05. Agregar un mes de cada nota y un buscador. (Hecho)
 06. Mostrar el total de cada vez y que se vincule con cada mes. (Hecho)
 07. Login de usuarios (solo dar permiso a usuarios deseados).
 08. Usuarios no registrados puedan visitar y ver los datos pero no agregar, modificar o eliminar ningun dato.
-09. Mejorar estilos del proyecto
+09. Mejorar estilos del proyecto.
 10. Ponen un alerta a productos con descuento (opcional) 
-11. Cambiar el menu por iconos (opcional)
-12. Realizar una seccion de estadisticas
+11. Cambiar el menu por iconos (Hecho)
+12. Realizar una seccion de estadisticas (Hecho)
+13. Preview de archivos 
 
