@@ -28,34 +28,41 @@ mongoose
     .then(() => console.log("Conexión exitosa con MongoDB"))
     .catch((err) => console.error("Conexión fallida: " + err));
 
+const connectReadOnly = () => {
+    mongoose.connect(process.env.MONGODB_READ)
+        .then(() => console.log('Conexión de solo lectura exitosa con MongoDB'))
+        .catch((err) => console.error('Conexión de solo lectura fallida: ' + err));
+};
+
 
 // Middleware para verificar el token JWT
-const verifyToken = (req, res, next) => {
-    const token = req.header('Authorization');
-    if (!token) return res.status(401).json({ message: 'Acceso denegado. No se proporcionó un token.' });
+// const verifyToken = (req, res, next) => {
+//     const token = req.header('Authorization');
+//     if (!token) return res.status(401).json({ message: 'Acceso denegado. No se proporcionó un token.' });
 
-    try {
-        const verified = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = verified; // Información del usuario
-        next();
-    } catch (error) {
-        res.status(400).json({ message: 'Token inválido' });
-    }
-};
+//     try {
+//         const verified = jwt.verify(token, process.env.JWT_SECRET);
+//         req.user = verified; // Información del usuario
+//         next();
+//     } catch (error) {
+//         res.status(400).json({ message: 'Token inválido' });
+//     }
+// };
 
-// Middleware para verificar el usuario 
-const isAdmin = (req, res, next) => {
-    if (req.user && req.user.role === 'admin') {
-        next();
-    } else {
-        res.status(403).json({ message: 'No tienes permisos para realizar esta acción' });
-    }
-};
+// // Middleware para verificar el usuario 
+// const isAdmin = (req, res, next) => {
+//     if (req.user && req.user.role === 'admin') {
+//         next();
+//     } else {
+//         res.status(403).json({ message: 'No tienes permisos para realizar esta acción' });
+//     }
+// };
 
 // Ventas
 
 // Obtener registro de ventas
 app.get('/ventas', async (req, res) => {
+    connectReadOnly();
     try {
         const ventas = await VentasModel.find();
         res.json(ventas);
@@ -65,7 +72,8 @@ app.get('/ventas', async (req, res) => {
 });
 
 // Agregar registro de ventas
-app.post('/add-ventas', verifyToken, isAdmin, async (req, res) => {
+app.post('/add-ventas', async (req, res) => {
+    mongoose.connect(process.env.MONGODB);
     const { day, month, total, tp, product, boleta } = req.body;
     if (!day || !month || !tp || !product || !total || !boleta) {
         return res.status(400).json({ error: 'Faltan datos requeridos' });
