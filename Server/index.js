@@ -9,10 +9,7 @@ const ProveedorModel = require('./models/Proveedor');
 const StockModel = require('./models/Stock');
 const File = require ('./models/Files')
 const multer = require('multer');
-
-// Configuración de multer
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
+const jwt = require('jsonwebtoken')
 
 require("dotenv").config();
 const app = express();
@@ -32,6 +29,28 @@ mongoose
     .catch((err) => console.error("Conexión fallida: " + err));
 
 
+// Middleware para verificar el token JWT
+const verifyToken = (req, res, next) => {
+    const token = req.header('Authorization');
+    if (!token) return res.status(401).json({ message: 'Acceso denegado. No se proporcionó un token.' });
+
+    try {
+        const verified = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = verified; // Información del usuario
+        next();
+    } catch (error) {
+        res.status(400).json({ message: 'Token inválido' });
+    }
+};
+
+// Middleware para verificar el usuario 
+const isAdmin = (req, res, next) => {
+    if (req.user && req.user.role === 'admin') {
+        next();
+    } else {
+        res.status(403).json({ message: 'No tienes permisos para realizar esta acción' });
+    }
+};
 
 // Ventas
 
@@ -46,7 +65,7 @@ app.get('/ventas', async (req, res) => {
 });
 
 // Agregar registro de ventas
-app.post('/add-ventas', async (req, res) => {
+app.post('/add-ventas', verifyToken, isAdmin, async (req, res) => {
     const { day, month, total, tp, product, boleta } = req.body;
     if (!day || !month || !tp || !product || !total || !boleta) {
         return res.status(400).json({ error: 'Faltan datos requeridos' });
@@ -358,6 +377,9 @@ app.patch('/edit-stock/:id', async ( req, res ) => {
     }
 })
 
+// Configuración de multer
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 // Ruta para subir archivos
 app.post('/upload', upload.single('file'), async (req, res) => {
