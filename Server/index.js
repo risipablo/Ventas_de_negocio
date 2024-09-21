@@ -34,30 +34,6 @@ const connectReadOnly = () => {
         .catch((err) => console.error('Conexión de solo lectura fallida: ' + err));
 };
 
-
-// Middleware para verificar el token JWT
-// const verifyToken = (req, res, next) => {
-//     const token = req.header('Authorization');
-//     if (!token) return res.status(401).json({ message: 'Acceso denegado. No se proporcionó un token.' });
-
-//     try {
-//         const verified = jwt.verify(token, process.env.JWT_SECRET);
-//         req.user = verified; // Información del usuario
-//         next();
-//     } catch (error) {
-//         res.status(400).json({ message: 'Token inválido' });
-//     }
-// };
-
-// // Middleware para verificar el usuario 
-// const isAdmin = (req, res, next) => {
-//     if (req.user && req.user.role === 'admin') {
-//         next();
-//     } else {
-//         res.status(403).json({ message: 'No tienes permisos para realizar esta acción' });
-//     }
-// };
-
 // Ventas
 
 // Obtener registro de ventas
@@ -415,24 +391,42 @@ app.get('/files', async (req, res) => {
     }
 });
 
-// Ruta para descargar un archivo
+
+// Ruta para descargar/ver un archivo
 app.get('/files/:id', async (req, res) => {
     try {
         const file = await File.findById(req.params.id);
 
+        // Verificar el tipo de contenido (en este caso, application/pdf para PDFs)
         res.set({
-            'Content-Type': file.contentType,
-            'Content-Disposition': `attachment; filename=${file.filename}`
+            'Content-Type': file.contentType, // Esto debería ser 'application/pdf' para PDFs
+            'Content-Disposition': `inline; filename=${file.filename}` // inline para visualización
         });
 
+        // Enviar el archivo al cliente
         res.send(file.data);
     } catch (error) {
-        res.status(500).send({ message: 'Error al descargar el archivo', error });
+        res.status(500).send({ message: 'Error al obtener el archivo', error });
     }
 });
 
+
+app.delete('/delete-files/:id', async (req,res) => {
+    const { id } = req.params;
+    try {
+        const deleteFiles = await File.findByIdAndDelete(id)
+        if (!deleteFiles){
+            return res.status(404).json({ error: 'files not found'})
+        }
+        res.json(deleteFiles)
+    } catch {
+        res.status(500).json( {error:err.message})
+    }
+})
 
 
 app.listen(3001, () => {
     console.log('Servidor funcionando en el puerto 3001');
 })
+
+

@@ -1,15 +1,17 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import './archivos.css'; // Asegúrate de crear este archivo para los estilos
+import './archivos.css';
+import 'font-awesome/css/font-awesome.min.css';  
 
-// const serverFront = 'http://localhost:3001';
-   const serverFront = 'https://ventas-de-negocio.onrender.com'
+const serverFront = 'https://ventas-de-negocio.onrender.com';
+// const serverFront = 'http://localhost:3001'
 
 const FileUpload = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [preview, setPreview] = useState(null);
     const [message, setMessage] = useState('');
     const [archivos, setArchivos] = useState([]);
+    const [previewUrl, setPreviewUrl] = useState(null); // Nuevo estado para la URL del archivo a visualizar
 
     // Manejar la selección de archivo y generar vista previa
     const onFileChange = (event) => {
@@ -67,24 +69,30 @@ const FileUpload = () => {
     };
 
     // Eliminar archivo
-    const deleteFile = async (fileId) => {
-        try {
-            await axios.delete(`${serverFront}/files/${fileId}`);
-            fetchFiles(); // Actualizar la lista de archivos después de eliminar uno
-        } catch (error) {
-            console.error('Error al eliminar archivo', error);
-        }
+    const deleteFile = async (id) => {
+        await axios.delete(`${serverFront}/delete-files/`+ id) 
+        .then(response => {
+            setArchivos(archivos.filter((archivo) => archivo._id !== id))
+            fetchFiles()
+        })
+      .catch (err => console.log(err))
+};
+
+    // Resetear vista previa y mensaje
+    const resetFile = async () => {
+        setMessage("");
+        setArchivos([]);
+        setPreviewUrl(null); // Limpiar la URL de la vista previa
     };
 
-    const resertFile = async () => {
-        setMessage("")
-        setArchivos("")
-    }
-
+    const handleViewFile = (fileId) => {
+        window.open(`${serverFront}/files/${fileId}`, '_blank'); // Abre en una nueva pestaña
+    };
 
     useEffect(() => {
         fetchFiles();
     }, []);
+
 
     return (
         <div className='file-upload-container'>
@@ -101,8 +109,12 @@ const FileUpload = () => {
             )}
 
             <div className='button-file'>
-                <button onClick={onFileUpload} className="upload-button"><i className="fa-solid fa-upload"></i></button>
-                <button onClick={resertFile} className='delete-button'> <i className="fa-solid fa-ban"></i> </button>
+                <button onClick={onFileUpload} className="upload-button">
+                    <i className="fa-solid fa-upload"></i> 
+                </button>
+                <button onClick={resetFile} className='delete-button'>
+                    <i className="fa-solid fa-ban"></i> 
+                </button>
             </div>
 
             {message && <p className="message">{message}</p>}
@@ -114,15 +126,23 @@ const FileUpload = () => {
                             <li key={file._id} className="file-item">
                                 <a href={`${serverFront}/files/${file._id}`} download={file.filename}>
                                     {file.filename}
+                                    {file.img}
                                 </a>
-                                <i className="fa-solid fa-trash" onClick={() => deleteFile(file._id)}></i>
+                                <div className="button-container">
+                                    <button onClick={() => handleViewFile(file._id)} className="view-button">
+                                        <i className="fa-solid fa-eye"></i>
+                                    </button>
+                                    <i className="fa-solid fa-trash delete-icon" onClick={() => deleteFile(file._id)}></i>
+                                </div>
                             </li>
                         ))}
                     </ul>
             </div>
-      
         </div>
     );
+
 };
 
 export default FileUpload;
+
+
