@@ -40,7 +40,7 @@ import axios from "axios";
     }, []);
 
     const addVentas = () => {
-        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== " ") {
+        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== "") {
             axios.post(`${serverFront}/add-ventas`, {
                 day: newDay,
                 month: newMonth,
@@ -104,8 +104,8 @@ import axios from "axios";
 
 
     // Condicion de pago cliente 
-    const condicionPago = (boleta) => {
-        return boleta && boleta.toLowerCase() === 'debe' ? 'rgba(218, 8, 25, 0.4)' : null || boleta && boleta.toLowerCase() === 'cuota' ? 'rgba(234, 44, 44,0.7)'  : null
+    const condicionPago = (tp) => {
+        return tp && tp.toLowerCase() === 'debe' ? 'rgba(218, 8, 25, 0.4)' : null;
     }
 
     // Total de monto 
@@ -113,10 +113,10 @@ import axios from "axios";
         let monto = 0;
 
         ventas.forEach(product => {
-            if(product.boleta && product.boleta.toLowerCase() === 'debe'){
-                monto == product.total
+            if(product.tp && product.tp.toLowerCase() === 'debe'){
+                monto == product.tp
 
-            } else if (product.boleta && product.boleta.toLowerCase() === 'cuota'){
+            } else if (product.tp && product.tp.toLowerCase() === 'cuota'){
                 monto -= product.total
 
             } else {
@@ -139,6 +139,7 @@ import axios from "axios";
           total:'',
           boleta: ''
       });
+
       const editing = (venta) => {
           setEditId(venta._id);
           setEditingId({
@@ -147,7 +148,7 @@ import axios from "axios";
               tp:venta.tp,
               product:venta.product,
               total:venta.total,
-              boleta:venta.boleta
+              boleta:venta.boleta,
           });
       }
       const cancelEdit = () => {
@@ -226,12 +227,13 @@ import axios from "axios";
                     <option value="Visa Débito" > Visa Débito </option>
                     <option value="Visa PrePago"> Visa PrePago </option>
                     <option value="Naranja Débito"> Naranja Débito</option>
-                    <option value="Cabal Débito "> Cabal Débito </option>
-                    <option value="Master Débito "> Master Débito </option>
+                    <option value="Cabal Débito"> Cabal Débito </option>
+                    <option value="Master Débito"> Master Débito </option>
                     <option value="Naranja Débito"> Naranja Débito</option>
-                    <option value="Visa Crédito ">Visa Crédito </option>
-                    <option value=" Master Crédito "> Master Crédito </option>
-                    <option value="Naranja Crédito "> Naranja Crédito </option>
+                    <option value="Visa Crédito">Visa Crédito </option>
+                    <option value="Master Crédito">Master Crédito</option>
+                    <option value="Naranja Crédito"> Naranja Crédito </option>
+                    <option value="Debe"> Debe </option>
                     <option value="Efectivo">Efectivo</option>
                     <option value="Mercado Pago">Mercado Pago</option>
                 </select>
@@ -288,7 +290,7 @@ import axios from "axios";
                         </thead>
                         <tbody>
                             {ventasFiltradas.map((element, index) => 
-                            <tr key={index} style={{ background: condicionPago(element.boleta || '')}}>
+                            <tr key={index} style={{ background: condicionPago(element.tp || '')}}>
 
                                 <td>{element.day}</td>
                                 

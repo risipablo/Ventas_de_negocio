@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const VentasModel = require('./models/Ventas');
-const GastosModel = require('./models/gastos');
+// const GastosModel = require('./models/gastos');
 const ProductoModel = require('./models/Productos');
 const NotaModel = require('./models/Notas');
 const ProveedorModel = require('./models/Proveedor');
@@ -28,17 +28,12 @@ mongoose
     .then(() => console.log("Conexión exitosa con MongoDB"))
     .catch((err) => console.error("Conexión fallida: " + err));
 
-const connectReadOnly = () => {
-    mongoose.connect(process.env.MONGODB_READ)
-        .then(() => console.log('Conexión de solo lectura exitosa con MongoDB'))
-        .catch((err) => console.error('Conexión de solo lectura fallida: ' + err));
-};
 
 // Ventas
 
 // Obtener registro de ventas
 app.get('/ventas', async (req, res) => {
-    connectReadOnly();
+   
     try {
         const ventas = await VentasModel.find();
         res.json(ventas);
@@ -49,7 +44,7 @@ app.get('/ventas', async (req, res) => {
 
 // Agregar registro de ventas
 app.post('/add-ventas', async (req, res) => {
-    mongoose.connect(process.env.MONGODB);
+   
     const { day, month, total, tp, product, boleta } = req.body;
     if (!day || !month || !tp || !product || !total || !boleta) {
         return res.status(400).json({ error: 'Faltan datos requeridos' });
