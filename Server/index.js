@@ -2,14 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const VentasModel = require('./models/Ventas');
-// const GastosModel = require('./models/gastos');
+const GastosModel = require('./models/gastos');
 const ProductoModel = require('./models/Productos');
 const NotaModel = require('./models/Notas');
 const ProveedorModel = require('./models/Proveedor');
 const StockModel = require('./models/Stock');
 const File = require ('./models/Files')
 const multer = require('multer');
-const jwt = require('jsonwebtoken')
+
 
 require("dotenv").config();
 const app = express();
