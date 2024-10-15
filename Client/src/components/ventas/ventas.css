@@ -44,7 +44,7 @@ h1{
 /* Propiedades mobile */
 @media (max-width: 768px) {
     .inputs-ventas {
-        flex-direction: column; /* Cambia a una columna en dispositivos móviles */
+        flex-direction: column; 
     }
 
     .inputs-ventas input, 
@@ -62,6 +62,20 @@ h1{
 
 
 }
+
+.unidad-condicion {
+    display: flex;
+    gap: 10px; /* Espacio entre los inputs */
+}
+
+.unidad-condicion input {
+    flex: 1; /* Cada input ocupa la mitad del espacio */
+    padding: 12px;
+    border: 1px solid #9a9898;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
 
 /* Estilos para el botón agregar */
 .botones {

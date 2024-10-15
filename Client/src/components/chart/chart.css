@@ -61,3 +61,71 @@ h2 {
         height: 250px; 
     }
 }
+
+
+/* Contenedor principal */
+.container-estadisticas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Estilo de los links de los gráficos */
+.chart-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    margin: 2rem 4rem;
+    transition: transform 0.3s ease;
+}
+
+.chart-image {
+    width: 200px; 
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%; 
+    border: 3px solid #b0adad;
+    transition: transform 0.8s ease, border-color 0.8s ease;
+}
+
+
+.chart-link:hover {
+    transform: scale(1.1);
+}
+
+.chart-link:hover .chart-image {
+    border-color: #007BFF; 
+}
+
+
+.chart-link span {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+@media (max-width: 600px) {
+    .container-estadisticas {
+        flex-direction: column; 
+    }
+
+    .chart-link {
+        margin: 2rem 0;
+    }
+
+    .chart-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    .chart-link span {
+        font-size: 14px;
+    }
+}

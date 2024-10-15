@@ -21,6 +21,11 @@ const productoSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    
+    condicion:{
+        type:String,
+        required:true
+    },
 
     precio:{
         type:Number,

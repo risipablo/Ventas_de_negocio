@@ -21,6 +21,7 @@ export function Productos() {
     const [mascota, setMascota] = useState("");
     const [edad, SetEdad] = useState("");
     const [kilo, setKilo] = useState("");
+    const [condicion,setCondicion] = useState("")
     const [precio, setPrecio] = useState("");
     const [categoriaProducto, setCategoriaProducto] = useState("");
     const [showInputs, setShowInputs] = useState(true);
@@ -35,12 +36,13 @@ export function Productos() {
     }, [])
 
     const addProductos = () => {
-        if (marca.trim() && mascota.trim() && edad.trim() && kilo.trim() && precio.trim() && categoriaProducto.trim() !== "") {
+        if (marca.trim() && mascota.trim() && edad.trim() && condicion.trim() && kilo.trim() && precio.trim() && categoriaProducto.trim() !== "") {
             axios.post(`${serverFront}/add-productos`, {
                 marca: marca,
                 mascota: mascota,
                 edad: edad,
                 kilo: kilo,
+                condicion: condicion,
                 precio: precio,
                 categoria: categoriaProducto
             })
@@ -52,6 +54,7 @@ export function Productos() {
                     setMascota("");
                     SetEdad("");
                     setKilo("");
+                    setCondicion("")
                     setPrecio("");
                     setCategoriaProducto("");
                     toast.success('Producto agregado exitosamente!');
@@ -64,6 +67,7 @@ export function Productos() {
     const resetProductos = () => {
         setCategoriaProducto("")
         setKilo("")
+        setCondicion("")
         setMarca("")
         setMascota("")
         setPrecio("")
@@ -98,6 +102,7 @@ export function Productos() {
         marca: '',
         mascota: '',
         edad: '',
+        condicion: '',
         kilo: '',
         precio: '',
     });
@@ -108,6 +113,7 @@ export function Productos() {
             marca: producto.marca,
             mascota: producto.mascota,
             edad: producto.edad,
+            condicion: producto.condicion,
             precio: producto.precio,
             kilo: producto.kilo,
         })
@@ -119,6 +125,7 @@ export function Productos() {
             marca: '',
             mascota: '',
             edad: '',
+            condicion: '',
             kilo: '',
             precio: '',
         })
@@ -142,6 +149,10 @@ export function Productos() {
             }
         );
     };
+
+    const promoCondicion = (condicion) => {
+        return condicion.toLowerCase() === 'efectivo/débito' ? 'rgba(238, 217, 62, 0.8)' : null || condicion.toLowerCase() === 'efectivo' ? 'rgba(238, 217, 62, 0.8)' : null
+    }
 
     return (
         <div className="productos-container">
@@ -198,13 +209,29 @@ export function Productos() {
                                 <option value="Mini Adulto Active Mind"> Mini Adulto Active Mind </option>
                                 <option value="Weight Control"> Weight Control </option>
                             </select>
+                            
+                            <div className="unidad-condicion">
+                                <input
+                                    type="number"
+                                    placeholder="Ingresar Unidad"
+                                    value={kilo}
+                                    onChange={(e) => setKilo(e.target.value)}
+                                />
 
-                            <input
-                                type="number"
-                                placeholder="Ingresar Unidad "
-                                value={kilo}
-                                onChange={(e => setKilo(e.target.value))}
-                            />
+                                <select
+                                  type="text"
+                                  placeholder="Condición"
+                                  value={condicion}
+                                  onChange={(e) => setCondicion(e.target.value)}
+                                >
+                                    <option value=""> Seleccionar Condición </option>
+                                    <option value="-"> Ninguno </option>
+                                    <option value="Efectivo/Débito"> Efectivo/Débito </option>
+                                    <option value="Efectivo"> Efectivo </option>
+                                </select>
+                            </div>
+                            
+
                             <input
                                 type="number"
                                 placeholder="Ingresar Precio"
@@ -248,6 +275,7 @@ export function Productos() {
                                 <th>Marca</th>
                                 <th>Tamaño</th>
                                 <th>Mascota</th>
+                                <th>Promo</th>
                                 <th>Kg</th>
                                 <th>Precio</th>
                                 <th></th>
@@ -256,15 +284,18 @@ export function Productos() {
 
                         <tbody>
                             {productosFiltrado.map((element, index) =>
-                                <tr key={index}>
+                                <tr key={index} style={{ background: promoCondicion(element.condicion || '')}}>
                                     <td>{editingId === element._id ?
                                         <input value={editingData.marca} onChange={(e) => setEditingData({ ...editingData, marca: e.target.value })} /> : element.marca}</td>
 
                                     <td>{editingId === element._id ?
                                         <input value={editingData.edad} onChange={(e) => setEditingData({ ...editingData, edad: e.target.value })} /> : element.edad}</td>
-
+                                    
                                     <td>{editingId === element._id ?
                                         <input value={editingData.mascota} onChange={(e) => setEditingData({ ...editingData, mascota: e.target.value })} /> : element.mascota}</td>
+
+                                    <td>{editingId === element._id ?
+                                        <input value={editingData.condicion} onChange={(e) => setEditingData({ ...editingData, condicion: e.target.value })} /> : element.condicion}</td>
 
                                     <td>{editingId === element._id ?
                                         <input value={editingData.kilo} onChange={(e) => setEditingData({ ...editingData, kilo: e.target.value })} /> : element.kilo}</td>
