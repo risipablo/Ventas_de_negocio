@@ -77,6 +77,7 @@ export function Productos() {
         SetEdad("")
     }
 
+    
     const deleteProductos = (id) => {
         axios.delete(`${serverFront}/delete-productos/` + id)
             .then(response => {
@@ -85,7 +86,8 @@ export function Productos() {
                 toast.error('Producto eliminado exitosamente!');
             })
             .catch(err => console.log(err))
-    }
+    } 
+
 
     const filtrarProductos = (palabrasClave) => {
         setProductosFiltrado(productos.filter(producto => {
