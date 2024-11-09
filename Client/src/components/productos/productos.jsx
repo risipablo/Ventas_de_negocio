@@ -9,6 +9,8 @@ import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import { TransitionGroup } from 'react-transition-group';
 import { Notificacion } from "../others/notificacion";
 import { toast, Toaster } from 'react-hot-toast';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUpLong, faDownLong } from "@fortawesome/free-solid-svg-icons";
 
 
 // const serverFront = "http://localhost:3001"
@@ -25,6 +27,7 @@ export function Productos() {
     const [precio, setPrecio] = useState("");
     const [categoriaProducto, setCategoriaProducto] = useState("");
     const [showInputs, setShowInputs] = useState(true);
+
 
     useEffect(() => {
         axios.get(`${serverFront}/productos`)
@@ -154,6 +157,15 @@ export function Productos() {
         return condicion.toLowerCase() === 'efectivo/débito' ? 'rgba(238, 217, 62, 0.8)' : null || condicion.toLowerCase() === 'efectivo' ? 'rgba(238, 217, 62, 0.8)' : null
     }
 
+    const [ordenar,setOrdenar] = useState(true)
+
+    const funcionOrdenar = () => {
+        const productosOrdenados = [...productosFiltrado].sort((a,b) => ordenar ? a.marca.localeCompare(b.marca) : b.marca.localeCompare(a.marca))
+        setProductosFiltrado(productosOrdenados)
+        setOrdenar(!ordenar)
+    }
+
+
     return (
         <div className="productos-container">
 
@@ -272,7 +284,12 @@ export function Productos() {
                     <table>
                         <thead>
                             <tr>
-                                <th>Marca</th>
+                                <th> Marca 
+                                    <button onClick={funcionOrdenar} className="ordenar">
+                                <i>
+                                    {ordenar ? <FontAwesomeIcon icon={faUpLong} /> : <FontAwesomeIcon icon={faDownLong} />}
+                                </i>
+                                </button></th>
                                 <th>Tamaño</th>
                                 <th>Mascota</th>
                                 <th>Promo</th>

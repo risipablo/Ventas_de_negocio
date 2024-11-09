@@ -256,3 +256,17 @@ th{
 .monto{
     font-weight: 600;
 }
+
+
+.ordenar {
+    background: none;  /* Sin fondo */
+    border: none;      /* Sin bordes */
+    cursor: pointer;   /* Cambia el cursor al pasar el mouse */
+    padding: 0;        /* Sin padding */
+    outline: none;     /* Elimina el contorno al hacer clic */
+    display: inline-flex;  /* Alineación para centrar el ícono */
+    align-items: center;
+    justify-content: center;
+    color: #ffff;
+    margin-left: 1rem;
+}
