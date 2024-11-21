@@ -1,4 +1,4 @@
-const VentasModel = require('../Models/Ventas')
+const VentasModel = require('../Models/ventas')
 
 // Obtener registro de ventas
 exports.getVentas = async (req, res) => {

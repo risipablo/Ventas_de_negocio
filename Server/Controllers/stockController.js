@@ -1,5 +1,5 @@
 
-const StockModel = require('../Models/Stock');
+const StockModel = require('../Models/stock');
 
 exports.getStock = async (req, res) => {
     try {

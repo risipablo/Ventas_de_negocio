@@ -1,5 +1,5 @@
 
-const NoteModel = require('../Models/Notas')
+const NoteModel = require('../Models/notas.js')
 
 // Ruta para obtener notas
 exports.getNotas =  async (req, res) => {

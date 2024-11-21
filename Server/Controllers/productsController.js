@@ -1,4 +1,4 @@
-const ProductoModel = require('../Models/Productos')
+const ProductoModel = require('../Models/productos')
 
 // Obtener datos de productos
 exports.getProductos = async (req, res) => {
