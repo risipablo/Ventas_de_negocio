@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import GastosChart from "./gastosChart"
+import GastosChart from "../../../components/chartComponent/gastosChart"
 import { FiltrosGastoChart } from "../../../components/hooks/filtros/filtrosGastosChart"
 
 

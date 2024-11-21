@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 // import "../../ estilos chart.css"
-import VentasChart from './ventasChart.jsx'
+import VentasChart from '../../../components/chartComponent/ventasChart.jsx'
 import axios from 'axios';
 import { FiltrosVentaChart } from '../../../components/hooks/filtros/filtrosVenChart.jsx';
 
