@@ -35,7 +35,7 @@ export function Proveedor() {
     const { agregarAlCarrito } = useContext(CarritoContext)
 
     useEffect(() => {
-        axios.get(`${serverFront}/api/proveedors`)
+        axios.get(`${serverFront}/proveedors`)
             .then(response => {
                 setProducts(response.data);
                 setProveedorFiltrado(response.data);
@@ -45,7 +45,7 @@ export function Proveedor() {
 
     const addProductos = () => {
         if (newProveedor.trim() && newMarca.trim() && newEdad.trim() && newKilo.trim() && newPrecio.trim() && newMascota.trim() !== " ") {
-            axios.post(`${serverFront}/api/proveedors`, {
+            axios.post(`${serverFront}/add-proveedors`, {
                 proveedores: newProveedor,
                 marcas: newMarca,
                 mascotas: newMascota,
@@ -71,7 +71,7 @@ export function Proveedor() {
     };
 
     const deleteProveedors = (id) =>{
-        axios.delete(`${serverFront}/api/proveedors/` + id)
+        axios.delete(`${serverFront}/delete-proveedors/` + id)
         .then(response => {
             setProducts(products.filter((product) => product._id !== id));
             setProveedorFiltrado(products.filter((product) => product._id !== id))
@@ -142,7 +142,7 @@ export function Proveedor() {
     const saveChanges = (id) => {
         console.log(`cambios guardados: ${id}`)
         toast.promise(
-            axios.patch(`${serverFront}/api/proveedors/${id}`, editingData)
+            axios.patch(`${serverFront}/edit-proveedors/${id}`, editingData)
             .then(response => {
                 setProducts(products.map(product => product._id === id ? response.data : product));
                 setProveedorFiltrado(proveedorFiltrado.map(product => product._id === id ? response.data : product));

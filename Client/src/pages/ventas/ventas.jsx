@@ -32,7 +32,7 @@ import ok from '../../assets/ok.mp3'
 
 
     useEffect(() => {
-        axios.get(`${serverFront}/api/ventas`)
+        axios.get(`${serverFront}/ventas`)
             .then(response => {
                 setVentas(response.data);
                 setVentasFiltradas(response.data);
@@ -42,7 +42,7 @@ import ok from '../../assets/ok.mp3'
 
     const addVentas = () => {
         if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== "") {
-            axios.post(`${serverFront}/api/ventas`, {
+            axios.post(`${serverFront}/add-ventas`, {
                 day: newDay,
                 month: newMonth,
                 tp: newTp,
@@ -70,7 +70,7 @@ import ok from '../../assets/ok.mp3'
 
 
     const deleteVentas = (id, product, total) => {
-        axios.delete(`${serverFront}/api/ventas/${id}`)
+        axios.delete(`${serverFront}/delete-ventas/${id}`)
         .then(response => {
             const updatedVentas = ventas.filter((venta) => venta._id !== id);
             setVentas(updatedVentas);
@@ -166,7 +166,7 @@ import ok from '../../assets/ok.mp3'
       }
       const saveEdit = (id) => {
         toast.promise(
-            axios.patch(`${serverFront}/api/ventas/${id}`, editingId)
+            axios.patch(`${serverFront}/edit-ventas/${id}`, editingId)
             .then(response => {
                 setVentas(ventas.map(venta => venta._id === id ? response.data : venta));
                 setVentasFiltradas(ventasFiltradas.map(venta => venta._id === id ? response.data : venta));

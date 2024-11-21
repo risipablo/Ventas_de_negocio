@@ -32,7 +32,7 @@ export function Stock() {
 
 
     useEffect(() => {
-        axios.get(`${serverFront}/api/stock`)
+        axios.get(`${serverFront}/stock`)
             .then(response => {
                 console.log(response.data);
                 setStock(response.data);
@@ -45,7 +45,7 @@ export function Stock() {
 
     const addStock = () => {
         if (brands.trim() && size.trim() && pet.trim() && newKg.trim() && amount.trim() && condition.trim() !== "") {
-            axios.post(`${serverFront}/api/add-stock`, {
+            axios.post(`${serverFront}/add-stock`, {
                 brands: brands,
                 size: size,
                 pet: pet,
@@ -66,7 +66,7 @@ export function Stock() {
     };
 
     const deleteStocks = (id) => {
-        axios.delete(`${serverFront}/api/delete-stock/${id}`)
+        axios.delete(`${serverFront}/delete-stock/${id}`)
             .then(() => {
                 setStock(stock.filter((stoc) => stoc._id !== id));
                 setStockFiltrados(stock.filter((stoc) => stoc._id !== id));
@@ -140,7 +140,7 @@ export function Stock() {
     // Guardar cambios
     const saveChanges = (id) => {
         toast.promise(
-            axios.patch(`${serverFront}/api/edit-stock/${id}`, editingData)
+            axios.patch(`${serverFront}/edit-stock/${id}`, editingData)
             .then(response => {
                 setStock(stock.map(stoc => stoc._id === id ? response.data : stoc));
                 setStockFiltrados(stock.map(stoc => stoc._id === id ? response.data : stoc));

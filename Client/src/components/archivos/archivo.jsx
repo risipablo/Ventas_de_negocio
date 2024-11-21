@@ -52,7 +52,7 @@ const FileUpload = () => {
         formData.append('file', selectedFile);
 
         try {
-            const response = await axios.post(`${serverFront}/api/upload`, formData);
+            const response = await axios.post(`${serverFront}/upload`, formData);
             setMessage(response.data.message);
             fetchFiles(); // Actualizar la lista de archivos después de subir uno nuevo
             setPreview(null); // Limpiar la vista previa después de la subida
@@ -67,7 +67,7 @@ const FileUpload = () => {
     // Obtener archivos
     const fetchFiles = async () => {
         try {
-            const response = await axios.get(`${serverFront}/api/files`);
+            const response = await axios.get(`${serverFront}/files`);
             setArchivos(response.data);
         } catch (error) {
             console.error('Error al obtener archivos', error);
@@ -76,7 +76,7 @@ const FileUpload = () => {
 
     // Eliminar archivo
     const deleteFile = async (id) => {
-        await axios.delete(`${serverFront}/api/files/`+ id) 
+        await axios.delete(`${serverFront}/delete-files/`+ id) 
         .then(response => {
             setArchivos(archivos.filter((archivo) => archivo._id !== id))
             fetchFiles()
@@ -92,7 +92,7 @@ const FileUpload = () => {
     };
 
     const handleViewFile = (fileId) => {
-        window.open(`${serverFront}/api/files/${fileId}`, '_blank'); // Abre en una nueva pestaña
+        window.open(`${serverFront}/files/${fileId}`, '_blank'); // Abre en una nueva pestaña
     };
 
     useEffect(() => {

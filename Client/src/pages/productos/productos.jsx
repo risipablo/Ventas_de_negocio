@@ -35,7 +35,7 @@ export function Productos() {
 
 
     useEffect(() => {
-        axios.get(`${serverFront}/api/productos`)
+        axios.get(`${serverFront}/productos`)
             .then(response => {
                 setProductos(response.data);
                 setProductosFiltrado(response.data);
@@ -45,7 +45,7 @@ export function Productos() {
 
     const addProductos = () => {
         if (marca.trim() && mascota.trim() && edad.trim() && condicion.trim() && kilo.trim() && precio.trim() && categoriaProducto.trim() !== "") {
-            axios.post(`${serverFront}/api/productos`, {
+            axios.post(`${serverFront}/add-productos`, {
                 marca: marca,
                 mascota: mascota,
                 edad: edad,
@@ -85,7 +85,7 @@ export function Productos() {
 
     
     const deleteProductos = (id) => {
-        axios.delete(`${serverFront}/api/productos/` + id)
+        axios.delete(`${serverFront}/delete-productos/` + id)
             .then(response => {
                 setProductos(productos.filter((producto) => producto._id !== id));
                 setProductosFiltrado(productosFiltrado.filter((producto) => producto._id !== id)); // Actualiza productosFiltrado
@@ -144,7 +144,7 @@ export function Productos() {
 
     const saveChanges = (id) => {
         toast.promise(
-            axios.patch(`${serverFront}/api/productos/${id}`, editingData)
+            axios.patch(`${serverFront}/edit-productos/${id}`, editingData)
                 .then(response => {
                     setProductos(productos.map(producto => producto._id === id ? response.data : producto));
                     setProductosFiltrado(productosFiltrado.map(producto => producto._id === id ? response.data : producto));

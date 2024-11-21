@@ -2,11 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const GastosModel = require('./models/gastos');
-const ProductoModel = require('./models/Productos');
-const NotaModel = require('./models/Notas');
-const ProveedorModel = require('./models/Proveedor');
-const StockModel = require('./models/Stock');
-const File = require ('./models/Files')
+const ProductoModel = require('./models/productos');
+const NotaModel = require('./models/notas');
+const ProveedorModel = require('./models/proveedor');
+const StockModel = require('./models/stock');
+const File = require ('./models/files')
 const multer = require('multer');
 const VentasModel = require('./models/ventas');
 

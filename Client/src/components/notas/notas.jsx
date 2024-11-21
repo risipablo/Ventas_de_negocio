@@ -30,7 +30,7 @@ export function Notas() {
     const { agregarNotas, completarNotas, eliminarNota } = useContext(NotasContext)
 
     useEffect(() => {
-        axios.get(`${serverFront}/api/notas`)
+        axios.get(`${serverFront}/notas`)
             .then(response => {
                 setNotes(response.data);
                 setNotesFilter(response.data)
@@ -41,7 +41,7 @@ export function Notas() {
  
     const addNotas = () => {
         if (newNota.trim() && newMeses.trim() !== "" && newDescription.trim() !== "") {
-            axios.post(`${serverFront}/api/notas`, 
+            axios.post(`${serverFront}/add-notas`, 
                 { notas: newNota, meses:newMeses, description:newDescription })
                 .then(response => {
                     const nuevaNota = response.data;
@@ -58,7 +58,7 @@ export function Notas() {
     };
 
     const deleteNotas = (id) => {
-        axios.delete(`${serverFront}/api/notas/` + id)
+        axios.delete(`${serverFront}/delete-notas/` + id)
         .then(response => {
             setNotes(notes.filter((note) => note._id !== id))
             setNotesFilter(notesFilter.filter((note) => note._id !== id))
@@ -108,7 +108,7 @@ export function Notas() {
 
     const saveChanges = (id) => {
         toast.promise(
-            axios.patch(`${serverFront}/api/notas/${id}`, editingData)
+            axios.patch(`${serverFront}/edit-notas/${id}`, editingData)
             .then(response => {
                 setNotes(notes.map(note => note._id === id ? response.data : note))
                 setNotesFilter(notesFilter.map(note => note._id === id ? response.data : note))
@@ -131,7 +131,7 @@ export function Notas() {
     }
 
     const completedNote = (id,completed) => {
-        axios.patch(`${serverFront}/api/notas/${id}/completed`, {completed: !completed })
+        axios.patch(`${serverFront}/completed-notas/${id}`, {completed: !completed })
         .then(response => {
         
             const completedNotes = notes.map(note => note._id === id ? response.data : note)
