@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const errorHandle = require('./Middleware/erroHandle');
-const ProoveedorRouter = require('./Routes/proveedorRoute')
+// const ProoveedorRouter = require('./Routes/proveedorRoute')
 // const GastosRouter = require('./Routes/gastosRoute')
 const ProductosRouter = require('./Routes/productosRouter')
 const VentasRouter = require('./Routes/ventasRoute')
@@ -31,8 +31,12 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use('/api', StockRouter , NotasRouter, ProductosRouter, ProoveedorRouter, FileRoute)
+app.use('/api', StockRouter)
+app.use('/api', ProductosRouter)
+app.use('/api', NotasRouter)
+app.use('/api', FileRoute)
 app.use('/api', VentasRouter)
+
 app.use(errorHandle);
 
 // Obtener gastos
