@@ -1,4 +1,7 @@
 .env
 node_modules
-./json
+json
 /models/User.js
+Routes
+Controllers
+Config
