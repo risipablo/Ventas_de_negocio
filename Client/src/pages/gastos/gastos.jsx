@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react"
 import "../../styles/gastos.css"
-import axios from "axios";
+import axios from "axios"
 import { FiltrosGastos } from "../../components/hooks/filtros/filtrosGastos";
 import { Buscador } from "../../components/buscador/buscador";
 import { Helmet } from 'react-helmet';
