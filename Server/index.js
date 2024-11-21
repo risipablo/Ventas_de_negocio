@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const errorHandle = require('./Middleware/erroHandle');
 const ProoveedorRouter = require('./Routes/proveedorRoute')
 // const GastosRouter = require('./Routes/gastosRoute')
 const ProductosRouter = require('./Routes/productosRouter')
@@ -15,21 +16,24 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 
+mongoose
+    .connect(process.env.MONGODB)
+    .then(() => console.log("Conexión exitosa con MongoDB"))
+    .catch((err) => console.error("Conexión fallida: " + err));
+
+
 const corsOptions = {
     origin: ['http://localhost:5173', 'https://ventas-de-negocio.onrender.com', 'https://ventas-de-negocio.vercel.app'],
     methods: 'GET,POST,DELETE,PATCH',
     optionsSuccessStatus: 200
 };
 
-mongoose
-    .connect(process.env.MONGODB)
-    .then(() => console.log("Conexión exitosa con MongoDB"))
-    .catch((err) => console.error("Conexión fallida: " + err));
 
 app.use(cors(corsOptions));
 
-app.use('/api', StockRouter , NotasRouter, VentasRouter, ProductosRouter, ProoveedorRouter, FileRoute)
-
+app.use('/api', StockRouter , NotasRouter, ProductosRouter, ProoveedorRouter, FileRoute)
+app.use('/api', VentasRouter)
+app.use(errorHandle);
 
 // Obtener gastos
 app.get('/gastos', async (req, res) => {
@@ -85,8 +89,7 @@ app.patch('/edit-gastos/:id', async (req, res) => {
 
 
 
-app.listen(3001, () => {
-    console.log('Servidor funcionando en el puerto 3001');
-})
-
-
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
