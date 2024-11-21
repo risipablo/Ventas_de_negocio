@@ -46,7 +46,7 @@ export function Gastos(){
                 dia:dia,
                 mes:mes,
                 factura:factura,
-                monto: parseFloat(monto), 
+                monto: monto, 
                 estado:estado
             })
             .then(response => {
@@ -299,7 +299,7 @@ export function Gastos(){
                                     <input value={editingData.factura} onChange={(e) => setEditingData({ ...editingData, factura: e.target.value })} /> : element.factura}</td> 
                                 
                                 <td className='monto'> ${editingId === element._id ? 
-                                    <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto}</td>
+                                    <input value={editingData.monto.toLocaleString('en-US')} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto}</td>
                                 
                                 <td  style={{ background: condicionEstado(element.estado || '')}}>{editingId === element._id ?
                                 <select value={editingData.estado} onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })} > 

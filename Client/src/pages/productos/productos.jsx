@@ -327,7 +327,7 @@ export function Productos() {
                                         <input value={editingData.kilo} onChange={(e) => setEditingData({ ...editingData, kilo: e.target.value })} /> : element.kilo}</td>
 
                                     <td className='monto'>${editingId === element._id ?
-                                        <input value={editingData.precio} onChange={(e) => setEditingData({ ...editingData, precio: e.target.value })} /> : element.precio}</td>
+                                        <input value={editingData.precio} onChange={(e) => setEditingData({ ...editingData, precio: e.target.value })} /> : element.precio.toLocaleString('en-US')}</td>
 
                                     <div className="actions">
                                         <button className="trash" onClick={() => deleteProductos(element._id, element.proveedor, element.monto)}><i className="fa-solid fa-trash"></i></button>
