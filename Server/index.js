@@ -1,5 +1,5 @@
 const express = require('express');
-const connectDB = require('./Config/dataBase')
+const mongoose = require('mongoose');
 const cors = require('cors');
 const ProoveedorRouter = require('./Routes/proveedorRoute')
 // const GastosRouter = require('./Routes/gastosRoute')
@@ -21,7 +21,10 @@ const corsOptions = {
     optionsSuccessStatus: 200
 };
 
-connectDB();
+mongoose
+    .connect(process.env.MONGODB)
+    .then(() => console.log("Conexión exitosa con MongoDB"))
+    .catch((err) => console.error("Conexión fallida: " + err));
 
 app.use(cors(corsOptions));
 
