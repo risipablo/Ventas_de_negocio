@@ -1,5 +1,5 @@
 
-const ProveedorModel = require('../Models/Proveedor')
+const ProveedorModel = require('../Models/Proveedor');
 
 // Obtener datos de los proveedores
 exports.getProveedor = async (req, res) => {
