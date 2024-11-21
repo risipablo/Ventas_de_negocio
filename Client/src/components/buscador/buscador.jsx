@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./buscador.css";
+import "../../styles/buscador.css";
 
 export function Buscador({ placeholder, filtrarDatos }) {
     const [buscar, setBuscar] = useState('');

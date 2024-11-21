@@ -3,7 +3,7 @@ import { CarritoContext } from "./carritoContext";
 import { useContext, useState } from "react";
 import { Badge, IconButton, Tooltip } from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import "./carrito.css"; 
+import "../../styles/carrito.css"; 
 
 export function Shop() {
     const { cantidadCarrito } = useContext(CarritoContext);

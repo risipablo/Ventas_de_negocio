@@ -1,12 +1,15 @@
 
 import { useEffect, useState } from "react"
-import "./gastos.css"
+import "../../styles/gastos.css"
 import axios from "axios";
-import { FiltrosGastos } from "./filtrosGastos";
-import { Buscador } from "../buscador/buscador";
+import { FiltrosGastos } from "../../components/hooks/filtros/filtrosGastos";
+import { Buscador } from "../../components/buscador/buscador";
 import { Helmet } from 'react-helmet';
-import {ScrollTop} from '../others/scrollTop'
+import {ScrollTop} from '../../components/others/scrollTop'
 import { toast, Toaster } from 'react-hot-toast';
+import useSound from 'use-sound'
+import digital from "../../assets/digital.mp3"
+import ok from "../../assets/ok.mp3"
 
 
 // const serverFront = 'http://localhost:3001'
@@ -22,6 +25,9 @@ export function Gastos(){
     const[factura,setFactura] = useState('')
     const[monto,setMonto] = useState('')
     const[estado,setEstado] = useState('')
+    const [play] = useSound(digital)
+    const [play2] = useSound(ok)
+
 
 
     useEffect(() => {
@@ -40,13 +46,13 @@ export function Gastos(){
                 dia:dia,
                 mes:mes,
                 factura:factura,
-                monto:monto,
+                monto: parseFloat(monto), 
                 estado:estado
             })
             .then(response => {
                 const nuevoGasto = response.data;
-                setGastos(gastos => [...gastos,nuevoGasto]);
-                setGastosFiltrados(gastos => [...gastos, nuevoGasto]);
+                setGastos([...gastos, nuevoGasto]);
+                setGastosFiltrados([...gastos, nuevoGasto]);
                 setProveedor("");
                 setDia("");
                 setEstado('');
@@ -54,6 +60,7 @@ export function Gastos(){
                 setMes('');
                 setMonto('');
                 toast.success(`Se agrego ${proveedor} $${monto}`);
+                play()
             })
             .catch(err => console.log(err))
         }
@@ -152,8 +159,7 @@ export function Gastos(){
                 setGastos(gastos.map(gasto => gasto._id === id ? response.data : gasto));
                 setGastosFiltrados(gastosFiltrados.map(gasto => gasto._id === id ? response.data : gasto));
                 cancelEditing();
-                
-
+                play2()
             })
             .catch(err => {
                 console.log(err);
@@ -293,7 +299,7 @@ export function Gastos(){
                                     <input value={editingData.factura} onChange={(e) => setEditingData({ ...editingData, factura: e.target.value })} /> : element.factura}</td> 
                                 
                                 <td className='monto'> ${editingId === element._id ? 
-                                    <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto.toLocaleString('en-US')}</td>
+                                    <input value={editingData.monto} onChange={(e) => setEditingData({...editingData, monto: e.target.value})}/> : element.monto}</td>
                                 
                                 <td  style={{ background: condicionEstado(element.estado || '')}}>{editingId === element._id ?
                                 <select value={editingData.estado} onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })} > 

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { NotasContext } from "./notasContext/notasContext";
+import { NotasContext } from "../../components/notas/notasContext/notasContext";
 import { IconButton, Tooltip } from "@mui/material";
 import AssignmentIcon from '@mui/icons-material/Assignment';
 

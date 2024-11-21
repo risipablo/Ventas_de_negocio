@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { animateScroll as scroll} from "react-scroll";
-import "./others.css"
+import "../../styles/others.css"
 
 export function ScrollTop(){
 

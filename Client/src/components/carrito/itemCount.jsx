@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import "./carrito.css"
+import "../../styles/carrito.css"
 import { CarritoContext } from "./carritoContext";
 
 function ItemCount ({InitialCantidad,handleRestar,handleSumar}){

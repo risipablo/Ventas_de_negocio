@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { CarritoContext } from "./carritoContext";
-import './carrito.css'
-import ItemCount from "./itemCount";
+import { CarritoContext } from "../../components/carrito/carritoContext";
+import '../../styles/carrito.css'
+import ItemCount from "../../components/carrito/itemCount";
 
 
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../../ventas/filtros.css"
+import "../../../styles/filtros.css";
 
 
 export function FiltrosGastoChart({gastos, setGastosFiltrados}){

@@ -1,12 +1,12 @@
 
 import { NavLink } from "react-router-dom"
-import "./navbar.css"
+import "../../styles/navbar.css"
 import { useState } from "react";
 import { Shop } from "../carrito/shop";
 import { Box } from '@mui/material';
-import { NotasIcon } from "../notas/notasIcon";
-import { StockIcon } from "../stock/stockIcon";
-import { ArchivoIcon } from "../archivos/archivoIcon";
+import { NotasIcon } from "../../pages/notasPage/notasIcon";
+import { StockIcon } from "../../pages/stockPage/stockIcon";
+import { ArchivoIcon } from "../../pages/archivosPage/archivoIcon";
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import StoreIcon from '@mui/icons-material/Store';

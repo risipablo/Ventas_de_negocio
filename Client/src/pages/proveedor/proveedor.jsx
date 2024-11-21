@@ -3,12 +3,15 @@ import { Button, Collapse } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { TransitionGroup } from 'react-transition-group';
-import { Buscador } from "../buscador/buscador";
+import { Buscador } from "../../components/buscador/buscador";
 import axios from "axios";
-import { CarritoContext } from "../carrito/carritoContext";
-import { ToastContainer,toast,Bounce } from "react-toastify";
-import { ScrollTop } from "../others/scrollTop";
-import { FiltroProveedor } from "./filtroProveedor";
+import { toast, Toaster } from 'react-hot-toast';
+import { CarritoContext } from "../../components/carrito/carritoContext";
+import { ScrollTop } from "../../components/others/scrollTop";
+import { FiltroProveedor } from "../../components/hooks/filtros/filtroProveedor";
+import useSound from 'use-sound'
+import digital from "../../assets/digital.mp3"
+import ok from "../../assets/ok.mp3"
 
 
 
@@ -25,11 +28,14 @@ export function Proveedor() {
     const [newEdad, setNewEdad] = useState("");
     const [newKilo, setNewKilo] = useState("");
     const [newPrecio, setNewPrecio] = useState("");
+    const [play] = useSound(digital)
+    const [play2] = useSound(ok)
+
 
     const { agregarAlCarrito } = useContext(CarritoContext)
 
     useEffect(() => {
-        axios.get(`${serverFront}/proveedors`)
+        axios.get(`${serverFront}/api/proveedors`)
             .then(response => {
                 setProducts(response.data);
                 setProveedorFiltrado(response.data);
@@ -39,7 +45,7 @@ export function Proveedor() {
 
     const addProductos = () => {
         if (newProveedor.trim() && newMarca.trim() && newEdad.trim() && newKilo.trim() && newPrecio.trim() && newMascota.trim() !== " ") {
-            axios.post(`${serverFront}/add-proveedors`, {
+            axios.post(`${serverFront}/api/proveedors`, {
                 proveedores: newProveedor,
                 marcas: newMarca,
                 mascotas: newMascota,
@@ -57,35 +63,19 @@ export function Proveedor() {
                     setNewProveedor("");
                     setNewEdad("");
                     setNewMascota("");
-                    toast.success("Producto agregado ", {
-                        position: "top-center",
-                        autoClose: 2000,
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                        theme: "light",
-                        transition: Bounce,
-                    });
+                    toast.success(`Se agrego ${newMarca}, ${newEdad} de ${newProveedor}`);
+                    play()
                 })
                 .catch(err => console.error(err));
         }
     };
 
     const deleteProveedors = (id) =>{
-        axios.delete(`${serverFront}/delete-proveedors/` + id)
+        axios.delete(`${serverFront}/api/proveedors/` + id)
         .then(response => {
             setProducts(products.filter((product) => product._id !== id));
             setProveedorFiltrado(products.filter((product) => product._id !== id))
-            toast.error('Producto eliminado', {
-                position: "top-center",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Bounce,
-                });
+            toast.error('Producto eliminado exitosamente!');
         })
         .catch(err => console.log(err))
     }
@@ -105,17 +95,9 @@ export function Proveedor() {
     };
 
     const agregarProductoAlCarrito = (producto) => {
-        toast.success(
-            ` Se agrego ${producto.marcas} ${producto.mascotas} ${producto.kilos} $${producto.precios} `, 
-            {
-            position: "top-center",
-            autoClose: 2000,
-            closeOnClick: true,
-            pauseOnHover: false,
-            theme: "light",
-            transition: Bounce,
-        });
+        toast.success(`Se agrego ${producto.marcas} ${producto.mascotas} ${producto.kilos} $${producto.precios}`);
         agregarAlCarrito(producto)
+        play()
 
     };
 
@@ -159,25 +141,24 @@ export function Proveedor() {
 
     const saveChanges = (id) => {
         console.log(`cambios guardados: ${id}`)
-        axios.patch(`${serverFront}/edit-proveedors/${id}`, editingData)
-        .then(response => {
-            setProducts(products.map(product => product._id === id ? response.data : product));
-            setProveedorFiltrado(proveedorFiltrado.map(product => product._id === id ? response.data : product));
-            cancelEditing();
-            toast.success(
-                ` Cambios guardados `, 
-                {
-                position: "top-center",
-                autoClose: 2000,
-                closeOnClick: true,
-                pauseOnHover: false,
-                theme: "light",
-                transition: Bounce,
-            });
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        toast.promise(
+            axios.patch(`${serverFront}/api/proveedors/${id}`, editingData)
+            .then(response => {
+                setProducts(products.map(product => product._id === id ? response.data : product));
+                setProveedorFiltrado(proveedorFiltrado.map(product => product._id === id ? response.data : product));
+                cancelEditing();
+                play2()
+            })
+            .catch(err => {
+                console.log(err);
+            }),
+            {
+                loading: 'Guardando...',
+                success: <b>Producto guardado!</b>,
+                error: <b>No se pudo guardar.</b>,
+            }
+        )
+
     }
 
 
@@ -328,8 +309,7 @@ export function Proveedor() {
                     </table>
                 </div>
             </div>
-    
-            <ToastContainer/>
+            <Toaster/>
             <ScrollTop/>
         </div>
     );

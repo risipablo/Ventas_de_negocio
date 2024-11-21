@@ -8,14 +8,14 @@ export const NotasContext = createContext();
 export function NotasProvider({children}){
 
 
-// const serverFront = "http://localhost:3001";
-const serverFront = 'https://ventas-de-negocio.onrender.com'
+const serverFront = "http://localhost:3001";
+// const serverFront = 'https://ventas-de-negocio.onrender.com'
 
 
     const [notero,setNotero] = useState([])
 
     useEffect(() => {
-        axios.get(`${serverFront}/notas`)
+        axios.get(`${serverFront}/api/notas`)
         .then(response => {
             const notas = response.data.map(nota => ({...nota,cantidad:1}))
             setNotero(notas)

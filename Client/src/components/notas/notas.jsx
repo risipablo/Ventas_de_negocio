@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import "./notas.css";
+import "../../styles/notas.css";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +9,9 @@ import { ScrollTop } from "../others/scrollTop";
 import { NotasContext } from "./notasContext/notasContext";
 import { Buscador } from "../buscador/buscador";
 import { toast, Toaster } from 'react-hot-toast';
+import useSound from 'use-sound'
+import digital from "../../assets/digital.mp3"
+import ok from "../../assets/ok.mp3"
 
 
 // const serverFront = "http://localhost:3001";
@@ -21,11 +24,13 @@ export function Notas() {
     const [newNota, setNewNota] = useState("");
     const [newDescription, setNewDescription] = useState("")
     const [newMeses, setNewMeses ] = useState("");
+    const [play] = useSound(digital)
+    const [play2] = useSound(ok)
 
     const { agregarNotas, completarNotas, eliminarNota } = useContext(NotasContext)
 
     useEffect(() => {
-        axios.get(`${serverFront}/notas`)
+        axios.get(`${serverFront}/api/notas`)
             .then(response => {
                 setNotes(response.data);
                 setNotesFilter(response.data)
@@ -36,7 +41,7 @@ export function Notas() {
  
     const addNotas = () => {
         if (newNota.trim() && newMeses.trim() !== "" && newDescription.trim() !== "") {
-            axios.post(`${serverFront}/add-notas`, 
+            axios.post(`${serverFront}/api/notas`, 
                 { notas: newNota, meses:newMeses, description:newDescription })
                 .then(response => {
                     const nuevaNota = response.data;
@@ -53,7 +58,7 @@ export function Notas() {
     };
 
     const deleteNotas = (id) => {
-        axios.delete(`${serverFront}/delete-notas/` + id)
+        axios.delete(`${serverFront}/api/notas/` + id)
         .then(response => {
             setNotes(notes.filter((note) => note._id !== id))
             setNotesFilter(notesFilter.filter((note) => note._id !== id))
@@ -67,8 +72,8 @@ export function Notas() {
         setNotesFilter(notes.filter(note => {
             return palabrasClave.every(palabra => 
                 note.notas.toLowerCase().includes(palabra) ||
-                note.meses.toLowerCase().includes(palabra) ||
-                note.description.toLowerCase().includes(palabra)
+                note.meses.toLowerCase().includes(palabra) 
+                // note.description.toLowerCase().includes(palabra)
             )
         }))
     }
@@ -103,11 +108,12 @@ export function Notas() {
 
     const saveChanges = (id) => {
         toast.promise(
-            axios.patch(`${serverFront}/edit-notas/${id}`, editingData)
+            axios.patch(`${serverFront}/api/notas/${id}`, editingData)
             .then(response => {
                 setNotes(notes.map(note => note._id === id ? response.data : note))
                 setNotesFilter(notesFilter.map(note => note._id === id ? response.data : note))
                 cancelEditing();
+                play2()
             })
             .catch(err => {
                 console.log(err);
@@ -125,7 +131,7 @@ export function Notas() {
     }
 
     const completedNote = (id,completed) => {
-        axios.patch(`${serverFront}/completed-notas/${id}`, {completed: !completed })
+        axios.patch(`${serverFront}/api/notas/${id}/completed`, {completed: !completed })
         .then(response => {
         
             const completedNotes = notes.map(note => note._id === id ? response.data : note)
@@ -134,7 +140,7 @@ export function Notas() {
             completarNotas(id, !completed)
 
             if(response.data.completed){
-
+                play();
                 toast.success(`Nota completada `);
             } else {
                 toast.error(`Nota incompleta `);

@@ -1,7 +1,7 @@
 
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material"
 import { useState } from "react"
-import "./others.css"
+import "../../styles/others.css"
 
 
 

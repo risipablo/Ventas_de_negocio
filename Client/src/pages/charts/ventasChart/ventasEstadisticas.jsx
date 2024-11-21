@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import "../../chart/chart.css"
-import VentasChart from './ventasChart'
+// import "../../ estilos chart.css"
+import VentasChart from './ventasChart.jsx'
 import axios from 'axios';
-import { FiltrosVentaChart } from './filtrosVenChart.jsx';
+import { FiltrosVentaChart } from '../../../components/hooks/filtros/filtrosVenChart.jsx';
 
 
 

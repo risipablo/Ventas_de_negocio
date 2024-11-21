@@ -1,19 +1,19 @@
-import { Gastos } from "./components/gastos/gastos"
+import { Gastos } from "./pages/gastos/gastos"
 import { Conversion } from "./components/conversion/conversion"
 import { Navbar } from "./components/navbar/navbar"
-import { Productos } from "./components/productos/productos"
+import { Productos } from "./pages/productos/productos"
 import { BrowserRouter, Route, Routes  } from 'react-router-dom'
 import { Notas } from "./components/notas/notas"
-import { Proveedor } from "./components/proveedor/proveedor"
-import { Carrito } from "./components/carrito/carrito"
+import { Proveedor } from "./pages/proveedor/proveedor"
+import { Carrito } from "./pages/carritoPage/carrito"
 import { CarritoProvider } from "./components/carrito/carritoContext"
 import { NotasProvider } from "./components/notas/notasContext/notasContext"
 import { Stock } from "./components/stock/stock"
-import { Ventas } from "./components/ventas/ventas"
+import { Ventas } from "./pages/ventas/ventas"
 import FileUpload from "./components/archivos/archivo"
-import { VentasEstadisticas } from "./components/ventas/ventasChart/ventasEstadisticas"
-import { Chart } from "./components/chart/chart"
-import { GastosEstadisticas } from "./components/gastos/gastosChart/gastosEstadisticas"
+import { VentasEstadisticas } from "./pages/charts/ventasChart/ventasEstadisticas"
+import { Chart } from "./pages/charts/chart/chart"
+import { GastosEstadisticas } from "./pages/charts/gastosChart/gastosEstadisticas"
 
 
 

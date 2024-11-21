@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import ventas from "../Images/ventas.png";
-import gastos from "../Images/gastos.png";
-import "./chart.css"
+import ventas from "../../../components/Images/ventas.png";
+import gastos from "../../../components/Images/gastos.png";
+import "../../../styles/chart.css"
 
 export function Chart() {
     return (

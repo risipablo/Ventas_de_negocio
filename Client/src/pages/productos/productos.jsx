@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
-import { Buscador } from "../buscador/buscador";
+import { Buscador } from "../../components/buscador/buscador";
 import axios from "axios";
-import { FiltrosProductos } from "./FiltroProductos";
+import { FiltrosProductos } from "../../components/hooks/filtros/FiltroProductos";
 import { Helmet } from 'react-helmet';
-import { ScrollTop } from '../others/scrollTop';
+import { ScrollTop } from '../../components/others/scrollTop';
 import { Button, Collapse } from '@mui/material';
 import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import { TransitionGroup } from 'react-transition-group';
-import { Notificacion } from "../others/notificacion";
+import { Notificacion } from "../../components/others/notificacion";
 import { toast, Toaster } from 'react-hot-toast';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpLong, faDownLong } from "@fortawesome/free-solid-svg-icons";
+import useSound from 'use-sound'
+import digital from "../../assets/digital.mp3"
+import ok from "../../assets/ok.mp3"
 
 
 // const serverFront = "http://localhost:3001"
@@ -27,10 +30,12 @@ export function Productos() {
     const [precio, setPrecio] = useState("");
     const [categoriaProducto, setCategoriaProducto] = useState("");
     const [showInputs, setShowInputs] = useState(true);
+    const [play] = useSound(digital)
+    const [play2] = useSound(ok)
 
 
     useEffect(() => {
-        axios.get(`${serverFront}/productos`)
+        axios.get(`${serverFront}/api/productos`)
             .then(response => {
                 setProductos(response.data);
                 setProductosFiltrado(response.data);
@@ -40,7 +45,7 @@ export function Productos() {
 
     const addProductos = () => {
         if (marca.trim() && mascota.trim() && edad.trim() && condicion.trim() && kilo.trim() && precio.trim() && categoriaProducto.trim() !== "") {
-            axios.post(`${serverFront}/add-productos`, {
+            axios.post(`${serverFront}/api/productos`, {
                 marca: marca,
                 mascota: mascota,
                 edad: edad,
@@ -61,6 +66,7 @@ export function Productos() {
                     setPrecio("");
                     setCategoriaProducto("");
                     toast.success('Producto agregado exitosamente!');
+                    play();
                 })
                 .catch(err => console.log(err))
 
@@ -79,7 +85,7 @@ export function Productos() {
 
     
     const deleteProductos = (id) => {
-        axios.delete(`${serverFront}/delete-productos/` + id)
+        axios.delete(`${serverFront}/api/productos/` + id)
             .then(response => {
                 setProductos(productos.filter((producto) => producto._id !== id));
                 setProductosFiltrado(productosFiltrado.filter((producto) => producto._id !== id)); // Actualiza productosFiltrado
@@ -138,11 +144,12 @@ export function Productos() {
 
     const saveChanges = (id) => {
         toast.promise(
-            axios.patch(`${serverFront}/edit-productos/${id}`, editingData)
+            axios.patch(`${serverFront}/api/productos/${id}`, editingData)
                 .then(response => {
                     setProductos(productos.map(producto => producto._id === id ? response.data : producto));
                     setProductosFiltrado(productosFiltrado.map(producto => producto._id === id ? response.data : producto));
                     cancelEditing();
+                    play2()
                 })
                 .catch(err => {
                     console.log(err);

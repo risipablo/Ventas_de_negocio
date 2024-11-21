@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "./conversion.css"
+import "../../styles/conversion.css"
 import { Helmet } from 'react-helmet';
 
 export function Conversion(){

@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import "../filtros.css";
+import "../../../styles/filtros.css";
 
-export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
+export function Filtros({ ventas, setVentasFiltradas }) {
     const [filterMonth, setFilterMonth] = useState('');
     const [number, setNumber] = useState('');
     const [pago, setPago] = useState('');
-    const [produc,setProduc] = useState('')
 
     const filtros = () => {
         let ventasFiltradas = ventas;
@@ -22,9 +21,6 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
             ventasFiltradas = ventasFiltradas.filter(venta => venta.tp.toLowerCase() === pago.toLowerCase());
         }
 
-        if (produc.trim() !== "") {
-            ventasFiltradas = ventasFiltradas.filter(venta => venta.product.toLowerCase() === produc.toLowerCase());
-        }
 
         setVentasFiltradas(ventasFiltradas);
     };
@@ -33,13 +29,12 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
         setFilterMonth("");
         setNumber("");
         setPago("");
-        setProduc("")
         setVentasFiltradas(ventas);
     };
 
     useEffect(() => {
         filtros();
-    }, [filterMonth, number, pago, produc ,ventas]); 
+    }, [filterMonth, number, pago,ventas]); 
 
     return (
         <div className="filtros">
@@ -89,12 +84,6 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
                 <option value="Mercado Pago">Mercado Pago</option>
             </select>
 
-            <input
-                type="text"
-                placeholder=""
-                value={produc}
-                onChange={(e => setProduc(e.target.value))}
-            />
 
             <button className="button" onClick={ResetFilter}>
                 <i className="fa-regular fa-circle-xmark"></i>

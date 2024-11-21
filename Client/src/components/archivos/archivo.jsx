@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import './archivos.css';
+import '../../styles/archivos.css';
 import 'font-awesome/css/font-awesome.min.css';  
+import useSound from 'use-sound'
+import ok from "../../assets/ok.mp3"
+
 
 const serverFront = 'https://ventas-de-negocio.onrender.com';
 // const serverFront = 'http://localhost:3001'
@@ -12,6 +15,8 @@ const FileUpload = () => {
     const [message, setMessage] = useState('');
     const [archivos, setArchivos] = useState([]);
     const [previewUrl, setPreviewUrl] = useState(null); // Nuevo estado para la URL del archivo a visualizar
+    const [play2] = useSound(ok)
+
 
     // Manejar la selección de archivo y generar vista previa
     const onFileChange = (event) => {
@@ -47,11 +52,12 @@ const FileUpload = () => {
         formData.append('file', selectedFile);
 
         try {
-            const response = await axios.post(`${serverFront}/upload`, formData);
+            const response = await axios.post(`${serverFront}/api/upload`, formData);
             setMessage(response.data.message);
             fetchFiles(); // Actualizar la lista de archivos después de subir uno nuevo
             setPreview(null); // Limpiar la vista previa después de la subida
             setSelectedFile(null); // Limpiar el archivo seleccionado
+            play2()
         } catch (error) {
             setMessage('Error al subir el archivo');
             console.error(error);
@@ -61,7 +67,7 @@ const FileUpload = () => {
     // Obtener archivos
     const fetchFiles = async () => {
         try {
-            const response = await axios.get(`${serverFront}/files`);
+            const response = await axios.get(`${serverFront}/api/files`);
             setArchivos(response.data);
         } catch (error) {
             console.error('Error al obtener archivos', error);
@@ -70,7 +76,7 @@ const FileUpload = () => {
 
     // Eliminar archivo
     const deleteFile = async (id) => {
-        await axios.delete(`${serverFront}/delete-files/`+ id) 
+        await axios.delete(`${serverFront}/api/files/`+ id) 
         .then(response => {
             setArchivos(archivos.filter((archivo) => archivo._id !== id))
             fetchFiles()
@@ -86,7 +92,7 @@ const FileUpload = () => {
     };
 
     const handleViewFile = (fileId) => {
-        window.open(`${serverFront}/files/${fileId}`, '_blank'); // Abre en una nueva pestaña
+        window.open(`${serverFront}/api/files/${fileId}`, '_blank'); // Abre en una nueva pestaña
     };
 
     useEffect(() => {

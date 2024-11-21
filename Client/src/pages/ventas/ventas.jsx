@@ -1,17 +1,16 @@
 
 import { useEffect, useState } from "react";
-import "./ventas.css"
-import { Buscador } from '../buscador/buscador';
-import { Filtros } from './filtros';
+import "../../styles/ventas.css"
+import { Buscador } from '../../components/buscador/buscador';
+import { Filtros } from '../../components/hooks/filtros/filtros';
 import 'react-toastify/dist/ReactToastify.css';
-import { ScrollTop } from '../others/scrollTop';
-import { Notificacion } from '../others/notificacion';
+import { ScrollTop } from '../../components/others/scrollTop';
+import { Notificacion } from '../../components/others/notificacion';
 import { toast, Toaster } from 'react-hot-toast';
 import axios from "axios";
-
-
-
-
+import useSound from 'use-sound'
+import cash from '../../assets/cash.mp3'
+import ok from '../../assets/ok.mp3'
 
  export function Ventas() {
     const [ventas, setVentas] = useState([]);
@@ -22,6 +21,8 @@ import axios from "axios";
     const [newProduct, setProducto] = useState(""); // Ingreso de producto
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
     const [newBoleta, setBoleta] = useState(""); // Ingreso de boleta 
+    const [play] = useSound(cash)
+    const [play2] = useSound(ok)
    
 
 
@@ -31,7 +32,7 @@ import axios from "axios";
 
 
     useEffect(() => {
-        axios.get(`${serverFront}/ventas`)
+        axios.get(`${serverFront}/api/ventas`)
             .then(response => {
                 setVentas(response.data);
                 setVentasFiltradas(response.data);
@@ -41,7 +42,7 @@ import axios from "axios";
 
     const addVentas = () => {
         if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== "") {
-            axios.post(`${serverFront}/add-ventas`, {
+            axios.post(`${serverFront}/api/ventas`, {
                 day: newDay,
                 month: newMonth,
                 tp: newTp,
@@ -59,6 +60,7 @@ import axios from "axios";
                 setProducto("");
                 setTp("");
                 setBoleta(""); // Resetear el campo boleta
+                play()
                 toast.success(`Se agrego ${newProduct} $${newTotal}`);
             })
             .catch(err => console.log(err));
@@ -68,7 +70,7 @@ import axios from "axios";
 
 
     const deleteVentas = (id, product, total) => {
-        axios.delete(`${serverFront}/delete-ventas/${id}`)
+        axios.delete(`${serverFront}/api/ventas/${id}`)
         .then(response => {
             const updatedVentas = ventas.filter((venta) => venta._id !== id);
             setVentas(updatedVentas);
@@ -164,11 +166,12 @@ import axios from "axios";
       }
       const saveEdit = (id) => {
         toast.promise(
-            axios.patch(`${serverFront}/edit-ventas/${id}`, editingId)
+            axios.patch(`${serverFront}/api/ventas/${id}`, editingId)
             .then(response => {
                 setVentas(ventas.map(venta => venta._id === id ? response.data : venta));
                 setVentasFiltradas(ventasFiltradas.map(venta => venta._id === id ? response.data : venta));
                 cancelEdit();
+                play2()
             })
             .catch(err => console.log(err)),
 

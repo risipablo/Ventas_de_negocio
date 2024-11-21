@@ -1,12 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Paper } from '@mui/material';
-import { Delete, Settings, Save, Cancel } from '@mui/icons-material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Paper, Button, Collapse } from '@mui/material';
+import { Delete, Settings, Save, Cancel, ExpandLess, ExpandMore } from '@mui/icons-material';
+import { TransitionGroup } from 'react-transition-group';
 import { toast, Toaster } from 'react-hot-toast';
 import { ScrollTop } from "../others/scrollTop";
 import { Buscador } from "../buscador/buscador";
-
+import useSound from 'use-sound'
+import digital from "../../assets/digital.mp3"
+import ok from "../../assets/ok.mp3"
 
 // const serverFront = 'http://localhost:3001'
     const serverFront = 'https://ventas-de-negocio.onrender.com'
@@ -21,11 +24,15 @@ export function Stock() {
     const [newKg, setNewKg] = useState('');
     const [amount, setAmount] = useState('');
     const [condition, setCondition] = useState('');
+    const [showInputs, setShowInputs] = useState(true);
+    const [play] = useSound(digital)
+    const [play2] = useSound(ok)
+
 
 
 
     useEffect(() => {
-        axios.get(`${serverFront}/stock`)
+        axios.get(`${serverFront}/api/stock`)
             .then(response => {
                 console.log(response.data);
                 setStock(response.data);
@@ -38,7 +45,7 @@ export function Stock() {
 
     const addStock = () => {
         if (brands.trim() && size.trim() && pet.trim() && newKg.trim() && amount.trim() && condition.trim() !== "") {
-            axios.post(`${serverFront}/add-stock`, {
+            axios.post(`${serverFront}/api/add-stock`, {
                 brands: brands,
                 size: size,
                 pet: pet,
@@ -52,13 +59,14 @@ export function Stock() {
                 setStockFiltrados(stock => [...stock,nuevoStock]);
                 clearFields();
                 toast.success(`Se agrego producto en el stock`);
+                play()
             })
             .catch(err => console.log(err));
         }
     };
 
     const deleteStocks = (id) => {
-        axios.delete(`${serverFront}/delete-stock/${id}`)
+        axios.delete(`${serverFront}/api/delete-stock/${id}`)
             .then(() => {
                 setStock(stock.filter((stoc) => stoc._id !== id));
                 setStockFiltrados(stock.filter((stoc) => stoc._id !== id));
@@ -132,7 +140,7 @@ export function Stock() {
     // Guardar cambios
     const saveChanges = (id) => {
         toast.promise(
-            axios.patch(`${serverFront}/edit-stock/${id}`, editingData)
+            axios.patch(`${serverFront}/api/edit-stock/${id}`, editingData)
             .then(response => {
                 setStock(stock.map(stoc => stoc._id === id ? response.data : stoc));
                 setStockFiltrados(stock.map(stoc => stoc._id === id ? response.data : stoc));
@@ -145,6 +153,7 @@ export function Stock() {
                     pauseOnHover: false,
                     transition: Bounce,
                 });
+                play2()
             })
             .catch(err => {console.log(err)}),
 
@@ -162,51 +171,75 @@ export function Stock() {
             <Helmet>
                 <title>Stock</title>
             </Helmet>
+            
             <h1>Stock de Productos</h1>
-            <div className="inputs-ventas">
-                <input
-                    type="text"
-                    placeholder="Ingresar Producto"
-                    value={brands}
-                    onChange={(e) => setBrands(e.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder="Ingresar Tamaño"
-                    value={size}
-                    onChange={(e) => setSize(e.target.value)}
-                />
-                <select value={pet} onChange={(e) => setPet(e.target.value)}>
-                    <option value=""><em>Seleccionar Tipo</em></option>
-                    <option value="Perro">Perro</option>
-                    <option value="Gato">Gato</option>
-                    <option value="Piedras">Piedras</option>
-                    <option value="Shampoo">Shampoo</option>
-                </select>
-                <input
-                    type="text"
-                    placeholder="Ingresar Kilos"
-                    value={newKg}
-                    onChange={(e) => setNewKg(e.target.value)}
-                />
-                <input
-                    type="number"
-                    placeholder="Ingresar Cantidad"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                />
-                <select value={condition} onChange={(e) => setCondition(e.target.value)}>
-                    <option value=""><em>Seleccionar Estado</em></option>
-                    <option value="Stock">Stock</option>
-                    <option value="Sin Stock">Sin Stock</option>
-                    <option value="No Vigente">No Vigente</option>
-                </select>
-            </div>
 
-            <div className='botones'>
-                <button className="agregar" onClick={addStock}>Agregar</button>
-                <button className='limpiar' onClick={clearFields}>Limpiar</button>
-            </div>
+            <Button
+                
+                onClick={() => setShowInputs(!showInputs)}
+                startIcon={showInputs ? <ExpandLess /> : <ExpandMore />}
+                sx={{ marginBottom: 2 }}
+            >
+                {showInputs ? '' : '' } 
+            </Button>
+
+            <TransitionGroup>
+                {
+                    !showInputs && (
+                        <Collapse>
+                        <div className="inputs-ventas">
+                            <input
+                                type="text"
+                                placeholder="Ingresar Producto"
+                                value={brands}
+                                onChange={(e) => setBrands(e.target.value)}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Ingresar Tamaño"
+                                value={size}
+                                onChange={(e) => setSize(e.target.value)}
+                            />
+                            <select value={pet} onChange={(e) => setPet(e.target.value)}>
+                                <option value=""><em>Seleccionar Tipo</em></option>
+                                <option value="Perro">Perro</option>
+                                <option value="Gato">Gato</option>
+                                <option value="Piedras">Piedras</option>
+                                <option value="Shampoo">Shampoo</option>
+                            </select>
+                            <input
+                                type="text"
+                                placeholder="Ingresar Kilos"
+                                value={newKg}
+                                onChange={(e) => setNewKg(e.target.value)}
+                            />
+                            <input
+                                type="number"
+                                placeholder="Ingresar Cantidad"
+                                value={amount}
+                                onChange={(e) => setAmount(e.target.value)}
+                            />
+                            <select value={condition} onChange={(e) => setCondition(e.target.value)}>
+                                <option value=""><em>Seleccionar Estado</em></option>
+                                <option value="Stock">Stock</option>
+                                <option value="Sin Stock">Sin Stock</option>
+                                <option value="No Vigente">No Vigente</option>
+                            </select>
+                        </div>
+
+                            <div className='botones'>
+                                <button className="agregar" onClick={addStock}>Agregar</button>
+                                <button className='limpiar' onClick={clearFields}>Limpiar</button>
+                            </div>
+
+                        </Collapse>
+                    )
+                
+                }
+
+            </TransitionGroup>
+
+
 
             <Buscador placeholder="Buscar Productos" filtrarDatos={FiltrarStock} />
             
