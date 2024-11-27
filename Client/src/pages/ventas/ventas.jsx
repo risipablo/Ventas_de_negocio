@@ -117,10 +117,6 @@ import ok from '../../assets/ok.mp3'
         ventas.forEach(product => {
             if(product.tp && product.tp.toLowerCase() === 'debe'){
                 monto == product.tp
-
-            } else if (product.tp && product.tp.toLowerCase() === 'cuota'){
-                monto -= product.total
-
             } else {
                 monto += product.total
             }
@@ -182,8 +178,18 @@ import ok from '../../assets/ok.mp3'
             }
 
         )
-
       }
+
+      const ultimaIngresadaVenta = (ventas) => {
+        if (ventas.length === 0) {
+            return 'No hay ventas ingresadas'
+        } else {
+            const ultimaVenta = ventas[ventas.length - 1];
+            return `${ultimaVenta.day} de ${ultimaVenta.month} ${ultimaVenta.product} $${ultimaVenta.total} `
+        }
+      }
+
+
     return (
         <div className="venta-container">
             <h1>Ingresos de ventas</h1>
@@ -273,9 +279,15 @@ import ok from '../../assets/ok.mp3'
             <Buscador placeholder="Buscar ventas" filtrarDatos={filtrarVentas} />
             <Filtros ventas={ventas} setVentasFiltradas={setVentasFiltradas}/>
 
-            <tr className='total'>
-                <td> Total: ${totalMonto(ventasFiltradas)}</td>
-            </tr>
+            <div className="totales">
+                <tr > <td>Ultima venta: {ultimaIngresadaVenta(ventasFiltradas)}</td></tr>
+                <tr className='total'>
+                    <td> Total: ${totalMonto(ventasFiltradas)}</td>
+                </tr>
+            </div>
+           
+
+         
             
             <div className="productos">
                 <div className='table-responsive'>

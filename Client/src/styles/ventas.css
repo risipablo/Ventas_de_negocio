@@ -7,7 +7,6 @@
     box-sizing: border-box;
 }
 
-
 h1{
 
     text-align: center;
@@ -73,6 +72,14 @@ h1{
 
     .agregar, .limpiar button {
         width: 100%;
+    }
+
+    .totales{
+        flex-direction: column;
+    }
+
+    .total{
+        margin: 1rem 0;
     }
 
 
@@ -269,6 +276,57 @@ th{
 
 .monto{
     font-weight: 600;
+}
+
+.totales{
+    display: flex;
+    justify-content: space-between;
+    margin: 1.8rem 0 1rem;
+}
+
+
+
+.checkbox,.promo{
+    width: 20px;
+}
+
+.container-manyproducts{
+    position: fixed;
+    max-width: 100px;
+}
+
+.container-manyproducts button{
+    margin: 12px 6px;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 50%; 
+    font-size: .9rem; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px; 
+    height: 35px;
+    transition: background-color 0.9s, color 0.3s; 
+}
+
+.broom{
+    margin-left: 1rem;
+    background-color: #561d93;
+    color: #ffffff;
+}
+
+.broom:hover{
+    background-color: #810ed8;
+}
+
+.delete-many{
+    color: #ffffff;
+    background-color: #a82020;
+}
+
+.delete-many:hover{
+    background-color: #f23030;
 }
 
 

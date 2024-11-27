@@ -148,6 +148,29 @@ export function Notas() {
         })
         .catch(err => console.log(err))
     }
+    
+    const [selectedNotes, setSelectedNotes] = useState([])
+
+    const handleChange = (id) => {
+        setSelectedNotes((prev) => prev.includes(id) ? prev.filter(noteId => noteId !== !id):[...prev,id])
+    }
+
+    const deleteManyNotes = (ids) => {
+        axios.delete(`${serverFront}/delete-many-notas/`, {data:{ids}})
+        .then(response => {
+            setNotes(note => note.filter(not => !ids.includes(not._id)))
+            setNotesFilter(notesFilter.filter(not => !ids.includes(not._id)))
+            toast.error(`${response.data.message}`, {
+                position: 'top-center',
+            });
+        })
+        .catch(err => console.error("Error deleting tasks:", err));
+    }
+
+    const cleanManyProductos = () => {
+        setSelectedNotes("")
+    }
+
 
     return (
         <div className="notas-container"> 
@@ -188,7 +211,6 @@ export function Notas() {
             </div>
 
             
-            
             <Accordion 
                 sx={{ 
                     mt: 2,  
@@ -199,11 +221,27 @@ export function Notas() {
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 </AccordionSummary>
 
+
+                {selectedNotes.length > 0 && (
+                <div className="container-manyproducts">
+                    <button className="delete-many" onClick={() => deleteManyNotes(selectedNotes)}>
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                    <button className="broom" onClick={() => cleanManyProductos(selectedNotes)}>
+                        <i class="fa-solid fa-broom"></i>
+                    </button>
+                </div>
+            )}
+ 
+
+            
                 <div className="productos">
                     <div className="table-responsive">
                         <table>
                             <thead>
                                 <tr>
+                                <th className="checkbox"></th>
                                     <th>Notas</th>
                                     <th>Description</th>
                                     <th>Mes</th>
@@ -213,6 +251,8 @@ export function Notas() {
                             <tbody>
                                 {notesFilter.map((element, index) => 
                                     <tr key={index} className={element.completed ? "completed-note" : ""}>
+
+                                        <td> <input type="checkbox" checked={selectedNotes.includes(element._id)} onChange={() => handleChange(element._id)} /> </td>
 
                                         <td className="texto-notas">{editingId === element._id ?
                                             <input value={editingData.notas} onChange={(e) => setEditingData({...editingData, notas:e.target.value})} /> : element.notas} </td>

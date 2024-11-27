@@ -9,6 +9,7 @@ const StockModel = require('./models/stock');
 const File = require ('./models/files')
 const multer = require('multer');
 const VentasModel = require('./models/ventas');
+const NotasModel = require('./models/notas');
 
 
 require("dotenv").config();
@@ -176,6 +177,21 @@ app.delete('/delete-productos/:id', async (req, res) => {
     }
 });
 
+// Eliminar varios productos
+app.delete('/delete-many-productos/', async (req,res) => {
+    const {ids} = req.body;
+
+    if (!Array.isArray(ids) || ids.length  === 0)
+        return res.status(400).json({error:'se require un array en los Ids'})
+
+    try {
+        const result = await ProductoModel.deleteMany({_id: {$in:ids}})
+        res.json( { message:`${result.deletedCount} productos eliminados`, result })
+    } catch (err) {
+        res.status(500).json({ error: "Server error: " + err.message });
+    }
+})
+
 // Editar productos
 app.patch('/edit-productos/:id', async (req, res) => {
     const { id } = req.params;
@@ -226,6 +242,20 @@ app.delete('/delete-notas/:id', (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }));
 });
 
+// Eliminar varias notas
+app.delete('/delete-many-notas/', async (req,res) => {
+    const {ids} = req.body;
+    
+    if(!Array.isArray(ids) || ids.length === 0)
+        return res.status(400).json({error: 'se require un array en los Ids'})
+
+    try{
+        const result = await NotasModel.deleteMany({ _id:{$in:ids}})
+        res.json({message: `${result.deletedCount} productos eliminados`, result})
+    } catch (err) {
+        res.status(500).json({error: "Server error: " + err.message })
+    }
+})
 
 // Editar notas
 app.patch('/edit-notas/:id', (req, res) => {

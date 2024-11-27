@@ -173,6 +173,15 @@ export function Gastos(){
         )
     };
 
+    const lastGasto = (gastos) => {
+        if (gastos.length === 0) {
+            return 'No hay registro del ultimo gasto'
+        } else {
+            const ultimoGasto = gastos[gastos.length - 1]
+            return `${ultimoGasto.proveedor}  $${ultimoGasto.monto} ${ultimoGasto.estado}`
+        }
+    }
+
 
     return(
         <div className="gastos-container">
@@ -268,9 +277,13 @@ export function Gastos(){
             <Buscador placeholder="Buscar gastos" filtrarDatos={filtrarGastos} />
             <FiltrosGastos gastos={gastos} setGastosFiltrados={setGastosFiltrados} />
 
-            <tr className='total'>
-                <td> Total: ${totalMonto(gastosFiltrados)}</td>
-            </tr>
+            <div className="totales">
+                <tr > <td>Ultimo gasto: {lastGasto(gastosFiltrados)}</td></tr>
+                <tr className='total'>
+                    <td> Total: ${totalMonto(gastosFiltrados)}</td>
+                </tr>
+            </div>
+           
 
             <div className="productos">
                 <div className='table-responsive'>

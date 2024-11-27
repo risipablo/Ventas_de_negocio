@@ -94,6 +94,28 @@ export function Productos() {
             .catch(err => console.log(err))
     } 
 
+    // Eliminar varias tareas
+    const [selectedTasks, setSelectedTasks] = useState([])
+
+    const handleChange = (id) => {
+        setSelectedTasks((prev) => prev.includes(id) ? prev.filter(prodId => prodId !== id): [...prev,id])
+    }
+
+    const deletedManyProducts = (ids) => {
+        axios.delete(`${serverFront}/delete-many-productos/`, {data:{ids}})
+        .then(response => {
+            setProductos(producto => producto.filter(prod => !ids.includes(prod._id)))
+            setProductosFiltrado(productosFiltrado.filter(prod => !ids.includes(prod._id)))
+            toast.error(`${response.data.message}`, {
+                position: 'top-center',
+            });
+        })
+        .catch(err => console.error("Error deleting tasks:", err));
+    }
+
+    const cleanManyProductos = () => {
+        setSelectedTasks("")
+    }
 
     const filtrarProductos = (palabrasClave) => {
         setProductosFiltrado(productos.filter(producto => {
@@ -173,6 +195,8 @@ export function Productos() {
         setProductosFiltrado(productosOrdenados)
         setOrdenar(!ordenar)
     }
+
+    
 
 
     return (
@@ -281,7 +305,21 @@ export function Productos() {
                 )}
             </TransitionGroup>
 
-  
+            {selectedTasks.length > 0 && (
+                <div className="container-manyproducts">
+                    <button className="delete-many" onClick={() => deletedManyProducts(selectedTasks)}>
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                    <button className="broom" onClick={() => cleanManyProductos(selectedTasks)}>
+                        <i class="fa-solid fa-broom"></i>
+                    </button>
+                </div>
+
+
+               
+            )}
+ 
 
             <Buscador placeholder="Buscar productos" filtrarDatos={filtrarProductos} />
             
@@ -293,6 +331,7 @@ export function Productos() {
                     <table>
                         <thead>
                             <tr>
+                                <th className="checkbox"></th>
                                 <th> Marca 
                                     <button onClick={funcionOrdenar} className="ordenar">
                                 <i>
@@ -301,7 +340,7 @@ export function Productos() {
                                 </button></th>
                                 <th>Tamaño</th>
                                 <th>Mascota</th>
-                                <th>Promo</th>
+                                <th className="promo">Promo</th>
                                 <th>Kg</th>
                                 <th>Precio</th>
                                 <th></th>
@@ -311,6 +350,9 @@ export function Productos() {
                         <tbody>
                             {productosFiltrado.map((element, index) =>
                                 <tr key={index} style={{ background: promoCondicion(element.condicion || '')}}>
+
+                                    <td> <input type="checkbox" checked={selectedTasks.includes(element._id)} onChange={() => handleChange(element._id)} /> </td>
+                                    
                                     <td>{editingId === element._id ?
                                         <input value={editingData.marca} onChange={(e) => setEditingData({ ...editingData, marca: e.target.value })} /> : element.marca}</td>
 
@@ -320,7 +362,7 @@ export function Productos() {
                                     <td>{editingId === element._id ?
                                         <input value={editingData.mascota} onChange={(e) => setEditingData({ ...editingData, mascota: e.target.value })} /> : element.mascota}</td>
 
-                                    <td>{editingId === element._id ?
+                                    <td className="promo">{editingId === element._id ?
                                         <input value={editingData.condicion} onChange={(e) => setEditingData({ ...editingData, condicion: e.target.value })} /> : element.condicion}</td>
 
                                     <td>{editingId === element._id ?

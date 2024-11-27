@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend,ArcElement } from 'chart.js';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
@@ -20,6 +20,25 @@ const VentasChart = ({ ventas }) => {
         return acc
     },{}) //{} valor inicial en 0
 
+    const maxVentaMes = Object.keys(ventasPorMes).reduce((max,key) => {
+            return ventasPorMes[key] > ventasPorMes[max] 
+            ? key : max}, Object.keys(ventasPorMes)[0])
+    
+
+        // Datos para el gráfico de ventas por mes
+        const dataVentasPorMes = {
+            labels: Object.keys(ventasPorMes), // Months
+            datasets: [
+                {
+                    label: 'Total de Ventas',
+                    data: Object.values(ventasPorMes), // Totals by month
+                    backgroundColor: Object.keys(ventasPorMes).map((proveedor) => proveedor === maxVentaMes ? 'rgba(209, 25, 25, 0.7)' : 'rgba(164, 11, 235,0.7)'),
+                    borderColor: 'rgba(225, 26, 26, 1)',
+                    hoverBackgroundColor: Object.keys(ventasPorMes).map((proveedor) => proveedor === maxVentaMes ? 'rgba(200, 25, 25)' : 'rgba(160, 11, 235)'),
+                    borderWidth: 1,
+                },
+            ],
+        };
 
     const productosPorMes = ventas.reduce((acc,venta) => {
         
@@ -34,19 +53,11 @@ const VentasChart = ({ ventas }) => {
         return acc
     },{})
 
-    // Datos para el gráfico de ventas por mes
-    const dataVentasPorMes = {
-        labels: Object.keys(ventasPorMes), // Months
-        datasets: [
-            {
-                label: 'Total de Ventas',
-                data: Object.values(ventasPorMes), // Totals by month
-                backgroundColor: 'rgba(162, 26, 225, 0.6)',
-                borderColor: 'rgba(225, 26, 26, 1)',
-                borderWidth: 1,
-            },
-        ],
-    };
+    const productoMaximo = Object.keys(productosPorMes).reduce((max,key) => {
+        return productosPorMes[key] > productosPorMes[max] ? key : max
+    },Object.keys(productosPorMes)[0])
+
+
 
     // Data for the sales by product chart
     const dataVentasPorProducto = {
@@ -55,8 +66,9 @@ const VentasChart = ({ ventas }) => {
             {
                 label: 'Total de Ventas por Producto',
                 data: Object.values(productosPorMes), // Totals by product
-                backgroundColor: 'rgba(26, 162, 225, 0.6)',
-                borderColor: 'rgba(26, 225, 162, 1)',
+                backgroundColor: Object.keys(productosPorMes).map((proveedor) => proveedor === productoMaximo ? 'rgba(209, 25, 25, 0.7)' : 'rgba(164, 11, 235,0.7)'),
+                borderColor: 'rgba(225, 26, 26, 1)',
+                hoverBackgroundColor: Object.keys(productosPorMes).map((proveedor) => proveedor === productoMaximo ? 'rgba(200, 25, 25)' : 'rgba(160, 11, 235)'),
                 borderWidth: 1,
             },
         ],
