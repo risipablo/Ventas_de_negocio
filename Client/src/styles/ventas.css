@@ -16,6 +16,7 @@ h1{
 
 
 .inputs-ventas,
+.inputs-productos,
 .inputs-gastos {
     display: flex;
     flex-wrap: wrap;
@@ -27,12 +28,31 @@ h1{
 
 .inputs-ventas input,
 .inputs-ventas select {
+    flex: 1 2 calc(25% - 12px); 
+    padding: 12px;
+    border: 1px solid #9a9898;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.inputs-productos input,
+.inputs-productos select {
     flex: 1 2 calc(30% - 12px); 
     padding: 12px;
     border: 1px solid #9a9898;
     border-radius: 8px;
     transition: border-color 0.3s ease;
 }
+
+.inputs-gastos input,
+.inputs-gastos select {
+    flex: 1 2 calc(25% - 12px); 
+    padding: 12px;
+    border: 1px solid #9a9898;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
 
 
 .inputs-ventas input:focus {
@@ -54,10 +74,24 @@ h1{
     transition: border-color 0.3s ease;
 }
 
+.unidad-ventas {
+    display: flex;
+    gap: 8px; 
+}
+
+.unidad-ventas input {
+    flex: 1; 
+    padding: 12px;
+    border: 1px solid #9a9898;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+
 
 /* Propiedades mobile */
 @media (max-width: 768px) {
-    .inputs-ventas {
+    .inputs-ventas, .inputs-productos {
         flex-direction: column; 
     }
 

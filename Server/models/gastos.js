@@ -13,6 +13,10 @@ const gastoSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  año:{
+    type: Number,
+    required:true
+  },
   factura: {
     type: String,
     required: true

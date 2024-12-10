@@ -25,6 +25,7 @@ export function Gastos(){
     const[factura,setFactura] = useState('')
     const[monto,setMonto] = useState('')
     const[estado,setEstado] = useState('')
+    const [año,setAño] = useState('')
     const [play] = useSound(digital)
     const [play2] = useSound(ok)
 
@@ -39,12 +40,15 @@ export function Gastos(){
     },[])
 
 
+
+
     const addGastos = () => {
-        if(proveedor.trim() && dia.trim() && mes.trim() && factura.trim() && monto.trim() && estado.trim() !== "") {
+        if(proveedor.trim() && dia.trim() && mes.trim() && año.trim() && factura.trim() && monto.trim() && estado.trim() !== "" ) {
             axios.post(`${serverFront}/add-gastos`, {
                 proveedor:proveedor,
                 dia:dia,
                 mes:mes,
+                año:año,
                 factura:factura,
                 monto: monto, 
                 estado:estado
@@ -58,6 +62,7 @@ export function Gastos(){
                 setEstado('');
                 setFactura('');
                 setMes('');
+                setAño('')
                 setMonto('');
                 toast.success(`Se agrego ${proveedor} $${monto}`);
                 play()
@@ -71,6 +76,7 @@ export function Gastos(){
         setEstado('')
         setFactura('')
         setMes('')
+        setAño('')
         setMonto('')
         setProveedor('')
     }
@@ -93,7 +99,7 @@ export function Gastos(){
                 gasto.mes.toLowerCase().includes(palabra) ||
                 gasto.factura.toLowerCase().includes(palabra) ||
                 gasto.estado.toLowerCase().includes(palabra) || 
-                gasto.monto.toString().includes(palabra)
+                gasto.monto.toString().includes(palabra) 
             );
         }));
     };
@@ -113,13 +119,13 @@ export function Gastos(){
 
 
 
-
     // Estados para edicion
     const [editingId, setEditingId] = useState(null); 
     const [editingData, setEditingData] = useState({
         proveedor: '',
         dia: '',
         mes: '',
+        año:'',
         factura: '',
         monto: '',
         estado: ''
@@ -132,6 +138,7 @@ export function Gastos(){
             proveedor: gasto.proveedor,
             dia: gasto.dia,
             mes: gasto.mes,
+            año: gasto.año,
             factura: gasto.factura,
             monto: gasto.monto,
             estado: gasto.estado
@@ -145,6 +152,7 @@ export function Gastos(){
             proveedor: '',
             dia: '',
             mes: '',
+            año: '',
             factura: '',
             monto: '',
             estado: ''
@@ -242,6 +250,17 @@ export function Gastos(){
                     <option value="Diciembre">Diciembre</option>
                 </select>
 
+                <select
+                        onChange={(event => setAño(event.target.value))}
+                        value={año}
+                    >
+                        <option value="">Seleccionar Año</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                </select>
+              
+
                 <input
                     type="text"
                     placeholder="Ingresar número de boleta"
@@ -283,7 +302,6 @@ export function Gastos(){
                     <td> Total: ${totalMonto(gastosFiltrados)}</td>
                 </tr>
             </div>
-           
 
             <div className="productos">
                 <div className='table-responsive'>
@@ -293,6 +311,7 @@ export function Gastos(){
                                 <th>Proveedor</th>
                                 <th>Dia</th>
                                 <th>Mes</th>
+                                <th>Año</th>
                                 <th>Factura</th>
                                 <th>Monto</th>
                                 <th>Estado</th>
@@ -305,8 +324,14 @@ export function Gastos(){
                                 <td>{editingId === element._id ?
                                     <input value={editingData.proveedor} onChange={(e) => setEditingData({ ...editingData, proveedor: e.target.value })} /> : element.proveedor}</td> 
                                 
-                                <td>{element.dia}</td> 
-                                <td>{element.mes}</td> 
+                                <td>{editingId === element._id ?
+                                    <input value={editingData.dia} onChange={(e) => setEditingData({ ...editingData, dia: e.target.value })} /> : element.dia}</td> 
+                                     
+                                <td>{editingId === element._id ?
+                                    <input value={editingData.mes} onChange={(e) => setEditingData({ ...editingData, mes: e.target.value })} /> : element.mes}</td> 
+                                
+                                <td>{editingId === element._id ?
+                                    <input value={editingData.año} onChange={(e) => setEditingData({ ...editingData, año: e.target.value })} /> : element.año}</td> 
                                 
                                 <td> {editingId === element._id ? 
                                     <input value={editingData.factura} onChange={(e) => setEditingData({ ...editingData, factura: e.target.value })} /> : element.factura}</td> 

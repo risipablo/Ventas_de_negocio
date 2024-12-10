@@ -149,6 +149,7 @@ export function Notas() {
         .catch(err => console.log(err))
     }
     
+    const [toogleCheck, setToogleCheck] = useState(null)
     const [selectedNotes, setSelectedNotes] = useState([])
 
     const handleChange = (id) => {
@@ -223,16 +224,16 @@ export function Notas() {
 
 
                 {selectedNotes.length > 0 && (
-                <div className="container-manyproducts">
-                    <button className="delete-many" onClick={() => deleteManyNotes(selectedNotes)}>
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
+                    <div className="container-manyproducts">
+                        <button className="delete-many" onClick={() => deleteManyNotes(selectedNotes)}>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
 
-                    <button className="broom" onClick={() => cleanManyProductos(selectedNotes)}>
-                        <i class="fa-solid fa-broom"></i>
-                    </button>
-                </div>
-            )}
+                        <button className="broom" onClick={() => cleanManyProductos(selectedNotes)}>
+                            <i class="fa-solid fa-broom"></i>
+                        </button>
+                    </div>
+                )}
  
 
             
@@ -250,9 +251,16 @@ export function Notas() {
                             </thead>
                             <tbody>
                                 {notesFilter.map((element, index) => 
-                                    <tr key={index} className={element.completed ? "completed-note" : ""}>
+                                    <tr key={index} className={element.completed ? "completed-note" : ""} 
+                                    onClick={() => setToogleCheck(toogleCheck === element._id ? null:element._id)}
+                                    >
 
-                                        <td> <input type="checkbox" checked={selectedNotes.includes(element._id)} onChange={() => handleChange(element._id)} /> </td>
+                                        
+                                        <td> 
+                                            {(toogleCheck === element._id || selectedNotes.includes(element._id)) && (
+                                                <input type="checkbox" checked={selectedNotes.includes(element._id)} onChange={() => handleChange(element._id)} />
+                                            )}
+                                        </td>
 
                                         <td className="texto-notas">{editingId === element._id ?
                                             <input value={editingData.notas} onChange={(e) => setEditingData({...editingData, notas:e.target.value})} /> : element.notas} </td>

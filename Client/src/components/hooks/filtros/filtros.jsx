@@ -5,6 +5,7 @@ export function Filtros({ ventas, setVentasFiltradas }) {
     const [filterMonth, setFilterMonth] = useState('');
     const [number, setNumber] = useState('');
     const [pago, setPago] = useState('');
+    const [año,setAño] = useState('')
 
     const filtros = () => {
         let ventasFiltradas = ventas;
@@ -19,6 +20,9 @@ export function Filtros({ ventas, setVentasFiltradas }) {
 
         if (pago.trim() !== "") {
             ventasFiltradas = ventasFiltradas.filter(venta => venta.tp.toLowerCase() === pago.toLowerCase());
+        }
+        if (año.trim() !== ''){
+            ventasFiltradas = ventasFiltradas.filter(venta => venta.año === parseInt(año));
         }
 
 
@@ -68,6 +72,17 @@ export function Filtros({ ventas, setVentasFiltradas }) {
             </select>
 
             <select
+                        onChange={(event => setAño(event.target.value))}
+                        value={año}
+                    >
+                        <option value="">Seleccionar Año</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                </select>
+              
+
+            <select
                 onChange={(event) => setPago(event.target.value)}
                 value={pago}
             >
@@ -83,6 +98,8 @@ export function Filtros({ ventas, setVentasFiltradas }) {
                 <option value="Efectivo">Efectivo</option>
                 <option value="Mercado Pago">Mercado Pago</option>
             </select>
+
+            
 
 
             <button className="button" onClick={ResetFilter}>

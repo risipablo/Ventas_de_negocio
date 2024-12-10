@@ -166,6 +166,31 @@ export function Stock() {
 
     };
 
+    const [toogleCheck, setToogleCheck] = useState(null)
+    const [selectedStock, setSelectedStock] = useState([])
+
+    const handleChange = (id) => {
+        setSelectedStock((prev) => prev.includes(id) ? prev.filter(stockId => stockId !== !id):[...prev,id])
+    }
+
+    const deleteManyStock = (id) => {
+        axios.delete(`${serverFront}/delete-mamy-stocks/`,{data:{ids}})
+        .then(response => {
+            setStock(stock => stock.filter(stoc => !ids.includes(stoc._id)))
+            setStockFiltrados(stockFiltrados.filter(stoc => !ids.includes(stoc._id)))
+            toast.error(`${response.data.message}`, {
+                position: 'top-center',
+            });
+        })
+        .catch(err => console.error("Error deleting tasks:", err));
+    }
+
+    const cleanManyProductos = () => {
+        setSelectedStock("")
+    }
+
+
+
     return (
         <div className="productos-container">
             <Helmet>
@@ -241,13 +266,28 @@ export function Stock() {
 
 
 
+
             <Buscador placeholder="Buscar Productos" filtrarDatos={FiltrarStock} />
             
+
+            {selectedStock.length > 0 && (
+                <div className="container-manyproducts">
+                    <button className="delete-many" onClick={() => deleteManyStock(selectedStock)}>
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                    <button className="broom" onClick={() => cleanManyProductos(selectedStock)}>
+                        <i class="fa-solid fa-broom"></i>
+                    </button>
+                </div>
+            )}
+
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <TableContainer component={Paper} sx={{ mt: 2, maxWidth: '95%' }}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
+                                <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}></TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Producto</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Tamaño</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Kilos</TableCell>
@@ -260,7 +300,19 @@ export function Stock() {
                         </TableHead>
                         <TableBody>
                             {stockFiltrados.map((element, index) => (
-                                <TableRow key={index} style={{ background: condicionStock(element.condition || '')}}>
+                                <TableRow
+                                 key={index} 
+                                 style={{ background: condicionStock(element.condition || '')}}
+                                 onClick={() => setToogleCheck(toogleCheck === element._id ? null:element._id)}
+                                 >
+
+                                <TableCell> 
+                                    {(toogleCheck === element._id || selectedStock.includes(element._id)) && (
+                                        <input type="checkbox" checked={selectedStock.includes(element._id)} onChange={() => handleChange(element._id)} />
+                                    )}
+                                </TableCell>
+
+                                   
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
                                         {editingId === element._id ? (
                                             <input
@@ -272,6 +324,9 @@ export function Stock() {
                                             element.brands
                                         )}
                                     </TableCell>
+
+ 
+
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
                                         {editingId === element._id ? (
                                             <input

@@ -21,6 +21,7 @@ import ok from '../../assets/ok.mp3'
     const [newProduct, setProducto] = useState(""); // Ingreso de producto
     const [newTotal, setTotal] = useState(""); // Ingreso de monto
     const [newBoleta, setBoleta] = useState(""); // Ingreso de boleta 
+    const [newYear,setNewYear] = useState('')
     const [play] = useSound(cash)
     const [play2] = useSound(ok)
    
@@ -41,10 +42,11 @@ import ok from '../../assets/ok.mp3'
     }, []);
 
     const addVentas = () => {
-        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== "") {
+        if (newTotal.trim() && newDay.trim() && newMonth.trim() && newYear.trim() && newProduct.trim() && newBoleta.trim() && newTp.trim() !== "") {
             axios.post(`${serverFront}/add-ventas`, {
                 day: newDay,
                 month: newMonth,
+                year: newYear,
                 tp: newTp,
                 product: newProduct,
                 total: newTotal,
@@ -56,6 +58,7 @@ import ok from '../../assets/ok.mp3'
                 setVentasFiltradas(ventas => [...ventas, nuevaVenta]);
                 setTotal("");
                 setMonth("");
+                setNewYear("")
                 setDay("");
                 setProducto("");
                 setTp("");
@@ -83,6 +86,7 @@ import ok from '../../assets/ok.mp3'
     const resetVentas = () => {
         setDay("");
         setMonth("");
+        setNewYear("")
         setProducto("");
         setTp("");
         setTotal("");
@@ -132,6 +136,7 @@ import ok from '../../assets/ok.mp3'
       const [editingId, setEditingId] = useState({
           day: '',
           month: '',
+          year:'',
           tp:'',
           product: '',
           total:'',
@@ -143,6 +148,7 @@ import ok from '../../assets/ok.mp3'
           setEditingId({
               day:venta.day,
               month:venta.month,
+              year:venta.year,
               tp:venta.tp,
               product:venta.product,
               total:venta.total,
@@ -154,12 +160,14 @@ import ok from '../../assets/ok.mp3'
           setEditingId({
               day: '',
               month: '',
+              year:'',
               tp:'',
               product: '',
               total:'',
               boleta: ''
           });
       }
+
       const saveEdit = (id) => {
         toast.promise(
             axios.patch(`${serverFront}/edit-ventas/${id}`, editingId)
@@ -198,35 +206,48 @@ import ok from '../../assets/ok.mp3'
 
             <div className='inputs-ventas' > 
 
-                <select type="text"
-                    onChange={(event => setDay(event.target.value))}
-                    value={newDay}
-                >
-                    <option value=""> Seleccionar Día</option>
-                    {[...Array(31)].map((_,index) => (
-                        <option key={index + 1} value={index + 1}> {index + 1} </option>
-                    ))}
-                </select>
-                
+              
+                    
+                    <select type="text"
+                        onChange={(event => setDay(event.target.value))}
+                        value={newDay}
+                    >
+                        <option value=""> Seleccionar Día</option>
+                        {[...Array(31)].map((_,index) => (
+                            <option key={index + 1} value={index + 1}> {index + 1} </option>
+                        ))}
+                    </select>
+                    
+                    <select
+                        onChange={(event => setMonth(event.target.value))}
+                        value={newMonth}
+                    >
+                        <option value="">Seleccionar Mes</option>
+                        <option value="Enero">Enero</option>
+                        <option value="Febrero">Febrero</option>
+                        <option value="Marzo">Marzo</option>
+                        <option value="Abril">Abril</option>
+                        <option value="Mayo">Mayo</option>
+                        <option value="Junio">Junio</option>
+                        <option value="Julio">Julio</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Septiembre">Septiembre</option>
+                        <option value="Octubre">Octubre</option>
+                        <option value="Noviembre">Noviembre</option>
+                        <option value="Diciembre">Diciembre</option>
+                    </select>
+                    
+            
                 <select
-                    onChange={(event => setMonth(event.target.value))}
-                    value={newMonth}
-                >
-                    <option value="">Seleccionar Mes</option>
-                    <option value="Enero">Enero</option>
-                    <option value="Febrero">Febrero</option>
-                    <option value="Marzo">Marzo</option>
-                    <option value="Abril">Abril</option>
-                    <option value="Mayo">Mayo</option>
-                    <option value="Junio">Junio</option>
-                    <option value="Julio">Julio</option>
-                    <option value="Agosto">Agosto</option>
-                    <option value="Septiembre">Septiembre</option>
-                    <option value="Octubre">Octubre</option>
-                    <option value="Noviembre">Noviembre</option>
-                    <option value="Diciembre">Diciembre</option>
-                </select>
-                
+                        onChange={(event => setNewYear(event.target.value))}
+                        value={newYear}
+                    >
+                        <option value="">Seleccionar Año</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                    </select>
+              
 
                 <select
                     onChange={(event) => setTp(event.target.value)}
@@ -265,6 +286,7 @@ import ok from '../../assets/ok.mp3'
                     placeholder="Ingresar importe"             
                     onChange={(event => setTotal(event.target.value))}
                     value={newTotal}
+                    
                 />
 
  
@@ -296,6 +318,7 @@ import ok from '../../assets/ok.mp3'
                             <tr>
                                 <th> Día </th>
                                 <th> Mes </th>
+                                <th> Año </th>
                                 <th> Forma de Pago </th>
                                 <th> Número de Cupo </th>
                                 <th> Descripción </th>
@@ -309,9 +332,12 @@ import ok from '../../assets/ok.mp3'
 
                                 <td>{element.day}</td>
                                 
+                                
                                 <td>{editId === element._id ?
                                     <input value={editingId.month} onChange={(e) => setEditingId({...editingId, month: e.target.value})} />: element.month}</td>
                                
+                                <td>{element.year}</td>
+
                                 <td>{editId === element._id ?
                                     <input value={editingId.tp} onChange={(e) => setEditingId({...editingId, tp: e.target.value})}/>  : element.tp}</td>
                                 

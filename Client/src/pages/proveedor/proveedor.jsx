@@ -161,6 +161,29 @@ export function Proveedor() {
 
     }
 
+    const [toogleCheck, setToogleCheck] = useState(null)
+    const [selectedNotes, setSelectedNotes] = useState([])
+
+    const handleChange = (id) => {
+        setSelectedNotes((prev) => prev.includes(id) ? prev.filter(noteId => noteId !== !id):[...prev,id])
+    }
+
+    const deleteManyProveedores = (ids) => {
+        axios.delete(`${serverFront}/delete-many-proveedores/`, {data:{ids}})
+        .then(response => {
+            setProducts(note => note.filter(not => !ids.includes(not._id)))
+            setProveedorFiltrado(proveedorFiltrado.filter(not => !ids.includes(not._id)))
+            toast.error(`${response.data.message}`, {
+                position: 'top-center',
+            });
+        })
+        .catch(err => console.error("Error deleting tasks:", err));
+    }
+
+    const cleanManyProductos = () => {
+        setSelectedNotes("")
+    }
+
 
 
     return (
@@ -182,7 +205,7 @@ export function Proveedor() {
             <TransitionGroup>
                 {showInputs && (
                     <Collapse>
-                        <div className="inputs-ventas">
+                        <div className="inputs-productos">
                             <input
                                 type="text"
                                 placeholder="Ingresar Proveedor"
@@ -253,6 +276,19 @@ export function Proveedor() {
                 )}
             </TransitionGroup>
 
+            {selectedNotes.length > 0 && (
+                    <div className="container-manyproducts">
+                        <button className="delete-many" onClick={() => deleteManyProveedores(selectedNotes)}>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+
+                        <button className="broom" onClick={() => cleanManyProductos(selectedNotes)}>
+                            <i class="fa-solid fa-broom"></i>
+                        </button>
+                    </div>
+                )}
+ 
+
             <Buscador placeholder="Buscar productos" filtrarDatos={filtrarProveedores} />
             <FiltroProveedor products={products} setProveedorFiltrado={setProveedorFiltrado}/>
 
@@ -261,6 +297,7 @@ export function Proveedor() {
                     <table>
                         <thead>
                             <tr>
+                                <th> </th>
                                 <th>Proveedor</th>
                                 <th>Marca</th>
                                 <th>Mascota</th>
@@ -273,7 +310,13 @@ export function Proveedor() {
                         </thead>
                         <tbody>
                             {proveedorFiltrado.map((element, index) =>
-                                <tr key={index}>
+                                <tr key={index} onClick={() => setToogleCheck(toogleCheck === element._id ? null:element._id)}>
+                                    
+                                    <td> 
+                                        {(toogleCheck === element._id || selectedNotes.includes(element._id)) && (
+                                            <input type="checkbox" checked={selectedNotes.includes(element._id)} onChange={() => handleChange(element._id)} />
+                                        )}
+                                    </td>
                                     <td>{element.proveedores}</td>
                                     <td>{editingId === element._id ?
                                         <input value={editingData.marcas} onChange={(e) => setEditingData({ ...editingData, marcas: e.target.value })} /> : element.marcas}</td>

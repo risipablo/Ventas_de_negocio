@@ -8,6 +8,18 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement);
 const GastosChart = ({gastos}) => {
     const isMobile = window.innerWidth <= 768;
 
+
+    const promedioGasto = (gastos) => {
+        if (gastos.length === 0) 
+            return 0
+        const sumaTotal = gastos.reduce((total,gasto) => total + Number(gasto.monto),0)
+        const total = sumaTotal / gastos.length
+
+        return total.toLocaleString('en-US')
+    }
+
+    
+
     const gastosPorMes = gastos.reduce((acc,gasto) => {
 
         const mes = gasto.mes;
@@ -62,6 +74,37 @@ const GastosChart = ({gastos}) => {
             },
         },
     };
+
+    const gastoPorAño = gastos.reduce((acc,gasto) => {
+        const año = gasto.año
+        const total = gasto.monto
+
+        if(!acc[año])
+            acc[año] = 0
+        acc[año] += total
+
+        return acc
+    },{})
+
+    const maxAño = Object.keys(gastoPorAño).reduce((max,key) => {
+        return gastoPorAño[key] > gastoPorAño[max] ? key : max
+    }, Object.keys(gastoPorAño)[0])
+
+    const dataAño = {
+        labels: Object.keys(gastoPorAño),
+        datasets: [
+            {
+                label: 'Total de Gastos',
+                data: Object.values(gastoPorAño), // Totals by month
+                backgroundColor: Object.keys(gastoPorAño).map((proveedor) => proveedor === maxAño ? 'rgba(209, 25, 25, 0.7)' : 'rgba(164, 11, 235,0.7)'),
+                borderColor: 'rgba(225, 26, 26, 1)',
+                hoverBackgroundColor: Object.keys(gastoPorAño).map((proveedor) => proveedor === maxAño ? 'rgba(200, 25, 25)' : 'rgba(160, 11, 235)'),
+                borderWidth: 1,
+            },
+        ],
+    }
+
+
 
     const proveedorPorMes = gastos.reduce((acc,gasto) => {
         const proveedores = gasto.proveedor;
@@ -136,16 +179,43 @@ const GastosChart = ({gastos}) => {
 
 
     return (
-        <div className='chart-container'>
-            <div className='bar-container'>
-                <h3 className="chart-title">Gastos por Mes</h3>
-                <Bar data={dataGastosMes} options={options}/>
+        <div className="chart-container">
+            <div className="month-container">
+                <h2>Gastos por Mes</h2>
+
+                <div className="bar-container">
+                    <Bar data={dataGastosMes} options={options}/>
+                </div>
+                
             </div>
 
-            <div className="donut-container">
-                <h3 className='chart-title'> Proveedores por Mes </h3>
-                <Doughnut data={dataProveedor} options={optionDoghnut}></Doughnut>
+            <div className="product-container">
+                <h2> Proveedores por Mes </h2>
+
+                <div className="doughnut-container">
+                    <Doughnut data={dataProveedor} options={optionDoghnut}></Doughnut>
+                </div>
             </div>
+
+            <div className="month-container">
+                <h2>Gastos por año</h2>
+                <div className="bar-container">
+                    <Bar data={dataAño} options={options}/>
+                </div>
+            </div>
+
+            <div className="doughnut-container">
+
+            </div>
+
+            <div className="month-container">
+                <h2>Promedio gasto por mes</h2>
+                <div className="bar-container">
+                    <p>{promedioGasto(gastos)}</p>
+                </div>
+            </div>
+
+            
         </div>
     )
 }

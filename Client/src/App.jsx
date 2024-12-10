@@ -14,6 +14,7 @@ import FileUpload from "./components/archivos/archivo"
 import { VentasEstadisticas } from "./pages/charts/ventasChart/ventasEstadisticas"
 import { Chart } from "./pages/charts/chart/chart"
 import { GastosEstadisticas } from "./pages/charts/gastosChart/gastosEstadisticas"
+import { resumenChart } from "./pages/charts/resumenChart/resumenChart"
 
 
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/estadisticas" element={<Chart/>} />
           <Route path="/ventas-chart" element={<VentasEstadisticas />} />
           <Route path="/gastos-chart" element={<GastosEstadisticas/>} />
+          <Route path="/resumen-chart" element={<resumenChart/>} />
         </Routes>
       </BrowserRouter>
 

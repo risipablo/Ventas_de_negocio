@@ -71,12 +71,27 @@ app.delete('/delete-ventas/:id', async (req, res) => {
     }
 });
 
+app.delete('/delete-many-ventas/', async (req,res) => {
+    const {ids} = req.body;
+
+    if (!Array.isArray(ids) || ids.length  === 0)
+        return res.status(400).json({error:'se require un array en los Ids'})
+
+    try {
+        const result = await VentasModel.deleteMany({_id: {$in:ids}})
+        res.json( { message:`${result.deletedCount} productos eliminados`, result })
+    } catch (err) {
+        res.status(500).json({ error: "Server error: " + err.message });
+    }
+})
+
+
 // Editar Ventas
 app.patch('/edit-ventas/:id', async (req, res) => {
     const { id } = req.params;
-    const { total, product, tp, boleta } = req.body;
+    const { total, product, tp, boleta,year } = req.body;
     try {
-        const result = await VentasModel.findByIdAndUpdate(id, { total, product, tp, boleta }, { new: true });
+        const result = await VentasModel.findByIdAndUpdate(id, { total, product, tp, boleta, year }, { new: true });
         res.json(result);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -98,12 +113,12 @@ app.get('/gastos', async (req, res) => {
 
 // Agregar gastos
 app.post('/add-gastos', async (req, res) => {
-    const { proveedor, dia, mes, factura, monto, estado } = req.body;
-    if (!proveedor || !dia || !mes  || !factura || !monto || !estado) {
+    const { proveedor, dia, mes, año, factura, monto, estado } = req.body;
+    if (!proveedor || !dia || !mes || !año || !factura || !monto || !estado) {
         return res.status(400).json({ error: 'Faltan datos requeridos' });
     }
     try {
-        const newGasto = new GastosModel({ proveedor, dia, mes, factura, monto, estado });
+        const newGasto = new GastosModel({ proveedor, dia, mes, año, factura, monto, estado });
         const result = await newGasto.save();
         res.json(result);
     } catch (err) {
@@ -127,9 +142,9 @@ app.delete('/delete-gastos/:id', async (req, res) => {
 // Editar gastos
 app.patch('/edit-gastos/:id', async (req, res) => {
     const { id } = req.params;
-    const { estado, proveedor, monto, factura } = req.body;
+    const { estado, proveedor, monto, factura,año, dia , mes } = req.body;
     try {
-        const result = await GastosModel.findByIdAndUpdate(id, { estado, proveedor, monto, factura }, { new: true });
+        const result = await GastosModel.findByIdAndUpdate(id, { estado, proveedor, monto, factura,año,dia,mes }, { new: true });
         res.json(result);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -317,6 +332,20 @@ app.delete('/delete-proveedors/:id', async (req, res) => {
     }
 });
 
+app.delete('/delete-proveedores/', async (req,res) => {
+    const {ids} = req.body;
+
+    if (!Array.isArray(ids) || ids.length  === 0)
+        return res.status(400).json({error:'se require un array en los Ids'})
+
+    try {
+        const result = await ProveedorModel.deleteMany({_id: {$in:ids}})
+        res.json( { message:`${result.deletedCount} productos eliminados`, result })
+    } catch (err) {
+        res.status(500).json({ error: "Server error: " + err.message });
+    }
+})
+
 
 // Editar proveedores
 app.patch('/edit-proveedors/:id', async (req, res) => {
@@ -373,6 +402,21 @@ app.delete('/delete-stock/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 })
+
+app.delete('/delete-many-stocks/', async (req,res) => {
+    const {ids} = req.body;
+
+    if (!Array.isArray(ids) || ids.length  === 0)
+        return res.status(400).json({error:'se require un array en los Ids'})
+
+    try {
+        const result = await StockModel.deleteMany({_id: {$in:ids}})
+        res.json( { message:`${result.deletedCount} productos eliminados`, result })
+    } catch (err) {
+        res.status(500).json({ error: "Server error: " + err.message });
+    }
+})
+
 
 // Editar Stock
 app.patch('/edit-stock/:id', async ( req, res ) => {

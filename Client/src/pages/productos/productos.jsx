@@ -30,6 +30,7 @@ export function Productos() {
     const [precio, setPrecio] = useState("");
     const [categoriaProducto, setCategoriaProducto] = useState("");
     const [showInputs, setShowInputs] = useState(true);
+    const [toogleCheck, setToogleCheck] = useState(null)
     const [play] = useSound(digital)
     const [play2] = useSound(ok)
 
@@ -220,7 +221,7 @@ export function Productos() {
             <TransitionGroup>
                 {!showInputs && (
                     <Collapse>
-                        <div className="inputs-ventas">
+                        <div className="inputs-productos">
                             <input
                                 type="text"
                                 placeholder="Ingresar Marca"
@@ -349,9 +350,19 @@ export function Productos() {
 
                         <tbody>
                             {productosFiltrado.map((element, index) =>
-                                <tr key={index} style={{ background: promoCondicion(element.condicion || '')}}>
+                                <tr 
+                                    key={index} 
+                                    style={{ background: promoCondicion(element.condicion || '')}}
+                                    onClick={() => setToogleCheck(toogleCheck === element._id ? null:element._id)}
+                                >
 
-                                    <td> <input type="checkbox" checked={selectedTasks.includes(element._id)} onChange={() => handleChange(element._id)} /> </td>
+                                    <td> 
+                                        {(toogleCheck === element._id || selectedTasks.includes(element._id)) && (
+
+                                            <input type="checkbox" checked={selectedTasks.includes(element._id)} onChange={() => handleChange(element._id)} /> 
+                                        )}
+                                        
+                                    </td>
                                     
                                     <td>{editingId === element._id ?
                                         <input value={editingData.marca} onChange={(e) => setEditingData({ ...editingData, marca: e.target.value })} /> : element.marca}</td>
