@@ -15,10 +15,21 @@ const GastosChart = ({gastos}) => {
         const sumaTotal = gastos.reduce((total,gasto) => total + Number(gasto.monto),0)
         const total = sumaTotal / gastos.length
 
-        return total.toLocaleString('en-US')
+        return total.toLocaleString('en-GB', { maximumFractionDigits: 0 });
+
     }
 
-    
+    const gastoTotal = (gastos) => {
+        let total = 0
+
+        gastos.forEach(products => {
+            if(products.estado && products.estado.toLowerCase() === 'impago')
+                total == products.monto
+            total += products.monto
+        });
+
+        return total.toLocaleString('en-US')
+    }
 
     const gastosPorMes = gastos.reduce((acc,gasto) => {
 
@@ -180,13 +191,12 @@ const GastosChart = ({gastos}) => {
 
     return (
         <div className="chart-container">
+
             <div className="month-container">
                 <h2>Gastos por Mes</h2>
-
                 <div className="bar-container">
                     <Bar data={dataGastosMes} options={options}/>
                 </div>
-                
             </div>
 
             <div className="product-container">
@@ -204,15 +214,18 @@ const GastosChart = ({gastos}) => {
                 </div>
             </div>
 
-            <div className="doughnut-container">
-
-            </div>
-
             <div className="month-container">
-                <h2>Promedio gasto por mes</h2>
-                <div className="bar-container">
-                    <p>{promedioGasto(gastos)}</p>
+
+                <h2>Gastos totales </h2>
+                <div className="promedio">
+                    <p>${gastoTotal(gastos)}</p>
                 </div>
+
+                <h2>Promedio gasto por mes</h2>
+                <div className="promedio">
+                    <p>${promedioGasto(gastos)}</p>
+                </div>    
+
             </div>
 
             

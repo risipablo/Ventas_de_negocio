@@ -6,22 +6,34 @@ export function FiltrosGastoChart({gastos, setGastosFiltrados}){
 
     const [proveedors, setProveedors] = useState('')
     const [setMes, isSetMes] = useState('')
+    const [año, setAño] = useState('');
 
     const filtros = () => {
         let gastosFiltrados = gastos;
 
+        if(año.trim() !== '')
+            gastosFiltrados = gastosFiltrados.filter(gasto => Number(gasto.año) === Number(año));
+
         if(proveedors.trim() !== '')
             gastosFiltrados = gastosFiltrados.filter(gasto => gasto.proveedor.toLowerCase() === proveedors.toLowerCase())
     
-        if(setMes.trim() !== '')
-            gastosFiltrados = gastosFiltrados.filter(gasto => gasto.mes.toLowerCase() === setMes.toLowerCase())
+        if(setMes.trim() !== ''){
+            gastosFiltrados = gastosFiltrados.filter(gasto => gasto.mes.toLowerCase() === setMes.toLowerCase())}
+
+
 
         setGastosFiltrados(gastosFiltrados)
     }
 
+    const resertFilter = () => {
+        setAño('')
+        setProveedors('')
+        isSetMes('')
+    }
+
     useEffect(() => {
         filtros()
-    },[proveedors,setMes,gastos])
+    },[proveedors,año,setMes,gastos])
 
     return(
         <div className="filtros">
@@ -64,6 +76,19 @@ export function FiltrosGastoChart({gastos, setGastosFiltrados}){
                     <option value="Noviembre">Noviembre</option>
                     <option value="Diciembre">Diciembre</option>
                 </select>
+
+                <select
+                        onChange={(event => setAño(event.target.value))}
+                        value={año}
+                    >
+                        <option value="">Seleccionar Año</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                </select>
+                <button className="button" onClick={resertFilter}>
+                <i className="fa-regular fa-circle-xmark"></i>
+            </button>
         </div>
     )
 }

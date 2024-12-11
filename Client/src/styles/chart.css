@@ -131,3 +131,8 @@ h2 {
     }
 }
 
+.promedio{
+    margin: 2rem auto;
+    text-align: center;
+    font-size: 1.8rem;
+}

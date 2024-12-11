@@ -349,7 +349,7 @@ export function Gastos(){
                                 <div className="actions"> 
                                     <button className="trash" onClick={() => deleteGastos(element._id, element.proveedor, element.monto)}><i className="fa-solid fa-trash"></i></button>
 
-                                                {editingId === element._id ? (
+                                     {editingId === element._id ? (
                                     <div  className='btn-edit'>
                                         <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
                                         <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>

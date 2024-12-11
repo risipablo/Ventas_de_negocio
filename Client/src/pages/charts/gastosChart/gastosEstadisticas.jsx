@@ -1,7 +1,9 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import GastosChart from "../../../components/chartComponent/gastosChart"
-import { FiltrosGastoChart } from "../../../components/hooks/filtros/filtrosGastosChart"
+import { FiltrosGastoChart } from "../../../components/hooks/filtrosChart/filtrosGastosChart"
+import { ScrollTop } from "../../../components/others/scrollTop"
+
 
 
 
@@ -24,10 +26,10 @@ export function GastosEstadisticas(){
 
     return(
         <div className="ventas-chart">
-            <h2> Gastos Estadisticas</h2>
-
-            <FiltrosGastoChart gastos={gastos} setGastosFiltrados={setGastosFiltrados}/>
+            <h2>  Estadisticas de Gastos</h2>
+            <FiltrosGastoChart gastos={gastos} setGastosFiltrados={setGastosFiltrados}/> 
             <GastosChart gastos={gastosFiltrados}/>
+            <ScrollTop/>
         </div>
     )
 }

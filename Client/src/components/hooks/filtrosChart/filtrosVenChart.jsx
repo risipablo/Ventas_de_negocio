@@ -6,6 +6,7 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
     const [number, setNumber] = useState('');
     const [pago, setPago] = useState('');
     const [produc,setProduc] = useState('')
+    const [produc2,setProduc2] = useState('')
 
     const filtros = () => {
         let ventasFiltradas = ventas;
@@ -26,6 +27,14 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
             ventasFiltradas = ventasFiltradas.filter(venta => venta.product.toLowerCase() === produc.toLowerCase());
         }
 
+        if (produc2.trim() !== "") {
+            const normalizedInput = produc2.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
+            ventasFiltradas = ventasFiltradas.filter(venta => 
+                venta.product.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(normalizedInput)
+            );
+        }
+        
+
         setVentasFiltradas(ventasFiltradas);
     };
 
@@ -34,12 +43,13 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
         setNumber("");
         setPago("");
         setProduc("")
+        setProduc2('')
         setVentasFiltradas(ventas);
     };
 
     useEffect(() => {
         filtros();
-    }, [filterMonth, number, pago, produc ,ventas]); 
+    }, [filterMonth, number, pago, produc, produc2 ,ventas]); 
 
     return (
         <div className="filtros">
@@ -91,9 +101,16 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
 
             <input
                 type="text"
-                placeholder=""
+                placeholder="Productos separados"
                 value={produc}
                 onChange={(e => setProduc(e.target.value))}
+            />
+
+            <input
+                type="text"
+                placeholder="Productos juntos"
+                value={produc2}
+                onChange={(e => setProduc2(e.target.value))}
             />
 
             <button className="button" onClick={ResetFilter}>

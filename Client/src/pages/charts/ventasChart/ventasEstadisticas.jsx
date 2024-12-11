@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 // import "../../ estilos chart.css"
 import VentasChart from '../../../components/chartComponent/ventasChart.jsx'
 import axios from 'axios';
-import { FiltrosVentaChart } from '../../../components/hooks/filtros/filtrosVenChart.jsx';
+import { FiltrosVentaChart } from '../../../components/hooks/filtrosChart/filtrosVenChart.jsx';
+import { Total } from '../../../components/others/totalUtils.jsx';
+import { ScrollTop } from '../../../components/others/scrollTop.jsx';
 
 
 
@@ -24,13 +26,22 @@ export function VentasEstadisticas(){
         .catch(err => console.log(err))
     },[])
 
+
     return(
         <div className="ventas-chart">
             <h2> Ventas Estadisticas </h2>
 
+          
             <FiltrosVentaChart ventas={ventas} setVentasFiltradas={setVentasFiltradas}/>
 
+            <tr className='total'>
+                <span> Total: ${Total({ventas:ventasFiltradas})}</span>
+            </tr>
+  
+
             <VentasChart ventas={ventasFiltradas}/>
+
+            <ScrollTop/>
         </div>
 
     )

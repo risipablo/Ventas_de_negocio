@@ -4,7 +4,6 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
 
 
-
 const VentasChart = ({ ventas }) => {
     const isMobile = window.innerWidth <= 768; 
 
@@ -40,6 +39,10 @@ const VentasChart = ({ ventas }) => {
             ],
         };
 
+     
+
+
+    // productos por mes
     const productosPorMes = ventas.reduce((acc,venta) => {
         
         const product = venta.product ? venta.product.toLowerCase() : ''
@@ -99,6 +102,76 @@ const VentasChart = ({ ventas }) => {
         },
     };
 
+    // productos Mayor vendido
+    const productosVendidosMes = ventas.reduce((acc, venta) => {
+        const month = venta.month || '';
+        const product = venta.product?.toLowerCase() || '';
+        const total = venta.total || 0;
+
+        acc[month] = acc[month] || {};
+        acc[month][product] = (acc[month][product] || 0) + total;
+
+        return acc;
+    }, {});
+
+    const productoMaximoMes = Object.keys(productosVendidosMes).reduce((result, month) => {
+        const productosMes = productosVendidosMes[month];
+
+        const maxProduct = Object.keys(productosMes).reduce(
+            (max, key) => (productosMes[key] > productosMes[max] ? key : max),
+            Object.keys(productosMes)[0]
+        );
+
+        result[month] = { producto: maxProduct, total: productosMes[maxProduct] };
+        return result;
+    }, {});
+
+    const optionsVentaMaximo = {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Total',
+                },
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Mes',
+                },
+            },
+        },
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top',
+            },
+            tooltip: {
+                callbacks: {
+                    label: (context) => {
+                        const index = context.dataIndex;
+                        const producto = Object.values(productoMaximoMes)[index];
+                        return `${producto.producto}: $${producto.total.toLocaleString()}`;
+                    },
+                },
+            },
+        },
+    };
+    
+    const dataVentaMaximo = {
+        labels: Object.keys(productoMaximoMes), // Meses
+        datasets: [
+            {
+                label: 'Producto más Vendido',
+                data: Object.values(productoMaximoMes).map((p) => p.total), // Totales
+                backgroundColor: 'rgba(164, 11, 235, 0.7)',
+                borderColor: 'rgba(225, 26, 26, 1)',
+                hoverBackgroundColor: 'rgba(200, 25, 25)',
+                borderWidth: 1,
+            },
+        ],
+    };
 
 
     // Metodo Pago
@@ -131,6 +204,7 @@ const VentasChart = ({ ventas }) => {
         return metodoPago[key] > metodoPago[max] ? key : max;
     }, Object.keys(metodoPago)[0])
 
+    
     const dataMetodoMes = {
         labels: Object.keys(metodoPago),
         datasets: [
@@ -147,18 +221,39 @@ const VentasChart = ({ ventas }) => {
 
     const optionsDonut2 = {
         responsive: true,
-        cutout: '60%', 
+        cutout: '70%', 
         plugins: {
             legend: {
                 display: true,
-                position: 'left',
+                position: 'top', // Coloca la leyenda arriba
+                align: 'center',
                 labels: {
-                    color: '#333', 
+                    color: '#333',
                     font: {
                         size: isMobile ? 12 : 18,
                     },
-                    padding: isMobile ? 1  : 12, 
-                }
+                    padding: isMobile ? 1 : 20,
+                    boxWidth: 20,
+                    boxHeight: 10,
+                    generateLabels: (chart) => {
+                        return chart.data.labels.map((label, index) => {
+                            const value = chart.data.datasets[0].data[index];
+                            return {
+                                text: `${label}: $${value.toLocaleString()}`, 
+                                fillStyle: chart.data.datasets[0].backgroundColor[index],
+                                strokeStyle: chart.data.datasets[0].borderColor,
+                                lineWidth: chart.data.datasets[0].borderWidth,
+                            };
+                        });
+                    },
+                    onHover: (event, legendItem, legend) => {
+                        // Aplica un estilo hover sobre la leyenda
+                        const { chart } = legend;
+                        const index = legendItem.index;
+                        chart.tooltip.setActiveElements([{ datasetIndex: 0, index }]);
+                        chart.update();
+                    },
+                },
             },
             tooltip: {
                 backgroundColor: 'rgba(0, 0, 0)',
@@ -182,12 +277,17 @@ const VentasChart = ({ ventas }) => {
             animateScale: true, 
             animateRotate: true,
         },
+        layout: {
+            padding: {
+                top: 30, // Espacio superior para la leyenda
+                bottom: 30, // Espacio inferior para la leyenda
+            },
+        },
     };
-
-
+    
     return (
         <div className="chart-container">
-
+            
             <div className="month-container">
                 <h2>Ventas por Mes</h2>
                     <div className='bar-container'>
@@ -197,17 +297,26 @@ const VentasChart = ({ ventas }) => {
 
             <div className='product-container'>
                 <h2>Producto por mes</h2>
+                <p> *productos por separados</p>
                     <div className='bar-container'>
                         <Bar data={dataVentasPorProducto} options={options}/>
                     </div>
             </div>
 
-            <div className="metodo-container">
+            <div className="product-container">
                 <h2>Metodos de pago </h2>
                 <div className="doughnut-container">
                     <Doughnut data={dataMetodoMes} options={optionsDonut2} />
                 </div>
             </div>
+
+            <div className="product-container">
+                <h2>Producto Mayor Vendido</h2>
+                <div className="bar-container">
+                    <Bar data={dataVentaMaximo} options={optionsVentaMaximo} />
+                </div>
+            </div>
+
 
         </div>
     );
