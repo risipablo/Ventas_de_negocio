@@ -83,6 +83,7 @@ export function FiltroProveedor({products, setProveedorFiltrado}) {
                     <option value="Excellent">Excellent</option>
                     <option value="Suertudo">Suertudo</option>
                     <option value="Optimun">Optimun</option>
+                    <option value="Pipeta">Pipeta</option>
                     <option value="Livra">Livra</option>
                     <option value="Stone Cat">Stone Cat</option>
                     <option value="Pellcats">Pellcats</option>
