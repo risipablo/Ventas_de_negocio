@@ -1,15 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const GastosModel = require('./models/gastos');
-const ProductoModel = require('./models/productos');
-const NotaModel = require('./models/notas');
-const ProveedorModel = require('./models/proveedor');
-const StockModel = require('./models/stock');
-const File = require ('./models/files')
+const GastosModel = require('./Models/gastos');
+const ProductoModel = require('./Models/productos');
+const NotaModel = require('./Models/notas');
+const ProveedorModel = require('./Models/proveedor');
+const StockModel = require('./Models/stock');
+const File = require ('./Models/files')
 const multer = require('multer');
-const VentasModel = require('./models/ventas');
-const NotasModel = require('./models/notas');
+const VentasModel = require('./Models/ventas');
+const NotasModel = require('./Models/notas');
 
 
 require("dotenv").config();
