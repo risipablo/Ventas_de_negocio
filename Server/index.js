@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const GastosModel = require('./Models/gastos');
 const ProductoModel = require('./Models/productos');
-const NotaModel = require('./Models/gastos');
 const ProveedorModel = require('./Models/proveedor');
 const StockModel = require('./Models/stock');
 const File = require ('./Models/files')
