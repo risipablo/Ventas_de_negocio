@@ -3,15 +3,15 @@ const mongoose = require('mongoose')
 const notaSchema = new mongoose.Schema({
     notas:{
         type: String,
-        require:true
+        required:true
     },
     description:{
         type: String,
-        require:true
+        required:true
     },
     meses:{
         type:String,
-        require:true
+        required:true
     },
     completed: {
         type:Boolean,

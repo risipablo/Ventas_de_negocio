@@ -20,7 +20,7 @@ const ventaSchema = new mongoose.Schema({
     },
     boleta:{
         type:String,
-        require: true
+        required: true
     },
     product:{
         type:String,
@@ -32,5 +32,5 @@ const ventaSchema = new mongoose.Schema({
     }
 })
 
-const VentasModel = mongoose.model('Venta', ventaSchema)
+const VentasModel = mongoose.model('Ventas', ventaSchema)
 module.exports = VentasModel;
