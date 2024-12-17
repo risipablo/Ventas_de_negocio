@@ -5,7 +5,7 @@ const GastosModel = require('./models/gastos');
 // const ProductoModel = require('./models/productos');
 // const ProveedorModel = require('./models/proveedor');
 // const StockModel = require('./models/stock');
-const File = require ('./models/files')
+// const File = require ('./models/files')
 const multer = require('multer');
 const VentasModel = require('./models/ventas');
 // const NotasModel = require('./models/notas');
@@ -433,64 +433,64 @@ app.patch('/edit-gastos/:id', async (req, res) => {
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-// Ruta para subir archivos
-app.post('/upload', upload.single('file'), async (req, res) => {
-    const file = new File({
-        filename: req.file.originalname,
-        contentType: req.file.mimetype,
-        data: req.file.buffer
-    });
+// // Ruta para subir archivos
+// app.post('/upload', upload.single('file'), async (req, res) => {
+//     const file = new File({
+//         filename: req.file.originalname,
+//         contentType: req.file.mimetype,
+//         data: req.file.buffer
+//     });
 
-    try {
-        await file.save();
-        res.status(201).send({ message: 'Archivo subido exitosamente' });
-    } catch (error) {
-        res.status(500).send({ message: 'Error al subir el archivo', error });
-    }
-});
+//     try {
+//         await file.save();
+//         res.status(201).send({ message: 'Archivo subido exitosamente' });
+//     } catch (error) {
+//         res.status(500).send({ message: 'Error al subir el archivo', error });
+//     }
+// });
 
-// Ruta para listar archivos
-app.get('/files', async (req, res) => {
-    try {
-        const files = await File.find({});
-        res.status(200).json(files);
-    } catch (error) {
-        res.status(500).send({ message: 'Error al listar archivos', error });
-    }
-});
-
-
-// Ruta para descargar/ver un archivo
-app.get('/files/:id', async (req, res) => {
-    try {
-        const file = await File.findById(req.params.id);
-
-        // Verificar el tipo de contenido (en este caso, application/pdf para PDFs)
-        res.set({
-            'Content-Type': file.contentType, // Esto debería ser 'application/pdf' para PDFs
-            'Content-Disposition': `inline; filename=${file.filename}` // inline para visualización
-        });
-
-        // Enviar el archivo al cliente
-        res.send(file.data);
-    } catch (error) {
-        res.status(500).send({ message: 'Error al obtener el archivo', error });
-    }
-});
+// // Ruta para listar archivos
+// app.get('/files', async (req, res) => {
+//     try {
+//         const files = await File.find({});
+//         res.status(200).json(files);
+//     } catch (error) {
+//         res.status(500).send({ message: 'Error al listar archivos', error });
+//     }
+// });
 
 
-app.delete('/delete-files/:id', async (req,res) => {
-    const { id } = req.params;
-    try {
-        const deleteFiles = await File.findByIdAndDelete(id)
-        if (!deleteFiles){
-            return res.status(404).json({ error: 'files not found'})
-        }
-        res.json(deleteFiles)
-    } catch {
-        res.status(500).json( {error:err.message})
-    }
-})
+// // Ruta para descargar/ver un archivo
+// app.get('/files/:id', async (req, res) => {
+//     try {
+//         const file = await File.findById(req.params.id);
+
+//         // Verificar el tipo de contenido (en este caso, application/pdf para PDFs)
+//         res.set({
+//             'Content-Type': file.contentType, // Esto debería ser 'application/pdf' para PDFs
+//             'Content-Disposition': `inline; filename=${file.filename}` // inline para visualización
+//         });
+
+//         // Enviar el archivo al cliente
+//         res.send(file.data);
+//     } catch (error) {
+//         res.status(500).send({ message: 'Error al obtener el archivo', error });
+//     }
+// });
+
+
+// app.delete('/delete-files/:id', async (req,res) => {
+//     const { id } = req.params;
+//     try {
+//         const deleteFiles = await File.findByIdAndDelete(id)
+//         if (!deleteFiles){
+//             return res.status(404).json({ error: 'files not found'})
+//         }
+//         res.json(deleteFiles)
+//     } catch {
+//         res.status(500).json( {error:err.message})
+//     }
+// })
 
 
 app.listen(3001, () => {
