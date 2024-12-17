@@ -8,7 +8,7 @@ const StockModel = require('./models/stock');
 const File = require ('./models/files')
 const multer = require('multer');
 const VentasModel = require('./models/ventas');
-const NotasModel = require('./models/notas');
+// const NotasModel = require('./models/notas');
 
 
 require("dotenv").config();
@@ -220,56 +220,56 @@ app.patch('/edit-gastos/:id', async (req, res) => {
 
 
 
-// Notas
+// // Notas
 
-// Ruta para obtener notas
-app.get('/notas', async (req, res) => {
-    try {
-        const notas = await NotaModel.find();
-        res.json(notas);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
+// // Ruta para obtener notas
+// app.get('/notas', async (req, res) => {
+//     try {
+//         const notas = await NotaModel.find();
+//         res.json(notas);
+//     } catch (err) {
+//         res.status(500).json({ error: err.message });
+//     }
+// });
 
 
-// Ruta para añadir una nota
-app.post('/add-notas', async (req, res) => {
-    const { notas, meses, description } = req.body;
-    if (!notas || !meses || !description) {
-        return res.status(400).json({ error: 'Nota no proporcionada' });
-    }
-    try {
-        const newNota = new NotaModel({ notas, meses, description});
-        const result = await newNota.save();
-        res.json(result);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
+// // Ruta para añadir una nota
+// app.post('/add-notas', async (req, res) => {
+//     const { notas, meses, description } = req.body;
+//     if (!notas || !meses || !description) {
+//         return res.status(400).json({ error: 'Nota no proporcionada' });
+//     }
+//     try {
+//         const newNota = new NotaModel({ notas, meses, description});
+//         const result = await newNota.save();
+//         res.json(result);
+//     } catch (err) {
+//         res.status(500).json({ error: err.message });
+//     }
+// });
 
-// Eliminar notas
-app.delete('/delete-notas/:id', (req, res) => {
-    const { id } = req.params;
-    NotaModel.findByIdAndDelete(id)
-        .then(result => res.json(result))
-        .catch(err => res.status(500).json({ error: err.message }));
-});
+// // Eliminar notas
+// app.delete('/delete-notas/:id', (req, res) => {
+//     const { id } = req.params;
+//     NotaModel.findByIdAndDelete(id)
+//         .then(result => res.json(result))
+//         .catch(err => res.status(500).json({ error: err.message }));
+// });
 
-// Eliminar varias notas
-app.delete('/delete-many-notas/', async (req,res) => {
-    const {ids} = req.body;
+// // Eliminar varias notas
+// app.delete('/delete-many-notas/', async (req,res) => {
+//     const {ids} = req.body;
     
-    if(!Array.isArray(ids) || ids.length === 0)
-        return res.status(400).json({error: 'se require un array en los Ids'})
+//     if(!Array.isArray(ids) || ids.length === 0)
+//         return res.status(400).json({error: 'se require un array en los Ids'})
 
-    try{
-        const result = await NotasModel.deleteMany({ _id:{$in:ids}})
-        res.json({message: `${result.deletedCount} productos eliminados`, result})
-    } catch (err) {
-        res.status(500).json({error: "Server error: " + err.message })
-    }
-})
+//     try{
+//         const result = await NotasModel.deleteMany({ _id:{$in:ids}})
+//         res.json({message: `${result.deletedCount} productos eliminados`, result})
+//     } catch (err) {
+//         res.status(500).json({error: "Server error: " + err.message })
+//     }
+// })
 
 // Editar notas
 app.patch('/edit-notas/:id', (req, res) => {
