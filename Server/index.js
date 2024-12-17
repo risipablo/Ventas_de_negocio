@@ -4,7 +4,7 @@ const cors = require('cors');
 const GastosModel = require('./models/gastos');
 // const ProductoModel = require('./models/productos');
 // const ProveedorModel = require('./models/proveedor');
-const StockModel = require('./models/stock');
+// const StockModel = require('./models/stock');
 const File = require ('./models/files')
 const multer = require('multer');
 const VentasModel = require('./models/ventas');
@@ -271,24 +271,24 @@ app.patch('/edit-gastos/:id', async (req, res) => {
 //     }
 // })
 
-// Editar notas
-app.patch('/edit-notas/:id', (req, res) => {
-    const { id } = req.params;
-    const { notas, meses, description } = req.body;
-    NotaModel.findByIdAndUpdate(id, { notas, meses, description }, { new: true })
-        .then(result => res.json(result))
-        .catch(err => res.status(500).json({ error: err.message }));
-});
+// // Editar notas
+// app.patch('/edit-notas/:id', (req, res) => {
+//     const { id } = req.params;
+//     const { notas, meses, description } = req.body;
+//     NotaModel.findByIdAndUpdate(id, { notas, meses, description }, { new: true })
+//         .then(result => res.json(result))
+//         .catch(err => res.status(500).json({ error: err.message }));
+// });
 
 
-// Completar notas
-app.patch('/completed-notas/:id', (req, res) => {
-    const { id } = req.params;
-    const { completed } = req.body;
-    NotaModel.findByIdAndUpdate(id, { completed }, { new: true })
-        .then(result => res.json(result))
-        .catch(err => res.status(500).json({ error: err.message }));
-});
+// // Completar notas
+// app.patch('/completed-notas/:id', (req, res) => {
+//     const { id } = req.params;
+//     const { completed } = req.body;
+//     NotaModel.findByIdAndUpdate(id, { completed }, { new: true })
+//         .then(result => res.json(result))
+//         .catch(err => res.status(500).json({ error: err.message }));
+// });
 
 
 // // Proveedores
@@ -361,73 +361,73 @@ app.patch('/completed-notas/:id', (req, res) => {
 
 // Stock
 
-// Obtener stock
-app.get('/stock', async (req, res) => {
-    try {
-        const stock = await StockModel.find();
-        res.json(stock);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
+// // Obtener stock
+// app.get('/stock', async (req, res) => {
+//     try {
+//         const stock = await StockModel.find();
+//         res.json(stock);
+//     } catch (err) {
+//         res.status(500).json({ error: err.message });
+//     }
+// });
 
 
-// Agregar stock
-app.post('/add-stock', async (req, res) => {
-    const { brands, pet, size, kg, amount, condition } = req.body;
-    if (!brands || !pet || !size || !kg || !amount || !condition) {
-        return res.status(400).json({ error: 'Faltan datos requeridos' });
-    }
-    try {
-        const newStock = new StockModel({ brands, pet, size, kg, amount, condition });
-        const result = await newStock.save();
-        res.json(result);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: err.message });
-    }
-});
+// // Agregar stock
+// app.post('/add-stock', async (req, res) => {
+//     const { brands, pet, size, kg, amount, condition } = req.body;
+//     if (!brands || !pet || !size || !kg || !amount || !condition) {
+//         return res.status(400).json({ error: 'Faltan datos requeridos' });
+//     }
+//     try {
+//         const newStock = new StockModel({ brands, pet, size, kg, amount, condition });
+//         const result = await newStock.save();
+//         res.json(result);
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).json({ error: err.message });
+//     }
+// });
 
-//Eliminar Stock
-app.delete('/delete-stock/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const stock = await StockModel.findByIdAndDelete(id);
-        if (!stock) {
-            return res.status(404).json({ error: 'Stock not found' });
-        }
-        res.json(stock);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-})
+// //Eliminar Stock
+// app.delete('/delete-stock/:id', async (req, res) => {
+//     const { id } = req.params;
+//     try {
+//         const stock = await StockModel.findByIdAndDelete(id);
+//         if (!stock) {
+//             return res.status(404).json({ error: 'Stock not found' });
+//         }
+//         res.json(stock);
+//     } catch (err) {
+//         res.status(500).json({ error: err.message });
+//     }
+// })
 
-app.delete('/delete-many-stocks/', async (req,res) => {
-    const {ids} = req.body;
+// app.delete('/delete-many-stocks/', async (req,res) => {
+//     const {ids} = req.body;
 
-    if (!Array.isArray(ids) || ids.length  === 0)
-        return res.status(400).json({error:'se require un array en los Ids'})
+//     if (!Array.isArray(ids) || ids.length  === 0)
+//         return res.status(400).json({error:'se require un array en los Ids'})
 
-    try {
-        const result = await StockModel.deleteMany({_id: {$in:ids}})
-        res.json( { message:`${result.deletedCount} productos eliminados`, result })
-    } catch (err) {
-        res.status(500).json({ error: "Server error: " + err.message });
-    }
-})
+//     try {
+//         const result = await StockModel.deleteMany({_id: {$in:ids}})
+//         res.json( { message:`${result.deletedCount} productos eliminados`, result })
+//     } catch (err) {
+//         res.status(500).json({ error: "Server error: " + err.message });
+//     }
+// })
 
 
-// Editar Stock
-app.patch('/edit-stock/:id', async ( req, res ) => {
-    const {id} = req.params;
-    const { brands, pet, size, kg, amount, condition } = req.body;
-    try{
-        const result = await StockModel.findByIdAndUpdate(id, { brands, pet, size, kg, amount, condition }, {new: true} );
-        res.json(result)
-    } catch (err) {
-        res.status(500).json({ error:err.message })
-    }
-})
+// // Editar Stock
+// app.patch('/edit-stock/:id', async ( req, res ) => {
+//     const {id} = req.params;
+//     const { brands, pet, size, kg, amount, condition } = req.body;
+//     try{
+//         const result = await StockModel.findByIdAndUpdate(id, { brands, pet, size, kg, amount, condition }, {new: true} );
+//         res.json(result)
+//     } catch (err) {
+//         res.status(500).json({ error:err.message })
+//     }
+// })
 
 // Configuración de multer
 const storage = multer.memoryStorage();
