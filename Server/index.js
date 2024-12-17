@@ -225,7 +225,7 @@ app.patch('/edit-productos/:id', async (req, res) => {
 // Ruta para obtener notas
 app.get('/notas', async (req, res) => {
     try {
-        const notas = await NotaModel.find();
+        const notas = await NotasModel.find();
         res.json(notas);
     } catch (err) {
         res.status(500).json({ error: err.message });
