@@ -4,11 +4,11 @@ const cors = require('cors');
 const GastosModel = require('./models/gastos');
 // const ProductoModel = require('./models/productos');
 // const ProveedorModel = require('./models/proveedor');
-// const StockModel = require('./models/stock');
-// const File = require ('./models/files')
-// const multer = require('multer');
-// const VentasModel = require('./models/ventas');
-// const NotasModel = require('./models/notas');
+const StockModel = require('./models/stock');
+const File = require ('./models/files')
+const multer = require('multer');
+const VentasModel = require('./models/ventas');
+const NotasModel = require('./models/notas');
 
 
 require("dotenv").config();
@@ -31,71 +31,71 @@ mongoose
 
 // Ventas
 
-// // Obtener registro de ventas
-// app.get('/ventas', async (req, res) => {
+// Obtener registro de ventas
+app.get('/ventas', async (req, res) => {
    
-//     try {
-//         const ventas = await VentasModel.find();
-//         res.json(ventas);
-//     } catch (err) {
-//         res.status(500).json({ error: err.message });
-//     }
-// });
+    try {
+        const ventas = await VentasModel.find();
+        res.json(ventas);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
-// // Agregar registro de ventas
-// app.post('/add-ventas', async (req, res) => {
+// Agregar registro de ventas
+app.post('/add-ventas', async (req, res) => {
    
-//     const { day, month, year, total, tp, product, boleta } = req.body;
-//     if (!day || !month ||!year || !tp || !product || !total || !boleta ) {
-//         return res.status(400).json({ error: 'Faltan datos requeridos' });
-//     }
-//     try {
-//         const newVenta = new VentasModel({ day, month, total, tp, product, boleta,year });
-//         const result = await newVenta.save();
-//         res.json(result);
-//     } catch (err) {
-//         console.error(err);
-//         res.status(500).json({ error: err.message });
-//     }
-// });
+    const { day, month, year, total, tp, product, boleta } = req.body;
+    if (!day || !month ||!year || !tp || !product || !total || !boleta ) {
+        return res.status(400).json({ error: 'Faltan datos requeridos' });
+    }
+    try {
+        const newVenta = new VentasModel({ day, month, total, tp, product, boleta,year });
+        const result = await newVenta.save();
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
 
-// // Eliminar ventas
-// app.delete('/delete-ventas/:id', async (req, res) => {
-//     const { id } = req.params;
-//     try {
-//         const result = await VentasModel.findByIdAndDelete(id);
-//         res.json(result);
-//     } catch (err) {
-//         res.status(500).json({ error: err.message });
-//     }
-// });
+// Eliminar ventas
+app.delete('/delete-ventas/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await VentasModel.findByIdAndDelete(id);
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
-// app.delete('/delete-many-ventas/', async (req,res) => {
-//     const {ids} = req.body;
+app.delete('/delete-many-ventas/', async (req,res) => {
+    const {ids} = req.body;
 
-//     if (!Array.isArray(ids) || ids.length  === 0)
-//         return res.status(400).json({error:'se require un array en los Ids'})
+    if (!Array.isArray(ids) || ids.length  === 0)
+        return res.status(400).json({error:'se require un array en los Ids'})
 
-//     try {
-//         const result = await VentasModel.deleteMany({_id: {$in:ids}})
-//         res.json( { message:`${result.deletedCount} productos eliminados`, result })
-//     } catch (err) {
-//         res.status(500).json({ error: "Server error: " + err.message });
-//     }
-// })
+    try {
+        const result = await VentasModel.deleteMany({_id: {$in:ids}})
+        res.json( { message:`${result.deletedCount} productos eliminados`, result })
+    } catch (err) {
+        res.status(500).json({ error: "Server error: " + err.message });
+    }
+})
 
 
-// // Editar Ventas
-// app.patch('/edit-ventas/:id', async (req, res) => {
-//     const { id } = req.params;
-//     const { total, product, tp, boleta,year } = req.body;
-//     try {
-//         const result = await VentasModel.findByIdAndUpdate(id, { total, product, tp, boleta, year }, { new: true });
-//         res.json(result);
-//     } catch (err) {
-//         res.status(500).json({ error: err.message });
-//     }
-// });
+// Editar Ventas
+app.patch('/edit-ventas/:id', async (req, res) => {
+    const { id } = req.params;
+    const { total, product, tp, boleta,year } = req.body;
+    try {
+        const result = await VentasModel.findByIdAndUpdate(id, { total, product, tp, boleta, year }, { new: true });
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
   
 
 // Gastos
@@ -359,138 +359,138 @@ app.patch('/edit-gastos/:id', async (req, res) => {
 // });
 
 
-// // Stock
+// Stock
 
-// // Obtener stock
-// app.get('/stock', async (req, res) => {
-//     try {
-//         const stock = await StockModel.find();
-//         res.json(stock);
-//     } catch (err) {
-//         res.status(500).json({ error: err.message });
-//     }
-// });
-
-
-// // Agregar stock
-// app.post('/add-stock', async (req, res) => {
-//     const { brands, pet, size, kg, amount, condition } = req.body;
-//     if (!brands || !pet || !size || !kg || !amount || !condition) {
-//         return res.status(400).json({ error: 'Faltan datos requeridos' });
-//     }
-//     try {
-//         const newStock = new StockModel({ brands, pet, size, kg, amount, condition });
-//         const result = await newStock.save();
-//         res.json(result);
-//     } catch (err) {
-//         console.error(err);
-//         res.status(500).json({ error: err.message });
-//     }
-// });
-
-// //Eliminar Stock
-// app.delete('/delete-stock/:id', async (req, res) => {
-//     const { id } = req.params;
-//     try {
-//         const stock = await StockModel.findByIdAndDelete(id);
-//         if (!stock) {
-//             return res.status(404).json({ error: 'Stock not found' });
-//         }
-//         res.json(stock);
-//     } catch (err) {
-//         res.status(500).json({ error: err.message });
-//     }
-// })
-
-// app.delete('/delete-many-stocks/', async (req,res) => {
-//     const {ids} = req.body;
-
-//     if (!Array.isArray(ids) || ids.length  === 0)
-//         return res.status(400).json({error:'se require un array en los Ids'})
-
-//     try {
-//         const result = await StockModel.deleteMany({_id: {$in:ids}})
-//         res.json( { message:`${result.deletedCount} productos eliminados`, result })
-//     } catch (err) {
-//         res.status(500).json({ error: "Server error: " + err.message });
-//     }
-// })
+// Obtener stock
+app.get('/stock', async (req, res) => {
+    try {
+        const stock = await StockModel.find();
+        res.json(stock);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 
-// // Editar Stock
-// app.patch('/edit-stock/:id', async ( req, res ) => {
-//     const {id} = req.params;
-//     const { brands, pet, size, kg, amount, condition } = req.body;
-//     try{
-//         const result = await StockModel.findByIdAndUpdate(id, { brands, pet, size, kg, amount, condition }, {new: true} );
-//         res.json(result)
-//     } catch (err) {
-//         res.status(500).json({ error:err.message })
-//     }
-// })
+// Agregar stock
+app.post('/add-stock', async (req, res) => {
+    const { brands, pet, size, kg, amount, condition } = req.body;
+    if (!brands || !pet || !size || !kg || !amount || !condition) {
+        return res.status(400).json({ error: 'Faltan datos requeridos' });
+    }
+    try {
+        const newStock = new StockModel({ brands, pet, size, kg, amount, condition });
+        const result = await newStock.save();
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
 
-// // Configuración de multer
-// const storage = multer.memoryStorage();
-// const upload = multer({ storage });
+//Eliminar Stock
+app.delete('/delete-stock/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const stock = await StockModel.findByIdAndDelete(id);
+        if (!stock) {
+            return res.status(404).json({ error: 'Stock not found' });
+        }
+        res.json(stock);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+})
 
-// // Ruta para subir archivos
-// app.post('/upload', upload.single('file'), async (req, res) => {
-//     const file = new File({
-//         filename: req.file.originalname,
-//         contentType: req.file.mimetype,
-//         data: req.file.buffer
-//     });
+app.delete('/delete-many-stocks/', async (req,res) => {
+    const {ids} = req.body;
 
-//     try {
-//         await file.save();
-//         res.status(201).send({ message: 'Archivo subido exitosamente' });
-//     } catch (error) {
-//         res.status(500).send({ message: 'Error al subir el archivo', error });
-//     }
-// });
+    if (!Array.isArray(ids) || ids.length  === 0)
+        return res.status(400).json({error:'se require un array en los Ids'})
 
-// // Ruta para listar archivos
-// app.get('/files', async (req, res) => {
-//     try {
-//         const files = await File.find({});
-//         res.status(200).json(files);
-//     } catch (error) {
-//         res.status(500).send({ message: 'Error al listar archivos', error });
-//     }
-// });
-
-
-// // Ruta para descargar/ver un archivo
-// app.get('/files/:id', async (req, res) => {
-//     try {
-//         const file = await File.findById(req.params.id);
-
-//         // Verificar el tipo de contenido (en este caso, application/pdf para PDFs)
-//         res.set({
-//             'Content-Type': file.contentType, // Esto debería ser 'application/pdf' para PDFs
-//             'Content-Disposition': `inline; filename=${file.filename}` // inline para visualización
-//         });
-
-//         // Enviar el archivo al cliente
-//         res.send(file.data);
-//     } catch (error) {
-//         res.status(500).send({ message: 'Error al obtener el archivo', error });
-//     }
-// });
+    try {
+        const result = await StockModel.deleteMany({_id: {$in:ids}})
+        res.json( { message:`${result.deletedCount} productos eliminados`, result })
+    } catch (err) {
+        res.status(500).json({ error: "Server error: " + err.message });
+    }
+})
 
 
-// app.delete('/delete-files/:id', async (req,res) => {
-//     const { id } = req.params;
-//     try {
-//         const deleteFiles = await File.findByIdAndDelete(id)
-//         if (!deleteFiles){
-//             return res.status(404).json({ error: 'files not found'})
-//         }
-//         res.json(deleteFiles)
-//     } catch {
-//         res.status(500).json( {error:err.message})
-//     }
-// })
+// Editar Stock
+app.patch('/edit-stock/:id', async ( req, res ) => {
+    const {id} = req.params;
+    const { brands, pet, size, kg, amount, condition } = req.body;
+    try{
+        const result = await StockModel.findByIdAndUpdate(id, { brands, pet, size, kg, amount, condition }, {new: true} );
+        res.json(result)
+    } catch (err) {
+        res.status(500).json({ error:err.message })
+    }
+})
+
+// Configuración de multer
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
+// Ruta para subir archivos
+app.post('/upload', upload.single('file'), async (req, res) => {
+    const file = new File({
+        filename: req.file.originalname,
+        contentType: req.file.mimetype,
+        data: req.file.buffer
+    });
+
+    try {
+        await file.save();
+        res.status(201).send({ message: 'Archivo subido exitosamente' });
+    } catch (error) {
+        res.status(500).send({ message: 'Error al subir el archivo', error });
+    }
+});
+
+// Ruta para listar archivos
+app.get('/files', async (req, res) => {
+    try {
+        const files = await File.find({});
+        res.status(200).json(files);
+    } catch (error) {
+        res.status(500).send({ message: 'Error al listar archivos', error });
+    }
+});
+
+
+// Ruta para descargar/ver un archivo
+app.get('/files/:id', async (req, res) => {
+    try {
+        const file = await File.findById(req.params.id);
+
+        // Verificar el tipo de contenido (en este caso, application/pdf para PDFs)
+        res.set({
+            'Content-Type': file.contentType, // Esto debería ser 'application/pdf' para PDFs
+            'Content-Disposition': `inline; filename=${file.filename}` // inline para visualización
+        });
+
+        // Enviar el archivo al cliente
+        res.send(file.data);
+    } catch (error) {
+        res.status(500).send({ message: 'Error al obtener el archivo', error });
+    }
+});
+
+
+app.delete('/delete-files/:id', async (req,res) => {
+    const { id } = req.params;
+    try {
+        const deleteFiles = await File.findByIdAndDelete(id)
+        if (!deleteFiles){
+            return res.status(404).json({ error: 'files not found'})
+        }
+        res.json(deleteFiles)
+    } catch {
+        res.status(500).json( {error:err.message})
+    }
+})
 
 
 app.listen(3001, () => {
