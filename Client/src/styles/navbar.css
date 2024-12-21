@@ -32,23 +32,38 @@
     /* padding-top: 1rem; */
 }
 
-.menu::-webkit-scrollbar {
-    width: 8px;
+
+
+.submenu {
+    display: none;
+    flex-direction: column;
+    padding-left: 20px;
+    transition: all .3s ease-in-out;
+    
 }
 
-.menu::-webkit-scrollbar-thumb {
-    background-color: #cccccc;
-    border-radius: 10px;
-    border: 2px solid #2ab270; 
+.submenu.open {
+    display: flex;
+    
 }
 
-.menu::-webkit-scrollbar-thumb:hover {
-    background-color: #aaaaaa; 
+
+.menu a:hover + .submenu, 
+.submenu:hover {
+    display: flex;
 }
 
-.menu::-webkit-scrollbar-track {
-    background-color: #2ab270; 
-    border-radius: 10px;
+.submenu-item {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    color: #ece9e9;
+    margin: 0.5rem 0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.submenu-item:hover {
+    color: #ffcc00;
 }
 
 
@@ -143,4 +158,24 @@ body.open .overlay {
 
 .icon-container .MuiSvgIcon-root {
     color: rgb(47, 46, 46);
+}
+
+
+.menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 10px;
+    /* border: 2px solid #ffffff;  */
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+    background-color: #aaaaaa; 
+}
+
+.menu::-webkit-scrollbar-track {
+    background-color: rgba(2, 12, 36, 0.2); 
+    border-radius: 10px;
 }

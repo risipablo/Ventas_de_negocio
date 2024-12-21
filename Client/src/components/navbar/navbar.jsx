@@ -17,6 +17,7 @@ import QueryStatsIcon from '@mui/icons-material/QueryStats';
 
 export function Navbar(){
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
 
 
     const toggleMenu = () => {
@@ -29,6 +30,10 @@ export function Navbar(){
         setIsMenuOpen(false);
         document.body.classList.remove('open');
     }
+
+    const toggleSubmenu = () => {
+        setIsSubmenuOpen(!isSubmenuOpen);
+    };
 
     return (
 
@@ -62,9 +67,18 @@ export function Navbar(){
                                 <MoneyOffIcon /> <a className="active"> Gastos </a>
                             </NavLink>
 
-                            <NavLink to="/estadisticas" onClick={closeMenu}>
+                            <NavLink  onClick={toggleSubmenu}>
                             <QueryStatsIcon /> <a className="active"> Estadisticas </a>
                             </NavLink>
+
+                            <div className={`submenu ${isSubmenuOpen ? 'open' : ''}`}>
+                                <NavLink to="/ventas-chart" onClick={closeMenu}>
+                                    <a className="submenu-item">Ventas</a>
+                                </NavLink>
+                                <NavLink to="/gastos-chart" onClick={closeMenu}>
+                                    <a className="submenu-item">Gastos</a>
+                                </NavLink>
+                            </div>
                         </div>
                 
                     <div onClick={toggleMenu} className={`menu-icon ${isMenuOpen ? 'open' : ''}`}>

@@ -240,7 +240,7 @@ app.post('/add-notas', async (req, res) => {
         return res.status(400).json({ error: 'Nota no proporcionada' });
     }
     try {
-        const newNota = new NotaModel({ notas, meses, description});
+        const newNota = new NotasModel({ notas, meses, description});
         const result = await newNota.save();
         res.json(result);
     } catch (err) {
