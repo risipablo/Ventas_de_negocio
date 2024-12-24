@@ -1,16 +1,18 @@
+/* General Styles */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 3fr);
-    padding: 2rem ;
+    padding: 2rem;
+    gap: 2rem;
 }
 
 .conteiner {
-    display: block;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
     margin: 25px 1.8rem;
-  
 }
 
 .formulario {
@@ -20,106 +22,131 @@
     align-items: center;
     cursor: pointer;
     margin: 0 auto;
-    background: #7ba3ed;
+    background: linear-gradient(135deg, #7ba3ed, #4a6cc3);
     height: 400px;
     width: 400px;
     border-radius: 12px;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
     padding: 22px;
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
- h2 {
+.formulario:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
     margin: 30px 0px 40px;
     font-size: 1.6rem;
+    color: #ffffff;
 }
 
 .formulario input {
     width: 80%;
     font-size: 1.2rem;
-    margin: 2rem auto;
+    margin: 1rem auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
 }
 
 .formulario ::placeholder {
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: #212121;
 }
 
 .valores {
-    border-radius: 12px 12px;
+    border-radius: 12px;
     border: 1px solid #212121;
     padding: 8px 6px;
     text-align: center;
 }
 
-
 .botoness {
     display: flex;
-    gap: 20px;
-   
-    padding: 0px 12px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
 }
 
-
 .boton {
-    border-radius: 12px 12px;
-    padding: 3px 0px;
+    border-radius: 12px;
+    padding: 10px;
     width: 30%;
-    margin: 0 auto;
     cursor: pointer;
-    background: #7a2ecc;
+    background: linear-gradient(135deg, #7a2ecc, #5c23a8);
     font-size: 18px;
     color: #fff;
-    display: block;
-    /* border: 2px solid #1a1919; */
+    border: none;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .boton:hover {
-    background:#6927b0;
-    ;
+    background: #6927b0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
 .btn2 {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
     align-items: center;
     margin: 1rem auto;
-    width: 100%; 
-  }
-  
-  .boton2 {
+    width: 100%;
+}
+
+.boton2 {
     background-color: #cc2e2e;
     padding: 10px 20px;
     color: rgb(242, 237, 237);
-    font-size: .8rem;
+    font-size: 0.8rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  
-.boton2:hover {
-    background-color: #bc1e1e;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-  
-  @media (max-width: 768px) {
+.boton2:hover {
+    background-color: #bc1e1e;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
     .boton2 {
-      font-size: 14px; 
-      padding: 10px 20px; 
+        font-size: 14px;
+        padding: 10px 20px;
     }
-  }
-
-
+}
 
 @media only screen and (max-width: 750px) {
     .grid {
-        display: block;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
+
     .formulario {
         width: 100%;
     }
+}
+
+/* Conversion Percentage Specific */
+.formulario.porcentaje {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Icons Styling */
+.material-icons {
+    font-size: 24px;
+    color: #ffffff;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.material-icons:hover {
+    color: #ffd700;
+    transform: scale(1.1);
 }

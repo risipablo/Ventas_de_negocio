@@ -67,8 +67,8 @@ export function Navbar(){
                                 <MoneyOffIcon /> <a className="active"> Gastos </a>
                             </NavLink>
 
-                            <NavLink  onClick={toggleSubmenu}>
-                            <QueryStatsIcon /> <a className="active"> Estadisticas </a>
+                            <NavLink to="/estadisticas"  onClick={toggleSubmenu}>
+                            <QueryStatsIcon /> <a> Estadisticas </a>
                             </NavLink>
 
                             <div className={`submenu ${isSubmenuOpen ? 'open' : ''}`}>
