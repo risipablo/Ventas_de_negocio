@@ -21,8 +21,10 @@ export function Filtros({ ventas, setVentasFiltradas }) {
         if (pago.trim() !== "") {
             ventasFiltradas = ventasFiltradas.filter(venta => venta.tp.toLowerCase() === pago.toLowerCase());
         }
-        if (año.trim() !== ''){
-            ventasFiltradas = ventasFiltradas.filter(venta => venta.año === parseInt(año));
+        if (año.trim() !== "") {
+            ventasFiltradas = ventasFiltradas.filter(
+                (venta) => venta.year && venta.year.toLowerCase() === año.toLowerCase()
+            );
         }
 
 
@@ -33,12 +35,13 @@ export function Filtros({ ventas, setVentasFiltradas }) {
         setFilterMonth("");
         setNumber("");
         setPago("");
+        setAño("")
         setVentasFiltradas(ventas);
     };
 
     useEffect(() => {
         filtros();
-    }, [filterMonth, number, pago,ventas]); 
+    }, [filterMonth, number, pago,año,ventas]); 
 
     return (
         <div className="filtros">
@@ -95,6 +98,7 @@ export function Filtros({ ventas, setVentasFiltradas }) {
                 <option value="Visa Crédito">Visa Crédito</option>
                 <option value="Master Crédito">Master Crédito</option>
                 <option value="Naranja Crédito">Naranja Crédito</option>
+                <option value="Debe">Debe</option>
                 <option value="Efectivo">Efectivo</option>
                 <option value="Mercado Pago">Mercado Pago</option>
             </select>

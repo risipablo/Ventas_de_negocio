@@ -6,7 +6,9 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
     const [number, setNumber] = useState('');
     const [pago, setPago] = useState('');
     const [produc,setProduc] = useState('')
-    const [produc2,setProduc2] = useState('')
+    const [produc2,setProduc2] = useState('') // productos juntos
+    const [años, setAños] = useState('')
+
 
     const filtros = () => {
         let ventasFiltradas = ventas;
@@ -33,7 +35,12 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
                 venta.product.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(normalizedInput)
             );
         }
-        
+
+        if (años.trim() !== "") {
+            ventasFiltradas = ventasFiltradas.filter(
+                (venta) => venta.year && venta.year.toLowerCase() === años.toLowerCase()
+            );
+        }
 
         setVentasFiltradas(ventasFiltradas);
     };
@@ -44,12 +51,13 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
         setPago("");
         setProduc("")
         setProduc2('')
+        setAños('')
         setVentasFiltradas(ventas);
     };
 
     useEffect(() => {
         filtros();
-    }, [filterMonth, number, pago, produc, produc2 ,ventas]); 
+    }, [filterMonth, number, pago, produc, produc2,años ,ventas]); 
 
     return (
         <div className="filtros">
@@ -83,6 +91,16 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
             </select>
 
             <select
+                onChange={(event => setAños(event.target.value))}
+                value={años}
+            >
+                <option value="">Seleccionar Año</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+            </select>
+
+            <select
                 onChange={(event) => setPago(event.target.value)}
                 value={pago}
             >
@@ -95,6 +113,7 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
                 <option value="Visa Crédito">Visa Crédito</option>
                 <option value="Master Crédito">Master Crédito</option>
                 <option value="Naranja Crédito">Naranja Crédito</option>
+                <option value="Debe"> Debe </option>
                 <option value="Efectivo">Efectivo</option>
                 <option value="Mercado Pago">Mercado Pago</option>
             </select>

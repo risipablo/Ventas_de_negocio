@@ -11,6 +11,14 @@ const VentasChart = ({ ventas }) => {
 
         const month = venta.month; 
         const total = venta.total;
+        const conditions = venta.tp ? venta.tp.toLowerCase() : ''
+
+        const conditionsReduce = ['debe']
+
+        if (conditionsReduce.includes(conditions)) {
+            return acc;
+        }
+
 
         if(!acc[month])
             acc[month] = 0
@@ -47,6 +55,13 @@ const VentasChart = ({ ventas }) => {
         
         const product = venta.product ? venta.product.toLowerCase() : ''
         const total = venta.total;
+        const conditions = venta.tp ? venta.tp.toLowerCase() : ''
+
+        const conditionsReduce = ['debe']
+
+        if (conditionsReduce.includes(conditions)) {
+            return acc;
+        }
 
         if(!acc[product])
             acc[product] = 0
@@ -107,6 +122,13 @@ const VentasChart = ({ ventas }) => {
         const month = venta.month || '';
         const product = venta.product?.toLowerCase() || '';
         const total = venta.total || 0;
+        const conditions = venta.tp ? venta.tp.toLowerCase() : ''
+
+        const conditionsReduce = ['debe']
+
+        if (conditionsReduce.includes(conditions)) {
+            return acc;
+        }
 
         acc[month] = acc[month] || {};
         acc[month][product] = (acc[month][product] || 0) + total;
@@ -179,6 +201,13 @@ const VentasChart = ({ ventas }) => {
     const metodoPago = ventas.reduce((acc,venta) => {
 
         const metodo = venta.tp ? venta.tp.toLowerCase().trim().replace(/\s+/g, ' ') : ''
+        const conditions = venta.tp ? venta.tp.toLowerCase() : ''
+
+        const conditionsReduce = ['debe']
+
+        if (conditionsReduce.includes(conditions)) {
+            return acc;
+        }
 
         const metodoFinal = metodo === 'efectivo' ? 'efectivo' :
                             metodo === 'Visa Débito' ? 'Visa Debito' : 

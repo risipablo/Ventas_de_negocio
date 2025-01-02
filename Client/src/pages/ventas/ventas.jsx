@@ -336,7 +336,8 @@ import ok from '../../assets/ok.mp3'
                                 <td>{editId === element._id ?
                                     <input value={editingId.month} onChange={(e) => setEditingId({...editingId, month: e.target.value})} />: element.month}</td>
                                
-                                <td>{element.year}</td>
+                                  <td>{editId === element._id ?
+                                    <input value={editingId.year} onChange={(e) => setEditingId({...editingId, year: e.target.value})} />: element.year}</td>
 
                                 <td>{editId === element._id ?
                                     <input value={editingId.tp} onChange={(e) => setEditingId({...editingId, tp: e.target.value})}/>  : element.tp}</td>

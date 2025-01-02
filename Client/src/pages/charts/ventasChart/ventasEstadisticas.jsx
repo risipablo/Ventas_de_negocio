@@ -26,7 +26,9 @@ export function VentasEstadisticas(){
         .catch(err => console.log(err))
     },[])
 
+ 
 
+ 
     return(
         <div className="ventas-chart">
             <h2> Ventas Estadisticas </h2>
@@ -36,6 +38,7 @@ export function VentasEstadisticas(){
 
             <tr className='total'>
                 <span> Total: ${Total({ventas:ventasFiltradas})}</span>
+               
             </tr>
   
 

@@ -27,6 +27,11 @@ export function GastosEstadisticas(){
     return(
         <div className="ventas-chart">
             <h2>  Estadisticas de Gastos</h2>
+            
+                {/* <tr className='total'>
+                    <span> Total: ${Total({gastos:gastosFiltrados})}</span>        
+                </tr>
+               */}
             <FiltrosGastoChart gastos={gastos} setGastosFiltrados={setGastosFiltrados}/> 
             <GastosChart gastos={gastosFiltrados}/>
             <ScrollTop/>

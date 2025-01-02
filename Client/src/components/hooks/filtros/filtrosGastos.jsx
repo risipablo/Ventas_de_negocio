@@ -7,7 +7,8 @@ export function FiltrosGastos({gastos,setGastosFiltrados}){
     const [proveedor,setProveedor] = useState ('')
     const [estado,setEstado] = useState ('')
     const [dia,setDia] = useState ('')
-    const [año,setAño] = useState('')
+    const [años,setAños] = useState('')
+    
   
 
 
@@ -31,10 +32,11 @@ export function FiltrosGastos({gastos,setGastosFiltrados}){
             gastosFiltrados = gastosFiltrados.filter(venta => venta.estado.toLowerCase() === estado.toLowerCase())
         }
 
-        if(año.trim() !== ""){
-            gastosFiltrados = gastosFiltrados.filter(venta => venta.año === parseInt(año))
+        if (años.trim() !== "") {
+            ventasFiltradas = ventasFiltradas.filter(
+                (venta) => venta.año && venta.año.toLowerCase() === años.toLowerCase()
+            );
         }
-
 
         setGastosFiltrados(gastosFiltrados)
 
@@ -47,7 +49,7 @@ export function FiltrosGastos({gastos,setGastosFiltrados}){
         setMes("")
         setProveedor("")
         setDia("")
-        setAño('')
+        setAños('')
         setFilterMes("")
     }
 
@@ -55,7 +57,7 @@ export function FiltrosGastos({gastos,setGastosFiltrados}){
     // Con el useEffect los filtros automáticamente cada vez que los valores cambian 
     useEffect(() => {
         filtros();
-    },[mes,estado,proveedor,dia,año])
+    },[mes,estado,proveedor,dia,años])
 
     return(
              <div className="filtros">
@@ -92,8 +94,8 @@ export function FiltrosGastos({gastos,setGastosFiltrados}){
                 </select>
 
                 <select
-                        onChange={(event => setAño(event.target.value))}
-                        value={año}
+                        onChange={(event => setAños(event.target.value))}
+                        value={años}
                     >
                         <option value="">Seleccionar Año</option>
                         <option value="2024">2024</option>

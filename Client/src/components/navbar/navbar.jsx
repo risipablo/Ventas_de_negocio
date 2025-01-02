@@ -67,11 +67,11 @@ export function Navbar(){
                                 <MoneyOffIcon /> <a className="active"> Gastos </a>
                             </NavLink>
 
-                            <NavLink to="/estadisticas"  onClick={toggleSubmenu}>
-                            <QueryStatsIcon /> <a> Estadisticas </a>
+                            <NavLink to="/estadisticas"   onClick={closeMenu}>
+                            <QueryStatsIcon /> <a onClick={toggleSubmenu}> Estadisticas </a>
                             </NavLink>
 
-                            <div className={`submenu ${isSubmenuOpen ? 'open' : ''}`}>
+                            <div className={`submenu ${isSubmenuOpen ? 'open' : ''}`} >
                                 <NavLink to="/ventas-chart" onClick={closeMenu}>
                                     <a className="submenu-item">Ventas</a>
                                 </NavLink>
