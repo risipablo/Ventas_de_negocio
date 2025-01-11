@@ -32,11 +32,8 @@ export function FiltrosGastos({gastos,setGastosFiltrados}){
             gastosFiltrados = gastosFiltrados.filter(venta => venta.estado.toLowerCase() === estado.toLowerCase())
         }
 
-        if (años.trim() !== "") {
-            ventasFiltradas = ventasFiltradas.filter(
-                (venta) => venta.año && venta.año.toLowerCase() === años.toLowerCase()
-            );
-        }
+        if(años.trim() !== '')
+            gastosFiltrados = gastosFiltrados.filter(gasto => Number(gasto.año) === Number(años));
 
         setGastosFiltrados(gastosFiltrados)
 

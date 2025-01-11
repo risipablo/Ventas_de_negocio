@@ -9,15 +9,6 @@ const GastosChart = ({gastos}) => {
     const isMobile = window.innerWidth <= 768;
 
 
-    const promedioGasto = (gastos) => {
-        if (gastos.length === 0) 
-            return 0
-        const sumaTotal = gastos.reduce((total,gasto) => total + Number(gasto.monto),0)
-        const total = sumaTotal / gastos.length
-
-        return total.toLocaleString('en-GB', { maximumFractionDigits: 0 });
-
-    }
 
     const gastoTotal = (gastos) => {
         let total = 0
@@ -47,6 +38,7 @@ const GastosChart = ({gastos}) => {
         return gastosPorMes[key] > gastosPorMes[max] ? key : max
     }, Object.keys(gastosPorMes)[0]) 
 
+    const promMes = gastosPorMes[maximoMes]
 
     const dataGastosMes = {
         labels: Object.keys(gastosPorMes),
@@ -115,8 +107,6 @@ const GastosChart = ({gastos}) => {
         ],
     }
 
-
-
     const proveedorPorMes = gastos.reduce((acc,gasto) => {
         const proveedores = gasto.proveedor;
         const total = gasto.monto;
@@ -131,6 +121,8 @@ const GastosChart = ({gastos}) => {
     const maxProveedor = Object.keys(proveedorPorMes).reduce((max,key) => {
         return proveedorPorMes[key] > proveedorPorMes[max] ? key : max
     },Object.keys(proveedorPorMes)[0])
+
+    const proveedorProm = proveedorPorMes[maxProveedor]
 
     const dataProveedor = {
         labels: Object.keys(proveedorPorMes),
@@ -189,6 +181,15 @@ const GastosChart = ({gastos}) => {
     };
 
 
+    const promedioGasto = gastos.reduce((acc,gasto) => {
+        const total = gasto.monto;
+
+        
+        const totalFinal = total / 12
+
+        return acc + totalFinal
+    },0)
+
     return (
         <div className="chart-container">
 
@@ -214,21 +215,39 @@ const GastosChart = ({gastos}) => {
                 </div>
             </div>
 
-            <div className="month-container">
-
-                <h2>Gastos totales </h2>
-                <div className="promedio">
-                    <p>${gastoTotal(gastos)}</p>
+            <div className="promedios-container">
+                <div>
+                    <h3>Gastos totales </h3>
+                    <div className="content-row">
+                        <p>${gastoTotal(gastos)}</p>
+                    </div>
                 </div>
 
-                <h2>Promedio gasto por mes</h2>
-                <div className="promedio">
-                    <p>${promedioGasto(gastos)}</p>
-                </div>    
+               <div>                
+                    <h3>Promedio gasto por mes</h3>
+                    <div className="content-row">
+                        <p>${(promedioGasto || 0).toLocaleString('en-US')}</p>
+                    </div>    
+               </div>
+
+               <div>                
+                    <h3>Proveedor con más gasto</h3>
+                    <div className="content-row">
+                        <p>{maxProveedor}</p>
+                        <p>${(proveedorProm || 0).toLocaleString('en-US')}</p>
+                    </div>    
+               </div>
+
+               <div>                
+                    <h3>Mes más gastado</h3>
+                    <div className="content-row">
+                        <p>{maximoMes}</p>
+                        <p>${(promMes || 0).toLocaleString('en-US')}</p>
+                    </div>    
+               </div>
 
             </div>
 
-            
         </div>
     )
 }
