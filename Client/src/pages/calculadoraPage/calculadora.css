@@ -1,0 +1,83 @@
+/* Contenedor principal de la calculadora */
+.contenedor-calculadora {
+    margin: 7rem auto;
+    width: 400px;
+    background-color: #a809c8;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    padding: 20px;
+  }
+  
+  /* Pantalla de la calculadora */
+  .input {
+    width: 100%;
+    height: 70px;
+    background-color: #f4f0f0;
+    border-radius: 5px;
+    font-size: 24px;
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: #333;
+    overflow: hidden;
+  }
+  
+  /* Fila de botones */
+  .fila {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  /* Botón de la calculadora */
+  .boton-contenedor {
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    border: 2px solid #d0d0d0;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2d2b2b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .boton-contenedor:hover {
+    background-color: #e7e7e7;
+  }
+  
+  .boton-contenedor.operador {
+    background-color: #ff8c00;
+    color: white;
+  }
+  
+  .boton-contenedor.operador:hover {
+    background-color: #e07b00;
+  }
+  
+  /* Botón Clear */
+  .boton-clear {
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    background-color: #ec1b1b;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .boton-clear:hover {
+    background-color: #e04343;
+  }
+  
+  .contenedor-calculadora:focus {
+    outline: 2px solid #a809c8;
+  }

@@ -15,6 +15,7 @@ import { VentasEstadisticas } from "./pages/charts/ventasChart/ventasEstadistica
 import { Chart } from "./pages/charts/chart/chart"
 import { GastosEstadisticas } from "./pages/charts/gastosChart/gastosEstadisticas"
 import { ResumenChart } from "./pages/charts/resumenChart/resumenChart"
+import { Calculadora } from "./pages/calculadoraPage/calculadora"
 
 
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/proveedor" element={<Proveedor/>}/>
           <Route path="/conversion" element={<Conversion/>}/>
           <Route path="/archivos" element={<FileUpload/>}/>
+          <Route path="/calculadora" element={<Calculadora/>}/>
           <Route path="/notas" element={<Notas/>}/>
           <Route path="/stock" element={<Stock/>} />
           <Route path="/carrito" element={<Carrito/>} />

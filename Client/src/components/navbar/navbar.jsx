@@ -10,6 +10,7 @@ import { ArchivoIcon } from "../../pages/archivosPage/archivoIcon";
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import StoreIcon from '@mui/icons-material/Store';
+import CalculateIcon from '@mui/icons-material/Calculate';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import MoneyOffIcon from '@mui/icons-material/MoneyOff';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
@@ -51,10 +52,10 @@ export function Navbar(){
                                 <CompareArrowsIcon /> <a className="active"> Conversion </a>
                             </NavLink>
 
-                            <a href="https://risipablo.github.io/ListaLocal/Calculadora.html" className="active">
-                                <span className="calculator-icon">🧮</span> Calculadora
-                            </a>
-
+                            <NavLink to="/calculadora">
+                                <CalculateIcon/>  <a className="active"> Calculadora </a>
+                            </NavLink>
+                   
                             <NavLink to="/proveedor" onClick={closeMenu}>
                                 <StoreIcon /> <a className="active"> Proveedor </a>
                             </NavLink>
