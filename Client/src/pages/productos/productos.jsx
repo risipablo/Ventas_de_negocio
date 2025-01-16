@@ -186,7 +186,7 @@ export function Productos() {
     };
 
     const promoCondicion = (condicion) => {
-        return condicion.toLowerCase() === 'efectivo/débito' ? 'rgba(238, 217, 62, 0.8)' : null || condicion.toLowerCase() === 'efectivo' ? 'rgba(238, 217, 62, 0.8)' : null
+        return condicion.toLowerCase() === 'efectivo/débito' ? 'rgba(238, 217, 62, 0.8)' : null || condicion.toLowerCase() === 'efectivo' ? 'rgba(238, 217, 62, 0.8)' : null || condicion.toLowerCase() === 'no actualizado' ? 'rgba(230, 48, 31, 0.8)' : null 
     }
 
     const [ordenar,setOrdenar] = useState(true)
@@ -274,6 +274,7 @@ export function Productos() {
                                     <option value="-"> Ninguno </option>
                                     <option value="Efectivo/Débito"> Efectivo/Débito </option>
                                     <option value="Efectivo"> Efectivo </option>
+                                    <option value="No Actualizado"> No Actualizado </option>
                                 </select>
                             </div>
                             

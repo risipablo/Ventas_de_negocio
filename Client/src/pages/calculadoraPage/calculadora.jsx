@@ -22,6 +22,10 @@ export function Calculadora(){
       }
   }
 
+  const borrarUltimo = () => {
+    setInput(input.slice(0, -1)); 
+  };
+
   const teclado =(event) => {
     const {key} = event;
 
@@ -65,10 +69,12 @@ export function Calculadora(){
                 <Boton manejarClic={agregarInput}>0</Boton>
                 <Boton manejarClic={agregarInput}>.</Boton>
                 <Boton manejarClic={agregarInput}>/</Boton>
+                <Boton manejarClic={borrarUltimo}>DEL</Boton>
             </div>
 
             <div className='fila'>
                 <BotonClear manejarClear = {() => setInput('')}>Limpiar</BotonClear>
+                
             </div>
         </div>
 
