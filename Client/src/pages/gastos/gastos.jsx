@@ -217,6 +217,8 @@ export function Gastos(){
                     <option value="Kro Line">Kro Line</option>
                     <option value="Mercaba">Mercaba</option>
                     <option value="Cancid">Cancid</option>
+                    <option value="Conurbano Distribucion">Conurbano Distribucion</option>
+                    <option value="PPF">PPF</option>
                     <option value="Indumentaria">Indumentaria</option>
                     <option value="Otros">Otros</option>
                 </select>

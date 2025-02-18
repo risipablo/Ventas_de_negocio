@@ -59,6 +59,8 @@ export function FiltroProveedor({products, setProveedorFiltrado}) {
                 <option value="Nutrisur">Nutrisur</option>
                 <option value="Amadeo">Amadeo</option>
                 <option value="Don Tomas">Don Tomas</option>
+                <option value="PPF">PPF</option>
+                <option value="Conurbano Distribucion">Conurbano Distribucion</option>
                 <option value="Chubutin">Chubutin</option>
                 <option value="Kro Line">Kro Line</option>
             </select>
@@ -89,6 +91,8 @@ export function FiltroProveedor({products, setProveedorFiltrado}) {
                     <option value="Stone Cat">Stone Cat</option>
                     <option value="Pellcats">Pellcats</option>
                     <option value="Neupell">Neupell</option>
+                    <option value="Advance">Advance</option>
+                    <option value="Unik">Unik</option>
                     <option value="Pedigree">Pedigree</option>
                     <option value="Golocan">Golocan</option>
                     <option value="Paños Pet">Paños Pet</option>

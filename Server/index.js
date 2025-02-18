@@ -331,7 +331,7 @@ app.delete('/delete-proveedors/:id', async (req, res) => {
     }
 });
 
-app.delete('/delete-proveedores/', async (req,res) => {
+app.delete('/delete-many-proveedores/', async (req,res) => {
     const {ids} = req.body;
 
     if (!Array.isArray(ids) || ids.length  === 0)

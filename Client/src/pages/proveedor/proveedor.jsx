@@ -317,7 +317,8 @@ export function Proveedor() {
                                             <input type="checkbox" checked={selectedNotes.includes(element._id)} onChange={() => handleChange(element._id)} />
                                         )}
                                     </td>
-                                    <td>{element.proveedores}</td>
+                                    <td>{editingId === element._id ?
+                                        <input value={editingData.proveedores} onChange={(e) => setEditingData({ ...editingData, proveedores: e.target.value })} /> : element.proveedores}</td>
                                     <td>{editingId === element._id ?
                                         <input value={editingData.marcas} onChange={(e) => setEditingData({ ...editingData, marcas: e.target.value })} /> : element.marcas}</td>
                                     <td>{editingId === element._id ?
