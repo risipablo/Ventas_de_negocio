@@ -11,6 +11,7 @@ import axios from "axios";
 import useSound from 'use-sound'
 import cash from '../../assets/cash.mp3'
 import ok from '../../assets/ok.mp3'
+import {ColorRing} from 'react-loader-spinner'
 
  export function Ventas() {
     const [ventas, setVentas] = useState([]);
@@ -24,6 +25,7 @@ import ok from '../../assets/ok.mp3'
     const [newYear,setNewYear] = useState('')
     const [play] = useSound(cash)
     const [play2] = useSound(ok)
+    const [loading, setLoading] = useState(false)
    
 
 
@@ -37,8 +39,10 @@ import ok from '../../assets/ok.mp3'
             .then(response => {
                 setVentas(response.data);
                 setVentasFiltradas(response.data);
+                setLoading(false)
             })
             .catch(err => console.log(err));
+            setLoading(false)
     }, []);
 
     const addVentas = () => {
@@ -205,9 +209,7 @@ import ok from '../../assets/ok.mp3'
   
 
             <div className='inputs-ventas' > 
-
-              
-                    
+      
                     <select type="text"
                         onChange={(event => setDay(event.target.value))}
                         value={newDay}
@@ -309,7 +311,7 @@ import ok from '../../assets/ok.mp3'
             </div>
            
 
-         
+        
             
             <div className="productos">
                 <div className='table-responsive'>
@@ -326,6 +328,19 @@ import ok from '../../assets/ok.mp3'
                                 <th ></th>
                             </tr>
                         </thead>
+                        {loading ? (
+            <div className="loader-container">
+                    <ColorRing
+                        visible={true}
+                        height="80"
+                        width="80"
+                        ariaLabel="color-ring-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="color-ring-wrapper"
+                        colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+                    />
+            </div>
+         ) : (   
                         <tbody>
                             {ventasFiltradas.map((element, index) => 
                             <tr key={index} style={{ background: condicionPago(element.tp || '')}}>
@@ -369,6 +384,7 @@ import ok from '../../assets/ok.mp3'
                             </tr>
                             )}
                         </tbody>
+                           )}
                         <tfoot>
                             <tr className='total'>
                                 <td>Total </td>
@@ -377,12 +393,16 @@ import ok from '../../assets/ok.mp3'
                                 <td></td>
                             </tr>
                         </tfoot>
+                        
                     </table>
+                    
                     <Notificacion/>
                     <Toaster/>
                     <ScrollTop/>
                 </div>
+                
             </div>
+           
         </div>
     );
 }
