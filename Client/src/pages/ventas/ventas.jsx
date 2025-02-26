@@ -11,7 +11,8 @@ import axios from "axios";
 import useSound from 'use-sound'
 import cash from '../../assets/cash.mp3'
 import ok from '../../assets/ok.mp3'
-import {ColorRing} from 'react-loader-spinner'
+import { ClipLoader } from "react-spinners";
+import { keyframes } from "@emotion/react";
 
  export function Ventas() {
     const [ventas, setVentas] = useState([]);
@@ -25,9 +26,12 @@ import {ColorRing} from 'react-loader-spinner'
     const [newYear,setNewYear] = useState('')
     const [play] = useSound(cash)
     const [play2] = useSound(ok)
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
    
-
+    const fadeInOut = keyframes`
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  `;
 
     const serverFront = 'https://ventas-de-negocio.onrender.com'
     // const serverFront = 'http://localhost:3001'
@@ -37,12 +41,15 @@ import {ColorRing} from 'react-loader-spinner'
     useEffect(() => {
         axios.get(`${serverFront}/ventas`)
             .then(response => {
-                setVentas(response.data);
-                setVentasFiltradas(response.data);
-                setLoading(false)
+                setTimeout(() => {
+                    setVentas(response.data);
+                    setVentasFiltradas(response.data);
+                    setLoading(false);
+                },1000)
             })
-            .catch(err => console.log(err));
-            setLoading(false)
+            .catch(err => {
+                console.log(err);
+            setLoading(false)});
     }, []);
 
     const addVentas = () => {
@@ -325,84 +332,81 @@ import {ColorRing} from 'react-loader-spinner'
                                 <th> Número de Cupo </th>
                                 <th> Descripción </th>
                                 <th> Importe </th>
-                                <th ></th>
+                                <th></th>
                             </tr>
                         </thead>
-                        {loading ? (
-            <div className="loader-container">
-                    <ColorRing
-                        visible={true}
-                        height="80"
-                        width="80"
-                        ariaLabel="color-ring-loading"
-                        wrapperStyle={{}}
-                        wrapperClass="color-ring-wrapper"
-                        colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-                    />
-            </div>
-         ) : (   
                         <tbody>
-                            {ventasFiltradas.map((element, index) => 
-                            <tr key={index} style={{ background: condicionPago(element.tp || '')}}>
+                            {loading ? (
 
-                                <td>{element.day}</td>
-                                
-                                
-                                <td>{editId === element._id ?
-                                    <input value={editingId.month} onChange={(e) => setEditingId({...editingId, month: e.target.value})} />: element.month}</td>
-                               
-                                  <td>{editId === element._id ?
-                                    <input value={editingId.year} onChange={(e) => setEditingId({...editingId, year: e.target.value})} />: element.year}</td>
-
-                                <td>{editId === element._id ?
-                                    <input value={editingId.tp} onChange={(e) => setEditingId({...editingId, tp: e.target.value})}/>  : element.tp}</td>
-                                
-                                <td  className="texto-notas">
-                                    {editId === element._id ?
-                                    <input value={editingId.boleta} onChange={(e) => setEditingId({...editingId, boleta: e.target.value })}/> : element.boleta}</td>
-
-                                <td className="texto-notas">             
-                                    {editId === element._id ?
-                                    <input value={editingId.product} onChange={(e) => setEditingId({...editingId, product: e.target.value })}/> : element.product}</td>
-
-                                <td className='monto'>${editId === element._id ?
-                                    <input value={editingId.total} onChange={(e) => setEditingId({...editingId, total: e.target.value})}/> : element.total}</td>
-
-                                <div className="actions">
-                                    <button className="trash" onClick={() => deleteVentas(element._id, element.product, element.total)}> <i className="fa-solid fa-trash"></i> </button>
-                                    
-                                    {editId === element._id ? (
-                                    <div className='btn-edit'>
-                                        <button className="check" onClick={() => saveEdit(element._id)}><i className="fa-solid fa-check"></i></button>
-                                        <button className="cancel" onClick={cancelEdit}><i className="fa-solid fa-ban"></i></button>
-
-                                    </div>
-                                        ) : (
-                                            <button className="edit" onClick={() => editing(element)}><i className="fa-solid fa-gear"></i></button>
-                                        )}
-                                </div>
-                            </tr>
+                                  <tr>
+                                  <td colSpan="8" style={{ textAlign: "center" }}>
+                                      <ClipLoader color={"#36D7B7"} size={50} />
+                                      <p style={{ color: "#36D7B7", animation: `${fadeInOut} 1s infinite` }}>
+                                          Cargando ventas...
+                                      </p>
+                                  </td>
+                                </tr>
+                
+                            ) : (
+                                ventasFiltradas.map((element, index) => (
+                                    <tr key={index} style={{ background: condicionPago(element.tp || '') }}>
+                                        <td>{element.day}</td>
+                                        <td>{editId === element._id ?
+                                            <input value={editingId.month} onChange={(e) => setEditingId({ ...editingId, month: e.target.value })} />
+                                            : element.month}</td>
+                                        <td>{editId === element._id ?
+                                            <input value={editingId.year} onChange={(e) => setEditingId({ ...editingId, year: e.target.value })} />
+                                            : element.year}</td>
+                                        <td>{editId === element._id ?
+                                            <input value={editingId.tp} onChange={(e) => setEditingId({ ...editingId, tp: e.target.value })} />
+                                            : element.tp}</td>
+                                        <td className="texto-notas">{editId === element._id ?
+                                            <input value={editingId.boleta} onChange={(e) => setEditingId({ ...editingId, boleta: e.target.value })} />
+                                            : element.boleta}</td>
+                                        <td className="texto-notas">{editId === element._id ?
+                                            <input value={editingId.product} onChange={(e) => setEditingId({ ...editingId, product: e.target.value })} />
+                                            : element.product}</td>
+                                        <td className='monto'>${editId === element._id ?
+                                            <input value={editingId.total} onChange={(e) => setEditingId({ ...editingId, total: e.target.value })} />
+                                            : element.total}</td>
+                                        <td className="actions">
+                                            <button className="trash" onClick={() => deleteVentas(element._id, element.product, element.total)}>
+                                                <i className="fa-solid fa-trash"></i>
+                                            </button>
+                                            {editId === element._id ? (
+                                                <div className='btn-edit'>
+                                                    <button className="check" onClick={() => saveEdit(element._id)}>
+                                                        <i className="fa-solid fa-check"></i>
+                                                    </button>
+                                                    <button className="cancel" onClick={cancelEdit}>
+                                                        <i className="fa-solid fa-ban"></i>
+                                                    </button>
+                                                </div>
+                                            ) : (
+                                                <button className="edit" onClick={() => editing(element)}>
+                                                    <i className="fa-solid fa-gear"></i>
+                                                </button>
+                                            )}
+                                        </td>
+                                    </tr>
+                                ))
                             )}
                         </tbody>
-                           )}
                         <tfoot>
                             <tr className='total'>
-                                <td>Total </td>
-                                <td colSpan="4"> </td>
-                                <td> ${totalMonto(ventasFiltradas)}</td>
+                                <td>Total</td>
+                                <td colSpan="4"></td>
+                                <td>${totalMonto(ventasFiltradas)}</td>
                                 <td></td>
                             </tr>
                         </tfoot>
-                        
                     </table>
-                    
-                    <Notificacion/>
-                    <Toaster/>
-                    <ScrollTop/>
+                    <Notificacion />
+                    <Toaster />
+                    <ScrollTop />
                 </div>
-                
             </div>
-           
+
         </div>
     );
 }

@@ -4,7 +4,7 @@ import axios from "axios";
 import { FiltrosProductos } from "../../components/hooks/filtros/FiltroProductos";
 import { Helmet } from 'react-helmet';
 import { ScrollTop } from '../../components/others/scrollTop';
-import { Button, Collapse } from '@mui/material';
+import { Button, Collapse, Skeleton } from '@mui/material';
 import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import { TransitionGroup } from 'react-transition-group';
 import { Notificacion } from "../../components/others/notificacion";
@@ -33,15 +33,21 @@ export function Productos() {
     const [toogleCheck, setToogleCheck] = useState(null)
     const [play] = useSound(digital)
     const [play2] = useSound(ok)
+    const [loading, setLoading] = useState(true)
 
 
     useEffect(() => {
         axios.get(`${serverFront}/productos`)
             .then(response => {
-                setProductos(response.data);
-                setProductosFiltrado(response.data);
+                setTimeout(() => {
+                    setProductos(response.data);
+                    setProductosFiltrado(response.data);
+                    setLoading(false)
+                },1000)
             })
-            .catch(err => console.log(err))
+            .catch(err => {console.log(err)
+                setLoading(false)
+            })
     }, [])
 
     const addProductos = () => {
@@ -350,7 +356,26 @@ export function Productos() {
                         </thead>
 
                         <tbody>
-                            {productosFiltrado.map((element, index) =>
+                            {loading ? (
+                             
+                                   
+                                    [...Array(8)].map((_, index) => (
+                                        <tr key={index}  >
+                                            
+                                            <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                            <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                            <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                            <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                            <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                            <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                            <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                            <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                        </tr>
+                                    ))
+                                
+
+                            ) : (
+                                productosFiltrado.map((element, index) => (
                                 <tr 
                                     key={index} 
                                     style={{ background: promoCondicion(element.condicion || '')}}
@@ -398,8 +423,10 @@ export function Productos() {
                                     </div>
 
                                 </tr>
+                                ))
                             )}
                         </tbody>
+
                     </table>
 
                 </div>

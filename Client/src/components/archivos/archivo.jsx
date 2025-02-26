@@ -2,12 +2,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../../styles/archivos.css';
 import 'font-awesome/css/font-awesome.min.css';  
-import useSound from 'use-sound'
-import ok from "../../assets/ok.mp3"
+import useSound from 'use-sound';
+import ok from "../../assets/ok.mp3";
+import { ClipLoader } from 'react-spinners';
+import { keyframes } from '@emotion/react';
+import toast, { Toaster } from 'react-hot-toast';
 
-
-const serverFront = 'https://ventas-de-negocio.onrender.com';
-// const serverFront = 'http://localhost:3001'
+// const serverFront = 'http://localhost:3001';
+const serverFront = 'https://ventas-de-negocio.onrender.com'
 
 const FileUpload = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -15,8 +17,13 @@ const FileUpload = () => {
     const [message, setMessage] = useState('');
     const [archivos, setArchivos] = useState([]);
     const [previewUrl, setPreviewUrl] = useState(null); // Nuevo estado para la URL del archivo a visualizar
-    const [play2] = useSound(ok)
+    const [play2] = useSound(ok);
+    const [loading, setLoading] = useState(true);
 
+    const fadeInOut = keyframes`
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  `;
 
     // Manejar la selección de archivo y generar vista previa
     const onFileChange = (event) => {
@@ -51,17 +58,22 @@ const FileUpload = () => {
         const formData = new FormData();
         formData.append('file', selectedFile);
 
-        try {
-            const response = await axios.post(`${serverFront}/upload`, formData);
-            setMessage(response.data.message);
+        toast.promise(
+            axios.post(`${serverFront}/upload`, formData),
+            {
+                loading: 'Subiendo archivo...',
+                success: 'Archivo subido con éxito!',
+                error: 'Error al subir el archivo',
+            }
+        ).then(() => {
+            setMessage("");
             fetchFiles(); // Actualizar la lista de archivos después de subir uno nuevo
             setPreview(null); // Limpiar la vista previa después de la subida
             setSelectedFile(null); // Limpiar el archivo seleccionado
-            play2()
-        } catch (error) {
-            setMessage('Error al subir el archivo');
+            play2();
+        }).catch(error => {
             console.error(error);
-        }
+        });
     };
 
     // Obtener archivos
@@ -76,13 +88,18 @@ const FileUpload = () => {
 
     // Eliminar archivo
     const deleteFile = async (id) => {
-        await axios.delete(`${serverFront}/delete-files/`+ id) 
-        .then(response => {
-            setArchivos(archivos.filter((archivo) => archivo._id !== id))
-            fetchFiles()
-        })
-      .catch (err => console.log(err))
-};
+        toast.promise(
+            axios.delete(`${serverFront}/delete-files/${id}`),
+            {
+                loading: 'Eliminando archivo...',
+                success: 'Archivo eliminado con éxito!',
+                error: 'Error al eliminar el archivo',
+            }
+        ).then(() => {
+            setArchivos(archivos.filter((archivo) => archivo._id !== id));
+            fetchFiles();
+        }).catch(err => console.log(err));
+    };
 
     // Resetear vista previa y mensaje
     const resetFile = async () => {
@@ -96,12 +113,15 @@ const FileUpload = () => {
     };
 
     useEffect(() => {
-        fetchFiles();
+        setTimeout(() => {
+            fetchFiles();
+            setLoading(false);
+        }, 1000);
     }, []);
-
 
     return (
         <div className='file-upload-container'>
+            <Toaster />
             <h2>Subir Archivo</h2>
             <input type="file" onChange={onFileChange} />
             {preview && (
@@ -127,6 +147,16 @@ const FileUpload = () => {
 
             <div className='files-uploads'>
                 <h2>Archivos Subidos</h2>
+                {loading ? (
+                    <tr>
+                        <td colSpan="8" style={{ textAlign: "center" }}>
+                            <ClipLoader color={"#36D7B7"} size={50} />
+                            <p style={{ color: "#36D7B7", animation: `${fadeInOut} 1s infinite` }}>
+                                Cargando archivos...
+                            </p>
+                        </td>
+                    </tr>
+                ) : (
                     <ul className="file-list">
                         {archivos.map(file => (
                             <li key={file._id} className="file-item">
@@ -143,12 +173,10 @@ const FileUpload = () => {
                             </li>
                         ))}
                     </ul>
+                )}
             </div>
         </div>
     );
-
 };
 
 export default FileUpload;
-
-

@@ -3,7 +3,7 @@ import "../../styles/notas.css";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
-import { Accordion, AccordionSummary} from '@mui/material';
+import { Accordion, AccordionSummary, Skeleton} from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ScrollTop } from "../others/scrollTop";
 import { NotasContext } from "./notasContext/notasContext";
@@ -14,8 +14,8 @@ import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
 
 
-// const serverFront = "http://localhost:3001";
-const serverFront = 'https://ventas-de-negocio.onrender.com'
+const serverFront = "http://localhost:3001";
+// const serverFront = 'https://ventas-de-negocio.onrender.com'
 
 
 export function Notas() {
@@ -26,16 +26,24 @@ export function Notas() {
     const [newMeses, setNewMeses ] = useState("");
     const [play] = useSound(digital)
     const [play2] = useSound(ok)
+    const [loading, setLoading] = useState(true)
 
     const { agregarNotas, completarNotas, eliminarNota } = useContext(NotasContext)
-
+    
+    
     useEffect(() => {
         axios.get(`${serverFront}/notas`)
             .then(response => {
-                setNotes(response.data);
-                setNotesFilter(response.data)
+                setTimeout(() => {
+                    setNotes(response.data);
+                    setNotesFilter(response.data);
+                    setLoading(false); 
+                }, 3000); 
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err);
+                setLoading(false); 
+            });
     }, []);
 
  
@@ -249,60 +257,70 @@ export function Notas() {
                                     <th></th>
                                 </tr>
                             </thead>
+
                             <tbody>
-                                {notesFilter.map((element, index) => 
-                                    <tr key={index} className={element.completed ? "completed-note" : ""} 
-                                    onClick={() => setToogleCheck(toogleCheck === element._id ? null:element._id)}
-                                    >
-
-                                        
-                                        <td> 
-                                            {(toogleCheck === element._id || selectedNotes.includes(element._id)) && (
-                                                <input type="checkbox" checked={selectedNotes.includes(element._id)} onChange={() => handleChange(element._id)} />
-                                            )}
-                                        </td>
-
-                                        <td className="texto-notas">{editingId === element._id ?
-                                            <input value={editingData.notas} onChange={(e) => setEditingData({...editingData, notas:e.target.value})} /> : element.notas} </td>
-                                        
-                                        <td className="texto-notas">{editingId === element._id ? 
-                                            <input value={editingData.description} onChange={(e) => setEditingData({...editingData, description:e.target.value})}/> :
-                                            element.description}</td>
-
-                                        <td>{editingId === element._id ?
-                                            <input value={editingData.meses} onChange={(e) => setEditingData({...editingData, meses:e.target.value})} /> : element.meses} </td>
-
-                                        <td className="actions2">
-                                            <button className="trash" onClick={() => deleteNotas(element._id)}>
-                                                <i className="fa-solid fa-trash"></i>
-                                            </button>
-
-                                            <button
-                                                className={element.completed ? "desmarcar" : "completar"}
-                                                onClick={() => completedNote(element._id, element.completed)}
-                                            >
-                                                {element.completed ? "Desmarcar" : "Completar"}
-                                            </button>
-
-                                            {editingId === element._id ? (
-                                                <div className="btn-edit">
-                                                    <button className="check" onClick={() => saveChanges(element._id)}>
-                                                        <i className="fa-solid fa-check"></i>
-                                                    </button>
-                                                    <button className="cancel" onClick={cancelEditing}>
-                                                        <i className="fa-solid fa-ban"></i>
-                                                    </button>
-                                                </div>
-                                            ) : (
-                                                <button className="edit" onClick={() => startEditing(element)}>
-                                                    <i className="fa-solid fa-pen-to-square"></i>
+                                {loading ? (
+                                    [...Array(3)].map((_, index) => (
+                                        <tr key={index}>
+                                            <td><Skeleton variant="text" width={100} /></td>
+                                            <td><Skeleton variant="text" width={100} /></td>
+                                            <td><Skeleton variant="text" width={100} /></td>
+                                            <td><Skeleton variant="text" width={100} /></td>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    notesFilter.map((element, index) => (
+                                        <tr key={index} className={element.completed ? "completed-note" : ""} 
+                                            onClick={() => setToogleCheck(toogleCheck === element._id ? null : element._id)}>
+                                            
+                                            <td>
+                                                {(toogleCheck === element._id || selectedNotes.includes(element._id)) && (
+                                                    <input type="checkbox" checked={selectedNotes.includes(element._id)} onChange={() => handleChange(element._id)} />
+                                                )}
+                                            </td>
+                                            
+                                            <td className="texto-notas">{editingId === element._id ?
+                                                <input value={editingData.notas} onChange={(e) => setEditingData({...editingData, notas:e.target.value})} /> : element.notas} </td>
+                                            
+                                            <td className="texto-notas">{editingId === element._id ? 
+                                                <input value={editingData.description} onChange={(e) => setEditingData({...editingData, description:e.target.value})}/> :
+                                                element.description}</td>
+                                            
+                                            <td>{editingId === element._id ?
+                                                <input value={editingData.meses} onChange={(e) => setEditingData({...editingData, meses:e.target.value})} /> : element.meses} </td>
+                                            
+                                            <td className="actions2">
+                                                <button className="trash" onClick={() => deleteNotas(element._id)}>
+                                                    <i className="fa-solid fa-trash"></i>
                                                 </button>
-                                            )}
-                                        </td>
-
-                                    </tr>
+                                                
+                                                <button
+                                                    className={element.completed ? "desmarcar" : "completar"}
+                                                    onClick={() => completedNote(element._id, element.completed)}
+                                                >
+                                                    {element.completed ? "Desmarcar" : "Completar"}
+                                                </button>
+                                                
+                                                {editingId === element._id ? (
+                                                    <div className="btn-edit">
+                                                        <button className="check" onClick={() => saveChanges(element._id)}>
+                                                            <i className="fa-solid fa-check"></i>
+                                                        </button>
+                                                        <button className="cancel" onClick={cancelEditing}>
+                                                            <i className="fa-solid fa-ban"></i>
+                                                        </button>
+                                                    </div>
+                                                ) : (
+                                                    <button className="edit" onClick={() => startEditing(element)}>
+                                                        <i className="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                )}
+                                            </td>
+                                        </tr>
+                                    ))
                                 )}
                             </tbody>
+
                         </table>
                         
                         <Toaster/>
