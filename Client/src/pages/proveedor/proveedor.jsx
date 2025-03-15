@@ -88,8 +88,10 @@ export function Proveedor() {
         .catch(err => console.log(err))
     }
 
-    
+
+    const [palabrasClave, setPalabraClave] = useState([])
     const filtrarProveedores = (palabrasClave) => {
+        setPalabraClave(palabrasClave)
         setProveedorFiltrado(products.filter(product => {
             return palabrasClave.every(palabra =>
                 product.marcas.toLowerCase().includes(palabra)||
@@ -153,7 +155,16 @@ export function Proveedor() {
             axios.patch(`${serverFront}/edit-proveedors/${id}`, editingData)
             .then(response => {
                 setProducts(products.map(product => product._id === id ? response.data : product));
-                setProveedorFiltrado(proveedorFiltrado.map(product => product._id === id ? response.data : product));
+                setProveedorFiltrado(products.filter(product => {
+                    return palabrasClave.every(palabra =>
+                        product.marcas.toLowerCase().includes(palabra)||
+                        product.precios.toString().includes(palabra)||
+                        product.proveedores.toLowerCase().includes(palabra)||
+                        product.edades.toLowerCase().includes(palabra)||
+                        product.kilos.toLowerCase().includes(palabra)||
+                        product.mascotas.toLowerCase().includes(palabra)
+                    );
+                }));;
                 cancelEditing();
                 play2()
             })

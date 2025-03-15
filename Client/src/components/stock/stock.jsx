@@ -25,6 +25,7 @@ export function Stock() {
     const [amount, setAmount] = useState('');
     const [condition, setCondition] = useState('');
     const [showInputs, setShowInputs] = useState(true);
+    const [palabraClave, setPalabraClave] = useState([])
     const [play] = useSound(digital)
     const [play2] = useSound(ok)
 
@@ -85,6 +86,7 @@ export function Stock() {
     };
 
     const FiltrarStock = (palabrasClave) => {
+        setPalabraClave(palabrasClave)
         setStockFiltrados(stock.filter(stoc => {
             return palabrasClave.every(palabra => 
                 stoc.brands.toLowerCase().includes(palabra) ||
@@ -142,8 +144,17 @@ export function Stock() {
         toast.promise(
             axios.patch(`${serverFront}/edit-stock/${id}`, editingData)
             .then(response => {
-                setStock(stock.map(stoc => stoc._id === id ? response.data : stoc));
-                setStockFiltrados(stock.map(stoc => stoc._id === id ? response.data : stoc));
+                const updatedStock = stock.map(stoc => stoc._id === id ? response.data : stoc);
+                setStock(updatedStock);
+                setStockFiltrados(updatedStock.filter(stoc => {
+                    return palabraClave.every(palabra => 
+                        stoc.brands.toLowerCase().includes(palabra) ||
+                        stoc.size.toLowerCase().includes(palabra) ||
+                        stoc.pet.toLowerCase().includes(palabra) ||
+                        stoc.kg.toLowerCase().includes(palabra) ||
+                        stoc.condition.toLowerCase().includes(palabra)
+                    )
+                }));
                 cancelEditing();
                 toast.success("Producto actualizado", {
                     position: "top-center",
@@ -153,19 +164,17 @@ export function Stock() {
                     pauseOnHover: false,
                     transition: Bounce,
                 });
-                play2()
+                play2();
             })
             .catch(err => {console.log(err)}),
-
+    
             {
                 loading: 'Guardando...',
                 success: <b>Producto guardado!</b>,
                 error: <b>No se pudo guardar.</b>,
             }
         )
-
     };
-
     const [toogleCheck, setToogleCheck] = useState(null)
     const [selectedStock, setSelectedStock] = useState([])
 

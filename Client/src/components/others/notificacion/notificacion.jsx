@@ -98,20 +98,28 @@ export function Notificacion() {
                     </button>
                 </DialogActions>
 
-                <DialogTitle className="dialog-content">Ofertas</DialogTitle>
-
                 <DialogContent>
                     <div className="input-notas">
-                        <input type="text" value={nuevaNota} onChange={(e) => setNuevaNota(e.target.value)} />
+                        <input type="text" value={nuevaNota} onChange={(e) => setNuevaNota(e.target.value)} style={{ width: '80%' }} />
                         <Button onClick={addNota} color="primary"><AddIcon/></Button>
                     </div>
 
+                    <DialogTitle className="dialog-content" style={{ fontWeight: 'bold', fontSize:22 }}>Ofertas</DialogTitle>
+                    
                     <DialogContentText>
                         <table className="notas-table">
                             <tbody>
                                 {notas.map((note, index) => (
                                     <tr key={index} className="nota-row">
-                                        <td>{editId === note._id ? <input value={editingId.titulo} onChange={(e) => setEditingId({ ...editingId, titulo: e.target.value })} /> : note.titulo}</td>
+                                        <td style={{ fontWeight: 'bold' }}>
+                                            {editId === note._id ? 
+                                                <input 
+                                                    value={editingId.titulo} 
+                                                    onChange={(e) => setEditingId({ ...editingId, titulo: e.target.value })} 
+                                                    style={{ width: '80%', borderBottom: '1px solid black', border: 'none' }} 
+                                                /> 
+                                                : note.titulo}
+                                        </td>
                                         <td className="actions">
                                             {editId === note._id ? (
                                                 <>

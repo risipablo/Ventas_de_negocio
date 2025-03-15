@@ -2,17 +2,21 @@ import { useEffect, useState } from "react";
 import "../../styles/buscador.css";
 
 export function Buscador({ placeholder, filtrarDatos }) {
-    const [buscar, setBuscar] = useState('');
+    
+    const [inputValue, setInputValue] = useState('') 
 
-    const buscarChange = (event) => {
-        const value = event.target.value;
-        const palabraClave = value.trim().toLowerCase().split(/\s+/);
-        setBuscar(value);
-        filtrarDatos(palabraClave);
-    };
+
+    const buscarInput = (event) => {
+        if (event.key === 'Enter'){
+            const palabraClave = inputValue.toLowerCase().split(/\s+/).filter(palabra => palabra.trim() !== '')
+            filtrarDatos(palabraClave)
+        }
+    }
+
+    // Split dive la cadena en caracteres individuales 
 
     const Reset = () => {
-        setBuscar("");
+        setInputValue("");
         filtrarDatos([])
     }
 
@@ -22,9 +26,10 @@ export function Buscador({ placeholder, filtrarDatos }) {
             <input
                 type="text"
                 placeholder={placeholder}
-                value={buscar}
-                onChange={buscarChange}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
                 className="buscador-input"
+                onKeyPress={buscarInput}
             />
             <div className="search-icon">
                 <i onClick={Reset} className="fa fa-x"></i>
@@ -32,3 +37,12 @@ export function Buscador({ placeholder, filtrarDatos }) {
         </div>
     );
 }
+
+// const [buscar, setBuscar] = useState('');
+
+    // const buscarChange = (event) => {
+    //     const value = event.target.value;
+    //     const palabraClave = value.trim().toLowerCase().split(/\s+/);
+    //     setBuscar(value);
+    //     filtrarDatos(palabraClave);
+    // };

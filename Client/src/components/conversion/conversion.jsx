@@ -1,5 +1,5 @@
-import { useState } from "react"
-import "../../styles/conversion.css"
+import { useState } from "react";
+import "../../styles/conversion.css";
 import { Helmet } from 'react-helmet';
 
 export function Conversion() {
@@ -8,6 +8,7 @@ export function Conversion() {
     const [valorConversion, setValorConversion] = useState("");
     const [resultadoConversion, setResultadoConversion] = useState("");
     const [valorDiv, setValorDiv] = useState("");
+    const [divisor, setDivisor] = useState(""); 
     const [resultDiv, setResultDiv] = useState("");
     const [valorMulti, setValorMulti] = useState("");
     const [resultMulti, setResultMulti] = useState("");
@@ -25,27 +26,29 @@ export function Conversion() {
     };
 
     const conversion = (operador) => {
-
-        const numero = parseFloat(valorConversion)
-        if(isNaN(numero)){
-            setResultadoConversion(0)
-        return
-        }
-        
-        const factor = 1 + (porcentaje /100)
-        const resultadoConversion = operador === 'multiplicar' ? numero * factor : numero / factor
-        setResultadoConversion(resultadoConversion.toFixed(2))
-    };
-
-    const calcularDiv = (kg) => {
-        const kilo = parseFloat(valorDiv);
-        if (isNaN(kilo)) {
-            setValorDiv(0);
+        const numero = parseFloat(valorConversion);
+        if (isNaN(numero)) {
+            setResultadoConversion(0);
             return;
         }
-        const resultadoDiv = kilo / kg;
-        setResultDiv(resultadoDiv);
+
+        const factor = 1 + (porcentaje / 100);
+        const resultadoConversion = operador === 'multiplicar' ? numero * factor : numero / factor;
+        setResultadoConversion(resultadoConversion.toFixed(2));
     };
+
+const calcularDiv = () => {
+    const bolsa = parseFloat(valorDiv)
+    const unidad = parseFloat(divisor)
+    
+    if(isNaN(bolsa) || isNaN(unidad)) {
+        setResultDiv(0)
+        return
+    }
+
+    const resultadoDivisor = bolsa / unidad
+    setResultDiv(resultadoDivisor.toFixed(2))
+}
 
     const calcularMulti = (kg) => {
         const multi = parseFloat(valorMulti);
@@ -54,7 +57,7 @@ export function Conversion() {
             return;
         }
         const resultMulti = multi * kg;
-        setResultMulti(resultMulti);
+        setResultMulti(resultMulti.toFixed(2));
     };
 
     const resetCalculo = () => {
@@ -64,6 +67,7 @@ export function Conversion() {
         setResultadoConversion("");
         setValorDiv("");
         setResultDiv("");
+        setDivisor(""); // Resetear el divisor
         setValorMulti("");
         setResultMulti("");
         setPorcentaje(30);
@@ -76,6 +80,7 @@ export function Conversion() {
             </Helmet>
 
             <div className="grid">
+
                 <div className="conteiner">
                     <h2>Conversion IVA</h2>
                     <div className="formulario">
@@ -126,11 +131,15 @@ export function Conversion() {
                             value={valorDiv}
                             onChange={(event) => setValorDiv(event.target.value)}
                         />
+                        <input
+                            className="valores"
+                            placeholder="Ingresar divisor"
+                            value={divisor}
+                            onChange={(event) => setDivisor(event.target.value)}
+                        />
                         <div className="botoness">
-                            <button className="boton" onClick={() => calcularDiv(20)}>20</button>
-                            <button className="boton" onClick={() => calcularDiv(15)}>15</button>
-                            <button className="boton" onClick={() => calcularDiv(10)}>10</button>
-                            <button className="boton" onClick={() => calcularDiv(7.5)}>7.5</button>
+                            {/* Llamar a la funcion */}
+                            <button className="boton" onClick={calcularDiv}>/</button> 
                         </div>
                         <input className="valores" type="number" value={resultDiv} placeholder="Resultado" readOnly />
                     </div>
@@ -162,5 +171,3 @@ export function Conversion() {
         </>
     );
 }
-
-

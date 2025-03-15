@@ -100,7 +100,10 @@ export function Gastos(){
         .catch( err => console.log(err));
     }
 
+    const [palabrasClave, setPalabrasClave] = useState([])
+
     const filtrarGastos = (palabrasClave) => {
+        setPalabrasClave(palabrasClave)
         setGastosFiltrados(gastos.filter(gasto => {
             return palabrasClave.every(palabra => 
                 gasto.proveedor.toLowerCase().includes(palabra) ||
@@ -172,9 +175,18 @@ export function Gastos(){
     const saveChanges = (id) => {
         toast.promise(
             axios.patch(`${serverFront}/edit-gastos/${id}`, editingData)
-            .then(response => {
+            .thn(response => {
                 setGastos(gastos.map(gasto => gasto._id === id ? response.data : gasto));
-                setGastosFiltrados(gastosFiltrados.map(gasto => gasto._id === id ? response.data : gasto));
+               setGastosFiltrados(gastos.filter(gasto => {
+                    return palabrasClave.every(palabra => 
+                        gasto.proveedor.toLowerCase().includes(palabra) ||
+                        gasto.dia.toLowerCase().includes(palabra) ||
+                        gasto.mes.toLowerCase().includes(palabra) ||
+                        gasto.factura.toLowerCase().includes(palabra) ||
+                        gasto.estado.toLowerCase().includes(palabra) || 
+                        gasto.monto.toString().includes(palabra) 
+                    );
+                }));
                 cancelEditing();
                 play2()
             })

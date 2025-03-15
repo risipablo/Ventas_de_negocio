@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Buscador } from "../../components/buscador/buscador";
 import axios from "axios";
 import { FiltrosProductos } from "../../components/hooks/filtros/FiltroProductos";
@@ -14,6 +14,7 @@ import useSound from 'use-sound'
 import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
 import { Notificacion } from "../../components/others/notificacion/notificacion";
+import { Debounce } from "../../components/others/debounce/debounce";
 
 
 // const serverFront = "http://localhost:3001"
@@ -80,6 +81,8 @@ export function Productos() {
         }
     }
 
+    const handleAddProductos = useMemo(() => Debounce(addProductos,100), [addProductos])
+
     const resetProductos = () => {
         setCategoriaProducto("")
         setKilo("")
@@ -124,7 +127,10 @@ export function Productos() {
         setSelectedTasks("")
     }
 
+    const [palabrasClave, setPalabrasClaves] = useState([])
+
     const filtrarProductos = (palabrasClave) => {
+        setPalabrasClaves(palabrasClave)
         setProductosFiltrado(productos.filter(producto => {
             return palabrasClave.every(palabra =>
                 producto.marca.toLowerCase().includes(palabra) ||
@@ -175,8 +181,18 @@ export function Productos() {
         toast.promise(
             axios.patch(`${serverFront}/edit-productos/${id}`, editingData)
                 .then(response => {
-                    setProductos(productos.map(producto => producto._id === id ? response.data : producto));
-                    setProductosFiltrado(productosFiltrado.map(producto => producto._id === id ? response.data : producto));
+                    const uptadteProductos = productos.map(producto => producto._id === id ? response.data : producto)
+                    setProductos(uptadteProductos);
+                    setProductosFiltrado(productos.filter(producto => {
+                        return palabrasClave.every(palabra =>
+                            producto.marca.toLowerCase().includes(palabra) ||
+                            producto.edad.toLowerCase().includes(palabra) ||
+                            producto.mascota.toLowerCase().includes(palabra) ||
+                            producto.kilo.toLowerCase().includes(palabra) ||
+                            producto.categoria.toLowerCase().includes(palabra) ||
+                            producto.precio.toString().includes(palabra)
+                        );
+                    }));
                     cancelEditing();
                     play2()
                 })
@@ -306,7 +322,7 @@ export function Productos() {
                         </div>
 
                         <div className='botones'>
-                            <button className="agregar" onClick={addProductos} > Agregar </button>
+                            <button className="agregar" onClick={handleAddProductos} > Agregar </button>
                             <button className='limpiar' onClick={resetProductos} > Limpiar </button>
                         </div>
                     </Collapse>

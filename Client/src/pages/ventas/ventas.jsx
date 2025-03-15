@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "../../styles/ventas.css"
 import { Buscador } from '../../components/buscador/buscador';
 import { Filtros } from '../../components/hooks/filtros/filtros';
@@ -13,6 +13,7 @@ import ok from '../../assets/ok.mp3'
 import { ClipLoader } from "react-spinners";
 import { keyframes } from "@emotion/react";
 import { Notificacion } from "../../components/others/notificacion/notificacion";
+import { Debounce } from "../../components/others/debounce/debounce";
 
  export function Ventas() {
     const [ventas, setVentas] = useState([]);
@@ -81,6 +82,7 @@ import { Notificacion } from "../../components/others/notificacion/notificacion"
         }
     };
 
+    const handleAddVentas = useMemo(() => Debounce(addVentas,100),[addVentas])
 
 
     const deleteVentas = (id, product, total) => {
@@ -105,8 +107,10 @@ import { Notificacion } from "../../components/others/notificacion/notificacion"
     };
 
 
+    const [palabrasClave, setPalabrasClave] = useState([])
 
     const filtrarVentas = (palabrasClave) => {
+        setPalabrasClave(palabrasClave)
         setVentasFiltradas(ventas.filter(venta => {
             return palabrasClave.every(palabra => 
                 venta.day.toLowerCase().includes(palabra) ||
@@ -183,8 +187,18 @@ import { Notificacion } from "../../components/others/notificacion/notificacion"
         toast.promise(
             axios.patch(`${serverFront}/edit-ventas/${id}`, editingId)
             .then(response => {
-                setVentas(ventas.map(venta => venta._id === id ? response.data : venta));
-                setVentasFiltradas(ventasFiltradas.map(venta => venta._id === id ? response.data : venta));
+                const updateVentas = ventas.map(venta => venta._id === id ? response.data : venta); 
+                setVentas(updateVentas);
+                setVentasFiltradas(ventas.filter(venta => {
+                    return palabrasClave.every(palabra => 
+                        venta.day.toLowerCase().includes(palabra) ||
+                        venta.month.toLowerCase().includes(palabra) ||
+                        (venta.boleta || '').toLowerCase().includes(palabra) ||
+                        venta.tp.toLowerCase().includes(palabra) ||
+                        venta.product.toLowerCase().includes(palabra) ||
+                        venta.total.toString().includes(palabra)
+                    );
+                }));
                 cancelEdit();
                 play2()
             })
@@ -302,7 +316,7 @@ import { Notificacion } from "../../components/others/notificacion/notificacion"
             </div>
 
             <div className='botones'>
-                <button className="agregar" onClick={addVentas}> Agregar </button>
+                <button className="agregar" onClick={handleAddVentas}> Agregar </button>
                 <button className='limpiar' onClick={resetVentas}> Limpiar </button>  
             </div>
 
