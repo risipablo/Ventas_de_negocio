@@ -41,10 +41,10 @@ export function Gastos(){
                 setGastosFiltrados(response.data)
                 setLoading(false)    
             },1000)
-            .catch(err => {
-                console.log(err)
-                setLoading(false)
-            })
+        })
+        .catch(err => {
+            console.log(err)
+            setLoading(false)
         })
     },[])
 
@@ -175,9 +175,10 @@ export function Gastos(){
     const saveChanges = (id) => {
         toast.promise(
             axios.patch(`${serverFront}/edit-gastos/${id}`, editingData)
-            .thn(response => {
-                setGastos(gastos.map(gasto => gasto._id === id ? response.data : gasto));
-               setGastosFiltrados(gastos.filter(gasto => {
+            .then(response => {
+                const updateGastos = gastos.map(gasto => gasto._id === id ? response.data : gasto)
+                setGastos(updateGastos);
+                setGastosFiltrados(updateGastos.filter(gasto => {
                     return palabrasClave.every(palabra => 
                         gasto.proveedor.toLowerCase().includes(palabra) ||
                         gasto.dia.toLowerCase().includes(palabra) ||
