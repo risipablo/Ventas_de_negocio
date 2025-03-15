@@ -5,7 +5,6 @@ import { Buscador } from '../../components/buscador/buscador';
 import { Filtros } from '../../components/hooks/filtros/filtros';
 import 'react-toastify/dist/ReactToastify.css';
 import { ScrollTop } from '../../components/others/scrollTop';
-import { Notificacion } from '../../components/others/notificacion';
 import { toast, Toaster } from 'react-hot-toast';
 import axios from "axios";
 import useSound from 'use-sound'
@@ -13,6 +12,7 @@ import cash from '../../assets/cash.mp3'
 import ok from '../../assets/ok.mp3'
 import { ClipLoader } from "react-spinners";
 import { keyframes } from "@emotion/react";
+import { Notificacion } from "../../components/others/notificacion/notificacion";
 
  export function Ventas() {
     const [ventas, setVentas] = useState([]);
@@ -350,16 +350,65 @@ import { keyframes } from "@emotion/react";
                             ) : (
                                 ventasFiltradas.map((element, index) => (
                                     <tr key={index} style={{ background: condicionPago(element.tp || '') }}>
-                                        <td>{element.day}</td>
+
+                                        <td>{editId === element._id ? 
+                                            <select value={editingId.day} onChange={(e) => setEditingId({...editingId, day: e.target.value})}>
+                                                <option value=""> Seleccionar Día</option>
+                                                    {[...Array(31)].map((_,index) => (
+                                                        <option key={index + 1} value={index + 1}> {index + 1} </option>
+                                                    ))}
+                                            </select>
+                                        : element.day}</td>
+
                                         <td>{editId === element._id ?
-                                            <input value={editingId.month} onChange={(e) => setEditingId({ ...editingId, month: e.target.value })} />
+                                            <select value={editingId.month} onChange={(e) => setEditingId({ ...editingId, month: e.target.value })}>
+                                                <option value="">Seleccionar Mes</option>
+                                                <option value="Enero">Enero</option>
+                                                <option value="Febrero">Febrero</option>
+                                                <option value="Marzo">Marzo</option>
+                                                <option value="Abril">Abril</option>
+                                                <option value="Mayo">Mayo</option>
+                                                <option value="Junio">Junio</option>
+                                                <option value="Julio">Julio</option>
+                                                <option value="Agosto">Agosto</option>
+                                                <option value="Septiembre">Septiembre</option>
+                                                <option value="Octubre">Octubre</option>
+                                                <option value="Noviembre">Noviembre</option>
+                                                <option value="Diciembre">Diciembre</option>
+                                            </select>
                                             : element.month}</td>
-                                        <td>{editId === element._id ?
-                                            <input value={editingId.year} onChange={(e) => setEditingId({ ...editingId, year: e.target.value })} />
+
+                                         <td>{editId === element._id ?
+                                            <select value={editingId.year} onChange={(e) => setEditingId({ ...editingId, year: e.target.value })}>
+                                                <option value="">Seleccionar Año</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026">2026</option>
+                                            </select>
                                             : element.year}</td>
+
                                         <td>{editId === element._id ?
-                                            <input value={editingId.tp} onChange={(e) => setEditingId({ ...editingId, tp: e.target.value })} />
+                                            <select
+                                            onChange={(event) => setEditingId({...editingId, tp: event.target.value})}
+                                            value={editingId.tp}
+                                        >
+                                            <option value=""> Seleccionar tipo de pago </option>
+                                            <option value="Visa Débito" > Visa Débito </option>
+                                            <option value="Visa PrePago"> Visa PrePago </option>
+                                            <option value="Naranja Débito"> Naranja Débito</option>
+                                            <option value="Cabal Débito"> Cabal Débito </option>
+                                            <option value="Master Débito"> Master Débito </option>
+                                            <option value="Naranja Débito"> Naranja Débito</option>
+                                            <option value="Visa Crédito">Visa Crédito </option>
+                                            <option value="Master Crédito">Master Crédito</option>
+                                            <option value="Naranja Crédito"> Naranja Crédito </option>
+                                            <option value="Debe"> Debe </option>
+                                            <option value="Efectivo">Efectivo</option>
+                                            <option value="Mercado Pago">Mercado Pago</option>
+                                        </select>
+                                        
                                             : element.tp}</td>
+
                                         <td className="texto-notas">{editId === element._id ?
                                             <input value={editingId.boleta} onChange={(e) => setEditingId({ ...editingId, boleta: e.target.value })} />
                                             : element.boleta}</td>
@@ -401,7 +450,7 @@ import { keyframes } from "@emotion/react";
                             </tr>
                         </tfoot>
                     </table>
-                    <Notificacion />
+                    <Notificacion/>
                     <Toaster />
                     <ScrollTop />
                 </div>

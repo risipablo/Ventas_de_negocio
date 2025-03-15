@@ -5,6 +5,7 @@ const GastosModel = require('./models/gastos');
 const VentasModel = require('./Model/ventas');
 const ProductoModel = require('./Model/productos');
 const ProveedorModel = require('./Model/proveedor');
+const NotificacionModel = require ('./models/notificacion')
 const StockModel = require('./Model/stock');
 const File = require ('./Model/files')
 const multer = require('multer');
@@ -88,9 +89,9 @@ app.delete('/delete-many-ventas/', async (req,res) => {
 // Editar Ventas
 app.patch('/edit-ventas/:id', async (req, res) => {
     const { id } = req.params;
-    const { total, product, tp, boleta,year } = req.body;
+    const { total, product, tp, boleta,year,month } = req.body;
     try {
-        const result = await VentasModel.findByIdAndUpdate(id, { total, product, tp, boleta, year }, { new: true });
+        const result = await VentasModel.findByIdAndUpdate(id, { total, product, tp, boleta, year,month }, { new: true });
         res.json(result);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -429,6 +430,64 @@ app.patch('/edit-stock/:id', async ( req, res ) => {
     }
 })
 
+
+// Notificacion
+app.get('/nota', async (req,res) => {
+    try {
+        const notificacion = await NotificacionModel.find()
+        res.json(notificacion)
+
+    } catch (error) {
+        res.status(500).json({error:err.message})
+    }
+})
+
+app.post('/nota', async (req,res) => {
+    const {titulo} = req.body
+
+    if(!titulo) {
+        return res.status(400).json({error: "Ingresa una nota"})
+    }
+
+    try {
+        const newNota = new NotificacionModel({
+            titulo
+        })
+        const result = await newNota.save()
+        res.json(result)
+    } catch(err) {
+        res.status.json({error: err.message})
+    }
+})
+
+// Eliminar notificación
+app.delete('/nota/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await NotificacionModel.findByIdAndDelete(id);
+        if (!result) {
+            return res.status(404).json({ error: 'Notificación no encontrada' });
+        }
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+app.patch('/nota/:id', async (req,res) => {
+    const {id} = req.params;
+    const {titulo} = req.body
+
+    try{
+        const edit = await NotificacionModel.findByIdAndUpdate(id, {titulo}, {new:true})
+        res.json(edit)
+
+    } catch (err) {
+        res.status(500).json({ error:err.message })
+    }
+})
+
 // Configuración de multer
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
@@ -491,6 +550,7 @@ app.delete('/delete-files/:id', async (req,res) => {
         res.status(500).json( {error:err.message})
     }
 })
+
 
 
 app.listen(3001, () => {

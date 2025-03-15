@@ -6,14 +6,14 @@ import { Helmet } from 'react-helmet';
 import { ScrollTop } from '../../components/others/scrollTop';
 import { Button, Collapse, Skeleton } from '@mui/material';
 import { ExpandMore, ExpandLess } from '@mui/icons-material';
-import { TransitionGroup } from 'react-transition-group';
-import { Notificacion } from "../../components/others/notificacion";
+import { TransitionGroup } from 'react-transition-group'
 import { toast, Toaster } from 'react-hot-toast';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpLong, faDownLong } from "@fortawesome/free-solid-svg-icons";
 import useSound from 'use-sound'
 import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
+import { Notificacion } from "../../components/others/notificacion/notificacion";
 
 
 // const serverFront = "http://localhost:3001"
