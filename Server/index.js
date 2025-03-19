@@ -89,9 +89,9 @@ app.delete('/delete-many-ventas/', async (req,res) => {
 // Editar Ventas
 app.patch('/edit-ventas/:id', async (req, res) => {
     const { id } = req.params;
-    const { total, product, tp, boleta,year,month } = req.body;
+    const { day,total, product, tp, boleta,year,month } = req.body;
     try {
-        const result = await VentasModel.findByIdAndUpdate(id, { total, product, tp, boleta, year,month }, { new: true });
+        const result = await VentasModel.findByIdAndUpdate(id, { total, product, tp, boleta, year,month,day }, { new: true });
         res.json(result);
     } catch (err) {
         res.status(500).json({ error: err.message });
