@@ -13,7 +13,6 @@ export function Buscador({ placeholder, filtrarDatos }) {
         }
     }
 
-    // Split dive la cadena en caracteres individuales 
 
     const Reset = () => {
         setInputValue("");
@@ -29,7 +28,7 @@ export function Buscador({ placeholder, filtrarDatos }) {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 className="buscador-input"
-                onKeyPress={buscarInput}
+                onKeyDown={buscarInput}
             />
             <div className="search-icon">
                 <i onClick={Reset} className="fa fa-x"></i>
@@ -37,6 +36,7 @@ export function Buscador({ placeholder, filtrarDatos }) {
         </div>
     );
 }
+
 
 // const [buscar, setBuscar] = useState('');
 
