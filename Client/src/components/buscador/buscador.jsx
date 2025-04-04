@@ -1,22 +1,28 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../../styles/buscador.css";
+import CloseIcon from '@mui/icons-material/Close';
+import SearchIcon from '@mui/icons-material/Search';
 
 export function Buscador({ placeholder, filtrarDatos }) {
     
     const [inputValue, setInputValue] = useState('') 
+    const [searching, setSearching] = useState(false)
 
 
     const buscarInput = (event) => {
-        if (event.key === 'Enter'){
+
+        event.preventDefault();
             const palabraClave = inputValue.toLowerCase().split(/\s+/).filter(palabra => palabra.trim() !== '')
             filtrarDatos(palabraClave)
-        }
+            setSearching(true)
+            
     }
 
 
     const Reset = () => {
         setInputValue("");
         filtrarDatos([])
+        setSearching(false)
     }
 
 
@@ -28,10 +34,14 @@ export function Buscador({ placeholder, filtrarDatos }) {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 className="buscador-input"
-                onKeyDown={buscarInput}
+                onKeyDown={(e) => e.key === 'Enter' && buscarInput(e)}
             />
-            <div className="search-icon">
-                <i onClick={Reset} className="fa fa-x"></i>
+            <div className="search-icon" >
+                {searching ?
+                    <CloseIcon className="icon" onClick={Reset} />
+                    :
+                    <SearchIcon className="icon" onClick={buscarInput} />
+                }
             </div>
         </div>
     );

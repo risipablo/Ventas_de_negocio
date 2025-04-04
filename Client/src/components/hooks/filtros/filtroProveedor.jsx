@@ -75,6 +75,8 @@ export function FiltroProveedor({products, setProveedorFiltrado}) {
                     <option value="Royal Canin">Royal Canin</option>
                     <option value="Cat Chow">Cat Chow</option>
                     <option value="Dog Chow">Dog Chow</option>
+                    <option value="Cat Selection">Cat Selection</option>
+                    <option value="Dog Selection">Dog Selection</option>
                     <option value="Gati">Gati</option>
                     <option value="Balanced">Balanced</option>
                     <option value="Pretal">Pretal</option>
@@ -98,6 +100,7 @@ export function FiltroProveedor({products, setProveedorFiltrado}) {
                     <option value="Paños Pet">Paños Pet</option>
                     <option value="Wishka">Wishka</option>
                     <option value="Huesos">Huesos</option>
+                    <option value="Unik">Unik</option>
                     <option value="Mascot">Mascot</option>
             </select>
 

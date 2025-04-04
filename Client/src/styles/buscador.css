@@ -29,9 +29,13 @@
     right: 10px;
     cursor: pointer;
     color: #272626;
-    transition: color 0.3s ease;
+    background-color: transparent; 
+    border-radius: 50%; 
+    padding: 8px; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 .search-icon:hover {
-    color: #ffcc00;
+    background-color: rgba(0, 0, 0, 0.1); 
+  
 }
