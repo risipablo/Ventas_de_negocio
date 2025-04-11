@@ -4,38 +4,73 @@
     align-items: center;
     margin: 4rem auto;
     max-width: 600px;
-    background-color: #c6c6c6;
+}
+
+.buscador-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #272626;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-size: 16px;
+    transition: border-color 0.3s ease; 
 }
 
 .buscador-input {
-    width: 100%;
-    padding: 12px 20px;
-    border: 1px solid #272626;
-    border-radius: 12px;
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    outline: none;
     font-size: 16px;
-    transition: border-color 0.3s ease;
+    background-color: transparent;
 }
 
-.buscador-input:focus {
+.buscador-wrapper:focus {
     border-color: #ffcc00;
     outline: none;
     box-shadow: 0 4px 8px rgba(0, 0, 2, 0.2);
 }
 
-.search-icon {
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
-    color: #272626;
-    background-color: transparent; 
-    border-radius: 50%; 
-    padding: 8px; 
-    transition: background-color 0.3s ease, color 0.3s ease; 
+.buscador-input::placeholder {
+    color: #aaa;
 }
 
-.search-icon:hover {
+.search-button {
+    background-color: #ebebeb;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.search-button svg:hover {
+    color: #ffcc00;
+    /* background-color: #e6e6e6; */
+}
+
+.search-icon {
+    color: #1c1c1c;
+    font-size: 22px;
+}
+
+.clear-icon {
+    color: #606060;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: color 0.3s ease;
+    border-radius: 50%; 
+    transition: background-color 0.7s ease, color 0.3s ease; 
+}
+
+
+.clear-icon:hover {
+    transform: scale(1.2);
+    color: #ff0000; 
     background-color: rgba(0, 0, 0, 0.1); 
-  
 }

@@ -26,22 +26,23 @@ export function Buscador({ placeholder, filtrarDatos }) {
     }
 
 
-    return (
+  return (
         <div className="buscador-container">
-            <input
-                type="text"
-                placeholder={placeholder}
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                className="buscador-input"
-                onKeyDown={(e) => e.key === 'Enter' && buscarInput(e)}
-            />
-            <div className="search-icon" >
-                {searching ?
-                    <CloseIcon className="icon" onClick={Reset} />
-                    :
-                    <SearchIcon className="icon" onClick={buscarInput} />
-                }
+            <div className="buscador-wrapper">
+                <input
+                    type="text"
+                    placeholder={placeholder}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    className="buscador-input"
+                    onKeyDown={(e) => e.key === 'Enter' && buscarInput(e)}
+                />
+                {searching && (
+                    <CloseIcon className="clear-icon" onClick={Reset} />
+                )}
+                <button className="search-button" onClick={buscarInput}>
+                    <SearchIcon className="search-icon" />
+                </button>
             </div>
         </div>
     );
