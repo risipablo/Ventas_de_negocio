@@ -1,0 +1,43 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    border: none;
+    background-color: rgb(242, 237, 237);
+    padding: 12px 22px;
+    border-radius: 20px ;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.yes:hover {
+    background-color: rgb(14, 150, 14,0.7);
+    color: white;
+}
+
+ .no:hover {
+    background-color: rgb(200, 41, 41,07);
+    color: white;
+}

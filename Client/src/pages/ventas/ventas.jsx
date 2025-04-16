@@ -1,5 +1,5 @@
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import "../../styles/ventas.css"
 import { Buscador } from '../../components/buscador/buscador';
 import { Filtros } from '../../components/hooks/filtros/filtros';
@@ -13,7 +13,8 @@ import ok from '../../assets/ok.mp3'
 import { ClipLoader } from "react-spinners";
 import { keyframes } from "@emotion/react";
 import { Notificacion } from "../../components/others/notificacion/notificacion";
-import { Debounce } from "../../components/others/debounce/debounce";
+import { debounce } from "@mui/material";
+
 
  export function Ventas() {
     const [ventas, setVentas] = useState([]);
@@ -82,7 +83,9 @@ import { Debounce } from "../../components/others/debounce/debounce";
         }
     };
 
-    const handleAddVentas = useMemo(() => Debounce(addVentas,100),[addVentas])
+    const handleAddVentas = debounce(() => {
+        addVentas();
+    }, 100);
 
 
     const deleteVentas = (id, product, total) => {

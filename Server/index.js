@@ -417,6 +417,14 @@ app.delete('/delete-many-stocks/', async (req,res) => {
     }
 })
 
+app.delete('/deleteAll', async (req,res) => {
+    try {
+        const result = await StockModel.deleteMany({})
+        res.json ({message:"Todos los elementos han sido eliminados", result})
+    } catch (err) {
+        res.status(500).json({ error: "Server error: " + err.message });
+    }
+})
 
 // Editar Stock
 app.patch('/edit-stock/:id', async ( req, res ) => {

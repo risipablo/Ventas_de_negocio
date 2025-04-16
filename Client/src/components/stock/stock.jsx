@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Paper, Button, Collapse } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Paper, Button, Collapse, Skeleton } from '@mui/material';
 import { Delete, Settings, Save, Cancel, ExpandLess, ExpandMore } from '@mui/icons-material';
 import { TransitionGroup } from 'react-transition-group';
 import { toast, Toaster } from 'react-hot-toast';
@@ -10,6 +10,7 @@ import { Buscador } from "../buscador/buscador";
 import useSound from 'use-sound'
 import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
+import { Modal } from "../others/modal/modal";
 
 // const serverFront = 'http://localhost:3001'
     const serverFront = 'https://ventas-de-negocio.onrender.com'
@@ -28,6 +29,7 @@ export function Stock() {
     const [palabraClave, setPalabraClave] = useState([])
     const [play] = useSound(digital)
     const [play2] = useSound(ok)
+    const [loading, setLoading] = useState(true)
 
 
 
@@ -35,12 +37,16 @@ export function Stock() {
     useEffect(() => {
         axios.get(`${serverFront}/stock`)
             .then(response => {
-                console.log(response.data);
-                setStock(response.data);
-                setStockFiltrados(response.data)
+                setAmount(() => {
+                    console.log(response.data);
+                    setStock(response.data);
+                    setStockFiltrados(response.data)
+                    setLoading(false)
+                },1000)
             })
             .catch(err => {
                 console.error("Error al obtener stock:", err); 
+                setLoading(false)
             });
     }, []);
 
@@ -182,20 +188,46 @@ export function Stock() {
         setSelectedStock((prev) => prev.includes(id) ? prev.filter(stockId => stockId !== !id):[...prev,id])
     }
 
-    const deleteManyStock = (id) => {
-        axios.delete(`${serverFront}/delete-mamy-stocks/`,{data:{ids}})
+    const deleteManyStock = (ids) => {
+        axios.delete(`${serverFront}/delete-many-stocks/`,{data:{ids}})
         .then(response => {
             setStock(stock => stock.filter(stoc => !ids.includes(stoc._id)))
             setStockFiltrados(stockFiltrados.filter(stoc => !ids.includes(stoc._id)))
             toast.error(`${response.data.message}`, {
                 position: 'top-center',
             });
+            setSelectedStock([])
         })
         .catch(err => console.error("Error deleting tasks:", err));
     }
 
     const cleanManyProductos = () => {
         setSelectedStock("")
+    }
+
+
+    const [showModal,setShowModal] = useState(false)
+
+    const deleteAllStock = () => {
+        setShowModal(true)
+    }
+
+    const deleteAll = () => {
+        axios.delete(`${serverFront}/deleteAll`)
+        .then(response => {
+            setStock([])
+            setStockFiltrados([])
+            setShowModal(false)
+            toast.error('Todo el inventario ha sido eliminado', {
+                position: 'top-center',
+            });
+            
+        }).catch(err => {
+            console.error(err);
+            toast.error('Error al eliminar el inventario', {
+                position: 'top-center',
+            });
+        });
     }
 
 
@@ -277,7 +309,6 @@ export function Stock() {
 
 
             <Buscador placeholder="Buscar Productos" filtrarDatos={FiltrarStock} />
-            
 
             {selectedStock.length > 0 && (
                 <div className="container-manyproducts">
@@ -291,8 +322,11 @@ export function Stock() {
                 </div>
             )}
 
+            <button onClick={deleteAllStock} className="deleteAll">Eliminar todo</button>
+        
+
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <TableContainer component={Paper} sx={{ mt: 2, maxWidth: '95%' }}>
+                <TableContainer component={Paper} sx={{ mt: 2}}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
@@ -307,8 +341,26 @@ export function Stock() {
                                 <TableCell> </TableCell>
                             </TableRow>
                         </TableHead>
+
                         <TableBody>
-                            {stockFiltrados.map((element, index) => (
+                            { loading ? (
+                                [...Array(8)].map((_,index) => (
+                                    <tr key={index}  >
+                                            
+                                    <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                    <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                    <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                    <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                    <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                    <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                                    <td><Skeleton variant="text" width={80} animation="wave" /></td>
+                    
+                                </tr>
+                                ))
+
+                            ) : (
+                            
+                            stockFiltrados.map((element, index) => (
                                 <TableRow
                                  key={index} 
                                  style={{ background: condicionStock(element.condition || '')}}
@@ -408,13 +460,14 @@ export function Stock() {
                                         </IconButton>
                                     </TableCell>
                                 </TableRow>
-                            ))}
+                            )))}
                         </TableBody>
                     </Table>
                 </TableContainer>
                 <Toaster/>
                 
             </div>
+            < Modal show={showModal} onClose={() => setShowModal(false)} onConfirm={deleteAll}/> 
             <ScrollTop/>
         </div>
     );

@@ -20,4 +20,24 @@
 
 
 
+.deleteAll {
+    background-color: #ff0000;
+    color: #ffffff;
+    /* font-weight: 600; */
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    cursor: pointer;
+    margin: 2rem auto;
+    text-align: center;
+    transition: all 0.7s ease;
+}
 
+.deleteAll:hover {
+    background-color: #b30000;
+    transform: scale(0.98);
+}
+
+.deleteAll:active {
+    background-color: #800000;
+}
