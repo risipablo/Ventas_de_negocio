@@ -207,10 +207,7 @@ export function Productos() {
         );
     };
 
-    const promoCondicion = (condicion) => {
-        return condicion.toLowerCase() === 'efectivo/débito' ? 'rgba(238, 217, 62, 0.8)' : null || condicion.toLowerCase() === 'efectivo' ? 'rgba(238, 217, 62, 0.8)' : null || condicion.toLowerCase() === 'no actualizado' ? 'rgba(230, 48, 31, 0.8)' : null 
-    }
-
+  
     const [ordenar,setOrdenar] = useState(true)
 
     const funcionOrdenar = () => {
@@ -218,6 +215,18 @@ export function Productos() {
         setProductosFiltrado(productosOrdenados)
         setOrdenar(!ordenar)
     }
+
+    const promoCondicion = (condicion) => {
+        return condicion.toLowerCase() === 'efectivo/débito' ? 'rgba(238, 217, 62, 0.8)' : null || condicion.toLowerCase() === 'efectivo' ? 'rgba(238, 217, 62, 0.8)' : null || condicion.toLowerCase() === 'no actualizado' ? 'rgba(230, 48, 31, 0.8)' : null 
+    }
+
+
+    const ordenarPrecio = () => {
+        const productosOrdenados = [...productosFiltrado].sort((a,b) => ordenar ? a.precio - b.precio : b.precio - a.precio)
+        setProductosFiltrado(productosOrdenados)
+        setOrdenar(!ordenar)
+    }
+
 
     
 
@@ -365,8 +374,15 @@ export function Productos() {
                                 <th>Tamaño</th>
                                 <th>Mascota</th>
                                 <th className="promo">Promo</th>
+                                
                                 <th>Kg</th>
-                                <th>Precio</th>
+                                <th>Precio 
+                                <button onClick={ordenarPrecio} className="ordenar">
+                                <i>
+                                    {ordenar ? <FontAwesomeIcon icon={faUpLong} /> : <FontAwesomeIcon icon={faDownLong} />}
+                                </i>
+                                </button>
+                                </th>
                                 <th></th>
                             </tr>
                         </thead>
