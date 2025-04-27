@@ -58,6 +58,7 @@ export function FiltroProveedor({products, setProveedorFiltrado}) {
                 <option value="Nutripet">Nutripet</option>
                 <option value="Nutrisur">Nutrisur</option>
                 <option value="Amadeo">Amadeo</option>
+                <option value="Arenza">Arenza</option>
                 <option value="Don Tomas">Don Tomas</option>
                 <option value="PPF">PPF</option>
                 <option value="Conurbano Distribucion">Conurbano Distribucion</option>

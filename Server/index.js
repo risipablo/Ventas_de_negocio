@@ -291,6 +291,15 @@ app.patch('/completed-notas/:id', (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }));
 });
 
+// Borrar todas las notas
+app.delete('/delete-all-notas', async (req,res) => {
+    try {
+        const result = await NotasModel.deleteMany({})
+        res.json ({message:"Todos los elementos han sido eliminados", result})
+    } catch (err) {
+        res.status(500).json({ error: "Server error: " + err.message });
+    }
+})
 
 // Proveedores
 
@@ -451,20 +460,21 @@ app.get('/nota', async (req,res) => {
 })
 
 app.post('/nota', async (req,res) => {
-    const {titulo} = req.body
+    const {fecha,titulo} = req.body
 
-    if(!titulo) {
+    if(!fecha,!titulo) {
         return res.status(400).json({error: "Ingresa una nota"})
     }
 
     try {
         const newNota = new NotificacionModel({
+            fecha,
             titulo
         })
         const result = await newNota.save()
         res.json(result)
     } catch(err) {
-        res.status.json({error: err.message})
+        res.status(500).json({error: err.message})
     }
 })
 
@@ -485,10 +495,10 @@ app.delete('/nota/:id', async (req, res) => {
 
 app.patch('/nota/:id', async (req,res) => {
     const {id} = req.params;
-    const {titulo} = req.body
+    const {fecha, titulo} = req.body
 
     try{
-        const edit = await NotificacionModel.findByIdAndUpdate(id, {titulo}, {new:true})
+        const edit = await NotificacionModel.findByIdAndUpdate(id, {fecha, titulo}, {new:true})
         res.json(edit)
 
     } catch (err) {

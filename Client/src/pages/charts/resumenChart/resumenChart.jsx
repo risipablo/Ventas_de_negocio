@@ -3,8 +3,8 @@ import { useEffect, useState } from "react"
 import { ResumenEstadisticas } from "../../../components/chartComponent/resumenChart"
 
 export function ResumenChart(){
-        const serverFront = 'http://localhost:3001'
-        // const serverFront = 'https://ventas-de-negocio.onrender.com'
+        // const serverFront = 'http://localhost:3001'
+        const serverFront = 'https://ventas-de-negocio.onrender.com'
 
         const [gastos,setGastos] = useState([])
         const [gastosFiltrados, setGastosFiltrados] = useState([])

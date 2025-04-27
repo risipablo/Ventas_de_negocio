@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Buscador } from "../../components/buscador/buscador";
 import axios from "axios";
 import { FiltrosProductos } from "../../components/hooks/filtros/FiltroProductos";
@@ -408,53 +408,120 @@ export function Productos() {
 
                             ) : (
                                 productosFiltrado.map((element, index) => (
-                                <tr 
-                                    key={index} 
-                                    style={{ background: promoCondicion(element.condicion || '')}}
-                                    onClick={() => setToogleCheck(toogleCheck === element._id ? null:element._id)}
-                                >
+                                    <React.Fragment key={index}>
+                                    
+                                    <tr 
+                                        style={{ background: promoCondicion(element.condicion || '')}}
+                                        onClick={() => setToogleCheck(toogleCheck === element._id ? null:element._id)}
+                                    >
 
-                                    <td> 
-                                        {(toogleCheck === element._id || selectedTasks.includes(element._id)) && (
+                                        <td> 
+                                            {(toogleCheck === element._id || selectedTasks.includes(element._id)) && (
 
-                                            <input type="checkbox" checked={selectedTasks.includes(element._id)} onChange={() => handleChange(element._id)} /> 
-                                        )}
+                                                <input type="checkbox" checked={selectedTasks.includes(element._id)} onChange={() => handleChange(element._id)} /> 
+                                            )}
+                                            
+                                        </td>
                                         
-                                    </td>
-                                    
-                                    <td>{editingId === element._id ?
-                                        <input value={editingData.marca} onChange={(e) => setEditingData({ ...editingData, marca: e.target.value })} /> : element.marca}</td>
+                                        <td>{element.marca}</td>
 
-                                    <td>{editingId === element._id ?
-                                        <input value={editingData.edad} onChange={(e) => setEditingData({ ...editingData, edad: e.target.value })} /> : element.edad}</td>
-                                    
-                                    <td>{editingId === element._id ?
-                                        <input value={editingData.mascota} onChange={(e) => setEditingData({ ...editingData, mascota: e.target.value })} /> : element.mascota}</td>
+                                        <td>{element.edad}</td>
+                                        
+                                        <td>{element.mascota}</td>
 
-                                    <td className="promo">{editingId === element._id ?
-                                        <input value={editingData.condicion} onChange={(e) => setEditingData({ ...editingData, condicion: e.target.value })} /> : element.condicion}</td>
+                                        <td className="promo">{element.condicion}</td>
 
-                                    <td>{editingId === element._id ?
-                                        <input value={editingData.kilo} onChange={(e) => setEditingData({ ...editingData, kilo: e.target.value })} /> : element.kilo}</td>
+                                        <td>{element.kilo}</td>
 
-                                    <td className='monto'>${editingId === element._id ?
-                                        <input value={editingData.precio} onChange={(e) => setEditingData({ ...editingData, precio: e.target.value })} /> : element.precio.toLocaleString('en-US')}</td>
+                                        <td className='monto'>${element.precio.toLocaleString('en-US')}</td>
 
-                                    <div className="actions">
-                                        <button className="trash" onClick={() => deleteProductos(element._id, element.proveedor, element.monto)}><i className="fa-solid fa-trash"></i></button>
+                                        <td className="actions">
+                                            <button className="trash" onClick={() => deleteProductos(element._id, element.proveedor, element.monto)}>
+                                                <i className="fa-solid fa-trash"></i>
+                                            </button>
 
-                                        {editingId === element._id ? (
-                                            <div className='btn-edit'>
-                                                <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
-                                                <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
-                                            </div>
-                                        ) : (
-                                            <button className="edit" onClick={() => startEditing(element)}><i className="fa-solid fa-gear"></i></button>
+                                            {editingId === element._id ? (
+                                             null
+                                            ) : (
+                                                <button className="edit" onClick={() => startEditing(element)}><i className="fa-solid fa-gear"></i></button>
+                                            )}
+
+                                        </td>
+                                    </tr>
+
+                                    {editingId === element._id && (
+                                        <tr className="edit-row">
+                                            <td></td>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    value={editingData.marca}
+                                                    onChange={(e) => setEditingData({ ...editingData, marca: e.target.value })}
+                                                />
+                                            </td>
+
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    value={editingData.edad}
+                                                    onChange={(e) => setEditingData({ ...editingData, edad: e.target.value })}
+                                                />
+                                            </td>
+
+                                            <td>
+                                                <select
+                                                    type="text"
+                                                    value={editingData.mascota}
+                                                    onChange={(e) => setEditingData({ ...editingData, mascota: e.target.value })}
+                                                >
+                                                    <option value=""> Seleccionar Mascota </option>
+                                                    <option value="Perro"> Perro </option>
+                                                    <option value="Gato"> Gato </option>
+                                                    <option value="Mixto"> Mixto </option>
+                                                </select>
+                                            </td>
+
+                                            <td>
+                                                <select
+                                                    type="text"
+                                                    value={editingData.condicion}
+                                                    onChange={(e) => setEditingData({ ...editingData, condicion: e.target.value })}
+                                                >
+                                                    <option value=""> Seleccionar Condición </option>
+                                                    <option value="-"> Ninguno </option>
+                                                    <option value="Efectivo/Débito"> Efectivo/Débito </option>
+                                                    <option value="Efectivo"> Efectivo </option>
+                                                    <option value="No Actualizado"> No Actualizado </option>
+                                                </select>
+                                            </td>
+
+                                            <td>
+                                                <input
+                                                    type="number"
+                                                    value={editingData.kilo}
+                                                    onChange={(e) => setEditingData({ ...editingData, kilo: e.target.value })}
+                                                />
+                                            </td>
+
+                                            <td>
+                                                <input
+                                                    type="number"
+                                                    value={editingData.precio}
+                                                    onChange={(e) => setEditingData({ ...editingData, precio: e.target.value })}
+                                                />
+                                            </td>
+
+                                            <td className="actions"> 
+                                                <div className='btn-edit'>
+                                                    <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
+                                                    <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
+                                                </div>
+                                            </td>
+
+                                        </tr>
                                         )}
 
-                                    </div>
-
-                                </tr>
+                                    </React.Fragment>
                                 ))
                             )}
                         </tbody>

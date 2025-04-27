@@ -29,15 +29,19 @@
     margin: auto 1.2rem;
 }
 
+  
+
+
 .actions2 {
     display: flex;
+    gap: 8px;
     justify-content: center;
-    padding: 12px;
+    align-items: center;
 }
 
 .actions2 button {
-   padding: 6px 12px;
-    margin: 12px 6px;
+    margin: 0 18px;
+    padding: 6px 10px;
     border: none;
     cursor: pointer;
     border-radius: 12px; 
@@ -61,6 +65,41 @@
 
 .desmarcar:hover {
     background-color: #b32525;
+}
+
+.btn-editar button{
+    margin: 0 18px;
+    padding: 6px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.edit-row input{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 12px 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: .8rem; 
+}
+
+.edit-row input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.edit-row select{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 12px 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: .8rem; 
 }
 
 .completed-note {
@@ -115,6 +154,16 @@
     .botones-notas button {
         flex: 1;
     }
+
+    .actions2 {
+        flex-direction: row;
+        gap: 4px; 
+    }
+
+    .actions2 button {
+        font-size: 12px; 
+        padding: 6px; 
+    }
 }
 
 
@@ -160,3 +209,4 @@
 .delete-many:hover{
     background-color: #f23030;
 }
+

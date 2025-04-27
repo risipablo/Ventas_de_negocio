@@ -1,6 +1,6 @@
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { Button, Collapse, Skeleton } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { TransitionGroup } from 'react-transition-group';
 import { Buscador } from "../../components/buscador/buscador";
@@ -343,6 +343,8 @@ export function Proveedor() {
                                 ))
                             ) : (
                                 proveedorFiltrado.map((element, index) => (
+                                    <React.Fragment key={index}>
+                                   
                                     <tr key={index} onClick={() => setToogleCheck(toogleCheck === element._id ? null:element._id)}>
                                         
                                         <td> 
@@ -350,37 +352,96 @@ export function Proveedor() {
                                                 <input type="checkbox" checked={selectedNotes.includes(element._id)} onChange={() => handleChange(element._id)} />
                                             )}
                                         </td>
-                                        <td>{editingId === element._id ?
-                                            <input value={editingData.proveedores} onChange={(e) => setEditingData({ ...editingData, proveedores: e.target.value })} /> : element.proveedores}</td>
-                                        <td>{editingId === element._id ?
-                                            <input value={editingData.marcas} onChange={(e) => setEditingData({ ...editingData, marcas: e.target.value })} /> : element.marcas}</td>
-                                        <td>{editingId === element._id ?
-                                            <input value={editingData.mascotas} onChange={(e) => setEditingData({ ...editingData, mascotas: e.target.value })} /> : element.mascotas}</td>
-                                        <td>{editingId === element._id ?
-                                            <input value={editingData.edades} onChange={(e) => setEditingData({ ...editingData, edades: e.target.value })} /> : element.edades}</td>
-                                        <td>{editingId === element._id ?
-                                            <input value={editingData.kilos} onChange={(e) => setEditingData({ ...editingData, kilos: e.target.value })} /> : element.kilos}</td>
-                                        <td className="monto"> $ {editingId === element._id ? 
-                                            <input value={editingData.precios} onChange={(e) => setEditingData({ ...editingData, precios: e.target.value })} /> : element.precios}</td>
+                                        
+                                        <td>{element.proveedores}</td>
+                                        
+                                        <td>{element.marcas}</td>
+                                        
+                                        <td>{element.mascotas}</td>
+                                        
+                                        <td>{element.edades}</td>
+                                        
+                                        <td>{element.kilos}</td>
+                                        
+                                        <td className="monto"> $ {element.precios}</td>
                                         
                                         <td> <button className="agregar-prod" onClick={() => agregarProductoAlCarrito(element)}>Agregar</button> </td>
     
-                                        <div className="actions">
+                                        <td className="actions">
                                         
                                             <button className="trash" onClick={() => deleteProveedors(element._id, element.proveedor, element.monto)}><i className="fa-solid fa-trash"></i></button>
     
                                             {editingId === element._id ? (
-                                                <div className='btn-edit'>
-                                                    <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
-                                                    <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
-                                                </div>
+                                                null
                                             ) : (
                                                 <button className="edit" onClick={() => startEditing(element)}><i className="fa-solid fa-gear"></i></button>
                                             )}
     
-                                        </div>
+                                        </td>
     
                                     </tr>
+
+                                    {editingId === element._id && (
+                                        <tr className="edit-row">
+                                            <td>
+                                            </td>
+
+
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    value={editingData.proveedores}
+                                                    onChange={(e) => setEditingData({ ...editingData, proveedores: e.target.value })}
+                                                />
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    value={editingData.marcas}
+                                                    onChange={(e) => setEditingData({ ...editingData, marcas: e.target.value })}
+                                                />
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    value={editingData.mascotas}
+                                                    onChange={(e) => setEditingData({ ...editingData, mascotas: e.target.value })}
+                                                />
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    value={editingData.edades}
+                                                    onChange={(e) => setEditingData({ ...editingData, edades: e.target.value })}
+                                                />
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    value={editingData.kilos}
+                                                    onChange={(e) => setEditingData({ ...editingData, kilos: e.target.value })}
+                                                />
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    value={editingData.precios}
+                                                    onChange={(e) => setEditingData({ ...editingData, precios: e.target.value })}
+                                                />
+                                            </td>
+                                            
+                                            <td></td>
+
+                                            <td className="actions">
+                                                <div className='btn-edit'>
+                                                    <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
+                                                    <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
+                                                </div>
+                                            </td>
+                                             
+                                        </tr>
+                                    )}
+                                    </React.Fragment>
                                 ))
                             )}
 

@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import "../../styles/gastos.css"
 import axios from "axios"
 import { FiltrosGastos } from "../../components/hooks/filtros/filtrosGastos";
@@ -239,6 +239,7 @@ export function Gastos(){
                     <option value="Kro Line">Kro Line</option>
                     <option value="Mercaba">Mercaba</option>
                     <option value="Cancid">Cancid</option>
+                    <option value="Arenza">Arenza</option>
                     <option value="Conurbano Distribucion">Conurbano Distribucion</option>
                     <option value="PPF">PPF</option>
                     <option value="Indumentaria">Indumentaria</option>
@@ -358,55 +359,131 @@ export function Gastos(){
                                 ))
                             ) : (
                                 gastosFiltrados.map((element, index) => (
-                                    <tr key={index}>
-                                        <td>{editingId === element._id ?
-                                            <input value={editingData.proveedor} onChange={(e) => setEditingData({ ...editingData, proveedor: e.target.value })} />
-                                            : element.proveedor}</td>
-                                        <td>{editingId === element._id ?
-                                            <input value={editingData.dia} onChange={(e) => setEditingData({ ...editingData, dia: e.target.value })} />
-                                            : element.dia}</td>
-                                        <td>{editingId === element._id ?
-                                            <select value={editingData.mes} onChange={(e) => setEditingData({ ...editingData, mes: e.target.value })}>
-                                                <option value="">Seleccionar Mes</option>
-                                                <option value="Enero">Enero</option>
-                                                <option value="Febrero">Febrero</option>
-                                                <option value="Marzo">Marzo</option>
-                                                <option value="Abril">Abril</option>
-                                                <option value="Mayo">Mayo</option>
-                                                <option value="Junio">Junio</option>
-                                                <option value="Julio">Julio</option>
-                                                <option value="Agosto">Agosto</option>
-                                                <option value="Septiembre">Septiembre</option>
-                                                <option value="Octubre">Octubre</option>
-                                                <option value="Noviembre">Noviembre</option>
-                                                <option value="Diciembre">Diciembre</option>
-                                            </select>
-                                            : element.mes}</td>
-                                        <td>{editingId === element._id ?
-                                            <select value={editingData.año} onChange={(e) => setEditingData({ ...editingData, año: e.target.value })}>
-                                                <option value="">Seleccionar Año</option>
-                                                <option value="2024">2024</option>
-                                                <option value="2025">2025</option>
-                                                <option value="2026">2026</option>
-                                            </select>
-                                            : element.año}</td>
-                                        <td>{editingId === element._id ?
-                                            <input value={editingData.factura} onChange={(e) => setEditingData({ ...editingData, factura: e.target.value })} />
-                                            : element.factura}</td>
-                                        <td className='monto'>${editingId === element._id ?
-                                            <input value={editingData.monto.toLocaleString('en-US')} onChange={(e) => setEditingData({ ...editingData, monto: e.target.value })} />
-                                            : element.monto}</td>
-                                        <td style={{ background: condicionEstado(element.estado || '') }}>{editingId === element._id ?
-                                            <select value={editingData.estado} onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })}>
-                                                <option value="Pagado">Pagado</option>
-                                                <option value="Impago">Impago</option>
-                                            </select>
-                                            : element.estado}</td>
+                                    <React.Fragment key={index}>
+
+                                    <tr>
+                                        
+                                        <td>{element.proveedor}</td>
+                                        
+                                        <td>{element.dia}</td>
+                                        
+                                        <td>{element.mes}</td>
+                                        
+                                        <td>{element.año}</td>
+                                        
+                                        <td>{element.factura}</td>
+
+                                        <td className='monto'>${element.monto}</td>
+                                        
+                                        <td style={{ background: condicionEstado(element.estado || '') }}>{ element.estado}</td>
+                                        
                                         <td className="actions">
                                             <button className="trash" onClick={() => deleteGastos(element._id, element.proveedor, element.monto)}>
                                                 <i className="fa-solid fa-trash"></i>
                                             </button>
                                             {editingId === element._id ? (
+                                              null
+                                            ) : (
+                                                <button className="edit" onClick={() => startEditing(element)}>
+                                                    <i className="fa-solid fa-gear"></i>
+                                                </button>
+                                            )}
+                                        </td>
+                                    </tr>
+
+                                    {editingId === element._id && (
+                                        <tr className="edit-row">
+                                            <td>
+                                                <select 
+                                                    value={editingData.proveedor}
+                                                    onChange={(event) => setEditingData({ ...editingData, proveedor: event.target.value })}
+                                                >
+                                                    <option value="">Elegir Proveedor</option>
+                                                    <option value="Forastero">Forastero</option>
+                                                    <option value="Chubutin">Chubutin</option>
+                                                    <option value="Amadeo S.R.L">Amadeo</option>
+                                                    <option value="Don Tomas">Don Tomas</option>
+                                                    <option value="Nutripet">Nutripet</option>
+                                                    <option value="Popy">Popy</option>
+                                                    <option value="Nutrisur">Nutrisur</option>
+                                                    <option value="Kro Line">Kro Line</option>
+                                                    <option value="Mercaba">Mercaba</option>
+                                                    <option value="Cancid">Cancid</option>
+                                                    <option value="Arenza">Arenza</option>
+                                                    <option value="Conurbano Distribucion">Conurbano Distribucion</option>
+                                                    <option value="PPF">PPF</option>
+                                                    <option value="Indumentaria">Indumentaria</option>
+                                                    <option value="Otros">Otros</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select 
+                                                    value={editingData.dia}
+                                                    onChange={(event) => setEditingData({ ...editingData, dia: event.target.value })}
+                                                >
+                                                    <option value="">Elegir Día</option>
+                                                    {[...Array(31)].map((_,index) => (
+                                                        <option key={ index + 1 } value={ index + 1 }>{ index + 1 }</option>
+                                                    ))}
+                                                </select>
+                                            </td>
+
+                                            <td>
+                                                <select 
+                                                    value={editingData.mes}
+                                                    onChange={(event) => setEditingData({ ...editingData, mes: event.target.value })}
+                                                >
+                                                    <option value="">Elegir Mes</option>
+                                                    <option value="Enero">Enero</option>
+                                                    <option value="Febrero">Febrero</option>
+                                                    <option value="Marzo">Marzo</option>
+                                                    <option value="Abril">Abril</option>
+                                                    <option value="Mayo">Mayo</option>
+                                                    <option value="Junio">Junio</option>
+                                                    <option value="Julio">Julio</option>
+                                                    <option value="Agosto">Agosto</option>
+                                                    <option value="Septiembre">Septiembre</option>
+                                                    <option value="Octubre">Octubre</option>
+                                                    <option value="Noviembre">Noviembre</option>
+                                                    <option value="Diciembre">Diciembre</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select 
+                                                    value={editingData.año}
+                                                    onChange={(event) => setEditingData({ ...editingData, año: event.target.value })}
+                                                >
+                                                    <option value="">Seleccionar Año</option>
+                                                    <option value="2024">2024</option>
+                                                    <option value="2025">2025</option>
+                                                    <option value="2026">2026</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    value={editingData.factura}
+                                                    onChange={(event) => setEditingData({ ...editingData, factura: event.target.value })}
+                                                />
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    value={editingData.monto}
+                                                    onChange={(event) => setEditingData({ ...editingData, monto: event.target.value })}
+                                                />
+                                            </td>
+                                            <td>
+                                                <select 
+                                                    value={editingData.estado}
+                                                    onChange={(event) => setEditingData({ ...editingData, estado: event.target.value })}
+                                                >
+                                                    <option value="">Seleccionar Estado</option>
+                                                    <option value="Pagado">Pagado</option>
+                                                    <option value="Impago">Impago</option>
+                                                </select>
+                                            </td>
+                                            <td className="actions">
                                                 <div className='btn-edit'>
                                                     <button className="check" onClick={() => saveChanges(element._id)}>
                                                         <i className="fa-solid fa-check"></i>
@@ -415,13 +492,11 @@ export function Gastos(){
                                                         <i className="fa-solid fa-ban"></i>
                                                     </button>
                                                 </div>
-                                            ) : (
-                                                <button className="edit" onClick={() => startEditing(element)}>
-                                                    <i className="fa-solid fa-gear"></i>
-                                                </button>
-                                            )}
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    )}
+
+                                </React.Fragment>
                                 ))
                             )}
                         </tbody>
@@ -429,7 +504,7 @@ export function Gastos(){
                         <tfoot>
                             <tr className='total'>
                                 <td>Total </td>
-                                <td colSpan="3"> </td>
+                                <td colSpan="4"> </td>
                                 <td> ${totalMonto(gastosFiltrados)}</td>
                                 <td></td>
                             </tr>

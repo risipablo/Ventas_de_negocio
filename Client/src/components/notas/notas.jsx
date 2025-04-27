@@ -12,6 +12,8 @@ import { toast, Toaster } from 'react-hot-toast';
 import useSound from 'use-sound'
 import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
+import { Modal } from "../others/modal/modal";
+import React from "react";
 
 
 // const serverFront = "http://localhost:3001";
@@ -23,7 +25,9 @@ export function Notas() {
     const [notesFilter, setNotesFilter] = useState([])
     const [newNota, setNewNota] = useState("");
     const [newDescription, setNewDescription] = useState("")
-    const [newMeses, setNewMeses ] = useState("");
+    const [newMeses, setNewMeses ] = useState(() => {
+        return localStorage.getItem('fecha' || "00-00-0000")
+    });
     const [play] = useSound(digital)
     const [play2] = useSound(ok)
     const [loading, setLoading] = useState(true)
@@ -80,8 +84,8 @@ export function Notas() {
         setNotesFilter(notes.filter(note => {
             return palabrasClave.every(palabra => 
                 note.notas.toLowerCase().includes(palabra) ||
-                note.meses.toLowerCase().includes(palabra) 
-                // note.description.toLowerCase().includes(palabra)
+                note.meses.toLowerCase().includes(palabra) ||
+                note.description.toLowerCase().includes(palabra)
             )
         }))
     }
@@ -92,23 +96,23 @@ export function Notas() {
         setNewMeses('');
     };
 
-    const [editingId, setEditingId] = useState(null); 
-    const [editingData, setEditingData] = useState({
+    const [editId, setEditId] = useState(null); 
+    const [editingId, setEditingId] = useState({
         notas:'',
         meses:''
     });
 
     const startEditing = (note) => {
-        setEditingId(note._id);
-        setEditingData({
+        setEditId(note._id);
+        setEditingId({
             notas:note.notas,
             meses:note.meses
         })
     }
 
     const cancelEditing = () => {
-        setEditingId(null);
-        setEditingData({
+        setEditId(null);
+        setEditingId({
             notas: '',
             meses: '',
         })
@@ -116,7 +120,7 @@ export function Notas() {
 
     const saveChanges = (id) => {
         toast.promise(
-            axios.patch(`${serverFront}/edit-notas/${id}`, editingData)
+            axios.patch(`${serverFront}/edit-notas/${id}`, editingId)
             .then(response => {
                 setNotes(notes.map(note => note._id === id ? response.data : note))
                 setNotesFilter(notesFilter.map(note => note._id === id ? response.data : note))
@@ -180,6 +184,31 @@ export function Notas() {
         setSelectedNotes("")
     }
 
+     const [showModal,setShowModal] = useState(false)
+    
+        const deleteAllStock = () => {
+            setShowModal(true)
+        }
+    
+        const deleteAll = () => {
+            axios.delete(`${serverFront}/delete-all-notas`)
+            .then(response => {
+                setNotes([])
+                setNotesFilter([])
+                setShowModal(false)
+                toast.error('Todas las notas han sido eliminadas', {
+                    position: 'top-center',
+                });
+                
+            }).catch(err => {
+                console.error(err);
+                toast.error('Error al eliminar las notas', {
+                    position: 'top-center',
+                });
+            });
+        }
+    
+
 
     return (
         <div className="notas-container"> 
@@ -192,6 +221,14 @@ export function Notas() {
             <Buscador placeholder="Buscar Notas " filtrarDatos={FiltarNotas}/>
 
             <div className="agregar-notas">
+
+                <input 
+                    type="date" 
+                    placeholder="Ingresar Fecha"
+                    onChange={event => setNewMeses(event.target.value)}
+                    value={newMeses} 
+                />
+
                 <input 
                     type="text" 
                     placeholder="Agregar una nueva nota" 
@@ -206,12 +243,7 @@ export function Notas() {
                     value={newDescription} 
                 />
 
-                <input 
-                    type="text" 
-                    placeholder="Agregar Mes " 
-                    onChange={event => setNewMeses(event.target.value)}
-                    value={newMeses} 
-                />
+
 
                 <div className="botones-notas">
                     <button className="agregar" onClick={addNotas}>Agregar</button>
@@ -243,7 +275,7 @@ export function Notas() {
                     </div>
                 )}
  
-
+            <button onClick={deleteAllStock} className="deleteAll">Eliminar todo</button>
             
                 <div className="productos">
                     <div className="table-responsive">
@@ -251,9 +283,10 @@ export function Notas() {
                             <thead>
                                 <tr>
                                 <th className="checkbox"></th>
+                                    <th>Fecha</th>
                                     <th>Notas</th>
                                     <th>Description</th>
-                                    <th>Mes</th>
+                                    
                                     <th></th>
                                 </tr>
                             </thead>
@@ -268,57 +301,91 @@ export function Notas() {
                                             <td><Skeleton variant="text" width={100} /></td>
                                         </tr>
                                     ))
-                                ) : (
-                                    notesFilter.map((element, index) => (
-                                        <tr key={index} className={element.completed ? "completed-note" : ""} 
-                                            onClick={() => setToogleCheck(toogleCheck === element._id ? null : element._id)}>
-                                            
+                                ) : ( notesFilter.map((element, index) => (
+
+                                    <React.Fragment key={index}>
+                                        <tr
+                                            className={element.completed ? "completed-note" : ""}
+                                            onClick={() => setToogleCheck(toogleCheck === element._id ? null : element._id)}
+                                        >
                                             <td>
                                                 {(toogleCheck === element._id || selectedNotes.includes(element._id)) && (
-                                                    <input type="checkbox" checked={selectedNotes.includes(element._id)} onChange={() => handleChange(element._id)} />
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={selectedNotes.includes(element._id)}
+                                                        onChange={() => handleChange(element._id)}
+                                                    />
                                                 )}
                                             </td>
-                                            
-                                            <td className="texto-notas">{editingId === element._id ?
-                                                <input value={editingData.notas} onChange={(e) => setEditingData({...editingData, notas:e.target.value})} /> : element.notas} </td>
-                                            
-                                            <td className="texto-notas">{editingId === element._id ? 
-                                                <input value={editingData.description} onChange={(e) => setEditingData({...editingData, description:e.target.value})}/> :
-                                                element.description}</td>
-                                            
-                                            <td>{editingId === element._id ?
-                                                <input value={editingData.meses} onChange={(e) => setEditingData({...editingData, meses:e.target.value})} /> : element.meses} </td>
-                                            
+                                            <td>{element.meses}</td>
+                                            <td >{element.notas}</td>
+                                            <td>{element.description}</td>
+
                                             <td className="actions2">
-                                                <button className="trash" onClick={() => deleteNotas(element._id)}>
-                                                    <i className="fa-solid fa-trash"></i>
-                                                </button>
-                                                
+                       
                                                 <button
                                                     className={element.completed ? "desmarcar" : "completar"}
                                                     onClick={() => completedNote(element._id, element.completed)}
                                                 >
                                                     {element.completed ? "Desmarcar" : "Completar"}
                                                 </button>
-                                                
-                                                {editingId === element._id ? (
-                                                    <div className="btn-edit">
-                                                        <button className="check" onClick={() => saveChanges(element._id)}>
-                                                            <i className="fa-solid fa-check"></i>
-                                                        </button>
-                                                        <button className="cancel" onClick={cancelEditing}>
-                                                            <i className="fa-solid fa-ban"></i>
-                                                        </button>
-                                                    </div>
-                                                ) : (
-                                                    <button className="edit" onClick={() => startEditing(element)}>
-                                                        <i className="fa-solid fa-pen-to-square"></i>
-                                                    </button>
-                                                )}
+
+                                                <button className="trash" onClick={() => deleteNotas(element._id)}>
+                                                    <i className="fa-solid fa-trash"></i>
+                                                </button>
+                                
+                                                {editId === element._id ? (
+                                                 null
+                                                ): <button className="edit" onClick={() => startEditing(element)}>
+                                                <i className="fa-solid fa-pen-to-square"></i>
+                                            </button>}
+  
                                             </td>
                                         </tr>
-                                    ))
-                                )}
+                                
+                                        {editId === element._id && (
+                                            <tr className="edit-row">
+                                                <td></td>
+
+                                                <td>
+                                                <input
+                                                    type="date"
+                                                    value={editingId.meses}
+                                                    onChange={(e) => setEditingId({ ...editingId, meses: e.target.value })}
+                                                />
+                                                </td>
+
+                                                <td>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Notas"
+                                                    value={editingId.notas}
+                                                    onChange={(e) => setEditingId({ ...editingId, notas: e.target.value })}
+                                                />
+                                                </td>
+                                                <td>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Descripción"
+                                                    value={editingId.description}
+                                                    onChange={(e) => setEditingId({ ...editingId, description: e.target.value })}
+                                                />
+                                                </td>
+
+                                                <td className="btn-editar">
+                                                <button className="check" onClick={() => saveChanges(element._id)}>
+                                                    <i className="fa-solid fa-check"></i>
+                                                </button>
+                                                
+                                                <button className="cancel" onClick={cancelEditing}>
+                                                    <i className="fa-solid fa-ban"></i>
+                                                </button>
+                                                </td>
+
+                                            </tr>
+                                        )}
+                                    </React.Fragment>
+                                )))}
                             </tbody>
 
                         </table>
@@ -327,7 +394,7 @@ export function Notas() {
                         <ScrollTop/>
                     </div>
                 </div>
-
+                <Modal show={showModal} onClose={() => setShowModal(false)} onConfirm={deleteAll}/> 
             </Accordion>
             
         </div>

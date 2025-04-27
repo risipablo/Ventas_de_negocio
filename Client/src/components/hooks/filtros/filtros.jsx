@@ -98,6 +98,7 @@ export function Filtros({ ventas, setVentasFiltradas }) {
                 <option value="Visa Crédito">Visa Crédito</option>
                 <option value="Master Crédito">Master Crédito</option>
                 <option value="Naranja Crédito">Naranja Crédito</option>
+                <option value="Qr">Qr</option>
                 <option value="Debe">Debe</option>
                 <option value="Efectivo">Efectivo</option>
                 <option value="Mercado Pago">Mercado Pago</option>

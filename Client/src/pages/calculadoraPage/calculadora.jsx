@@ -14,33 +14,47 @@ export function Calculadora(){
      setInput(input + val);
   }
 
-  const calcularResultado = () =>{
-      if(input){
-          setInput(evaluate(input));
-      }else{
-          alert('Ingrese valores');
+  const calcularResultado = () => {
+    if (input) {
+      try {
+        setInput(evaluate(input).toString());
+      } catch {
+        alert("Expresión inválida");
+        setInput("");
       }
-  }
+    } else {
+      alert("Ingrese valores");
+    }
+  };
 
   const borrarUltimo = () => {
     setInput(input.slice(0, -1)); 
   };
 
-  const teclado =(event) => {
-    const {key} = event;
+  const limpiarInput = () => {
+    setInput("");
+  };
 
-    if (!isNaN(key) || key === '.' || ["+","-","*","/"].includes(key)) {
-      setInput((prev) => prev + key)
+
+  const teclado = (event) => {
+    const { key } = event;
+
+    if (!isNaN(key) || key === "." || ["+", "-", "*", "/"].includes(key)) {
+      setInput((prev) => prev + key);
     } else if (key === "Enter") {
-      calcularResultado()
+      calcularResultado();
     } else if (key === "Backspace") {
-      setInput((prev) => prev.search(0,-1))
+      borrarUltimo();
+    } else if (key === "Escape") {
+      limpiarInput();
     }
-  }
+  };
 
   return(
 
-        <div className='contenedor-calculadora' tabIndex={0} onKeyDown={teclado} >
+        <div className='contenedor-calculadora' 
+        tabIndex={0} onKeyDown={teclado} 
+        onFocus={(e) => e.target.focus()}>
             
             <Pantalla input={input} />
 
