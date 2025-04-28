@@ -16,10 +16,10 @@ export function Chart() {
                 <img src={gastos} alt="Gastos" className="chart-image" />
                 <span>Gastos</span>
             </NavLink>
-{/* 
+
             <NavLink to="/resumen-chart" className='chart-link'>
                 <span> Resumen </span>
-            </NavLink> */}
+            </NavLink>
         </div>
     );
 }

@@ -129,7 +129,8 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
                 type="text"
                 placeholder="Productos juntos"
                 value={produc2}
-                onChange={(e => setProduc2(e.target.value))}
+                onChange={(e) => setProduc2(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && setProduc2(e.target.value)}
             />
 
             <button className="button" onClick={ResetFilter}>

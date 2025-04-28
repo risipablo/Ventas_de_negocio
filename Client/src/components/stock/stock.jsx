@@ -12,8 +12,8 @@ import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
 import { Modal } from "../others/modal/modal";
 
-const serverFront = 'http://localhost:3001'
-    // const serverFront = 'https://ventas-de-negocio.onrender.com'
+// const serverFront = 'http://localhost:3001'
+    const serverFront = 'https://ventas-de-negocio.onrender.com'
 
 
 export function Stock() {
@@ -125,6 +125,7 @@ export function Stock() {
         setEditingData({
             brands: stock.brands,
             pet: stock.pet,
+            pet: stock.pet,
             size: stock.size,
             kg: stock.kg,
             amount: stock.amount,
@@ -185,7 +186,7 @@ export function Stock() {
     const [selectedStock, setSelectedStock] = useState([])
 
     const handleChange = (id) => {
-        setSelectedStock((prev) => prev.includes(id) ? prev.filter(stockId => stockId !== !id):[...prev,id])
+        setSelectedStock((prev) => prev.includes(id) ? prev.filter(stockId => stockId !== id):[...prev,id])
     }
 
     const deleteManyStock = (ids) => {
@@ -260,22 +261,37 @@ export function Stock() {
                                 value={brands}
                                 onChange={(e) => setBrands(e.target.value)}
                             />
-                            <input
+                            <select
                                 type="text"
                                 placeholder="Ingresar Tamaño"
                                 value={size}
                                 onChange={(e) => setSize(e.target.value)}
-                            />
+                            >
+                                <option value=""><em>Seleccionar Tamaño</em></option>
+                                <option value="Cachorro">Cachorro</option>
+                                <option value="Mini Adulto">Mini Adulto</option>
+                                <option value="Adulto">Adulto</option>
+                                <option value="Senior">Senior</option>
+                                <option value="Urinary">Urinary</option>
+                                <option value="Hipoalergenico">Hipoalergenico</option>
+                                <option value="Light">Light</option>
+                                <option value="Lata">Lata</option>
+                                <option value="Bolsitas">Bolsitas</option>
+
+
+                            </select>
+
                             <select value={pet} onChange={(e) => setPet(e.target.value)}>
                                 <option value=""><em>Seleccionar Tipo</em></option>
                                 <option value="Perro">Perro</option>
                                 <option value="Gato">Gato</option>
                                 <option value="Piedras">Piedras</option>
                                 <option value="Shampoo">Shampoo</option>
+                                <option value="Indumentaria">Indumentaria</option>
                             </select>
                             <input
                                 type="text"
-                                placeholder="Ingresar Kilos"
+                                placeholder="Ingresar Unidad"
                                 value={newKg}
                                 onChange={(e) => setNewKg(e.target.value)}
                             />
@@ -333,7 +349,7 @@ export function Stock() {
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}></TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Producto</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Tamaño</TableCell>
-                                <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Kilos</TableCell>
+                                <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Unidad</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Tipo </TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Cantidad</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Estado</TableCell>
@@ -411,7 +427,20 @@ export function Stock() {
                                         )}
                                     </TableCell>
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
-                                        {element.pet}
+                                        {editingId === element._id ? (
+                                            <select
+                                                value={editingData.pet}
+                                                onChange={(e) => setEditingData({ ...editingData, pet: e.target.value })}
+                                            >
+                                                <option value="Perro">Perro</option>
+                                                <option value="Gato">Gato</option>
+                                                <option value="Piedras">Piedras</option>
+                                                <option value="Shampoo">Shampoo</option>
+                                                <option value="Indumentaria">Indumentaria</option>
+                                            </select>
+                                        ) : (
+                                            element.pet
+                                        )}
                                     </TableCell>
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
                                         {editingId === element._id ? (

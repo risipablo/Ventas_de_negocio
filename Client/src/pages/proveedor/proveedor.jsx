@@ -184,7 +184,7 @@ export function Proveedor() {
     const [selectedNotes, setSelectedNotes] = useState([])
 
     const handleChange = (id) => {
-        setSelectedNotes((prev) => prev.includes(id) ? prev.filter(noteId => noteId !== !id):[...prev,id])
+        setSelectedNotes((prev) => prev.includes(id) ? prev.filter(noteId => noteId !== id):[...prev,id])
     }
 
     const deleteManyProveedores = (ids) => {

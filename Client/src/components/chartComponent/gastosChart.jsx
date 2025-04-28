@@ -246,6 +246,14 @@ const GastosChart = ({gastos}) => {
                     </div>    
                </div>
 
+               <div>
+                    <h3>Gasto Total</h3>
+                    <div className="content-row">
+                        
+                        <p>${(gastoTotal(gastos) || 0).toLocaleString('en-US')}</p>
+                    </div>
+               </div>
+
             </div>
 
         </div>

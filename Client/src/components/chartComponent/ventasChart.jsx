@@ -34,6 +34,15 @@ const VentasChart = ({ ventas }) => {
 
     const promMes = ventasPorMes[maxVentaMes]
 
+    
+    // Mes menor vendido
+    const minimoVentaMes = Object.keys(ventasPorMes).reduce((min,key) => {
+        return ventasPorMes[key] < ventasPorMes[min]
+        ? key : min}, Object.keys(ventasPorMes)[0])
+
+    const promMinimo = ventasPorMes[minimoVentaMes]
+
+
 
     // Datos para el gráfico de ventas por mes
     const dataVentasPorMes = {
@@ -42,9 +51,9 @@ const VentasChart = ({ ventas }) => {
             {
                 label: 'Total de Ventas',
                 data: Object.values(ventasPorMes), // Totals by month
-                backgroundColor: Object.keys(ventasPorMes).map((proveedor) => proveedor === maxVentaMes ? 'rgba(209, 25, 25, 0.7)' : 'rgba(164, 11, 235,0.7)'),
+                backgroundColor: Object.keys(ventasPorMes).map((proveedor) => proveedor === maxVentaMes ? 'rgba(209, 25, 25, 0.7)' : minimoVentaMes === proveedor ? 'rgba(235, 213, 11, 0.7)' : 'rgba(164, 11, 235,0.7)'),
                 borderColor: 'rgba(225, 26, 26, 1)',
-                hoverBackgroundColor: Object.keys(ventasPorMes).map((proveedor) => proveedor === maxVentaMes ? 'rgba(200, 25, 25)' : 'rgba(160, 11, 235)'),
+                hoverBackgroundColor: Object.keys(ventasPorMes).map((proveedor) => proveedor === maxVentaMes ? 'rgba(200, 25, 25)' :  minimoVentaMes === proveedor ? 'rgba(230, 203, 12)' : 'rgba(160, 11, 235)'),
                 borderWidth: 1,
             },
         ],
@@ -198,21 +207,38 @@ const VentasChart = ({ ventas }) => {
 
     const totalProducto = productosPorMes[productoMaximo]
 
+
+    const topProductos = Object.keys(productosPorMes)
+    .sort((a, b) => productosPorMes[b] - productosPorMes[a]).slice(0, 10
+    );
+
+
+    const productosFiltrados = Object.fromEntries(
+        topProductos.map((producto) => [producto, productosPorMes[producto]])
+    );
+
    
     const dataVentasPorProducto = {
-        labels: Object.keys(productosPorMes), // Products
+        labels: Object.keys(productosFiltrados), // <-- Cambiado a productosFiltrados
         datasets: [
             {
-                label: 'Total de Ventas por Producto',
-                data: Object.values(productosPorMes), // Totals by product
-                backgroundColor: Object.keys(productosPorMes).map((proveedor) => proveedor === productoMaximo ? 'rgba(209, 25, 25, 0.7)' : 'rgba(164, 11, 235,0.7)'),
+                label: 'Top 10 Productos Más Vendidos',
+                data: Object.values(productosFiltrados), // <-- Cambiado a productosFiltrados
+                backgroundColor: Object.keys(productosFiltrados).map((producto) => 
+                    producto === Object.keys(productosFiltrados)[0] 
+                        ? 'rgba(209, 25, 25, 0.7)' 
+                        : 'rgba(164, 11, 235, 0.7)'
+                ),
                 borderColor: 'rgba(225, 26, 26, 1)',
-                hoverBackgroundColor: Object.keys(productosPorMes).map((proveedor) => proveedor === productoMaximo ? 'rgba(200, 25, 25)' : 'rgba(160, 11, 235)'),
+                hoverBackgroundColor: Object.keys(productosFiltrados).map((producto) => 
+                    producto === Object.keys(productosFiltrados)[0] 
+                        ? 'rgba(200, 25, 25)' 
+                        : 'rgba(160, 11, 235)'
+                ),
                 borderWidth: 1,
             },
         ],
     };
-
 
     const options = {
         scales: {
@@ -237,6 +263,9 @@ const VentasChart = ({ ventas }) => {
             },
         },
     };
+
+
+
 
     // productos Mayor vendido
     const productosVendidosMes = ventas.reduce((acc, venta) => {
@@ -319,6 +348,7 @@ const VentasChart = ({ ventas }) => {
     };
 
 
+    
     // Metodo Pago
 
     const metodoPago = ventas.reduce((acc,venta) => {
@@ -448,11 +478,46 @@ const VentasChart = ({ ventas }) => {
             return acc;
         }
 
-        const monto = total / 8
+        const monto = total / 12
 
         return acc + monto
 
     },0)
+
+
+    const promedioDiasVentas = ventas.reduce((acc,venta) => {
+        const total = venta.total;
+        const conditions = venta.tp ? venta.tp.toLowerCase() : ''
+
+        const conditionsReduce = ['debe']
+
+        if (conditionsReduce.includes(conditions)) {
+            return acc;
+        }
+
+        const monto = total / 30
+
+        return acc + monto
+
+    },0)
+
+
+    const VentasTotales = ventas.reduce((acc,venta) => {
+        const total = venta.total;
+        const conditions = venta.tp ? venta.tp.toLowerCase() : ''
+
+        const conditionsReduce = ['debe']
+
+        if (conditionsReduce.includes(conditions)) {
+            return acc;
+        }
+
+        const monto = total
+
+        return acc + monto
+
+    },0)
+
 
     
 
@@ -503,6 +568,16 @@ const VentasChart = ({ ventas }) => {
                     </div>
                 </div>
 
+
+                <div>
+                    <h3> Promedio de ventas por dia </h3>
+                    <div className="content-row">
+                        <p>${(promedioDiasVentas || 0).toLocaleString('en-US')}</p>
+                    </div>
+                </div>
+
+                
+
                 <div>
                     <h3> Producto mayor vendido </h3>
                     <div className="content-row">
@@ -510,6 +585,7 @@ const VentasChart = ({ ventas }) => {
                         <p>${(totalProducto || 0).toLocaleString('en-US')}</p>
                     </div>
                 </div>
+                
 
                 <div>
                     <h3> Metodo con mayor ventas </h3>
@@ -527,6 +603,24 @@ const VentasChart = ({ ventas }) => {
                         <p>${(promMes || 0).toLocaleString('en-US')}</p>
                     </div>
                 </div>
+
+                <div>
+                    <h3> Mes menor vendido </h3>
+                    <div className="content-row">
+                        <p>{minimoVentaMes}</p>
+                        <p>${(promMinimo || 0).toLocaleString('en-US')}</p>
+                    </div>
+                </div>
+
+
+
+                <div>
+                    <h3> Total de ventas </h3>
+                    <div className="content-row">
+                        <p>${(VentasTotales || 0).toLocaleString('en-US')}</p>
+                    </div>
+                </div>
+
 
             </div>
 
