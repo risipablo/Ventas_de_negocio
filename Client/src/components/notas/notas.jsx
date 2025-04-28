@@ -28,6 +28,7 @@ export function Notas() {
     const [newMeses, setNewMeses ] = useState(() => {
         return localStorage.getItem('fecha' || "00-00-0000")
     });
+    const [total, setTotal] = useState("");
     const [play] = useSound(digital)
     const [play2] = useSound(ok)
     const [loading, setLoading] = useState(true)
@@ -52,9 +53,9 @@ export function Notas() {
 
  
     const addNotas = () => {
-        if (newNota.trim() && newMeses.trim() !== "" && newDescription.trim() !== "") {
+        if (newNota.trim() && newMeses.trim() !== "" && newDescription.trim() !== "" && total > 0) {
             axios.post(`${serverFront}/add-notas`, 
-                { notas: newNota, meses:newMeses, description:newDescription })
+                { notas: newNota, meses:newMeses, description:newDescription, total:total })
                 .then(response => {
                     const nuevaNota = response.data;
                     setNotes(notas => [...notas, nuevaNota]);
@@ -62,6 +63,7 @@ export function Notas() {
                     setNewNota("");
                     setNewDescription("")
                     setNewMeses("")
+                    setTotal(0)
                     agregarNotas(nuevaNota)
                     toast.success(`Se agrego nueva nota`);
                 })
@@ -94,19 +96,24 @@ export function Notas() {
         setNewNota("");
         setNewDescription("")
         setNewMeses('');
+        setTotal(0)
     };
 
     const [editId, setEditId] = useState(null); 
     const [editingId, setEditingId] = useState({
         notas:'',
-        meses:''
+        meses:'',
+        description:'',
+        total:''
     });
 
     const startEditing = (note) => {
         setEditId(note._id);
         setEditingId({
             notas:note.notas,
-            meses:note.meses
+            meses:note.meses,
+            description:note.description,
+            total:note.total
         })
     }
 
@@ -115,6 +122,8 @@ export function Notas() {
         setEditingId({
             notas: '',
             meses: '',
+            description: '',
+            total: ''
         })
     }
 
@@ -244,6 +253,12 @@ export function Notas() {
                     value={newDescription} 
                 />
 
+                <input
+                    type="number"
+                    placeholder="Total"
+                    onChange={event => setTotal(event.target.value)}
+                    value={total}
+                />
 
 
                 <div className="botones-notas">
@@ -287,6 +302,7 @@ export function Notas() {
                                     <th>Fecha</th>
                                     <th>Notas</th>
                                     <th>Description</th>
+                                    <th>Total</th>
                                     
                                     <th></th>
                                 </tr>
@@ -295,11 +311,12 @@ export function Notas() {
                             <tbody>
                                 {loading ? (
                                     [...Array(3)].map((_, index) => (
-                                        <tr key={index}>
-                                            <td><Skeleton variant="text" width={100} /></td>
-                                            <td><Skeleton variant="text" width={100} /></td>
-                                            <td><Skeleton variant="text" width={100} /></td>
-                                            <td><Skeleton variant="text" width={100} /></td>
+                                        <tr key={index} className="table-responsive">
+                                            <td><Skeleton variant="text" width={120} /></td>
+                                            <td><Skeleton variant="text" width={120} /></td>
+                                            <td><Skeleton variant="text" width={120} /></td>
+                                            <td><Skeleton variant="text" width={120} /></td>
+                                            <td><Skeleton variant="text" width={120} /></td>
                                         </tr>
                                     ))
                                 ) : ( notesFilter.map((element, index) => (
@@ -318,9 +335,11 @@ export function Notas() {
                                                     />
                                                 )}
                                             </td>
+
                                             <td>{element.meses}</td>
                                             <td >{element.notas}</td>
-                                            <td>{element.description}</td>
+                                            <td className="descripcion">{element.description}</td>
+                                            <td>$ {element.total}</td>
 
                                             <td className="actions2">
                        
@@ -371,6 +390,15 @@ export function Notas() {
                                                     value={editingId.description}
                                                     onChange={(e) => setEditingId({ ...editingId, description: e.target.value })}
                                                 />
+                                                </td>
+
+                                                <td>
+                                                <input
+                                                    type="number"
+                                                    placeholder="Total"
+                                                    value={editingId.total}
+                                                    onChange={(e) => setEditingId({ ...editingId, total: e.target.value })}
+                                                />  
                                                 </td>
 
                                                 <td className="btn-editar">

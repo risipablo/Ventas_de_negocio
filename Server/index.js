@@ -236,12 +236,12 @@ app.get('/notas', async (req, res) => {
 
 // Ruta para añadir una nota
 app.post('/add-notas', async (req, res) => {
-    const { notas, meses, description } = req.body;
-    if (!notas || !meses || !description) {
+    const { notas, meses, description, total } = req.body;
+    if (!notas || !meses || !description || !total)  {
         return res.status(400).json({ error: 'Nota no proporcionada' });
     }
     try {
-        const newNota = new NotasModel({ notas, meses, description});
+        const newNota = new NotasModel({ notas, meses, description, total });
         const result = await newNota.save();
         res.json(result);
     } catch (err) {
@@ -275,8 +275,8 @@ app.delete('/delete-many-notas/', async (req,res) => {
 // Editar notas
 app.patch('/edit-notas/:id', (req, res) => {
     const { id } = req.params;
-    const { notas, meses, description } = req.body;
-    NotasModel.findByIdAndUpdate(id, { notas, meses, description }, { new: true })
+    const { notas, meses, description, total } = req.body;
+    NotasModel.findByIdAndUpdate(id, { notas, meses, description, total }, { new: true })
         .then(result => res.json(result))
         .catch(err => res.status(500).json({ error: err.message }));
 });
@@ -384,12 +384,12 @@ app.get('/stock', async (req, res) => {
 
 // Agregar stock
 app.post('/add-stock', async (req, res) => {
-    const { brands, pet, size, kg, amount, condition } = req.body;
-    if (!brands || !pet || !size || !kg || !amount || !condition) {
+    const { brands, pet, size, kg, amount, condition, estado } = req.body;
+    if (!brands || !pet || !size || !kg || !amount || !condition || !estado) {
         return res.status(400).json({ error: 'Faltan datos requeridos' });
     }
     try {
-        const newStock = new StockModel({ brands, pet, size, kg, amount, condition });
+        const newStock = new StockModel({ brands, pet, size, kg, amount, condition, estado });
         const result = await newStock.save();
         res.json(result);
     } catch (err) {
@@ -438,9 +438,9 @@ app.delete('/deleteAll', async (req,res) => {
 // Editar Stock
 app.patch('/edit-stock/:id', async ( req, res ) => {
     const {id} = req.params;
-    const { brands, pet, size, kg, amount, condition } = req.body;
+    const { brands, pet, size, kg, amount, condition, estado } = req.body;
     try{
-        const result = await StockModel.findByIdAndUpdate(id, { brands, pet, size, kg, amount, condition }, {new: true} );
+        const result = await StockModel.findByIdAndUpdate(id, { brands, pet, size, kg, amount, condition, estado }, {new: true} );
         res.json(result)
     } catch (err) {
         res.status(500).json({ error:err.message })

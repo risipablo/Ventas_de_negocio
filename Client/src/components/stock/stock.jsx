@@ -24,6 +24,7 @@ export function Stock() {
     const [pet, setPet] = useState('');
     const [newKg, setNewKg] = useState('');
     const [amount, setAmount] = useState('');
+    const [estado, setEstado] = useState('');
     const [condition, setCondition] = useState('');
     const [showInputs, setShowInputs] = useState(true);
     const [palabraClave, setPalabraClave] = useState([])
@@ -51,7 +52,7 @@ export function Stock() {
     }, []);
 
     const addStock = () => {
-        if (brands.trim() && size.trim() && pet.trim() && newKg.trim() && amount.trim() && condition.trim() !== "") {
+        if (brands.trim() && size.trim() && pet.trim() && newKg.trim() && amount.trim() && condition.trim() !== "" && estado.trim() !== "")  {
             axios.post(`${serverFront}/add-stock`, {
                 brands: brands,
                 size: size,
@@ -59,6 +60,7 @@ export function Stock() {
                 kg: newKg,
                 amount: amount,
                 condition: condition,
+                estado: estado,
             })
             .then(response => {
                 const nuevoStock = response.data;
@@ -89,6 +91,7 @@ export function Stock() {
         setNewKg('');
         setAmount('');
         setCondition('');
+        setEstado('');
     };
 
     const FiltrarStock = (palabrasClave) => {
@@ -99,7 +102,8 @@ export function Stock() {
                 stoc.size.toLowerCase().includes(palabra) ||
                 stoc.pet.toLowerCase().includes(palabra) ||
                 stoc.kg.toLowerCase().includes(palabra) ||
-                stoc.condition.toLowerCase().includes(palabra)
+                stoc.condition.toLowerCase().includes(palabra) ||
+                stoc.estado.toLowerCase().includes(palabra)
             )
         }))
     }
@@ -116,6 +120,7 @@ export function Stock() {
         size: '',
         kg: '',
         amount: '',
+        estado: '',
         condition: ''
     });
 
@@ -129,7 +134,8 @@ export function Stock() {
             size: stock.size,
             kg: stock.kg,
             amount: stock.amount,
-            condition: stock.condition
+            condition: stock.condition,
+            estado: stock.estado,
         });
     };
     
@@ -142,7 +148,8 @@ export function Stock() {
             size: '',
             kg: '',
             amount: '',
-            condition: ''
+            condition: '',
+            estado: ''
         });
     };
 
@@ -159,6 +166,7 @@ export function Stock() {
                         stoc.size.toLowerCase().includes(palabra) ||
                         stoc.pet.toLowerCase().includes(palabra) ||
                         stoc.kg.toLowerCase().includes(palabra) ||
+                        stoc.estado.toLowerCase().includes(palabra) ||
                         stoc.condition.toLowerCase().includes(palabra)
                     )
                 }));
@@ -289,6 +297,13 @@ export function Stock() {
                                 <option value="Shampoo">Shampoo</option>
                                 <option value="Indumentaria">Indumentaria</option>
                             </select>
+
+                            <select value={estado} onChange={(e) => setEstado(e.target.value)}>
+                                <option value=""><em>Seleccionar Estado</em></option>
+                                <option value="Cerrado">Cerrado</option>
+                                <option value="Suelto">Suelto</option>
+                            </select>
+
                             <input
                                 type="text"
                                 placeholder="Ingresar Unidad"
@@ -350,6 +365,7 @@ export function Stock() {
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Producto</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Tamaño</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Unidad</TableCell>
+                                <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Estado</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Tipo </TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Cantidad</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Estado</TableCell>
@@ -363,6 +379,7 @@ export function Stock() {
                                 [...Array(8)].map((_,index) => (
                                     <tr key={index}  >
                                             
+                                    <td><Skeleton variant="text" width={80} animation="wave" /></td>
                                     <td><Skeleton variant="text" width={80} animation="wave" /></td>
                                     <td><Skeleton variant="text" width={80} animation="wave" /></td>
                                     <td><Skeleton variant="text" width={80} animation="wave" /></td>
@@ -426,6 +443,23 @@ export function Stock() {
                                             element.kg
                                         )}
                                     </TableCell>
+
+                                    
+                                    <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
+                                        {editingId === element._id ? (
+                                            <select
+                                                value={editingData.estado}
+                                                onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })}
+                                            >
+                                                <option value="Cerrado">Cerrado</option>
+                                                <option value="Suelto">Suelto</option>
+                                            </select>
+                                        ) : (
+                                            element.estado
+                                        )}
+                                    </TableCell>
+
+                                    
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
                                         {editingId === element._id ? (
                                             <select

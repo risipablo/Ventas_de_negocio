@@ -29,7 +29,15 @@
     margin: auto 1.2rem;
 }
 
-  
+  .descripcion {
+    white-space: normal; 
+    word-wrap: break-word; 
+    max-width: 300px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
 
 
 .actions2 {
@@ -41,7 +49,7 @@
 
 .actions2 button {
     margin: 0 18px;
-    padding: 6px 10px;
+    padding: 6px 8px;
     border: none;
     cursor: pointer;
     border-radius: 12px; 

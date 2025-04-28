@@ -17,6 +17,11 @@ const stockSchema = new mongoose.Schema({
         required:true
     },
 
+    estado:{
+        type: String,
+        required:true
+    },
+
     kg:{
         type: String,
         required:true

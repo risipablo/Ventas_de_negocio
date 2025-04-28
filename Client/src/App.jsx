@@ -43,7 +43,7 @@ function App() {
           <Route path="/estadisticas" element={<Chart/>} />
           <Route path="/ventas-chart" element={<VentasEstadisticas />} />
           <Route path="/gastos-chart" element={<GastosEstadisticas/>} />
-          
+          {/*  */}
         </Routes>
       </BrowserRouter>
 

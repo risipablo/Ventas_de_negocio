@@ -13,6 +13,10 @@ const notaSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    total:{
+        type: Number,
+        required:true
+    },
     completed: {
         type:Boolean,
         default: false
