@@ -8,8 +8,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Add, Cancel } from '@mui/icons-material';
 import "./notificacion.css";
 
-const serverFront = 'http://localhost:3001';
-// const serverFront = 'https://ventas-de-negocio.onrender.com';
+// const serverFront = 'http://localhost:3001';
+const serverFront = 'https://ventas-de-negocio.onrender.com';
 
 export function Notificacion() {
     const [notas, setNotas] = useState([]);
