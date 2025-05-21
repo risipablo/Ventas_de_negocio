@@ -7,6 +7,14 @@ export function FiltrosGastoChart({gastos, setGastosFiltrados}){
     const [proveedors, setProveedors] = useState('')
     const [setMes, isSetMes] = useState('')
     const [año, setAño] = useState('');
+    const [mesInicio, setMesInicio] = useState('');
+    const [mesFin, setMesFin] = useState('');
+
+    const meses = [
+        "enero", "febrero", "marzo", "abril", "mayo", "junio",
+        "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+    ];
+
 
     const filtros = () => {
         let gastosFiltrados = gastos;
@@ -20,6 +28,15 @@ export function FiltrosGastoChart({gastos, setGastosFiltrados}){
         if(setMes.trim() !== ''){
             gastosFiltrados = gastosFiltrados.filter(gasto => gasto.mes.toLowerCase() === setMes.toLowerCase())}
 
+        if (mesInicio && mesFin){
+            const indexInicial = meses.indexOf(mesInicio.toLowerCase());
+            const indexFinal = meses.indexOf(mesFin.toLowerCase());
+
+            gastosFiltrados = gastosFiltrados.filter(gasto => {
+                const indexGasto = meses.indexOf(gasto.mes.toLowerCase())
+                return indexGasto >= indexInicial && indexGasto <= indexFinal
+            } )
+        }
 
 
         setGastosFiltrados(gastosFiltrados)
@@ -29,11 +46,13 @@ export function FiltrosGastoChart({gastos, setGastosFiltrados}){
         setAño('')
         setProveedors('')
         isSetMes('')
+        setMesFin('')
+        setMesInicio('')
     }
 
     useEffect(() => {
         filtros()
-    },[proveedors,año,setMes,gastos])
+    },[proveedors,año,setMes,gastos, mesFin, mesInicio])
 
     return(
         <div className="filtros">
@@ -86,6 +105,23 @@ export function FiltrosGastoChart({gastos, setGastosFiltrados}){
                         <option value="2025">2025</option>
                         <option value="2026">2026</option>
                 </select>
+
+                <select value={mesInicio} onChange={e => setMesInicio(e.target.value)}>
+                    <option value="">Mes desde</option>
+                        {meses.map(mes => (
+                            <option key={mes} value={mes}>{mes.charAt(0).toUpperCase() + mes.slice(1)}</option>
+                        ))}
+                </select>
+               
+                <select value={mesFin} onChange={e => setMesFin(e.target.value)}>
+                    <option value="">Mes hasta</option>
+                    {meses.map(mes => (
+                        <option key={mes} value={mes}>{mes.charAt(0).toUpperCase() + mes.slice(1)}</option>
+                    ))}
+                </select>
+       
+                
+
                 <button className="button" onClick={resertFilter}>
                 <i className="fa-regular fa-circle-xmark"></i>
             </button>

@@ -130,7 +130,6 @@ export function Stock() {
         setEditingData({
             brands: stock.brands,
             pet: stock.pet,
-            pet: stock.pet,
             size: stock.size,
             kg: stock.kg,
             amount: stock.amount,
@@ -306,15 +305,15 @@ export function Stock() {
 
                             <input
                                 type="text"
-                                placeholder="Ingresar Unidad"
-                                value={newKg}
-                                onChange={(e) => setNewKg(e.target.value)}
+                                placeholder="Ingresar Kilos"
+                                value={amount}
+                                onChange={(e) => setAmount(e.target.value)}
                             />
                             <input
                                 type="number"
                                 placeholder="Ingresar Cantidad"
-                                value={amount}
-                                onChange={(e) => setAmount(e.target.value)}
+                                value={newKg}
+                                onChange={(e) => setNewKg(e.target.value)}
                             />
                             <select value={condition} onChange={(e) => setCondition(e.target.value)}>
                                 <option value=""><em>Seleccionar Estado</em></option>
@@ -364,9 +363,9 @@ export function Stock() {
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}></TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Producto</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Tamaño</TableCell>
-                                <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Unidad</TableCell>
-                                <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Estado</TableCell>
-                                <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Tipo </TableCell>
+                                <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Tipo</TableCell>
+                                <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Condición</TableCell>
+                                <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Kilos </TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Cantidad</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold', textAlign: 'center' }}>Estado</TableCell>
                                 <TableCell> </TableCell>
@@ -419,7 +418,6 @@ export function Stock() {
                                         )}
                                     </TableCell>
 
- 
 
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
                                         {editingId === element._id ? (
@@ -432,35 +430,8 @@ export function Stock() {
                                             element.size
                                         )}
                                     </TableCell>
-                                    <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
-                                        {editingId === element._id ? (
-                                            <input
-                                                type="text"
-                                                value={editingData.kg}
-                                                onChange={(e) => setEditingData({ ...editingData, kg: e.target.value })}
-                                            />
-                                        ) : (
-                                            element.kg
-                                        )}
-                                    </TableCell>
 
-                                    
-                                    <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
-                                        {editingId === element._id ? (
-                                            <select
-                                                value={editingData.estado}
-                                                onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })}
-                                            >
-                                                <option value="Cerrado">Cerrado</option>
-                                                <option value="Suelto">Suelto</option>
-                                            </select>
-                                        ) : (
-                                            element.estado
-                                        )}
-                                    </TableCell>
-
-                                    
-                                    <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
+                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
                                         {editingId === element._id ? (
                                             <select
                                                 value={editingData.pet}
@@ -476,15 +447,46 @@ export function Stock() {
                                             element.pet
                                         )}
                                     </TableCell>
+
+                                    <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
+                                        {editingId === element._id ? (
+                                            <input
+                                                type="text"
+                                                value={editingData.estado}
+                                                onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })}
+                                            />
+                                        ) : (
+                                            element.estado
+                                        )}
+                                    </TableCell>
+
+
+                                    
+                                    <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
+                                        {editingId === element._id ? (
+                                            <select
+                                                value={editingData.estado}
+                                                onChange={(e) => setEditingData({ ...editingData, estado: e.target.value })}
+                                            >
+                                                <option value="Cerrado">Cerrado</option>
+                                                <option value="Suelto">Suelto</option>
+                                            </select>
+                                        ) : (
+                                            element.amount
+                                        )}
+                                    </TableCell>
+
+                                    
+                                   
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>
                                         {editingId === element._id ? (
                                             <input
                                                 type="number"
-                                                value={editingData.amount}
-                                                onChange={(e) => setEditingData({ ...editingData, amount: e.target.value })}
+                                                value={editingData.kg}
+                                                onChange={(e) => setEditingData({ ...editingData, kg: e.target.value })}
                                             />
                                         ) : (
-                                            element.amount
+                                            element.kg
                                         )}
                                     </TableCell>
                                     <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '1rem' }, p: { xs: 0.5, sm: 1 }, textAlign: 'center' }}>

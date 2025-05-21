@@ -495,7 +495,7 @@ const VentasChart = ({ ventas }) => {
             return acc;
         }
 
-        const monto = total / 30
+        const monto = total / 26
 
         return acc + monto
 

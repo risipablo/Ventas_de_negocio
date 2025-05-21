@@ -165,14 +165,17 @@
 
     .actions2 {
         flex-direction: row;
-        gap: 4px; 
+        gap: 12px; 
     }
 
     .actions2 button {
         font-size: 12px; 
         padding: 6px; 
     }
+
 }
+
+
 
 
 .checkbox{

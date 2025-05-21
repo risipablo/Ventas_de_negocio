@@ -8,6 +8,13 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
     const [produc,setProduc] = useState('')
     const [produc2,setProduc2] = useState('') // productos juntos
     const [años, setAños] = useState('')
+    const [mesInicio, setMesInicio] = useState('');
+    const [mesFin, setMesFin] = useState('');
+
+    const meses = [
+        "enero", "febrero", "marzo", "abril", "mayo", "junio",
+        "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+    ];
 
 
     const filtros = () => {
@@ -42,6 +49,21 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
             );
         }
 
+        // Aplicar el filtro a los meses seleccionados
+        if (mesInicio && mesFin) {
+        //  Buscar el indice del primer mes y del mes final
+            const indexInicio = meses.indexOf(mesInicio.toLowerCase());
+            const indexFinal = meses.indexOf(mesFin.toLowerCase());
+
+        // Filtrar las ventas para quedarse solo con las que estan en el rango
+            ventasFiltradas = ventasFiltradas.filter(venta => {
+            // Obtener el indicie del mes de la venta
+                const indexVenta = meses.indexOf(venta.month.toLowerCase())
+            // Devuelve solo las ventas que esnten en el rango entre el inicio y el final
+                return indexVenta >= indexInicio && indexVenta <= indexFinal;
+            })
+    }
+
         setVentasFiltradas(ventasFiltradas);
     };
 
@@ -52,12 +74,14 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
         setProduc("")
         setProduc2('')
         setAños('')
+        setMesInicio('')
+        setMesFin('')
         setVentasFiltradas(ventas);
     };
 
     useEffect(() => {
         filtros();
-    }, [filterMonth, number, pago, produc, produc2,años ,ventas]); 
+    }, [filterMonth, number, pago, produc, produc2,años ,ventas, mesFin,mesInicio]); 
 
     return (
         <div className="filtros">
@@ -132,6 +156,25 @@ export function FiltrosVentaChart({ ventas, setVentasFiltradas }) {
                 onChange={(e) => setProduc2(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && setProduc2(e.target.value)}
             />
+
+
+        
+                <select value={mesInicio} onChange={e => setMesInicio(e.target.value)}>
+                    <option value="">Mes desde</option>
+                        {meses.map(mes => (
+                            <option key={mes} value={mes}>{mes.charAt(0).toUpperCase() + mes.slice(1)}</option>
+                        ))}
+                </select>
+               
+                <select value={mesFin} onChange={e => setMesFin(e.target.value)}>
+                    <option value="">Mes hasta</option>
+                    {meses.map(mes => (
+                        <option key={mes} value={mes}>{mes.charAt(0).toUpperCase() + mes.slice(1)}</option>
+                    ))}
+                </select>
+       
+            
+
 
             <button className="button" onClick={ResetFilter}>
                 <i className="fa-regular fa-circle-xmark"></i>

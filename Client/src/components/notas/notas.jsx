@@ -339,7 +339,7 @@ export function Notas() {
                                             <td>{element.meses}</td>
                                             <td >{element.notas}</td>
                                             <td className="descripcion">{element.description}</td>
-                                            <td>$ {element.total}</td>
+                                            <td className="total2">$ {element.total}</td>
 
                                             <td className="actions2">
                        
