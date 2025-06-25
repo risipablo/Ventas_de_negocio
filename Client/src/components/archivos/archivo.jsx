@@ -8,8 +8,8 @@ import { ClipLoader } from 'react-spinners';
 import { keyframes } from '@emotion/react';
 import toast, { Toaster } from 'react-hot-toast';
 
-// const serverFront = 'http://localhost:3001';
-const serverFront = 'https://ventas-de-negocio.onrender.com'
+const serverFront = 'http://localhost:3001';
+// const serverFront = 'https://ventas-de-negocio.onrender.com'
 
 const FileUpload = () => {
     const [selectedFile, setSelectedFile] = useState(null);

@@ -12,6 +12,7 @@ import { FiltroProveedor } from "../../components/hooks/filtros/filtroProveedor"
 import useSound from 'use-sound'
 import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
+import { Recordatorio } from "../../components/recordatorios/recordatorios";
 
 
 
@@ -449,6 +450,7 @@ export function Proveedor() {
                     </table>
                 </div>
             </div>
+            <Recordatorio/>
             <Toaster/>
             <ScrollTop/>
         </div>

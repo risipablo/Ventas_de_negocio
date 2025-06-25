@@ -7,6 +7,7 @@ const ProductoModel = require('./Model/productos');
 const ProveedorModel = require('./Model/proveedor');
 const NotificacionModel = require ('./models/notificacion')
 const StockModel = require('./Model/stock');
+const recordatorioModel = require ('./models/recordatorio')
 const File = require ('./Model/files')
 const multer = require('multer');
 const NotasModel = require('./Model/notas');
@@ -503,6 +504,51 @@ app.patch('/nota/:id', async (req,res) => {
 
     } catch (err) {
         res.status(500).json({ error:err.message })
+    }
+})
+
+
+// Recordatorio
+app.get('/recordatorio', async (req,res) => {
+    try{
+        const recordatorio = await recordatorioModel.find();
+        res.json(recordatorio)
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+})
+
+app.post('/recordatorio', async (req,res) => {
+    const {titulo, fecha} = req.body;
+
+    if (!titulo, !fecha) {
+        return res.status(404).json({error: "Error al ingresar el recordatorio"})
+    }
+
+    try{
+        const newRecordatorio = new recordatorioModel({
+            titulo,
+            fecha
+        })
+
+        const result = await newRecordatorio.save();
+        res.json(result)
+    } catch (error) {
+        res.status(404).json({error: error.message})
+    }
+})
+
+app.delete('/recordatorio/:id', async (req,res) => {
+    const {id} = req.params;
+
+    try{
+        const result = await recordatorioModel.findByIdAndDelete(id)
+        if(!result){
+            return res.status(404).json({error: "Recordatorio no encontrado"})
+        }
+        res.json(result)
+    } catch (err){
+        res.status(500).json({error: err.message})
     }
 })
 

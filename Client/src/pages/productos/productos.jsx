@@ -13,8 +13,8 @@ import { faUpLong, faDownLong } from "@fortawesome/free-solid-svg-icons";
 import useSound from 'use-sound'
 import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
-import { Notificacion } from "../../components/others/notificacion/notificacion";
 import { Debounce } from "../../components/others/debounce/debounce";
+import { Recordatorio } from "../../components/recordatorios/recordatorios";
 
 
 // const serverFront = "http://localhost:3001"
@@ -531,7 +531,7 @@ export function Productos() {
                 </div>
             </div>
             <ScrollTop />
-            <Notificacion/>
+            <Recordatorio/>
             <Toaster/>
         </div>
     )

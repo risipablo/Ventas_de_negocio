@@ -15,6 +15,7 @@ import { VentasEstadisticas } from "./pages/charts/ventasChart/ventasEstadistica
 import { Chart } from "./pages/charts/chart/chart"
 import { GastosEstadisticas } from "./pages/charts/gastosChart/gastosEstadisticas"
 import { Calculadora } from "./pages/calculadoraPage/calculadora"
+import { RecordatorioProvider } from "./components/recordatorios/recordatorioContext"
 
 
 
@@ -26,6 +27,7 @@ function App() {
     <div>
       <CarritoProvider>
       <NotasProvider>
+      <RecordatorioProvider>
 
       <BrowserRouter>
         <Navbar/>
@@ -47,6 +49,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
+      </RecordatorioProvider>
       </NotasProvider>
       </CarritoProvider>
 
