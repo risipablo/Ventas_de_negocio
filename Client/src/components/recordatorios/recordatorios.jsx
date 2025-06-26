@@ -38,7 +38,10 @@ export function Recordatorio({message}){
             toastShown.current = true;
             notas.forEach((n, i) => {
                 setTimeout(() => {
-                    toast(`📌 ${n.titulo}`, {
+                    toast(`📌  ${isNaN(new Date(`${n.fecha}T12:00:00`)) 
+                                ? n.fecha 
+                                : new Date(`${n.fecha}T12:00:00`).toLocaleDateString('es-AR', { day: '2-digit', month: '2-digit' })}
+                                    ${n.titulo}`, {
                         duration: 5000,
                         position: "top-center",
                         style: {

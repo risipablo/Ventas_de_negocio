@@ -90,7 +90,7 @@ input[type="file"] {
 
 .file-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas en desktop */
+    grid-template-columns: repeat(3, 2fr); /* 4 columnas en desktop */
     gap: 10px;
     list-style: none;
     padding: 0;
