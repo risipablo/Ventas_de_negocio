@@ -4,6 +4,7 @@ import "../../styles/ventas.css"
 import { Buscador } from '../../components/buscador/buscador';
 import { Filtros } from '../../components/hooks/filtros/filtros';
 import 'react-toastify/dist/ReactToastify.css';
+
 import { ScrollTop } from '../../components/others/scrollTop';
 import { toast, Toaster } from 'react-hot-toast';
 import axios from "axios";
@@ -13,7 +14,8 @@ import ok from '../../assets/ok.mp3'
 import { ClipLoader } from "react-spinners";
 import { keyframes } from "@emotion/react";
 import { Notificacion } from "../../components/others/notificacion/notificacion";
-import { debounce } from "@mui/material";
+import { debounce, Tooltip } from "@mui/material";
+import TodayIcon from '@mui/icons-material/Today';
 import React from "react";
 
 
@@ -226,12 +228,46 @@ import React from "react";
         }
       }
 
+      // Actualizar fecha
+
+      const fechaHoy = () => {
+        const hoy = new Date();
+        setDay(String(hoy.getDate()))
+        const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        setMonth(meses[hoy.getMonth()])
+        setNewYear(String(hoy.getFullYear()))
+      }
+
 
     return (
         <div className="venta-container">
             <h1>Ingresos de ventas</h1>
 
-  
+
+
+            <Tooltip title="Fecha de hoy" arrow>
+                <button
+                    onClick={fechaHoy}
+                    style={{
+                    background: 'rgba(255,255,255,0.85)',
+                    border: '2px solid #222',
+                    borderRadius: '8px',
+                    padding: '6px 10px',
+                    cursor: 'pointer',
+                    transition: 'box-shadow 0.2s, border-color 0.2s'
+                    }}
+                    onMouseOver={e => {
+                    e.currentTarget.style.boxShadow = '0 0 10px #222';
+                    e.currentTarget.style.borderColor = '#3c82f6';
+                    }}
+                    onMouseOut={e => {
+                    e.currentTarget.style.boxShadow = '';
+                    e.currentTarget.style.borderColor = '#222';
+                    }}
+                >
+                    <TodayIcon sx={{ color: '#111' }} />
+                </button>
+            </Tooltip>
 
             <div className='inputs-ventas' > 
       
