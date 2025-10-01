@@ -10,11 +10,13 @@ import { toast, Toaster } from 'react-hot-toast';
 import useSound from 'use-sound'
 import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
-import { Skeleton } from "@mui/material";
+import { Skeleton, Tooltip } from "@mui/material";
+import { config } from "../../components/config";
+import { Today } from "@mui/icons-material";
 
 
 // const serverFront = 'http://localhost:3001'
-const serverFront = 'https://ventas-de-negocio.onrender.com'
+const serverFront = config.Api
 
 
 export function Gastos(){
@@ -213,6 +215,15 @@ export function Gastos(){
     }
 
 
+    const fechaHoy = () => {
+        const hoy = new Date()
+        setDia(String(hoy.getDate()))
+        const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        setMes(meses[hoy.getMonth()])
+        setAño(String(hoy.getFullYear()))
+    }
+
+
     return(
         <div className="gastos-container">
             
@@ -221,6 +232,30 @@ export function Gastos(){
             </Helmet>
 
             <h1>Gastos Mensuales</h1>
+
+                <Tooltip title="Fecha de hoy" arrow>
+                    <button
+                        onClick={fechaHoy}
+                        style={{
+                        background: 'rgba(255,255,255,0.85)',
+                        border: '2px solid #222',
+                        borderRadius: '8px',
+                        padding: '6px 10px',
+                        cursor: 'pointer',
+                        transition: 'box-shadow 0.2s, border-color 0.2s'
+                        }}
+                        onMouseOver={e => {
+                        e.currentTarget.style.boxShadow = '0 0 10px #222';
+                        e.currentTarget.style.borderColor = '#3c82f6';
+                        }}
+                        onMouseOut={e => {
+                        e.currentTarget.style.boxShadow = '';
+                        e.currentTarget.style.borderColor = '#222';
+                        }}
+                    >
+                        <Today sx={{ color: '#111' }} />
+                    </button>
+                </Tooltip>
 
             <div className="inputs-gastos">
 
@@ -243,6 +278,8 @@ export function Gastos(){
                     <option value="Conurbano Distribucion">Conurbano Distribucion</option>
                     <option value="PPF">PPF</option>
                     <option value="Indumentaria">Indumentaria</option>
+                    <option value="Huesos">Huesos</option>
+                    <option value="Distribuidora Star">Distribuidora Star</option>
                     <option value="Otros">Otros</option>
                 </select>
 

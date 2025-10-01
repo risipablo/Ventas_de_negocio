@@ -4,7 +4,7 @@ import "../../styles/ventas.css"
 import { Buscador } from '../../components/buscador/buscador';
 import { Filtros } from '../../components/hooks/filtros/filtros';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {config} from "../../components/config/index"
 import { ScrollTop } from '../../components/others/scrollTop';
 import { toast, Toaster } from 'react-hot-toast';
 import axios from "axios";
@@ -16,7 +16,9 @@ import { keyframes } from "@emotion/react";
 import { Notificacion } from "../../components/others/notificacion/notificacion";
 import { debounce, Tooltip } from "@mui/material";
 import TodayIcon from '@mui/icons-material/Today';
+import UndoIcon from '@mui/icons-material/Undo';
 import React from "react";
+
 
 
  export function Ventas() {
@@ -38,9 +40,7 @@ import React from "react";
     50% { opacity: 1; }
   `;
 
-    const serverFront = 'https://ventas-de-negocio.onrender.com'
-    // const serverFront = 'http://localhost:3001'
-
+  const serverFront = config.Api
 
 
     useEffect(() => {
@@ -93,7 +93,7 @@ import React from "react";
 
     const deleteVentas = (id, product, total) => {
         axios.delete(`${serverFront}/delete-ventas/${id}`)
-        .then(response => {
+        .then(() => {
             const updatedVentas = ventas.filter((venta) => venta._id !== id);
             setVentas(updatedVentas);
             setVentasFiltradas(updatedVentas)
@@ -230,7 +230,7 @@ import React from "react";
 
       // Actualizar fecha
 
-      const fechaHoy = () => {
+    const fechaHoy = () => {
         const hoy = new Date();
         setDay(String(hoy.getDate()))
         const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -238,36 +238,72 @@ import React from "react";
         setNewYear(String(hoy.getFullYear()))
       }
 
+    const fechaAyer = () => {
+        const ayer = new Date();
+        ayer.setDate(ayer.getDate() - 1)
+        setDay(String(ayer.getDate()))
+        const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        setMonth(meses[ayer.getMonth()])
+        setNewYear(String(ayer.getFullYear()))
+      }
+
+
 
     return (
         <div className="venta-container">
             <h1>Ingresos de ventas</h1>
 
 
+            <div style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+                <Tooltip title="Fecha de ayer" arrow>
+                    <button
+                        onClick={fechaAyer}
+                        style={{
+                        background: 'rgba(255,255,255,0.85)',
+                        border: '2px solid #222',
+                        borderRadius: '8px',
+                        padding: '6px 10px',
+                        cursor: 'pointer',
+                        transition: 'box-shadow 0.2s, border-color 0.2s'
+                        }}
+                        onMouseOver={e => {
+                        e.currentTarget.style.boxShadow = '0 0 10px #222';
+                        e.currentTarget.style.borderColor = '#3c82f6';
+                        }}
+                        onMouseOut={e => {
+                        e.currentTarget.style.boxShadow = '';
+                        e.currentTarget.style.borderColor = '#222';
+                        }}
+                    >
+                        <UndoIcon sx={{ color: '#111' }} />
+                    </button>
+                </Tooltip>
 
-            <Tooltip title="Fecha de hoy" arrow>
-                <button
-                    onClick={fechaHoy}
-                    style={{
-                    background: 'rgba(255,255,255,0.85)',
-                    border: '2px solid #222',
-                    borderRadius: '8px',
-                    padding: '6px 10px',
-                    cursor: 'pointer',
-                    transition: 'box-shadow 0.2s, border-color 0.2s'
-                    }}
-                    onMouseOver={e => {
-                    e.currentTarget.style.boxShadow = '0 0 10px #222';
-                    e.currentTarget.style.borderColor = '#3c82f6';
-                    }}
-                    onMouseOut={e => {
-                    e.currentTarget.style.boxShadow = '';
-                    e.currentTarget.style.borderColor = '#222';
-                    }}
-                >
-                    <TodayIcon sx={{ color: '#111' }} />
-                </button>
-            </Tooltip>
+                <Tooltip title="Fecha de hoy" arrow>
+                    <button
+                        onClick={fechaHoy}
+                        style={{
+                        background: 'rgba(255,255,255,0.85)',
+                        border: '2px solid #222',
+                        borderRadius: '8px',
+                        padding: '6px 10px',
+                        cursor: 'pointer',
+                        transition: 'box-shadow 0.2s, border-color 0.2s'
+                        }}
+                        onMouseOver={e => {
+                        e.currentTarget.style.boxShadow = '0 0 10px #222';
+                        e.currentTarget.style.borderColor = '#3c82f6';
+                        }}
+                        onMouseOut={e => {
+                        e.currentTarget.style.boxShadow = '';
+                        e.currentTarget.style.borderColor = '#222';
+                        }}
+                    >
+                        <TodayIcon sx={{ color: '#111' }} />
+                    </button>
+                </Tooltip>
+            </div>
+
 
             <div className='inputs-ventas' > 
       
@@ -380,7 +416,7 @@ import React from "react";
                     <table>
                         <thead>
                             <tr>
-                                <th> Día </th>
+                                <th> Días </th>
                                 <th> Mes </th>
                                 <th> Año </th>
                                 <th> Forma de Pago </th>

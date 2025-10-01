@@ -13,11 +13,10 @@ import useSound from 'use-sound'
 import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
 import { Recordatorio } from "../../components/recordatorios/recordatorios";
+import { config } from "../../components/config";
 
 
-
-// const serverFront = "http://localhost:3001";
-const serverFront = "https://ventas-de-negocio.onrender.com"
+const serverFront = config.Api
 
 export function Proveedor() {
     const [showInputs, setShowInputs] = useState(true);
@@ -299,11 +298,11 @@ export function Proveedor() {
             {selectedNotes.length > 0 && (
                     <div className="container-manyproducts">
                         <button className="delete-many" onClick={() => deleteManyProveedores(selectedNotes)}>
-                            <i class="fa-solid fa-trash"></i>
+                            <i className="fa-solid fa-trash"></i>
                         </button>
 
                         <button className="broom" onClick={() => cleanManyProductos(selectedNotes)}>
-                            <i class="fa-solid fa-broom"></i>
+                            <i className="fa-solid fa-broom"></i>
                         </button>
                     </div>
                 )}

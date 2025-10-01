@@ -64,6 +64,7 @@ export function FiltroProveedor({products, setProveedorFiltrado}) {
                 <option value="Conurbano Distribucion">Conurbano Distribucion</option>
                 <option value="Chubutin">Chubutin</option>
                 <option value="Kro Line">Kro Line</option>
+                <option value="Star">Star</option>
             </select>
 
             <select
@@ -101,6 +102,9 @@ export function FiltroProveedor({products, setProveedorFiltrado}) {
                     <option value="Paños Pet">Paños Pet</option>
                     <option value="Wishka">Wishka</option>
                     <option value="Huesos">Huesos</option>
+                    <option value="Kro Line">Kro Line</option>
+                    <option value="Cidar">Cidar</option>
+                    <option value="Simparica">Simparica</option>
                     <option value="Unik">Unik</option>
                     <option value="Mascot">Mascot</option>
             </select>

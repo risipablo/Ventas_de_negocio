@@ -14,8 +14,8 @@ import FileUpload from "./components/archivos/archivo"
 import { VentasEstadisticas } from "./pages/charts/ventasChart/ventasEstadisticas"
 import { Chart } from "./pages/charts/chart/chart"
 import { GastosEstadisticas } from "./pages/charts/gastosChart/gastosEstadisticas"
-import { Calculadora } from "./pages/calculadoraPage/calculadora"
 import { RecordatorioProvider } from "./components/recordatorios/recordatorioContext"
+import { Calculadora } from "./components/calculadora/calculadora"
 
 
 
