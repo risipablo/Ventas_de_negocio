@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import './calculadora.css'
 
 
@@ -93,6 +93,48 @@ export function Calculadora(){
       setDisplay(display.slice(0,-1))
     }
   }
+
+  
+useEffect(() => {
+    const manejarTecla = (evento) => {
+      const tecla = evento.key;
+      
+      if (tecla >= '0' && tecla <= '9') {
+        manejoNumero(tecla);
+      }
+      
+      else if (tecla === '+' || tecla === '-' || tecla === '*' || tecla === '/') {
+        manejoOperacion(tecla);
+      }
+      
+      else if (tecla === 'Enter' || tecla === '=') {
+        evento.preventDefault();
+        manejarIgual();
+      }
+      
+      else if (tecla === '.' || tecla === ',') {
+        puntoDecimal();
+      }
+      
+      else if (tecla === 'Escape' || tecla.toLowerCase() === 'c') {
+        limpiar();
+      }
+      
+      
+      else if (tecla === 'Backspace' || tecla === 'Delete') {
+        evento.preventDefault();
+        eliminarNumero();
+      }
+    };
+
+    window.addEventListener('keydown', manejarTecla);
+    
+    // Cleanup: remover el listener cuando el componente se desmonte
+    return () => {
+      window.removeEventListener('keydown', manejarTecla);
+    };
+  }, [primerNumero, segundoNumero, operacion, display]);
+
 
    return (
     <div className="calc-container">
