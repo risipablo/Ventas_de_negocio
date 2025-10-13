@@ -1,0 +1,85 @@
+/* Fondo general */
+.calc-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Caja principal */
+.calc {
+  background: #1e1e1e;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  width: 320px;
+}
+
+/* Pantalla */
+.calc-display {
+  background: #000;
+  color: #00ff88;
+  font-size: 2.5rem;
+  text-align: right;
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Botonera */
+.calc-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 15px;
+}
+
+/* Botones base */
+.btn {
+  font-size: 1.5rem;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.3s ease;
+}
+
+/* Efectos generales */
+.btn:hover {
+  filter: brightness(1.2);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Botones numéricos */
+.btn-num {
+  background: #2c2c2c;
+  color: #fff;
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+/* Botones de operaciones */
+.btn-op {
+  background: #007bff;
+  color: #fff;
+}
+
+/* Botón AC */
+.btn-ac {
+  background: #ff3b3b;
+  color: #fff;
+  grid-column: span 2;
+}
+
+/* Botón igual */
+.btn-eq {
+  background: #00c851;
+  color: #fff;
+  grid-column: span 1;
+}

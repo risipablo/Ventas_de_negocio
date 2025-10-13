@@ -1,68 +1,131 @@
-import { useState } from "react";
+import { useState } from "react"
+import './calculadora.css'
+
+
 
 export function Calculadora(){
-    const [input,setInput] = useState('')
+
+  // Estados para manejar la calculadora
+  const [display,setDisplay] = useState("") // Lo que se muestra en pantalla
+  const [primerNumero,setPrimerNumero] = useState("") // Primer operando de la operación
+  const [segundoNumero, setSegundoNumero] = useState("") // Segundo operando de la operación
+  const [operacion,setOperacion] = useState("") // Operación seleccionada (+, -, *, /)
 
 
+  // Maneja cuando el usuario presiona un número (0-9)
+  const manejoNumero = (num) => {
+    // Si no hay operación aún, estamos escribiendo el primer número
+    if(operacion === ""){
+      const nuevoValor = primerNumero + num 
+      setPrimerNumero(nuevoValor)
+      setDisplay(nuevoValor) 
+    } else {
+      
+      const nuevoValor = segundoNumero + num
+      setSegundoNumero(nuevoValor)
+      setDisplay(display + num) 
+    }
+  }
 
-  return (
-    <div style={{
-      width: '250px',
-      margin: '8rem auto',
-      padding: '10px',
-      border: '2px solid #000',
-      borderRadius: '10px',
-      textAlign: 'center',
-      backgroundColor: '#f5f5f5'
-    }}>
-      {/* Pantalla */}
-      <div style={{
-        height: '60px',
-        border: '1px solid #000',
-        borderRadius: '5px',
-        marginBottom: '10px',
-        textAlign: 'right',
-        padding: '10px',
-        fontSize: '24px',
-        backgroundColor: 'white'
-      }}>
-        0
-      </div>
+  
+  const manejoOperacion = (op) => {
+    setOperacion(op) // Guardar la operación seleccionada
+    setDisplay(display + " " + op + " ") 
+  }
 
-      {/* Botones */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: '10px'
-      }}>
-        {/* Primera fila */}
-        <button>C</button>
-        <button>⌫</button>
-        <button>÷</button>
-        <button>×</button>
+  // Función que realiza el cálculo según la operación
+  const operador = (a,b,op) => {
+    switch(op){
+      case '+': return a + b
+      case '-': return a - b
+      case '*': return a * b
+      case '/': return a / b
+      default: return 0
+    }
+  }
 
-        {/* Segunda fila */}
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>-</button>
+  // Maneja cuando el usuario presiona el botón "="
+  const manejarIgual = () => {
+    const num1 = parseFloat(primerNumero) 
+    const num2 = parseFloat(segundoNumero) 
+    const resultado = operador(num1,num2,operacion) 
+    setDisplay(resultado.toString()) 
+    setPrimerNumero(resultado.toString()) // Guarda el resultado como primer número para operaciones en cadena
+    setSegundoNumero("") 
+    setOperacion("") 
+  }
 
-        {/* Tercera fila */}
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>+</button>
+  // Maneja el punto decimal
+  const puntoDecimal = () => {
+    // Si no hay operación, agrega el punto al primer número
+    if(operacion === ""){
+      const nuevoValor = primerNumero + "."
+      setPrimerNumero(nuevoValor)
+      setDisplay(nuevoValor)
+    } else {
+      
+      const nuevoValor = segundoNumero + "."
+      setSegundoNumero(nuevoValor)
+      setDisplay(display + ".") 
+    }
+  }
 
-        {/* Cuarta fila */}
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>=</button>
+  // Limpia todos los estados (botón AC)
+  const limpiar = () => {
+    setDisplay("")
+    setPrimerNumero("")
+    setSegundoNumero("")
+    setOperacion("")
+  }
 
-        {/* Quinta fila */}
-        <button style={{ gridColumn: 'span 2' }}>0</button>
-        <button>.</button>
+  // Elimina el último dígito ingresado (botón DEL)
+  const eliminarNumero = () => {
+    // Si no hay operación, borra del primer número
+    if(operacion === ""){
+      const nuevoNumero = primerNumero.slice(0,-1) // Elimina el último carácter
+      setPrimerNumero(nuevoNumero)
+      setDisplay(nuevoNumero)
+    } else {
+      // Si hay operación, borra del segundo número
+      const nuevoNumero = segundoNumero.slice(0,-1)
+      setSegundoNumero(nuevoNumero)
+      // PROBLEMA: debería actualizar display quitando el último carácter también
+      setDisplay(display.slice(0,-1))
+    }
+  }
+
+   return (
+    <div className="calc-container">
+      <div className="calc">
+        {/* Display de la calculadora */}
+        <div className="calc-display">
+          {
+            display === "" ? "0" : display // Muestra "0" si el display está vacío
+          }
+        </div>
+
+        {/* Botones de la calculadora */}
+        <div className="calc-buttons">
+          <button className="btn btn-ac" onClick={limpiar}>AC</button>
+          <button className="btn btn-op" onClick={() => manejoOperacion('/')}>÷</button>
+          <button className="btn btn-op" onClick={() => manejoOperacion('*')}>×</button>
+          <button className="btn btn-op" onClick={() => manejoOperacion('-')}>−</button>
+
+          {/* Mapea los números 7-9, 4-6, 1-3 */}
+          {[7, 8, 9, 4, 5, 6, 1, 2, 3].map(num => (
+            <button key={num} className="btn btn-num" onClick={() => manejoNumero(num)}>
+              {num}
+            </button>
+          ))}
+
+          <button className="btn btn-op" onClick={() => manejoOperacion('+')}>+</button>
+          <button className="btn btn-op" onClick={eliminarNumero}> Del </button>
+          <button className="btn btn-num zero" onClick={() => manejoNumero(0)}>0</button>
+          <button className="btn btn-num" onClick={puntoDecimal}>.</button>
+          <button className="btn btn-eq" onClick={manejarIgual}>=</button>
+        </div>
       </div>
     </div>
   );
+
 }

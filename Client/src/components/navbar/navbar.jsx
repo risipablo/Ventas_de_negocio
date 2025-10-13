@@ -52,7 +52,7 @@ export function Navbar(){
                                 <CompareArrowsIcon /> <a className="active"> Conversion </a>
                             </NavLink>
 
-                            <NavLink to="/calculadora">
+                            <NavLink to="/calculadora" onClick={closeMenu}>
                                 <CalculateIcon/>  <a className="active"> Calculadora </a>
                             </NavLink>
                    
