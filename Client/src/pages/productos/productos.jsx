@@ -15,10 +15,10 @@ import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
 import { Debounce } from "../../components/others/debounce/debounce";
 import { Recordatorio } from "../../components/recordatorios/recordatorios";
+import { config } from "../../components/config";
+import ReactPaginate from "react-paginate";
 
-
-// const serverFront = "http://localhost:3001"
-const serverFront = 'https://ventas-de-negocio.onrender.com'
+const serverFront = config.Api
 
 export function Productos() {
     const [productos, setProductos] = useState([]);
@@ -228,8 +228,12 @@ export function Productos() {
     }
 
 
-    
+    const [currentPage,setCurrentPage] = useState(0)
+    const [itemPerPage, setItemsPerPage] = useState(12)
 
+    const pageCount = Math.ceil(productosFiltrado.length / itemPerPage)
+    const offset = currentPage * itemPerPage
+    const currentItems = productosFiltrado.slice(offset, offset + itemPerPage)
 
     return (
         <div className="productos-container">
@@ -407,7 +411,7 @@ export function Productos() {
                                 
 
                             ) : (
-                                productosFiltrado.map((element, index) => (
+                                currentItems.map((element, index) => (
                                     <React.Fragment key={index}>
                                     
                                     <tr 
@@ -513,7 +517,9 @@ export function Productos() {
 
                                             <td className="actions"> 
                                                 <div className='btn-edit'>
-                                                    <button className="check" onClick={() => saveChanges(element._id)}><i className="fa-solid fa-check"></i></button>
+                                                    <button className="check" onClick={() => saveChanges(element._id)}>
+                                                        <i className="fa-solid fa-check"></i>
+                                                        </button>
                                                     <button className="cancel" onClick={cancelEditing}><i className="fa-solid fa-ban"></i></button>
                                                 </div>
                                             </td>
@@ -529,6 +535,30 @@ export function Productos() {
                     </table>
 
                 </div>
+
+                {
+                    pageCount > 1 && (
+                        <ReactPaginate
+                        previousLabel="Anterior"
+                        nextLabel="Siguiente"
+                        pageCount={pageCount}
+                        onPageChange={({ selected }) => setCurrentPage(selected)}
+                        containerClassName="pagination"
+                        activeClassName="active"
+                        pageClassName="page-item"
+                        pageLinkClassName="page-link"
+                        previousClassName="page-item previous"
+                        previousLinkClassName="page-link"
+                        nextClassName="page-item next"
+                        nextLinkClassName="page-link"
+                        breakLabel="..."
+                        breakClassName="page-item break"
+                        breakLinkClassName="page-link"
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        />
+                    )
+                }
             </div>
             <ScrollTop />
             <Recordatorio/>

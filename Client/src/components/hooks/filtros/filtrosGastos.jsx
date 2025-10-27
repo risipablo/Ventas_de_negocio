@@ -1,3 +1,5 @@
+import { TodayOutlined } from "@mui/icons-material";
+import { Tooltip } from "@mui/material";
 import { useEffect, useState } from "react";
 
 
@@ -47,8 +49,15 @@ export function FiltrosGastos({gastos,setGastosFiltrados}){
         setProveedor("")
         setDia("")
         setAños('')
-        setFilterMes("")
     }
+
+        const fechaHoy = () => {
+        const hoy = new Date()
+        const meses =  ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+        setMes(meses[hoy.getMonth()])
+        setAños(String(hoy.getFullYear()))
+      }
+
 
 
     // Con el useEffect los filtros automáticamente cada vez que los valores cambian 
@@ -57,7 +66,34 @@ export function FiltrosGastos({gastos,setGastosFiltrados}){
     },[mes,estado,proveedor,dia,años])
 
     return(
-             <div className="filtros">
+        <>
+            <div style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+                <Tooltip title="Fecha de hoy" arrow>
+                    <button
+                        onClick={fechaHoy}
+                        style={{
+                        background: 'rgba(255,255,255,0.85)',
+                        border: '2px solid #222',
+                        borderRadius: '8px',
+                        padding: '6px 10px',
+                        cursor: 'pointer',
+                        transition: 'box-shadow 0.2s, border-color 0.2s'
+                        }}
+                        onMouseOver={e => {
+                        e.currentTarget.style.boxShadow = '0 0 10px #222';
+                        e.currentTarget.style.borderColor = '#3c82f6';
+                        }}
+                        onMouseOut={e => {
+                        e.currentTarget.style.boxShadow = '';
+                        e.currentTarget.style.borderColor = '#222';
+                        }}
+                    >
+                        <TodayOutlined sx={{ color: '#111' }} />
+                    </button>
+                </Tooltip>
+            </div>
+
+            <div className="filtros">
 
                 <select
                     onChange={(event) => setDia(event.target.value)}
@@ -137,5 +173,7 @@ export function FiltrosGastos({gastos,setGastosFiltrados}){
 
                 <button className="button" onClick={ResetFilter}> <i className="fa-regular fa-circle-xmark"></i> </button>
             </div>
+        </>
+
     )
 }

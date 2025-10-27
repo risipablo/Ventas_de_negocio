@@ -13,6 +13,7 @@ import ok from "../../assets/ok.mp3"
 import { Skeleton, Tooltip } from "@mui/material";
 import { config } from "../../components/config";
 import { Today } from "@mui/icons-material";
+import ReactPaginate from "react-paginate";
 
 
 // const serverFront = 'http://localhost:3001'
@@ -223,6 +224,13 @@ export function Gastos(){
         setAño(String(hoy.getFullYear()))
     }
 
+    const [currentPage,setCurrentPage] = useState(0)
+    const [itemPerPage, setItemsPerPage] = useState(12)
+
+    const pageCount = Math.ceil(gastosFiltrados.length / itemPerPage )
+    const offset = currentPage * itemPerPage
+    const currentItems = gastosFiltrados.slice(offset, offset + itemPerPage)
+    
 
     return(
         <div className="gastos-container">
@@ -395,7 +403,7 @@ export function Gastos(){
                                     </tr>
                                 ))
                             ) : (
-                                gastosFiltrados.map((element, index) => (
+                                currentItems.map((element, index) => (
                                     <React.Fragment key={index}>
 
                                     <tr>
@@ -548,6 +556,29 @@ export function Gastos(){
                         </tfoot>
                     </table>
                 </div>
+                {
+                    pageCount > 1 && (
+                        <ReactPaginate
+                        previousLabel="Anterior"
+                        nextLabel="Siguiente"
+                        pageCount={pageCount}
+                        onPageChange={({ selected }) => setCurrentPage(selected)}
+                        containerClassName="pagination"
+                        activeClassName="active"
+                        pageClassName="page-item"
+                        pageLinkClassName="page-link"
+                        previousClassName="page-item previous"
+                        previousLinkClassName="page-link"
+                        nextClassName="page-item next"
+                        nextLinkClassName="page-link"
+                        breakLabel="..."
+                        breakClassName="page-item break"
+                        breakLinkClassName="page-link"
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        />
+                    )
+                }
             </div>
             <Toaster/>
             <ScrollTop/>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "../../../styles/filtros.css";
+import { Tooltip } from "@mui/material";
+import TodayIcon from '@mui/icons-material/Today';
 
 export function Filtros({ ventas, setVentasFiltradas }) {
-    const [filterMonth, setFilterMonth] = useState('');
-    const [number, setNumber] = useState('');
-    const [pago, setPago] = useState('');
+    const [filterMonth, setFilterMonth] = useState(''); // mes
+    const [number, setNumber] = useState(''); // dia
+    const [pago, setPago] = useState(''); 
     const [año,setAño] = useState('')
 
     const filtros = () => {
@@ -39,12 +41,51 @@ export function Filtros({ ventas, setVentasFiltradas }) {
         setVentasFiltradas(ventas);
     };
 
+    const fechaHoy = () => {
+        const hoy = new Date();
+        setNumber(String(hoy.getDate()))
+        const meses =  ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+        setFilterMonth(meses[hoy.getMonth()])
+        setAño(String(hoy.getFullYear()))
+      }
+
     useEffect(() => {
         filtros();
     }, [filterMonth, number, pago,año,ventas]); 
 
+ 
+
+
     return (
-        <div className="filtros">
+        <>
+            <div style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+                <Tooltip title="Fecha de hoy" arrow>
+                    <button
+                        onClick={fechaHoy}
+                        style={{
+                        background: 'rgba(255,255,255,0.85)',
+                        border: '2px solid #222',
+                        borderRadius: '8px',
+                        padding: '6px 10px',
+                        cursor: 'pointer',
+                        transition: 'box-shadow 0.2s, border-color 0.2s'
+                        }}
+                        onMouseOver={e => {
+                        e.currentTarget.style.boxShadow = '0 0 10px #222';
+                        e.currentTarget.style.borderColor = '#3c82f6';
+                        }}
+                        onMouseOut={e => {
+                        e.currentTarget.style.boxShadow = '';
+                        e.currentTarget.style.borderColor = '#222';
+                        }}
+                    >
+                        <TodayIcon sx={{ color: '#111' }} />
+                    </button>
+                </Tooltip>
+            </div>
+
+
+            <div className="filtros">   
             <select
                 onChange={(event) => setNumber(event.target.value)}
                 value={number}
@@ -56,7 +97,7 @@ export function Filtros({ ventas, setVentasFiltradas }) {
             </select>
 
             <select
-                onChange={(event) => setFilterMonth(event.target.value)}
+                onChange={(e) => setFilterMonth(e.target.value)}
                 value={filterMonth}
             >
                 <option value="">Seleccionar Mes</option>
@@ -110,6 +151,8 @@ export function Filtros({ ventas, setVentasFiltradas }) {
             <button className="button" onClick={ResetFilter}>
                 <i className="fa-regular fa-circle-xmark"></i>
             </button>
-        </div>
+            </div>
+
+        </>
     );
 }

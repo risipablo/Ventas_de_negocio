@@ -14,10 +14,12 @@ import ok from '../../assets/ok.mp3'
 import { ClipLoader } from "react-spinners";
 import { keyframes } from "@emotion/react";
 import { Notificacion } from "../../components/others/notificacion/notificacion";
-import { debounce, Tooltip } from "@mui/material";
+import { debounce, IconButton, Tooltip } from "@mui/material";
 import TodayIcon from '@mui/icons-material/Today';
 import UndoIcon from '@mui/icons-material/Undo';
 import React from "react";
+import ReactPaginate from 'react-paginate';
+import { ArrowDownward, ArrowUpward } from "@mui/icons-material";
 
 
 
@@ -247,6 +249,26 @@ import React from "react";
         setNewYear(String(ayer.getFullYear()))
       }
 
+      const [order,setOrder] = useState(true)
+
+      const diaOrden = () => {
+        const diaFilter = [...ventasFiltradas].sort((a,b) => {
+            const dia1 = parseInt(a.day)
+            const dia2 = parseInt(b.day)
+
+            return order ? dia1 - dia2 : dia2 - dia1
+        })
+        setVentasFiltradas(diaFilter)
+        setOrder(!order)
+      }
+
+      const [currentPage,setCurrentPage] = useState(0)
+      const [itemPerPage, setItemsPerPage] = useState(12)
+
+      const pageCount = Math.ceil(ventasFiltradas.length / itemPerPage )
+      const offset = currentPage * itemPerPage
+      const currentItems = ventasFiltradas.slice(offset, offset + itemPerPage)
+
 
 
     return (
@@ -397,8 +419,12 @@ import React from "react";
                 <button className='limpiar' onClick={resetVentas}> Limpiar </button>  
             </div>
 
+
+
             
             <Buscador placeholder="Buscar ventas" filtrarDatos={filtrarVentas} />
+
+            
             <Filtros ventas={ventas} setVentasFiltradas={setVentasFiltradas}/>
 
             <div className="totales">
@@ -416,7 +442,11 @@ import React from "react";
                     <table>
                         <thead>
                             <tr>
-                                <th> Días </th>
+                                <th> Día 
+                                    <IconButton onClick={diaOrden}  size="small" sx={{ color: "rgb(245, 243, 239)" }}>
+                                        {order ? <ArrowDownward/> : <ArrowUpward/>}
+                                    </IconButton>    
+                                </th>
                                 <th> Mes </th>
                                 <th> Año </th>
                                 <th> Forma de Pago </th>
@@ -439,7 +469,7 @@ import React from "react";
                                 </tr>
                 
                             ) : (
-                                ventasFiltradas.map((element, index) => (
+                                currentItems.map((element, index) => (
                                     <React.Fragment key={index}>
                              
                                     <tr style={{ background: condicionPago(element.tp || '') }}>
@@ -570,12 +600,42 @@ import React from "react";
                                 <td>${totalMonto(ventasFiltradas)}</td>
                                 <td></td>
                             </tr>
+
+                            
                         </tfoot>
+    
+
                     </table>
+
+                    
                     <Notificacion/>
                     <Toaster />
                     <ScrollTop />
+     
                 </div>
+                {
+                    pageCount > 1 && (
+                        <ReactPaginate
+                        previousLabel="Anterior"
+                        nextLabel="Siguiente"
+                        pageCount={pageCount}
+                        onPageChange={({ selected }) => setCurrentPage(selected)}
+                        containerClassName="pagination"
+                        activeClassName="active"
+                        pageClassName="page-item"
+                        pageLinkClassName="page-link"
+                        previousClassName="page-item previous"
+                        previousLinkClassName="page-link"
+                        nextClassName="page-item next"
+                        nextLinkClassName="page-link"
+                        breakLabel="..."
+                        breakClassName="page-item break"
+                        breakLinkClassName="page-link"
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        />
+                    )
+                }
             </div>
 
         </div>
