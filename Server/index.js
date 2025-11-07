@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const multer = require('multer')
+const path = require('path')
 const GastosModel = require('./models/gastos');
 const VentasModel = require('./Model/ventas');
 const ProductoModel = require('./Model/productos');
@@ -8,9 +10,9 @@ const ProveedorModel = require('./Model/proveedor');
 const NotificacionModel = require ('./models/notificacion')
 const StockModel = require('./Model/stock');
 const recordatorioModel = require ('./models/recordatorio')
-const File = require ('./Model/files')
-const multer = require('multer');
 const NotasModel = require('./Model/notas');
+const File = require('./models/files')
+const fs = require('fs');
 
 
 require("dotenv").config();
@@ -19,8 +21,9 @@ app.use(express.json());
 
 const corsOptions = {
     origin: ['http://localhost:5173','http://localhost:5174', 'http://localhost:5175', 'https://ventas-de-negocio.onrender.com', 'https://ventas-de-negocio.vercel.app'],
-    methods: 'GET,POST,DELETE,PATCH',
-    optionsSuccessStatus: 200
+    credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(cors(corsOptions));
@@ -552,68 +555,161 @@ app.delete('/recordatorio/:id', async (req,res) => {
     }
 })
 
-// Configuración de multer
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
+// Notas
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Crear directorio de uploads si no existe
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
+// Configuración de Multer para almacenar en disco
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/');
+    },
+    filename: (req, file, cb) => {
+        // Generar nombre único para el archivo
+        const uniqueName = `${Date.now()}-${Math.round(Math.random() * 1E9)}${path.extname(file.originalname)}`;
+        cb(null, uniqueName);
+    }
+});
+
+const upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 10 * 1024 * 1024 // 10MB
+    },
+    fileFilter: (req, file, cb) => {
+        // Validar tipos de archivo si es necesario
+        const allowedTypes = /jpeg|jpg|png|gif|pdf|doc|docx|txt|mp4|mp3/;
+        const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+        const mimetype = allowedTypes.test(file.mimetype);
+
+        if (mimetype && extname) {
+            return cb(null, true);
+        } else {
+            cb(new Error('Tipo de archivo no permitido'));
+        }
+    }
+});
 
 // Ruta para subir archivos
-app.post('/upload', upload.single('file'), async (req, res) => {
-    const file = new File({
-        filename: req.file.originalname,
-        contentType: req.file.mimetype,
-        data: req.file.buffer
-    });
-
+app.post('/api/upload', upload.single('file'), async (req, res) => {
     try {
-        await file.save();
-        res.status(201).send({ message: 'Archivo subido exitosamente' });
+        if (!req.file) {
+            return res.status(400).json({ error: 'No se subió ningún archivo' });
+        }
+
+        const newFile = new File({
+            filename: req.file.filename,
+            originalName: req.file.originalname,
+            contentType: req.file.mimetype,
+            path: req.file.path,
+            size: req.file.size
+        });
+
+        await newFile.save();
+
+        res.json({
+            message: 'Archivo subido exitosamente',
+            fileId: newFile._id,
+            filename: newFile.originalName
+        });
     } catch (error) {
-        res.status(500).send({ message: 'Error al subir el archivo', error });
+        console.error('Error al subir archivo:', error);
+        
+        // Eliminar el archivo si hubo error al guardar en la BD
+        if (req.file && fs.existsSync(req.file.path)) {
+            fs.unlinkSync(req.file.path);
+        }
+        
+        res.status(500).json({ error: 'Error interno del servidor' });
     }
 });
 
-// Ruta para listar archivos
-app.get('/files', async (req, res) => {
+// Ruta para obtener lista de archivos
+app.get('/api/files', async (req, res) => {
     try {
-        const files = await File.find({});
-        res.status(200).json(files);
+        const files = await File.find({}, 'filename originalName contentType size createdAt');
+        res.json(files);
     } catch (error) {
-        res.status(500).send({ message: 'Error al listar archivos', error });
+        console.error('Error al obtener archivos:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
     }
 });
 
-
-// Ruta para descargar/ver un archivo
-app.get('/files/:id', async (req, res) => {
+// Ruta para descargar/ver archivo
+app.get('/api/files/:id', async (req, res) => {
     try {
         const file = await File.findById(req.params.id);
 
-        // Verificar el tipo de contenido (en este caso, application/pdf para PDFs)
-        res.set({
-            'Content-Type': file.contentType, // Esto debería ser 'application/pdf' para PDFs
-            'Content-Disposition': `inline; filename=${file.filename}` // inline para visualización
-        });
+        if (!file) {
+            return res.status(404).json({ error: 'Archivo no encontrado' });
+        }
 
-        // Enviar el archivo al cliente
-        res.send(file.data);
+        // Verificar que el archivo existe en el sistema de archivos
+        if (!fs.existsSync(file.path)) {
+            return res.status(404).json({ error: 'Archivo no encontrado en el servidor' });
+        }
+
+        // Configurar headers para descarga
+        res.setHeader('Content-Type', file.contentType);
+        res.setHeader('Content-Disposition', `attachment; filename="${file.originalName}"`);
+
+        // Stream el archivo
+        const fileStream = fs.createReadStream(file.path);
+        fileStream.pipe(res);
+
     } catch (error) {
-        res.status(500).send({ message: 'Error al obtener el archivo', error });
+        console.error('Error al obtener archivo:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
     }
 });
 
-
-app.delete('/delete-files/:id', async (req,res) => {
-    const { id } = req.params;
+// Ruta para eliminar archivo
+app.delete('/api/files/:id', async (req, res) => {
     try {
-        const deleteFiles = await File.findByIdAndDelete(id)
-        if (!deleteFiles){
-            return res.status(404).json({ error: 'files not found'})
+        const file = await File.findById(req.params.id);
+
+        if (!file) {
+            return res.status(404).json({ error: 'Archivo no encontrado' });
         }
-        res.json(deleteFiles)
-    } catch {
-        res.status(500).json( {error:err.message})
+
+        // Eliminar archivo del sistema de archivos
+        if (fs.existsSync(file.path)) {
+            fs.unlinkSync(file.path);
+        }
+
+        // Eliminar registro de la base de datos
+        await File.findByIdAndDelete(req.params.id);
+
+        res.json({ message: 'Archivo eliminado exitosamente' });
+    } catch (error) {
+        console.error('Error al eliminar archivo:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
     }
-})
+});
+
+// Ruta de salud
+app.get('/api/health', (req, res) => {
+    res.json({
+        status: 'OK',
+        timestamp: new Date().toISOString(),
+        memory: process.memoryUsage()
+    });
+});
+
+// Manejo de errores de Multer
+app.use((error, req, res, next) => {
+    if (error instanceof multer.MulterError) {
+        if (error.code === 'LIMIT_FILE_SIZE') {
+            return res.status(400).json({ error: 'El archivo es demasiado grande' });
+        }
+    }
+    res.status(500).json({ error: error.message });
+});
 
 
 

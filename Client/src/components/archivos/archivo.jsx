@@ -1,182 +1,242 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import '../../styles/archivos.css';
-import 'font-awesome/css/font-awesome.min.css';  
-import useSound from 'use-sound';
-import ok from "../../assets/ok.mp3";
-import { ClipLoader } from 'react-spinners';
-import { keyframes } from '@emotion/react';
-import toast, { Toaster } from 'react-hot-toast';
+import { config } from "../config/index";
 
-// const serverFront = 'http://localhost:3001';
-const serverFront = 'https://ventas-de-negocio.onrender.com'
+// Configuración de la API
+const serverFront = config.Api;
 
-const FileUpload = () => {
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [preview, setPreview] = useState(null);
-    const [message, setMessage] = useState('');
-    const [archivos, setArchivos] = useState([]);
-    const [previewUrl, setPreviewUrl] = useState(null); // Nuevo estado para la URL del archivo a visualizar
-    const [play2] = useSound(ok);
-    const [loading, setLoading] = useState(true);
+const FileUpload = ({ maxFileSize = 5 }) => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [files, setFiles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const fadeInOut = keyframes`
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
-  `;
+  const validateFile = (file) => {
+    if (!file) return 'Por favor selecciona un archivo';
+    if (file.size > maxFileSize * 1024 * 1024) 
+      return `El archivo excede el tamaño máximo de ${maxFileSize}MB`;
+    return null;
+  };
 
-    // Manejar la selección de archivo y generar vista previa
-    const onFileChange = (event) => {
-        const file = event.target.files[0];
-        setSelectedFile(file);
+  const handleFileSelect = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const error = validateFile(file);
+      if (error) {
+        setMessage(error);
+        setSelectedFile(null);
+        event.target.value = '';
+        return;
+      }
+      setSelectedFile(file);
+      setMessage('');
+    }
+  };
 
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setPreview(reader.result);
-            };
+  const handleUpload = async () => {
+    if (!selectedFile) {
+      setMessage('Por favor selecciona un archivo');
+      return;
+    }
 
-            if (file.type.startsWith('image/')) {
-                reader.readAsDataURL(file); // Para imágenes
-            } else if (file.type.startsWith('text/')) {
-                reader.readAsText(file); // Para archivos de texto
-            } else {
-                setPreview(null);
-            }
-        } else {
-            setPreview(null);
-        }
-    };
+    setUploading(true);
+    setMessage('');
 
-    // Subida de archivos
-    const onFileUpload = async () => {
-        if (!selectedFile) {
-            setMessage('Por favor selecciona un archivo');
-            return;
-        }
+    const formData = new FormData();
+    formData.append('file', selectedFile);
 
-        const formData = new FormData();
-        formData.append('file', selectedFile);
+    try {
+      const response = await fetch(`${serverFront}/api/upload`, {
+        method: 'POST',
+        body: formData,
+      });
 
-        toast.promise(
-            axios.post(`${serverFront}/upload`, formData),
-            {
-                loading: 'Subiendo archivo...',
-                success: 'Archivo subido con éxito!',
-                error: 'Error al subir el archivo',
-            }
-        ).then(() => {
-            setMessage("");
-            fetchFiles(); // Actualizar la lista de archivos después de subir uno nuevo
-            setPreview(null); // Limpiar la vista previa después de la subida
-            setSelectedFile(null); // Limpiar el archivo seleccionado
-            play2();
-        }).catch(error => {
-            console.error(error);
-        });
-    };
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Error desconocido' }));
+        throw new Error(errorData.error || `Error ${response.status}`);
+      }
 
-    // Obtener archivos
-    const fetchFiles = async () => {
-        try {
-            const response = await axios.get(`${serverFront}/files`);
-            setArchivos(response.data);
-        } catch (error) {
-            console.error('Error al obtener archivos', error);
-        }
-    };
+      const result = await response.json();
+      setMessage('¡Archivo subido exitosamente!');
+      setSelectedFile(null);
+      document.getElementById('file-input').value = '';
+      await fetchFiles();
+    } catch (error) {
+      setMessage(`Error: ${error.message}`);
+      console.error('Error:', error);
+    } finally {
+      setUploading(false);
+    }
+  };
 
-    // Eliminar archivo
-    const deleteFile = async (id) => {
-        toast.promise(
-            axios.delete(`${serverFront}/delete-files/${id}`),
-            {
-                loading: 'Eliminando archivo...',
-                success: 'Archivo eliminado con éxito!',
-                error: 'Error al eliminar el archivo',
-            }
-        ).then(() => {
-            setArchivos(archivos.filter((archivo) => archivo._id !== id));
-            fetchFiles();
-        }).catch(err => console.log(err));
-    };
+  const fetchFiles = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(`${serverFront}/api/files`);
+      
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}: ${response.statusText}`);
+      }
+      
+      const filesData = await response.json();
+      setFiles(filesData);
+    } catch (error) {
+      console.error('Error al cargar archivos:', error);
+      setMessage('Error al cargar la lista de archivos');
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    // Resetear vista previa y mensaje
-    const resetFile = async () => {
-        setMessage("");
-        setArchivos([]);
-        setPreviewUrl(null); // Limpiar la URL de la vista previa
-    };
+  const deleteFile = async (fileId) => {
+    if (!window.confirm('¿Estás seguro de que deseas eliminar este archivo?')) {
+      return;
+    }
 
-    const handleViewFile = (fileId) => {
-        window.open(`${serverFront}/files/${fileId}`, '_blank'); // Abre en una nueva pestaña
-    };
+    try {
+      const response = await fetch(`${serverFront}/api/files/${fileId}`, {
+        method: 'DELETE',
+      });
 
-    useEffect(() => {
-        setTimeout(() => {
-            fetchFiles();
-            setLoading(false);
-        }, 1000);
-    }, []);
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}`);
+      }
 
-    return (
-        <div className='file-upload-container'>
-            <Toaster />
-            <h2>Subir Archivo</h2>
-            <input type="file" onChange={onFileChange} />
-            {preview && (
-                <div className="preview">
-                    {selectedFile.type.startsWith('image/') ? (
-                        <img src={preview} alt="Vista previa" className="preview-image" />
-                    ) : (
-                        <textarea readOnly value={preview} className="preview-text" />
-                    )}
-                </div>
-            )}
+      setMessage('Archivo eliminado exitosamente');
+      await fetchFiles();
+    } catch (error) {
+      console.error('Error al eliminar:', error);
+      setMessage(`Error: ${error.message}`);
+    }
+  };
 
-            <div className='button-file'>
-                <button onClick={onFileUpload} className="upload-button">
-                    <i className="fa-solid fa-upload"></i> 
-                </button>
-                <button onClick={resetFile} className='delete-button'>
-                    <i className="fa-solid fa-ban"></i> 
-                </button>
+  const downloadFile = (fileId, filename) => {
+    // Crear enlace de descarga directa
+    const downloadUrl = `${serverFront}/api/files/${fileId}`;
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  useEffect(() => {
+    fetchFiles();
+  }, []);
+
+  return (
+    <div className="file-upload-container">
+      <h2>Subir Archivos</h2>
+      
+      <div className="upload-section">
+        <div className="file-input-container">
+          <input
+            id="file-input"
+            type="file"
+            onChange={handleFileSelect}
+            className="file-input"
+            accept=".pdf,.doc,.docx,.xls,.xlsx,.txt,.jpg,.jpeg,.png,.gif"
+          />
+          <label htmlFor="file-input" className="file-input-label">
+            Seleccionar Archivo
+          </label>
+          {selectedFile && (
+            <div className="file-info">
+              <span><strong>Archivo:</strong> {selectedFile.name}</span>
+              <span><strong>Tamaño:</strong> {(selectedFile.size / 1024 / 1024).toFixed(2)} MB</span>
+              <span><strong>Tipo:</strong> {selectedFile.type || 'Desconocido'}</span>
             </div>
-
-            {message && <p className="message">{message}</p>}
-
-            <div className='files-uploads'>
-                <h2>Archivos Subidos</h2>
-                {loading ? (
-                    <tr>
-                        <td colSpan="8" style={{ textAlign: "center" }}>
-                            <ClipLoader color={"#36D7B7"} size={50} />
-                            <p style={{ color: "#36D7B7", animation: `${fadeInOut} 1s infinite` }}>
-                                Cargando archivos...
-                            </p>
-                        </td>
-                    </tr>
-                ) : (
-                    <ul className="file-list">
-                        {archivos.map(file => (
-                            <li key={file._id} className="file-item">
-                                <a href={`${serverFront}/files/${file._id}`} download={file.filename}>
-                                    {file.filename}
-                                    {file.img}
-                                </a>
-                                <div className="button-container">
-                                    <button onClick={() => handleViewFile(file._id)} className="view-button">
-                                        <i className="fa-solid fa-eye"></i>
-                                    </button>
-                                    <i className="fa-solid fa-trash delete-icon" onClick={() => deleteFile(file._id)}></i>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </div>
+          )}
         </div>
-    );
+
+        <button
+          onClick={handleUpload}
+          disabled={!selectedFile || uploading}
+          className="upload-button"
+        >
+          {uploading ? (
+            <>
+              <span className="spinner"></span>
+              Subiendo...
+            </>
+          ) : (
+            'Subir Archivo'
+          )}
+        </button>
+
+        {message && (
+          <div className={`message ${message.includes('Error') ? 'error' : 'success'}`}>
+            {message}
+          </div>
+        )}
+      </div>
+
+      <div className="files-list">
+        <div className="files-header">
+          <h3>Archivos Subidos</h3>
+          <button 
+            onClick={fetchFiles} 
+            className="refresh-btn"
+            disabled={loading}
+          >
+            {loading ? 'Actualizando...' : 'Actualizar'}
+          </button>
+        </div>
+        
+        {loading ? (
+          <div className="loading-state">
+            <p>Cargando archivos...</p>
+          </div>
+        ) : files.length === 0 ? (
+          <div className="empty-state">
+            <p>No hay archivos subidos</p>
+          </div>
+        ) : (
+          <div className="files-grid">
+            {files.map((file) => (
+              <div key={file._id} className="file-card">
+                <div className="file-info">
+                  <strong className="filename" title={file.originalName || file.filename}>
+                    {file.originalName || file.filename}
+                  </strong>
+                  <span><strong>Tipo:</strong> {file.contentType}</span>
+                  <span><strong>Tamaño:</strong> {file.size ? `${(file.size / 1024 / 1024).toFixed(2)} MB` : 'N/A'}</span>
+                  <span><strong>Subido:</strong> {new Date(file.createdAt).toLocaleDateString('es-ES', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                  })}</span>
+                </div>
+                <div className="file-actions">
+                  <button
+                    onClick={() => downloadFile(file._id, file.originalName || file.filename)}
+                    className="download-btn"
+                  >
+                    Descargar
+                  </button>
+                  <button
+                    onClick={() => deleteFile(file._id)}
+                    className="delete-btn"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+FileUpload.propTypes = {
+  maxFileSize: PropTypes.number
 };
 
 export default FileUpload;
