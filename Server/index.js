@@ -12,6 +12,7 @@ const StockModel = require('./Model/stock');
 const recordatorioModel = require ('./models/recordatorio')
 const NotasModel = require('./Model/notas');
 const File = require('./models/files')
+const ClientRoute = require('./routes/clientRoute')
 const fs = require('fs');
 
 
@@ -35,7 +36,8 @@ mongoose
     .catch((err) => console.error("Conexión fallida: " + err));
 
 
-// Ventas
+// Clientes
+app.use('/api', ClientRoute)
 
 // Obtener registro de ventas
 app.get('/ventas', async (req, res) => {

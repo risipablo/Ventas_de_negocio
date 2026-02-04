@@ -16,6 +16,7 @@ import { Chart } from "./pages/charts/chart/chart"
 import { GastosEstadisticas } from "./pages/charts/gastosChart/gastosEstadisticas"
 import { RecordatorioProvider } from "./components/recordatorios/recordatorioContext"
 import { Calculadora } from "./components/calculadora/calculadora"
+import { ClientPage } from "./pages/clientsPage/clientPage"
 
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route path="/estadisticas" element={<Chart/>} />
           <Route path="/ventas-chart" element={<VentasEstadisticas />} />
           <Route path="/gastos-chart" element={<GastosEstadisticas/>} />
+          <Route path="/client" element={<ClientPage/>} />
           {/*  */}
         </Routes>
       </BrowserRouter>

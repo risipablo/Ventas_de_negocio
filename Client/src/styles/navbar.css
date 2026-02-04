@@ -152,6 +152,7 @@ body.open .overlay {
     transform: rotate(-45deg) translate(8px, -6px);
 }
 
+
 .icon-container .MuiIconButton-root {
     margin-right: 18px; 
 }

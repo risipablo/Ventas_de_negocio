@@ -123,6 +123,11 @@ const FileUpload = ({ maxFileSize = 5 }) => {
     document.body.removeChild(link);
   };
 
+  const viewFile = (fileId) => {
+    const viewUrl = `${serverFront}/api/files/${fileId}`;
+    window.open(viewUrl, '_blank', 'noopener,noreferrer');
+  };
+
   useEffect(() => {
     fetchFiles();
   }, []);
@@ -218,6 +223,17 @@ const FileUpload = ({ maxFileSize = 5 }) => {
                     className="download-btn"
                   >
                     Descargar
+                  </button>
+                  <button
+                    onClick={() => viewFile(file._id)}
+                    className="view-btn"
+                    title="Ver archivo"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    Ver
                   </button>
                   <button
                     onClick={() => deleteFile(file._id)}

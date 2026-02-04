@@ -14,6 +14,8 @@ import CalculateIcon from '@mui/icons-material/Calculate';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import MoneyOffIcon from '@mui/icons-material/MoneyOff';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
+import { ClientIcon } from "../../pages/clientsPage/clientIcon";
+
 
 
 export function Navbar(){
@@ -91,6 +93,7 @@ export function Navbar(){
                     </div>
 
                     <Box className="icon-container" display="flex" alignItems="center" position="relative">
+                        <ClientIcon/>
                         <ArchivoIcon/>
                         <StockIcon/>
                         <NotasIcon/>
