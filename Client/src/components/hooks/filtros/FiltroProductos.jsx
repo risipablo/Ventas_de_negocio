@@ -42,7 +42,7 @@ export function FiltrosProductos({productos,setProductosFiltrados}){
 
     useEffect(() => {
         filtros();
-    },[marca,edad,mascota,categoria,kilo,productos])
+    },[marca,edad,mascota,categoria,kilo,productos,setProductosFiltrados])
 
 
     return(

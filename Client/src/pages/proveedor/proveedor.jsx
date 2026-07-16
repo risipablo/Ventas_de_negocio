@@ -13,7 +13,7 @@ import useSound from 'use-sound'
 import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
 import { Recordatorio } from "../../components/recordatorios/recordatorios";
-import { config } from "../../components/config";
+import { config } from "../../components/config/index";
 
 
 const serverFront = config.Api

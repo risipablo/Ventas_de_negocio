@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-
+import { config } from "../config/index";
 
 // crear la variable del contexto
 const RecordatorioContext = createContext()
@@ -8,8 +8,7 @@ const RecordatorioContext = createContext()
 // componente del recordatorio
 
 export const RecordatorioProvider = ({children}) => {
-    // const serverFront = 'http://localhost:3001';
-    const serverFront = 'https://ventas-de-negocio.onrender.com';
+    const serverFront = config.Api
 
     const [notas,setNotas] = useState([])
 

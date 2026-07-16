@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { config } from "../../components/config"
+import { config } from "../../components/config/index"
 
 export const useClient = () => {
     const [clients, setClients] = useState([])

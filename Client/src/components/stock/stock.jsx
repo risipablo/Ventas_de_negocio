@@ -11,10 +11,9 @@ import useSound from 'use-sound'
 import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
 import { Modal } from "../others/modal/modal";
+import {config} from "../config/index"
 
-// const serverFront = 'http://localhost:3001'
-    const serverFront = 'https://ventas-de-negocio.onrender.com'
-
+const serverFront = config.Api
 
 export function Stock() {
     const [stock, setStock] = useState([]);

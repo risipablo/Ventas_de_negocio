@@ -3,14 +3,13 @@ import { useEffect, useState } from "react"
 import GastosChart from "../../../components/chartComponent/gastosChart"
 import { FiltrosGastoChart } from "../../../components/hooks/filtrosChart/filtrosGastosChart"
 import { ScrollTop } from "../../../components/others/scrollTop"
+import { config } from "../../../components/config/index";
 
 
-
-
+const serverFront = config.Api
 
 export function GastosEstadisticas(){
-        // const serverFront = 'http://localhost:3001'
-        const serverFront = 'https://ventas-de-negocio.onrender.com'
+        
 
         const [gastos,setGastos] = useState([])
         const [gastosFiltrados, setGastosFiltrados] = useState([])

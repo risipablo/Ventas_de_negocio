@@ -15,7 +15,7 @@ import digital from "../../assets/digital.mp3"
 import ok from "../../assets/ok.mp3"
 import { Debounce } from "../../components/others/debounce/debounce";
 import { Recordatorio } from "../../components/recordatorios/recordatorios";
-import { config } from "../../components/config";
+import { config } from "../../components/config/index";
 import ReactPaginate from "react-paginate";
 
 const serverFront = config.Api

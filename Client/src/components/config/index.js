@@ -1,7 +1,7 @@
 export const config = {
   
 // Api :'http://localhost:3001'
- Api:'https://ventas-de-negocio.onrender.com'
+ Api:'https://ventasdenegocio-production.up.railway.app'
   
 };
 
