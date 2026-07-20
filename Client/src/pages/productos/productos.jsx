@@ -293,7 +293,7 @@ export function Productos() {
                             
                             <div className="unidad-condicion">
                                 <input
-                                    type="number"
+                                    type="text"
                                     placeholder="Ingresar Unidad"
                                     value={kilo}
                                     onChange={(e) => setKilo(e.target.value)}
@@ -360,7 +360,7 @@ export function Productos() {
 
             <Buscador placeholder="Buscar productos" filtrarDatos={filtrarProductos} />
             
-            <FiltrosProductos productos={productos} setProductosFiltrados={setProductosFiltrado} />
+            <FiltrosProductos productos={productosFiltrado} setProductosFiltrados={setProductosFiltrado} />
             
             <div className="productos">
                 
@@ -501,7 +501,7 @@ export function Productos() {
 
                                             <td>
                                                 <input
-                                                    type="number"
+                                                    type="text"
                                                     value={editingData.kilo}
                                                     onChange={(e) => setEditingData({ ...editingData, kilo: e.target.value })}
                                                 />
